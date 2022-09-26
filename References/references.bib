@@ -1,390 +1,364 @@
 % ------------------------------------------------------------------------
 % SAMPLE BIBLIOGRAPHY FILE
 % ------------------------------------------------------------------------
-@misc{cve-2008-1368,
-  key =          {CVE-2008-1368},
-  title =        {Publication quality tables in \LaTeX*},
-  howpublished = {},
-  institution  = {NIST},
-  day =       17,
-  month =     {March},
-  year =         2008,
-  note =         {[online] \url{http://nvd.nist.gov/nvd.cfm?cvename=CVE-2008-1368}},
-  url = {http://nvd.nist.gov/nvd.cfm?cvename=CVE-2008-1368}
+
+
+@ARTICLE{Saunders2012-we,
+  title    = "Strelka: accurate somatic small-variant calling from sequenced
+              tumor-normal sample pairs",
+  author   = "Saunders, Christopher T and Wong, Wendy S W and Swamy, Sajani and
+              Becq, Jennifer and Murray, Lisa J and Cheetham, R Keira",
+  abstract = "MOTIVATION: Whole genome and exome sequencing of matched
+              tumor-normal sample pairs is becoming routine in cancer research.
+              The consequent increased demand for somatic variant analysis of
+              paired samples requires methods specialized to model this problem
+              so as to sensitively call variants at any practical level of
+              tumor impurity. RESULTS: We describe Strelka, a method for
+              somatic SNV and small indel detection from sequencing data of
+              matched tumor-normal samples. The method uses a novel Bayesian
+              approach which represents continuous allele frequencies for both
+              tumor and normal samples, while leveraging the expected genotype
+              structure of the normal. This is achieved by representing the
+              normal sample as a mixture of germline variation with noise, and
+              representing the tumor sample as a mixture of the normal sample
+              with somatic variation. A natural consequence of the model
+              structure is that sensitivity can be maintained at high tumor
+              impurity without requiring purity estimates. We demonstrate that
+              the method has superior accuracy and sensitivity on impure
+              samples compared with approaches based on either diploid genotype
+              likelihoods or general allele-frequency tests. AVAILABILITY: The
+              Strelka workflow source code is available at
+              ftp://strelka@ftp.illumina.com/. CONTACT: csaunders@illumina.com",
+  journal  = "Bioinformatics",
+  volume   =  28,
+  number   =  14,
+  pages    = "1811--1817",
+  month    =  jul,
+  year     =  2012,
+  language = "en"
 }
 
-@MISC{prime-number-theorem,
-   author = "Charles Louis Xavier Joseph de la Vall{\'e}e Poussin",
-   note = "A strong form of the prime number theorem, 19th century" }
+
+@ARTICLE{Kim2018-qi,
+  title    = "Strelka2: fast and accurate calling of germline and somatic
+              variants",
+  author   = "Kim, Sangtae and Scheffler, Konrad and Halpern, Aaron L and
+              Bekritsky, Mitchell A and Noh, Eunho and K{\"a}llberg, Morten and
+              Chen, Xiaoyu and Kim, Yeonbin and Beyter, Doruk and Krusche,
+              Peter and Saunders, Christopher T",
+  abstract = "We describe Strelka2 ( https://github.com/Illumina/strelka ), an
+              open-source small-variant-calling method for research and
+              clinical germline and somatic sequencing applications. Strelka2
+              introduces a novel mixture-model-based estimation of
+              insertion/deletion error parameters from each sample, an
+              efficient tiered haplotype-modeling strategy, and a normal sample
+              contamination model to improve liquid tumor analysis. For both
+              germline and somatic calling, Strelka2 substantially outperformed
+              the current leading tools in terms of both variant-calling
+              accuracy and computing cost.",
+  journal  = "Nat. Methods",
+  volume   =  15,
+  number   =  8,
+  pages    = "591--594",
+  month    =  aug,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Cibulskis2013-gw,
+  title    = "Sensitive detection of somatic point mutations in impure and
+              heterogeneous cancer samples",
+  author   = "Cibulskis, Kristian and Lawrence, Michael S and Carter, Scott L
+              and Sivachenko, Andrey and Jaffe, David and Sougnez, Carrie and
+              Gabriel, Stacey and Meyerson, Matthew and Lander, Eric S and
+              Getz, Gad",
+  abstract = "Detection of somatic point substitutions is a key step in
+              characterizing the cancer genome. However, existing methods
+              typically miss low-allelic-fraction mutations that occur in only
+              a subset of the sequenced cells owing to either tumor
+              heterogeneity or contamination by normal cells. Here we present
+              MuTect, a method that applies a Bayesian classifier to detect
+              somatic mutations with very low allele fractions, requiring only
+              a few supporting reads, followed by carefully tuned filters that
+              ensure high specificity. We also describe benchmarking approaches
+              that use real, rather than simulated, sequencing data to evaluate
+              the sensitivity and specificity as a function of sequencing
+              depth, base quality and allelic fraction. Compared with other
+              methods, MuTect has higher sensitivity with similar specificity,
+              especially for mutations with allelic fractions as low as 0.1 and
+              below, making MuTect particularly useful for studying cancer
+              subclones and their evolution in standard exome and genome
+              sequencing data.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  31,
+  number   =  3,
+  pages    = "213--219",
+  month    =  mar,
+  year     =  2013,
+  language = "en"
+}
+
+
+
+@ARTICLE{Alexandrov2020-ys,
+  title    = "The repertoire of mutational signatures in human cancer",
+  author   = "Alexandrov, Ludmil B and Kim, Jaegil and Haradhvala, Nicholas J
+              and Huang, Mi Ni and Tian Ng, Alvin Wei and Wu, Yang and Boot,
+              Arnoud and Covington, Kyle R and Gordenin, Dmitry A and
+              Bergstrom, Erik N and Islam, S M Ashiqul and Lopez-Bigas, Nuria
+              and Klimczak, Leszek J and McPherson, John R and Morganella,
+              Sandro and Sabarinathan, Radhakrishnan and Wheeler, David A and
+              Mustonen, Ville and {PCAWG Mutational Signatures Working Group}
+              and Getz, Gad and Rozen, Steven G and Stratton, Michael R and
+              {PCAWG Consortium}",
+  abstract = "Somatic mutations in cancer genomes are caused by multiple
+              mutational processes, each of which generates a characteristic
+              mutational signature1. Here, as part of the Pan-Cancer Analysis
+              of Whole Genomes (PCAWG) Consortium2 of the International Cancer
+              Genome Consortium (ICGC) and The Cancer Genome Atlas (TCGA), we
+              characterized mutational signatures using 84,729,690 somatic
+              mutations from 4,645 whole-genome and 19,184 exome sequences that
+              encompass most types of cancer. We identified 49
+              single-base-substitution, 11 doublet-base-substitution, 4
+              clustered-base-substitution and 17 small insertion-and-deletion
+              signatures. The substantial size of our dataset, compared with
+              previous analyses3-15, enabled the discovery of new signatures,
+              the separation of overlapping signatures and the decomposition of
+              signatures into components that may represent associated-but
+              distinct-DNA damage, repair and/or replication mechanisms. By
+              estimating the contribution of each signature to the mutational
+              catalogues of individual cancer genomes, we revealed associations
+              of signatures to exogenous or endogenous exposures, as well as to
+              defective DNA-maintenance processes. However, many signatures are
+              of unknown cause. This analysis provides a systematic perspective
+              on the repertoire of mutational processes that contribute to the
+              development of human cancer.",
+  journal  = "Nature",
+  volume   =  578,
+  number   =  7793,
+  pages    = "94--101",
+  month    =  feb,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{Letouze2017-tl,
+  title    = "Mutational signatures reveal the dynamic interplay of risk
+              factors and cellular processes during liver tumorigenesis",
+  author   = "Letouz{\'e}, Eric and Shinde, Jayendra and Renault, Victor and
+              Couchy, Gabrielle and Blanc, Jean-Fr{\'e}d{\'e}ric and Tubacher,
+              Emmanuel and Bayard, Quentin and Bacq, Delphine and Meyer,
+              Vincent and Semhoun, J{\'e}r{\'e}my and Bioulac-Sage, Paulette
+              and Pr{\'e}v{\^o}t, Sophie and Azoulay, Daniel and Paradis,
+              Val{\'e}rie and Imbeaud, Sandrine and Deleuze, Jean-Fran{\c c}ois
+              and Zucman-Rossi, Jessica",
+  abstract = "Genomic alterations driving tumorigenesis result from the
+              interaction of environmental exposures and endogenous cellular
+              processes. With a diversity of risk factors, liver cancer is an
+              ideal model to study these interactions. Here, we analyze the
+              whole genomes of 44 new and 264 published liver cancers and we
+              identify 10 mutational and 6 structural rearrangement signatures
+              showing distinct relationships with environmental exposures,
+              replication, transcription, and driver genes. The liver
+              cancer-specific signature 16, associated with alcohol, displays a
+              unique feature of transcription-coupled damage and is the main
+              source of CTNNB1 mutations. Flood of insertions/deletions
+              (indels) are identified in very highly expressed hepato-specific
+              genes, likely resulting from replication-transcription
+              collisions. Reconstruction of sub-clonal architecture reveals
+              mutational signature evolution during tumor development
+              exemplified by the vanishing of aflatoxin B1 signature in African
+              migrants. Finally, chromosome duplications occur late and may
+              represent rate-limiting events in tumorigenesis. These findings
+              shed new light on the natural history of liver cancers.",
+  journal  = "Nat. Commun.",
+  volume   =  8,
+  number   =  1,
+  pages    = "1315",
+  month    =  nov,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{Cooke2021-la,
+  title    = "A unified haplotype-based method for accurate and comprehensive
+              variant calling",
+  author   = "Cooke, Daniel P and Wedge, David C and Lunter, Gerton",
+  abstract = "Almost all haplotype-based variant callers were designed
+              specifically for detecting common germline variation in diploid
+              populations, and give suboptimal results in other scenarios. Here
+              we present Octopus, a variant caller that uses a polymorphic
+              Bayesian genotyping model capable of modeling sequencing data
+              from a range of experimental designs within a unified
+              haplotype-aware framework. Octopus combines sequencing reads and
+              prior information to phase-called genotypes of arbitrary ploidy,
+              including those with somatic mutations. We show that Octopus
+              accurately calls germline variants in individuals, including
+              single nucleotide variants, indels and small complex replacements
+              such as microinversions. Using a synthetic tumor data set derived
+              from clean sequencing data from a sample with known germline
+              haplotypes and observed mutations in a large cohort of tumor
+              samples, we show that Octopus is more sensitive to low-frequency
+              somatic variation, yet calls considerably fewer false positives
+              than other methods. Octopus also outputs realigned evidence BAM
+              files to aid validation and interpretation.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  39,
+  number   =  7,
+  pages    = "885--892",
+  month    =  jul,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{Mitchell2022-ry,
+  title    = "Clonal dynamics of haematopoiesis across the human lifespan",
+  author   = "Mitchell, Emily and Spencer Chapman, Michael and Williams,
+              Nicholas and Dawson, Kevin J and Mende, Nicole and Calderbank,
+              Emily F and Jung, Hyunchul and Mitchell, Thomas and Coorens, Tim
+              H H and Spencer, David H and Machado, Heather and Lee-Six, Henry
+              and Davies, Megan and Hayler, Daniel and Fabre, Margarete A and
+              Mahbubani, Krishnaa and Abascal, Federico and Cagan, Alex and
+              Vassiliou, George S and Baxter, Joanna and Martincorena, Inigo
+              and Stratton, Michael R and Kent, David G and Chatterjee, Krishna
+              and Parsy, Kourosh Saeb and Green, Anthony R and Nangalia, Jyoti
+              and Laurenti, Elisa and Campbell, Peter J",
+  abstract = "Age-related change in human haematopoiesis causes reduced
+              regenerative capacity1, cytopenias2, immune dysfunction3 and
+              increased risk of blood cancer4-6, but the reason for such abrupt
+              functional decline after 70 years of age remains unclear. Here we
+              sequenced 3,579 genomes from single cell-derived colonies of
+              haematopoietic cells across 10 human subjects from 0 to 81 years
+              of age. Haematopoietic stem cells or multipotent progenitors
+              (HSC/MPPs) accumulated a mean of 17 mutations per year after
+              birth and lost 30 base pairs per year of telomere length.
+              Haematopoiesis in adults less than 65 years of age was massively
+              polyclonal, with high clonal diversity and a stable population of
+              20,000-200,000 HSC/MPPs contributing evenly to blood production.
+              By contrast, haematopoiesis in individuals aged over 75 showed
+              profoundly decreased clonal diversity. In each of the older
+              subjects, 30-60\% of haematopoiesis was accounted for by 12-18
+              independent clones, each contributing 1-34\% of blood production.
+              Most clones had begun their expansion before the subject was 40
+              years old, but only 22\% had known driver mutations. Genome-wide
+              selection analysis estimated that between 1 in 34 and 1 in 12
+              non-synonymous mutations were drivers, accruing at constant rates
+              throughout life, affecting more genes than identified in blood
+              cancers. Loss of the Y chromosome conferred selective benefits in
+              males. Simulations of haematopoiesis, with constant stem cell
+              population size and constant acquisition of driver mutations
+              conferring moderate fitness benefits, entirely explained the
+              abrupt change in clonal structure in the elderly. Rapidly
+              decreasing clonal diversity is a universal feature of
+              haematopoiesis in aged humans, underpinned by pervasive positive
+              selection acting on many more genes than currently identified.",
+  journal  = "Nature",
+  volume   =  606,
+  number   =  7913,
+  pages    = "343--350",
+  month    =  jun,
+  year     =  2022,
+  language = "en"
+}
+
+
 
 % ------------------------------------------------------------------------
 
-@BOOK{texbook,
-   author = "Donald E. Knuth",
-   title= "The {{\TeX}book}",
-   publisher = "Addison-Wesley",
-   year = 1984 }
 
-@BOOK{latex,
-   author = "Leslie Lamport",
-   title = "{\LaTeX:} {A} Document Preparation System",
-   publisher = "Addison-Wesley",
-   year = 1986 }
+@ARTICLE{Kong2012-mm,
+  title    = "Rate of de novo mutations and the importance of father's age to
+              disease risk",
+  author   = "Kong, Augustine and Frigge, Michael L and Masson, Gisli and
+              Besenbacher, Soren and Sulem, Patrick and Magnusson, Gisli and
+              Gudjonsson, Sigurjon A and Sigurdsson, Asgeir and Jonasdottir,
+              Aslaug and Jonasdottir, Adalbjorg and Wong, Wendy S W and
+              Sigurdsson, Gunnar and Walters, G Bragi and Steinberg, Stacy and
+              Helgason, Hannes and Thorleifsson, Gudmar and Gudbjartsson,
+              Daniel F and Helgason, Agnar and Magnusson, Olafur Th and
+              Thorsteinsdottir, Unnur and Stefansson, Kari",
+  abstract = "Mutations generate sequence diversity and provide a substrate for
+              selection. The rate of de novo mutations is therefore of major
+              importance to evolution. Here we conduct a study of genome-wide
+              mutation rates by sequencing the entire genomes of 78 Icelandic
+              parent-offspring trios at high coverage. We show that in our
+              samples, with an average father's age of 29.7, the average de
+              novo mutation rate is 1.20 $\times$ 10(-8) per nucleotide per
+              generation. Most notably, the diversity in mutation rate of
+              single nucleotide polymorphisms is dominated by the age of the
+              father at conception of the child. The effect is an increase of
+              about two mutations per year. An exponential model estimates
+              paternal mutations doubling every 16.5 years. After accounting
+              for random Poisson variation, father's age is estimated to
+              explain nearly all of the remaining variation in the de novo
+              mutation counts. These observations shed light on the importance
+              of the father's age on the risk of diseases such as schizophrenia
+              and autism.",
+  journal  = "Nature",
+  volume   =  488,
+  number   =  7412,
+  pages    = "471--475",
+  month    =  aug,
+  year     =  2012,
+  language = "en"
+}
+
+@ARTICLE{Veller2022-ry,
+  title    = "Limitations of gamete sequencing for crossover analysis",
+  author   = "Veller, Carl and Wang, Shunxin and Zickler, Denise and Zhang,
+              Liangran and Kleckner, Nancy",
+  journal  = "Nature",
+  volume   =  606,
+  number   =  7913,
+  pages    = "E1--E3",
+  month    =  jun,
+  year     =  2022,
+  language = "en"
+}
+
+@ARTICLE{Bell2020-mg,
+  title    = "Insights into variation in meiosis from 31,228 human sperm
+              genomes",
+  author   = "Bell, Avery Davis and Mello, Curtis J and Nemesh, James and
+              Brumbaugh, Sara A and Wysoker, Alec and McCarroll, Steven A",
+  abstract = "Meiosis, although essential for reproduction, is also variable
+              and error-prone: rates of chromosome crossover vary among
+              gametes, between the sexes, and among humans of the same sex, and
+              chromosome missegregation leads to abnormal chromosome numbers
+              (aneuploidy)1-8. To study diverse meiotic outcomes and how they
+              covary across chromosomes, gametes and humans, we developed
+              Sperm-seq, a way of simultaneously analysing the genomes of
+              thousands of individual sperm. Here we analyse the genomes of
+              31,228 human gametes from 20 sperm donors, identifying 813,122
+              crossovers and 787 aneuploid chromosomes. Sperm donors had
+              aneuploidy rates ranging from 0.01 to 0.05 aneuploidies per
+              gamete; crossovers partially protected chromosomes from
+              nondisjunction at the meiosis I cell division. Some chromosomes
+              and donors underwent more-frequent nondisjunction during meiosis
+              I, and others showed more meiosis II segregation failures. Sperm
+              genomes also manifested many genomic anomalies that could not be
+              explained by simple nondisjunction. Diverse recombination
+              phenotypes-from crossover rates to crossover location and
+              separation, a measure of crossover interference-covaried strongly
+              across individuals and cells. Our results can be incorporated
+              with earlier observations into a unified model in which a core
+              mechanism, the variable physical compaction of meiotic
+              chromosomes, generates interindividual and cell-to-cell variation
+              in diverse meiotic phenotypes.",
+  journal  = "Nature",
+  volume   =  583,
+  number   =  7815,
+  pages    = "259--264",
+  month    =  jul,
+  year     =  2020,
+  language = "en"
+}
+
+
 
 % ------------------------------------------------------------------------
-@article{Ancey1996,
-author = {Ancey, Christophe and Coussot, Philippe and Evesque, Pierre},
-journal = {Mechanics of Cohesive-frictional Materials},
-number = {4},
-pages = {385--403},
-title = {Examination of the possibility of a fluid-mechanics treatment of dense granular flows},
-url = {http://doi.wiley.com/10.1002/(SICI)1099-1484(199610)1:4<385::AID-CFM20>3.0.CO;2-0},
-volume = {1},
-year = {1996}
-}
-
-@BOOK{RR73,
- author={H. Radjavi and P. Rosenthal},
- title={Invariant {Subspaces}},
- publisher={Springer-Verlag},
- address={New York},
- year={1973},
-}
-
-@BOOK{Aup91,
- author={B. Aupetit},
- title={A {Primer} on {Spectral} {Theory}},
- publisher={Springer-Verlag},
- address={New York},
- year={1991},
-}
-
-@BOOK{Dou72,
- author={R. G. Douglas},
- title={Banach {Algebra} {Techniques} in {Operator} {Theory}},
- publisher={Academic Press},
- address={New York},
- year={1972},
-}
-
-@BOOK{Hal82,
- author={P. R. Halmos},
- title={A {Hilbert} {Space} {Problem} {Book}},
- edition={Second},
- publisher={Springer-Verlag},
- address={New York},
- year={1982},
-}
-
-@BOOK{Rud73,
- author={W. Rudin},
- title={Functional {Analysis}},
- publisher={McGraw-Hill},
- address={New York},
- year={1973},
-}
-
-@BOOK{Con90,
- author={J. B. Conway},
- title={A {Course} in {Functional} {Analysis}},
- edition={Second},
- publisher={Springer-Verlag},
- address={New York},
- year={1990},
-}
-
-@BOOK{Con78,
- author={J. B. Conway},
- title={Functions of {One} {Complex} {Variable}},
- publisher={Springer-Verlag},
- address={New York},
- year={1978},
-}
-
-@BOOK{KR83,
- author={R. V. Kadison and J. R. Ringrose},
- title={Fundamentals of the {Theory} of {Operator} {Algebras},
-        {Part} {I}},
- publisher={Academic Press},
- address={New York},
- year={1983},
-}
-
-@BOOK{KR86,
- author={R. V. Kadison and J. R. Ringrose},
- title={Fundamentals of the {Theory} of {Operator} {Algebras},
-        {Part} {II}},
- publisher={Academic Press},
- address={New York},
- year={1986},
-}
-
-@INBOOK{SFPT,
- author={N. Dunford and J. T. Schwartz},
- title={Linear {Operators},
-        {Part} {I}: {General} {Theory}},
- pages={456},
- publisher={Interscience},
- address={New York},
- year={1957},
-}
-
-@BOOK{DS57,
- author={N. Dunford and J. T. Schwartz},
- title={Linear {Operators},
-        {Part} {I}: {General} {Theory}},
- publisher={Interscience},
- address={New York},
- year={1957},
-}
-
-@BOOK{Gan59,
- author={F. R. Gantmacher},
- title={Applications of the {Theory} of {Matrices}},
- publisher={Interscience},
- address={New York},
- year={1959},
-}
-
-@BOOK{Pau86,
- author={Vern I. Paulsen},
- title={Completely bounded maps and dilations},
- series={Pitman Research Notes in Mathematics Series},
- volume={146},
- publisher={Longman Scientific \& Technical},
- address={Harlow UK},
- year={1986},
-}
-
-@BOOK{Dav88,
- author={Kenneth R. Davidson},
- title={Nest algebras},
- series={Pitman Research Notes in Mathematics Series},
- volume={191},
- publisher={Longman Scientific \& Technical},
- address={Harlow UK},
- year={1988},
-}
-
-@BOOK{Spi65,
- author={Michael Spivak},
- title={Calculus on {Manifolds}},
- publisher={The Benjamin/Cummings Publishing Company},
- address={New York},
- year={1965},
-}
-
-@BOOK{Dev68,
- author={Allen Devinaz},
- title={Advanced {Calculus}},
- publisher={Holt, Rinehart and Winston},
- address={New York},
- year={1968},
-}
-
-@BOOK{Gam90,
- editor={R. V. Gamkerlidze},
- title={Analysis {I}{I}: {Convex} {Analysis} and
-        {Approximation} {Theory}},
- series={Encyclopaedia of Mathematical Sciences},
- volume={14},
- publisher={Springer-Verlag},
- address={New York},
- year={1990},
-}
-
-@BOOK{Hen93,
- author={Peter Henderson},
- title={Object-oriented specification and design with {C}$++$},
- publisher={McGraw-Hill},
- address={London},
- year={1993},
-}
-
-% ------------------------------------------------------------------------
-
-@ARTICLE{Rea85,
- author={C. J. Read},
- title={A solution to the invariant subspace problem on the space $l_1$},
- journal={Bull. London Math. Soc.},
- volume={17},
- year={1985},
- pages={305-317},
-}
-
-@ARTICLE{Enf87,
- author={P. Enflo},
- title={On the invariant subspaces problem for {Banach} spaces},
- journal={Acta. Math.},
- note={Seminare Maurey-Schwartz (1975-1976)},
- volume={158},
- year={1987},
- pages={213-313},
-}
-
-@ARTICLE{Dau75,
- author={J. Daughtry},
- title={An invariant subspace theorem},
- journal={Proc. Amer. Math. Soc.},
- volume={49},
- year={1975},
- pages={267-268},
-}
-
-@ARTICLE{KPS75,
- author={H. W. Kim and C. Pearcy and A. L. Shields},
- title={Rank-One Commutators and Hyperinvariant Subspaces},
- journal={Michigan Math. J.},
- volume={22},
- number={3},
- year={1975},
- pages={193-194},
-}
-
-% --------------------------------------------------------------------------
-
-@ARTICLE{Rad87,
- author={H. Radjavi},
- title={The {Engel}-{Jacobson} {Theorem} {Revisited}},
- journal={J. Alg.},
- volume={111},
- year={1987},
- pages={427-430},
-}
-
-@ARTICLE{MOR91,
- author={B. Mathes and M. Omladi\v{c} and H. Radjavi},
- title={Linear {Spaces} of {Nilpotent} {Operators}},
- journal={Linear Algebra Appl.},
- volume={149},
- year={1991},
- pages={215-225},
-}
-
-@ARTICLE{Lom73,
- author={V. I. Lomonosov},
- title={Invariant subspaces for operators commuting with compact
-        operators},
- journal={Functional Anal. Appl.},
- volume=7,
- year=1973,
- pages="213-214",
-}
-
-@ARTICLE{Lom91,
- author={V. I. Lomonosov},
- title={An extension of {Burnside}'s theorem to infinite
-        dimensional spaces},
- journal={Israel J. Math},
- volume=75,
- year=1991,
- pages="329-339",
-}
-
-@ARTICLE{Lom92,
- author={V. I. Lomonosov},
- title={On {Real} {Invariant} {Subspaces} of {Bounded} {Operators} with
-       {Compact} {Imaginary} {Part}},
- journal={Proc. Amer. Math. Soc.},
- volume=115,
- number=3,
- month=jul,
- year=1992,
- pages="775-777",
-}
-
-@ARTICLE{dB59,
- author={L. de Branges},
- title={The {Stone}-{Weierstrass} {Theorem}},
- journal={Proc. Amer. Math. Soc.},
- volume=10,
- year=1959,
- pages="822-824",
-}
-
-@ARTICLE{dB93,
- author={L. de Branges},
- title={A construction of invariant subspaces},
- journal={Math. Nachr.},
- volume=163,
- year=1993,
- pages="163-175",
-}
-
-@ARTICLE{AAB95,
- author={Y. A. Abramovich and C. D. Aliprantis and O. Burkinshaw},
- title={Another Characterization of the Invariant Subspace Problem},
- journal={Operator Theory in Function Spaces and Banach Lattices.
-          {\em The A.C.\,Zaanen Anniversary Volume},
-          Operator Theory: Advances and Applications},
- volume={75},
- year={1995},
- pages={15-31},
- note={Birkh\"auser Verlag},
-}
-
-@ARTICLE{LM65,
- author={Ju. I. Ljubi\v{c} and V. I. Macaev},
- title={On Operators with a Separable Spectrum},
- journal={Amer. Math. Soc. Transl. (2)},
- volume={47},
- year={1965},
- pages={89-129},
-}
-
-% ------------------------------------------------------------------------
-
-@MASTERSTHESIS{Sim90,
- author={A. Simoni\v{c}},
- title={Grupe Operatorjev s Pozitivnim Spektrom},
- school={Univerza v Ljubljani, FNT, Oddelek za Matematiko},
- year={1990},
-}
-
-@UNPUBLISHED{Sim91,
- author={A. Simoni\v{c}},
- title={Notes on {Subharmonic} {Functions}},
- note={Lecture Notes, Dalhousie University,
-       Department of Mathematics, Statistics, \& Computing Science},
- year={1991},
-}
-
-@ARTICLE{Sim92,
- author={A. Simoni\v{c}},
- title={Matrix {Groups} with {Positive} {Spectra}},
- journal={Linear Algebra Appl.},
- volume={173},
- year={1992},
- pages={57-76},
-}
-
-@PHDTHESIS{Sim94,
- author={A. Simoni\v{c}},
- title={An {Extension} of {Lomonosov's} {Techniques} to {Non}-{Compact}
-       {Operators}},
- school={Dalhousie University,
-         Department of Mathematics, Statistics, \& Computing Science},
- year={1994},
-}
-
-@ARTICLE{Sim96a,
- author={A. Simoni\v{c}},
- title={A {Construction} of {Lomonosov} {Functions} and
-       {Applications} to the {Invariant} {Subspace} {Problem}},
- journal={Pacific J. Math.},
- volume={175},
- pages={257-270},
- year={1996},
-}
-
-@ARTICLE{Sim96b,
- author={A. Simoni\v{c}},
- title={An extension of {Lomonosov's} {Techniques} to non-compact
-       {Operators}},
- journal={Trans. Amer. Math. Soc.},
- volume={348},
- pages={975-995},
- year={1996},
-}
-
 % ------------------------------------------------------------------------

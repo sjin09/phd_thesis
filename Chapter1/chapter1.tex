@@ -3,7 +3,7 @@
 %*********************************** First Chapter *****************************
 %*******************************************************************************
 
-\chapter{Getting started}  %Title of the First Chapter
+\chapter{Introduction}  %Title of the First Chapter
 
 \ifpdf
     \graphicspath{{Chapter1/Figs/Raster/}{Chapter1/Figs/PDF/}{Chapter1/Figs/}}
@@ -13,88 +13,297 @@
 
 
 %********************************** %First Section  **************************************
-\section{What is loren ipsum? Title with math \texorpdfstring{$\sigma$}{[sigma]}} %Section - 1.1 
+\section{Genome sequence, genetic variation and sources of mutation}
+%% \section{Genetic variation and sources of mutations}
+\section{Germline and somatic mutation}
+%% let there be light,
+%% since the start of time, big bang
+%% second law of thermodynamics, increasing entropy
+%% first ribonucleic acid
+%% first deoxy-ribonucleic acid
+%% deoxy-ribonucleic acid as a store of genetic information, Oswald Avery, Mendel, the unit of inheritence
+%%
+%% first cell
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry (see 
-Section~\ref{section1.3}). Lorem Ipsum~\citep{Aup91} has been the industry's 
-standard dummy text ever since the 1500s, when an unknown printer took a galley 
-of type and scrambled it to make a type specimen book. It has survived not only 
-five centuries, but also the leap into electronic typesetting, remaining 
-essentially unchanged. It was popularised in the 1960s with the release of 
-Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
-publishing software like Aldus PageMaker including versions of Lorem 
-Ipsum~\citep{AAB95,Con90,LM65}.
+%% fertilised egg
+%% de novo mutations, SBS1 and SBS5
+%% meiotic recombination as sources of mutations
+%% \section{Genetic variation and Natural Selection}
+\subsection{Germline mutations}
+%% \subsection{Mosaic mutations}
+%% \subsubsection{De novo mutations}
+%% \subsubsection{Gene conversions}
+%% \subsubsection{Crossovers}
+\subsection{Somatic mutations}
+\subsection{Mutational signatures and mutational processes}
+%% darwin pondered the unit of inheritance (the physical material and the mechanism responsible for changing the physical material)
+%% enodgenous and exogenous somatic mutation
+%% DNA damage, repair, fixation 
+%% envrionment
+%% DNA polymerase infidelity, germline mutations
+%% importance of somatic mutation detection, lineage tracing, driver mutations
+%% a harsh environment, insult to the DNA, necessary to repair DNA damage
+%% type of DNA damage: single-base substitution, 
+%% what is universal about DNA? codon, degenerate, universal, 64 codons, stop-codon, start-codons
+%% first protein
+%% first riboenzyme?
+%% first unicellular organism %% first in the sea
+%% first lipid-bilayer that separates order from disorder, control of passage of molecules across a semi-permeable membrane  
+%% fusions, meiotic recombination, plant recombination?
+%% non-hologous end joining
+%% transcripion-coupled repair
+%% Selection Pressure & Natural Selection & Survival of the fittest
+%% deleterious, postivie,
+%% linked by DNA
+%% entropy to submission
+%% Scientists still have not figured out how the first unicellar organism  has arisen
 
-The most famous equation in the world: $E^2 = (m_0c^2)^2 + (pc)^2$, which is 
-known as the \textbf{energy-mass-momentum} relation as an in-line equation.
+%% Complexity that 
+%% DNA replication, DNA polymerase fidelity, DNA polymerase error rate, as a source of first mutations
+%% first multicellular-organism
+%% DNA nicks, DNA double-strand breaks, cyclo-butane dimer, UV light, chemicals
+%% different types of DNA polymerases, redundancies
+%% Oswald Avery: amino acids, greater number of combinations, genetic sequence as the transforming substance
+%% Rosalind, Watson: Structure of DNA
+%% what happened from the discovery of the structure of the DNA to the human genome project?
 
-A {\em \LaTeX{} class file}\index{\LaTeX{} class file@LaTeX class file} is a file, which holds style information for a particular \LaTeX{}.
+%% in humans
+%% c-elegans? other species?
+%% The Tree of Life is connected through genetic sequence
+%% DNA is the puzzle that links us all
+%% since inception, birth, somatic mutations starts to accumualte
+%% fertilsiation for most organisms
+%% cellcular division for unicellular organisms
+%% depending on the timing and the type of tissue in which the somatic mutations occur somatic mutations are inherited to the daughter cells or the next generation
+%% some mutations result in speciation
+%% some mutations lead to survival of fittest
+%% some mutations have a large consequence, recombination, structural variations
+%% the study of mutations across the Tree of Life has been limited by the cost of reference genome construction and the availiabilty of reference genomes for population genetics and for comparative genomics.
+%% the cost of reference genome construction has been prohibitively high
+%% the human geome project, for example, cost 3 billion dollars, a dollar per base.
+%% international collaboration, multiple sequencing centers with thousands of people
+%% multiple-years
+%% physical-maps %% fish %% restriction-enzyme based
+%% YACs
+%% fosmid 50kb-200kb
+%% bacterial artificial chromosome clone 100kb fragments
+%% gaps, missing sequences, acrocentric chromosomes, large sections of chromosome Y
+%% unplaced, unlocalised chromsomes and contigs
+%% placement of contigs, scaffolding of contigs
+%% Sanger di-deoxy sequencing, limited to 500bp to 1000bp
+%% Solexa and Illumina sequencing by synthesis
+%% de brujin graph based assemblies are short, fragmented and incomplete   
+%% high-throughput, relatively high accuracy  of short-reads
+%% de novo assembly quality is a function of read depth, base accuracy,  read length and complexity/repetitiveness of the target genome, %% Eric Lander
+%% assemblies/genomes are abundant with sequences that are longer than Illumina read length: SINE, LINEs, repeat expansions, segmental duplications 
+%% longer read length is required to trasverse the repetitive sequence and uniquely locate/place the read amongst other reads, reads are collapsed into contigs in the face of high repetitive sequences
+%% scaffolding technologies: mate-pair sequencing with longer-read inserts insufficient and not scalable
+%% assembly and comparative genomics didn't improve in the last decade
+%% cost was high, and the effort did not yield sufficiently meaningful assembly results
+%% initially Single-molecule sequencing from Oxford Nanopore Technologies and Pacific Biosciences were also inaccurate and the read length were not magnitude of orders longer, low throughput
+%% continuous long read sequencing from Pacific Biosciences, 10-15kb in read length with 10-15% error rate, the errors were thought to be random, free of amplification bias
+%% sufficiently long enough to trasverse repeats, however not sufficient to distinguish between unique copies of segmental duplications
+%% used to reconstruct missing sequences in the human reference genome %% eichler
+%% updates in the human reference genome %% tina
+%% CHM1 and CHM13 seuqencing to identify structural variations
+%% pathogenic mutations/repeat expansions
+%% ONT for chrY centromere sequencing
+%% alpha-satelitte expansion
+%% usefulness of haploid genomes
+%% T2T consortium, for example, recently, completed the end-to-end assembly of CHM13 genome  
+%% high-throughput chromatin conformation capture sequencing (Hi-C), similar to mate-pair sequencing in concept, but across the whole-genome
+%% 3C job-dekker, loops, configurations
+%% originally used to study the three-dimensional genome configuration
+%% chromosomes self-aggregate
+%% end of one chromosome is in more contact with the end of the same chromosome than another chromosome
+%% what about contacts between paternal and maternal haplotype of the same chromosome?
+%% sequences in close proximity are in contact with each other more
+%% conctact matrix can be used to discern correct assemblies from misassemblies
+%% order and orient contigs %% matrix inversion, %% techniques from linear algebra
+%% manually curate scaffolding and correct assemblies  
+%% studying the genomes from the Tree of Life provides snapshots of environments that the genomes were under through space and time
+%% events that might have spurred natural selection, speciation and radiation
+%% timed the emergence of species, but never timed the emergence of unique somatic mutational processes across time and space
+%% assembly: assumption: haploid genome
+%% Pacific Biosciences circular consensus sequencing, increase in the number of ZMWs per SMRTcell from 1 million to 8 million, circular consensus sequencing instead of continuous long read sequencing
+%% increase in DNA polymerase processivity, continuous long-read sequencing perhaps once or twice per molecule, circular consensu sequencing: 8 to 16 times per molecule
+%% because the errors are thought to be random, highly accurate circular consensus sequence generation is possible
+%% estimated to have accuracy between Q20 and Q30
+%% assemblies produced from PacBio CCS reads have accuracy between Q50 and Q60.
+%% massive incerase in the contiguity and completeness and assembly of the genome
+%% time to complete the genome
+%% cost to complete the genome
+%% thousands of scientists to handful of scientists
+%% except for the most complex genome
+%% significant upgrade in the quality of the genome compared to that produced from short reads
+%% also comparable to that produced through the human genome project
+%% or small organisms or unicellular organims with limited DNA %% low-input protocol makes this possible albeit with errors introduced during PCR amplification %% bias towards sampling of reads or amplification of dna molecules before library preparation  
+%% the number of eukaryotic species sequenced and assemblies with PacBio sequencing increased dramatically since the introduction of long-read sequencing
+%% uncovering the evolutionary history of these species
+
+%% Methods to study somatic mutations in cancer
+%% the reasons to study cancer
+%% somatic mtuational processes in cancer
+%% mutational patterns, mutational signatures
+%% tumour and matched normal
+%% technical limitations of short reads
+%% sub-cloncal
+%% minute fraction
 
 
-\begin{align}
-CIF: \hspace*{5mm}F_0^j(a) = \frac{1}{2\pi \iota} \oint_{\gamma} \frac{F_0^j(z)}{z - a} dz
-\end{align}
+%% Methods to study somatic mutations in normal tissues
+%% single-cell PCR amplification and sequencing
+%% single-cell clone expansion and sequencing
+%% duplex sequencing, nanorate sequencing
+%% laser-capture and microdissection and sequencing of clonal tissues
+%% driver mutations
+%% drug resistance development
+%% evolutionary history of cancers
+%% developmental biology
+%% lineage-tracing 
 
-\nomenclature[z-cif]{$CIF$}{Cauchy's Integral Formula}                                % first letter Z is for Acronyms 
-\nomenclature[a-F]{$F$}{complex function}                                                   % first letter A is for Roman symbols
-\nomenclature[g-p]{$\pi$}{ $\simeq 3.14\ldots$}                                             % first letter G is for Greek Symbols
-\nomenclature[g-i]{$\iota$}{unit imaginary number $\sqrt{-1}$}                      % first letter G is for Greek Symbols
-\nomenclature[g-g]{$\gamma$}{a simply closed curve on a complex plane}  % first letter G is for Greek Symbols
-\nomenclature[x-i]{$\oint_\gamma$}{integration around a curve $\gamma$} % first letter X is for Other Symbols
-\nomenclature[r-j]{$j$}{superscript index}                                                       % first letter R is for superscripts
-\nomenclature[s-0]{$0$}{subscript index}                                                        % first letter S is for subscripts
+%% Wellcome Trust Sanger Institute has initiated the Darwin Tree of Life project to sequence approximately ~66,000 eukaryotic species in the and the primary mode of sequencing is CCS sequencing, hi-c sequencing
+%% to sequence and assemble the samples with CCS sequencing, scaffold the samples with Hi-C reads and to curate the scaffolded assemblies through manual inspection of the contact matrix  
+%% We and others have hypothesized the potential for CCS sequencing for somatic mutation detection
+%% Nanorate sequencing, blunt-end restriction enzyme digestion, DNA nicks, dideoxy nucleic acid, DNA damage during sonication %% to preserve the native DNA molecule and to sequence the DNA molecule  
 
+
+%% We noticed the high simliarity between duplex sequencing and CCS sequencing and hypothesized that CCS sequencing might have sufficient base accuracy for single molecule somatic mutation detection, if we can distinguish highly accurate bases from that resulting from library errors, alignment errors and sequencing errors and systematic errors. artefacts that cannot be removed 
+%% Other mammalian species with shorter life span have higher somatic mutation rate such that at the terminal stages of life, the species in question have same mutation burden at the time of death
+%% Peto's paradox
+%% resequencing studies have enabled the identification of germline mutational process, somatic mutational process in humans
+%% the study of other species have been limited to date
+%% c-elegans? %% what are other species?
+
+%% if our hypothesis is true, we conjectured that we will able to detect somatic mutations across the Tree of Life, reveal somatic mutational processes active in the species, time the emergence of somatic mutational processes and attribute the contribution of somatic mutational processes to the germline mutational process, %% environmental mutagenesis
+
+%% in Chatper 2, we demonstrate that PacBio CCS base accuracy is sufficiently accurate to call and study single molecule somatic single-base-substitution across species
+%% sequence samples with a single dominant somatic mutational process 
+%% know the mutational signature or have gold-standard mutational signature for the sample generated from single-cell clone expansion and sequencing
+%% 
+%% somatic mutation detection from a single read alignment to the reference genome
+%% if we were to call every mismatch between the read and reference genome, we will be able to call all somatic mutations at the cost of high false positive rate
+%% Oxidative DNA damage
+%% typically requires a normal sample to distinguish between germline and somatic mutations
+%% typically requires multiple reads to suppport the somatic single base substitution  
+%% VCF file produced from somatic mutation callers are the sum of library errors, systematic errors, sequencing errors, alignment errors, %% reference bias?
+%% unresolved errors
+%% if we are able call somatic mutations from a single read alignment to the reference genome, we are not only able to reduce the cost of sequencing, but also do germline mutation calling from reduced read depth
+%% 30X sequence coverage required to call heterozygous mutations %% reference
+%% problems with PacBio CCS sequencing: incomplete removal of adapter sequences, chimeric sequences resulting from problems with adapater sequence calling, fragmer and concatmer
+%% reads significantly shorter and longer than the read-of-insert length
+%% empirically estimate the PacBio CCS base accuracy
+%% PacBio CCS base accuracy has not been measured yet, PacBio CCS base also cannot be measured with exisiting sequencing technologies with lower base accuracy
+
+
+%% in Chapter 3, confirm that our method is applicable to other eukaryotic species, we use the newly developed method to study somatic mutational processes across the ~400 eukaryotic species sequenced the Darwin Tree of Life project, attempt to understand both the germline and somatic mutational processes across species, identify potential sources of environemtnal mutagenesis
+%% phorcus lineatus: age
+%% insects: life cycle of insects (choleoptera)
+%% mutation burden of insects with metamorphosis and without metamorphosis
+%% germline mutational process
+%% somatic mutational process
+%% environmental mutagenesis
+
+%% in Chapter 4 and 5, we use the unique combination of long read length and base accuracy of PacBio CCS reads to study both meiotic and mitotic recombniation, respectively.
+%% in Chapter 2 and Chapter 3, we demonstrate that PacBio CCS reads have sufficient read length and base accuracy for single molecule somatic single-base substitution agnostic of clonality and species.
+%% to explore the unexplored phenomena of meiotic recombniation through Sperm PacBio CCS sequencing
+%% diffences to previous attempts to understand meiotic recombination through trio sequencing and sperm-typing
+%% gene conversions requires the detection of chimeric dna molecules with both maternal and paternal sequences
+%% meiotic event generates 2 recombinant products and 2 wild type molecules
+%% crossover leads to the generation of dna molecule with a stretch of paternal hetsnps followed by a stretch of maternal hetsnps and vice versa
+%% gene conversion leads to the generation of a dna molecule where paternal hetsnps is flanked by maternal hetsnps (and vice versa)
+%% complex recombinant product with resulting from both crossover and gene conversion
+%% on average, there 1 SNP per 1000bp
+%% requires long-range PCR products to detect 
+%% hotspots
+%% coldspots
+%% meiotic recombination product requires reads that can span multiple hetsnps and requires sufficient base accuracy to determine that hetsnp switch is a result of a biological event rather than a sequencing error.
+%% in addition, meiotic recombination can be a source of mutagenic event
+%% PacBio CCS reads have sufficient base accuracy to detect single molecule recombination events and associated mutations
+%% recombniationi might not be a perfect/clean
+%% mutational process that generates de novo single-base substitution seems to be driven by clock-like somatic mutational processes (SBS1 and SBS5)
+%% mitotic gene conversion can be a source of oncogenic mechanism in somatic cells
+%% simliar to meiotic recombination, products from mitotic recombination cannot be detected with short reads due to the technical limiations of the Illumina platform
+%% sequenced Bloom syndrome patient samples with defects in DNA double-strand break damage repair process
+%% known to have gene conersions or loss of heterozygous caused by gene conversions
+%% perfect sample to assess the differences in mitotic and meiotic recombniation and gene conversions
+%% mitotic gene conversions are thought to be longer in length
+
+
+%% in Chapter 6, 
+%% the benefits of PacBio CCS sequencing
+%% the last DNA sequencing platform
+%% requires significantly less sequencing coverage than short reads to detect  the same number of mutations
+%% can detect small SNPs, indels, structural variations, 5mC from the same platform
+%% with the development of himut, CCS reads can be also used to detect somatic mutations, gene conversion and crossovers from the same sample.
+%% potentially other base modifications caused by environmental exposure, chemotherapeutics in the future
+%% Moore's law: the number of transisitors per semiconductor has doubled, the distance at which the electrons has to be moved has shorteneed
+%% the cost of sequencing per base was decreasing at a faster speed than Moore's law and many has anticipated that we might have a $100 genome, if the development had continued
+%% stagnation in development, and Illumina monopoly status, financialisation, stock buybacks instead of research and develompent
+%% increase in the number of ZMWs per SMRTcell, PacBio has achieved 8-fold improvement in throughput
+%% increase in the read-of-insert length, doubling, stabiltiy of the circular template molecule
+%% direct-engineering, directed-natural selection
+%% increase in DNA polymerase processivity can increase either the read-of-insert length or the base accuracy of the same read-of-insert length
+%% improvement in HMW DNA extraction, from the smallest organism
+%% past Illumina platform generation has also required high DNA concentration 
+%% improvements in circular consensus sequence calling process can lead to the better discernment of adapter sequences from 
+%% PacBio CCS sequencing offers an alternative method for DNA sequencing with potential to improve throughput and base accuracy at a faster rate than that from Illumina unless Illumina profit margin compresses
+%% PacBio CCS sequencing will be cheaper, more accurate, have higher throughput than Illumina sequencing
+%% Illumina might compete in terms of price, but the wealth of information that is delivered from PacBio will be immense %% adoption curve
+%% the cumulative improvement will us to better understand all of life
+
+
+%% \subsection{The cost of Reference genomes as a bottleneck}
 
 %********************************** %Second Section  *************************************
-\section{Why do we use loren ipsum?} %Section - 1.2
+\section{Reference genomes}
+\subsection{De novo assembly}
+%% bacterial artificial chromosomes
+%% yeast artificial chromosomes
+\subsection{Short-read sequencing}
+%% de  brujin raph
+\subsection{Long-read sequencing}
+%% linked-read sequencing
+%% single-moelcule sequencing
+%% oxford-nanpore technologies
+%% Pacific Biosciences circular consensus sequencing
+%% overlap-layout consensus
+%% string graph
+%% falcon
+%% haplotype-phased
 
-
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using `Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for `lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+\subsection{Haplotype tagging}
+\subsection{High-throughput chromatin conformation capture sequencing}
+%% optical-mapping
 
 %********************************** % Third Section  *************************************
-\section{Where does it come from?}  %Section - 1.3 
-\label{section1.3}
 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+\section{Resequencing} 
+\subsection{Germline mutation detection}
+\subsection{Somatic mutation detection}
+\subsection{Somatic mutation detection in cancer}
+\subsection{Somatic mutation detection in normal tissues}
+\subsubsection{Single-cell expansion and sequencing}
+\subsubsection{Laser-capture microdissection and sequencing}
+\subsubsection{Single-cell DNA PCR amplification and sequencing}
+\subsubsection{Duplex sequencing}
+\subsubsection{Pacific Biosciences circular consensus sequencing}
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from ``de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham
+%********************************** % Fourth Section  *************************************
 
-``Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+\section{Darwin Tree of Life project}
 
-Section 1.10.32 of ``de Finibus Bonorum et Malorum", written by Cicero in 45 BC: ``Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+%********************************** % Fifth Section  *************************************
 
-1914 translation by H. Rackham: ``But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+\section{Sperm sequencing for meiotic recombination product investigation}
 
-Section 1.10.33 of ``de Finibus Bonorum et Malorum", written by Cicero in 45 BC: ``At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+%********************************** % Sixth Section  *************************************
 
-1914 translation by H. Rackham: ``On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+\section{Bloom syndrome patient sample sequencing for mitotic gene conversion detection}
 
-\nomenclature[z-DEM]{DEM}{Discrete Element Method}
-\nomenclature[z-FEM]{FEM}{Finite Element Method}
-\nomenclature[z-PFEM]{PFEM}{Particle Finite Element Method}
-\nomenclature[z-FVM]{FVM}{Finite Volume Method}
-\nomenclature[z-BEM]{BEM}{Boundary Element Method}
-\nomenclature[z-MPM]{MPM}{Material Point Method}
-\nomenclature[z-LBM]{LBM}{Lattice Boltzmann Method}
-\nomenclature[z-MRT]{MRT}{Multi-Relaxation 
-Time}
-\nomenclature[z-RVE]{RVE}{Representative Elemental Volume}
-\nomenclature[z-GPU]{GPU}{Graphics Processing Unit}
-\nomenclature[z-SH]{SH}{Savage Hutter}
-\nomenclature[z-CFD]{CFD}{Computational Fluid Dynamics}
-\nomenclature[z-LES]{LES}{Large Eddy Simulation}
-\nomenclature[z-FLOP]{FLOP}{Floating Point Operations}
-\nomenclature[z-ALU]{ALU}{Arithmetic Logic Unit}
-\nomenclature[z-FPU]{FPU}{Floating Point Unit}
-\nomenclature[z-SM]{SM}{Streaming Multiprocessors}
-\nomenclature[z-PCI]{PCI}{Peripheral Component Interconnect}
-\nomenclature[z-CK]{CK}{Carman - Kozeny}
-\nomenclature[z-CD]{CD}{Contact Dynamics}
-\nomenclature[z-DNS]{DNS}{Direct Numerical Simulation}
-\nomenclature[z-EFG]{EFG}{Element-Free Galerkin}
-\nomenclature[z-PIC]{PIC}{Particle-in-cell}
-\nomenclature[z-USF]{USF}{Update Stress First}
-\nomenclature[z-USL]{USL}{Update Stress Last}
-\nomenclature[s-crit]{crit}{Critical state}
-\nomenclature[z-DKT]{DKT}{Draft Kiss Tumble}
-\nomenclature[z-PPC]{PPC}{Particles per cell}
+
+%********************************** % Seventh Section  *************************************
+
+\section{Overview and objectives}
+%% \section{Thesis aims}
+% \nomenclature[z-DEM]{DEM}{Discrete Element Method}

@@ -3,7 +3,7 @@
 %****************************** Second Chapter *********************************
 %*******************************************************************************
 
-\chapter{My second chapter}
+\chapter{Single molecule somatic mutation detection}
 
 \ifpdf
     \graphicspath{{Chapter2/Figs/Raster/}{Chapter2/Figs/PDF/}{Chapter2/Figs/}}
@@ -12,99 +12,88 @@
 \fi
 
 
-\section[Short title]{Reasonably long section title}
-
 % Uncomment this line, when you have siunitx package loaded.
 %The SI Units for dynamic viscosity is \si{\newton\second\per\metre\squared}.
-I'm going to randomly include a picture Figure~\ref{fig:minion}.
+
+%% BC-1, HT-115 cell lines
+%% blood: SBS1, SBS5 + SBSX: 
+%% emily mitchell's paper
+%% mia's paper
+%% single dominant somatic mutational processes drive the generation of the most recently acquired somatic mutations
+%% an individual/single substitution/difference between the read and reference genome cannot be determined to be a sequencing error or a true mutation that reflects the difference between the sample and the reference
+%% if the circular consensus sequence base from Pacific Biosciences are sufficiently accurate, the differences between the read and the reference should be a reflection of biology and not the reflection of library errors, sequencing errors, systematic errors.   
+%% if single molecule somatic single-base substitutions, in aggregate, should be consistent with the expected mutational patterns from the sample if the mutations are correctly called.
+%% sources of library errors, sonication, oxidative DNA damage
+%% 
+%% single moelcule somatic single base substitution detection across all  eukaryotic species, potentially sequenced with PacBio CCS sequencing method
+%% even if soruces of errors introduced upstream of sequencing can be identified, it is hard to deal with them
+%% systematic errors resulting from alignment errors and
+
+%% Duplex sequencing
+%% Nanorate-sequencing
+%% Darwin Tree of Life project
+%% Importance of somatic mutations: driver mutations, lineage trace development, time the emergence of driver mutations
+
+\section{Introduction}
+
+Mutations can occur in cells at all stages of life and in all tissues and clonality and classification is dependent on tissue-type, size of the genetic modification and time of the mutation. Germline mutations are mutations the genetic polymorphisms that children inherits from their parents. Child might have mutations that are private from their parents as a result of de novo mutations occuring during cell division and mutagenesis during meiotic recombniation (discussed in Chatper 5, reference). Somatic mutations are mutations that occur post-fertilisation. If somatic mutation occurs during first-cell division of embryonic development, for example, somatic mutation will be present on all the daugther cells originating from the embroynic cell with the somatic mutation. Somatic mutations can be differently classified depending on ther size and their orientation. Most somatic mutations are benign, but some somatic mutations confer proliferative advantage to the cell and these somatic mutations are referred to as driver mutations. Somatic muations can be substitution, small insertions and deletions (<50bp) or large changes to genomes (>50bp), also known as structural variations. The advent of next-generation sequencing has enabled us to detect more complex forms of genomic rearrangemetns such as chrmothripsis, chromoplexy, break-induced replication, fork stalling and template switching, etc and the elucidation of DNA damage and repair pathways that generate these complex rearrangements. Somatic mutation detection, hence, is often the first-step towards characterising the cancer genome. Thanks to decrease in cost for whole-genome sequencing, thousands of cancer genomes have been sequenced, tissue-specific driver mutations and somatic mutational processes have been uncovered. However, due to the technical limitations of the NGS platform limit the length, clonality, diversity and resolution of the somatic mutations that can be detected. The base quality score, measuring the probability that the base read out is a sequnencing error and not a true representasion of the template molecule, ranges from 0 to 40, 1 error per 10,000 bp, for Illumina short reads and as a result, somatic mutation caller such as Mutect [reference], Strelka2 [reference] requires matched tumour and normal sequencing to distinguish germline mutations from somatic mutations and cannot distinguish low allelic fraction somatic mutations from sequencing errors. In addition, repetitive sequences account for 50\% of the human genome and repeat length is often greater than the short read length. Moreover, there isn't one type of repeat, multiple types of repeats are present in the human genome (tandam repeat expansions, retrotransposons like ALUs and SINEs, non-repetitive unique sequence copies such as segmental duplications, alpha-satellites in centromeric regions and centromeric repetitive sequences) and these repetitive structures are responsible for somatic mutagenesis both small and big. If the repeat length is greater than the read length, read aligners that determines the position of read relative to the reference genome cannot ascertain the position of the read relative to the reference genome and these reads without fixed locations cannot be used to call somatic mutations. To determine the location of the read relative to the reference genome with high-confidence, the repetitive sequences within the read must be flanked by unique sequences not exisiting elsewhere in the reference genome. In addition, somation detection isn't a solved problem. Different somatic mutation callers with different strategies for somatic mutation calling have different sensitivity and specificity and often the consensus of different somatic mutation caller provides the most accurate somatic mutation calls. In addition, if tissue in question doesn't have sufficent DNA and requires PCR amplification, somatic mutation detection might also be confounded with PCR amplifiaction bias.
 
 
-If you have trouble viewing this document contact Krishna at: \href{mailto:kks32@cam.ac.uk}{kks32@cam.ac.uk} or raise an issue at \url{https://github.com/kks32/phd-thesis-template/}
+The technical limiations of next-generation sequencing platform have impededed our understanding of the transition from normal cells to neoplastic cells as normal cell development could not be directly monitored through the detection of low variant allele fraction (VAF) mutations. To overcome the difficulties associated with somatic mutation detection with Illumina reads too approaches have been mainy developed. One approach aims to increase the clonality of the mutant DNA that might exist in a single cell or a group of cells and the other approach aims to increase the base accuracy of the reads through clever upstream changes in the Illumina library preparation protocol. Single-cell whole-genome amplification, single-cell colony expansion and laser-capture microdissection (LCM) and sequencing belongs to the former camp and duplex sequening based methods and variations thereof belong to the latter camp. In the former approach, the clonality of the mutant DNA is increased above the limit of detection threshold. Single-cell whole-genome amplification and sequencing, unfortunately, suffers from PCR amplification bias and allelic bias and hence, doesn't provide the most accurate somatic mutation calls and single-cell clone expansion and sequencing offers the most accurate somatic mutation call among the approaches that elevates the VAF of mutant DNA above the limit of detection threshold. Duplex sequencing approach, inspired by the approach, that allows the use of DNA as a stable structure across millions of years uses the redundancy of complementary information between the forward and reverse strand of DNA double helix to achieve high base accuracy. In brief, DNA extract is fragmented through sonication,  unique molecular identifier (UMI), consisting of 8 to 12 nucleotides (nt) is attached to a double-stranded DNA through blunt-end/overhang ligation with Illumina adapters, double-stranded DNA is separated into single-stranded DNA, which undergoes PCR amplification to produce multiple copies of the samme molecule. The concentration of input DNA for PCR amplification needs to be controlled to enable optimal selection and amplification of both strands of the double-stranded DNA. Illumina library is sequenced. Thereafter, reads are grouped according to their UMI and read belonging to the same UMI are used to generate double-strand consensus (duplex) read taking advantage of the complementary information between the forward and reverse strand. During PCR amplification, DNA polymerase might incorrectly replicate the template, but the incorrectly introduced base will be present only in one of the single-strand read or fraction of the single-strand reads and will not have a complementary base compared to the reverse complementary strand. Except for PCR-jackpot errors that occurs at the very first-cycle of PCR amplification and that impacts all the subsequent copies of the single-strand, duplex read should only be affecteted by library errors introduced upstream of PCR amplifiaction and sequencing. Duplex sequencing, theoretically, promises base accuracy of 1 x 10^-9, but in practice duplex reads have a base accuracy of 1 x 10^-6. 
+
+Nanorate sequencing improves the duplex library protocol to achieve the theoretical base accuracy of duplex reads. In contrast to the original duplex library protocol that repairs DNA molecules with DNA damage using end-repair enzymes, nick translation, and gap-filling enzymes, nanorate sequencing protocol prevents library preparation from DNA molecules with DNA damage. Instead of DNA fragmentation through sonication, nanorate sequencing protocol uses restriction enzymes that generates blunt-ends and through the addition of dideoxy nucleotides prevents DNA synthesis during nick translation. PacBio CCS sequencing shares many simliar features as duplex sequencing and we hypothesized that CCS reads might as accuraet or more accurate than duplex reads as CCS sequencing does not suffer from PCR amplifiaction and might have sufficient base accuracy to enable single molecule somatic mutation detection.
 
 
-\begin{figure}[htbp!] 
-\centering    
-\includegraphics[width=1.0\textwidth]{minion}
-\caption[Minion]{This is just a long figure caption for the minion in Despicable Me from Pixar}
-\label{fig:minion}
-\end{figure}
+PacBio introduced circular consensus sequencing in 201X, but circular consensus sequencing  
+
+Prior to the introduction of CCS sequencing, PacBio offered continuous long read (CLR) sequencing.
+
+Here, we focus on the detection of single molecule single-base-substitutions (SBS) with PacBio CCS reads. 
 
 
-\section*{Enumeration}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae laoreet lectus. Donec lacus quam, malesuada ut erat vel, consectetur eleifend tellus. Aliquam non feugiat lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque a dolor sit amet dui malesuada malesuada id ac metus. Phasellus posuere egestas mauris, sed porta arcu vulputate ut. Donec arcu erat, ultrices et nisl ut, ultricies facilisis urna. Quisque iaculis, lorem non maximus pretium, dui eros auctor quam, sed sodales libero felis vel orci. Aliquam neque nunc, elementum id accumsan eu, varius eu enim. Aliquam blandit ante et ligula tempor pharetra. Donec molestie porttitor commodo. Integer rutrum turpis ac erat tristique cursus. Sed venenatis urna vel tempus venenatis. Nam eu rhoncus eros, et condimentum elit. Quisque risus turpis, aliquam eget euismod id, gravida in odio. Nunc elementum nibh risus, ut faucibus mauris molestie eu.
- Vivamus quis nunc nec nisl vulputate fringilla. Duis tempus libero ac justo laoreet tincidunt. Fusce sagittis gravida magna, pharetra venenatis mauris semper at. Nullam eleifend felis a elementum sagittis. In vel turpis eu metus euismod tempus eget sit amet tortor. Donec eu rhoncus libero, quis iaculis lectus. Aliquam erat volutpat. Proin id ullamcorper tortor. Fusce vestibulum a enim non volutpat. Nam ut interdum nulla. Proin lacinia felis malesuada arcu aliquet fringilla. Aliquam condimentum, tellus eget maximus porttitor, quam sem luctus massa, eu fermentum arcu diam ac massa. Praesent ut quam id leo molestie rhoncus. Praesent nec odio eget turpis bibendum eleifend non sit amet mi. Curabitur placerat finibus velit, eu ultricies risus imperdiet ut. Suspendisse lorem orci, luctus porta eros a, commodo maximus nisi.
+Mutation occuring in somatic cells, referred to as somatic mutation
+Somatic mutation detection is the first-step towards characterising
 
-Nunc et dolor diam. Phasellus eu justo vitae diam vehicula tristique. Vestibulum vulputate cursus turpis nec commodo. Etiam elementum sit amet erat et pellentesque. In eu augue sed tortor mollis tincidunt. Mauris eros dui, sagittis vestibulum vestibulum vitae, molestie a velit. Donec non felis ut velit aliquam convallis sit amet sit amet velit. Aliquam vulputate, elit in lacinia lacinia, odio lacus consectetur quam, sit amet facilisis mi justo id magna. Curabitur aliquet pulvinar eros. Cras metus enim, tristique ut magna a, interdum egestas nibh. Aenean lorem odio, varius a sollicitudin non, cursus a odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
-\begin{enumerate}
-\item The first topic is dull
-\item The second topic is duller
-\begin{enumerate}
-\item The first subtopic is silly
-\item The second subtopic is stupid
-\end{enumerate}
-\item The third topic is the dullest
-\end{enumerate}
-Morbi bibendum est aliquam, hendrerit dolor ac, pretium sem. Nunc molestie, dui in euismod finibus, nunc enim viverra enim, eu mattis mi metus id libero. Cras sed accumsan justo, ut volutpat ipsum. Nam faucibus auctor molestie. Morbi sit amet eros a justo pretium aliquet. Maecenas tempor risus sit amet tincidunt tincidunt. Curabitur dapibus gravida gravida. Vivamus porta ullamcorper nisi eu molestie. Ut pretium nisl eu facilisis tempor. Nulla rutrum tincidunt justo, id placerat lacus laoreet et. Sed cursus lobortis vehicula. Donec sed tortor et est cursus pellentesque sit amet sed velit. Proin efficitur posuere felis, porta auctor nunc. Etiam non porta risus. Pellentesque lacinia eros at ante iaculis, sed aliquet ipsum volutpat. Suspendisse potenti.
-
-Ut ultrices lectus sed sagittis varius. Nulla facilisi. Nullam tortor sem, placerat nec condimentum eu, tristique eget ex. Nullam pretium tellus ut nibh accumsan elementum. Aliquam posuere gravida tellus, id imperdiet nulla rutrum imperdiet. Nulla pretium ullamcorper quam, non iaculis orci consectetur eget. Curabitur non laoreet nisl. Maecenas lacinia, lorem vel tincidunt cursus, odio lorem aliquet est, gravida auctor arcu urna id enim. Morbi accumsan bibendum ipsum, ut maximus dui placerat vitae. Nullam pretium ac tortor nec venenatis. Nunc non aliquet neque. 
-
-\section*{Itemize}
-\begin{itemize}
-\item The first topic is dull
-\item The second topic is duller
-\begin{itemize}
-\item The first subtopic is silly
-\item The second subtopic is stupid
-\end{itemize}
-\item The third topic is the dullest
-\end{itemize}
-
-\section*{Description}
-\begin{description}
-\item[The first topic] is dull
-\item[The second topic] is duller
-\begin{description}
-\item[The first subtopic] is silly
-\item[The second subtopic] is stupid
-\end{description}
-\item[The third topic] is the dullest
-\end{description}
+%% somatic mutations
+%% somatic single base substitutions
+%% small indels
+%% structural variations > 50 bp
+%% chromosomal translocations
+%% tumour suppressor genes
+%% technical limitations of illumina sequencing
+%% normal sequencing: to understand the transformation of normal cells to neoplastic cells
+%% DToL project
+%% availability of reference genomes from diverse eukarytoic species 
+%% reference genome construction: CCS sequencing, linked reads, CLR, binano scaffolding
 
 
-\clearpage
 
-\tochide\section{Hidden section}
-\textbf{Lorem ipsum dolor sit amet}, \textit{consectetur adipiscing elit}. In magna nisi, aliquam id blandit id, congue ac est. Fusce porta consequat leo. Proin feugiat at felis vel consectetur. Ut tempus ipsum sit amet congue posuere. Nulla varius rutrum quam. Donec sed purus luctus, faucibus velit id, ultrices sapien. Cras diam purus, tincidunt eget tristique ut, egestas quis nulla. Curabitur vel iaculis lectus. Nunc nulla urna, ultrices et eleifend in, accumsan ut erat. In ut ante leo. Aenean a lacinia nisl, sit amet ullamcorper dolor. Maecenas blandit, tortor ut scelerisque congue, velit diam volutpat metus, sed vestibulum eros justo ut nulla. Etiam nec ipsum non enim luctus porta in in massa. Cras arcu urna, malesuada ut tellus ut, pellentesque mollis risus.Morbi vel tortor imperdiet arcu auctor mattis sit amet eu nisi. Nulla gravida urna vel nisl egestas varius. Aliquam posuere ante quis malesuada dignissim. Mauris ultrices tristique eros, a dignissim nisl iaculis nec. Praesent dapibus tincidunt mauris nec tempor. Curabitur et consequat nisi. Quisque viverra egestas risus, ut sodales enim blandit at. Mauris quis odio nulla. Cras euismod turpis magna, in facilisis diam congue non. Mauris faucibus nisl a orci dictum, et tempus mi cursus.
+\section{Materials \& Methods}
+\subsection{Samples}
+\subsection{Mutational signatures}
+\subsection{Pacific Biosciences Circular Consensus Sequencing}
+%% indel errors
+%% homopolymers
+%% continuous long read sequencing
 
-Etiam elementum tristique lacus, sit amet eleifend nibh eleifend sed \footnote{My footnote goes blah blah blah! \dots}. Maecenas dapibu augue ut urna malesuada, non tempor nibh mollis. Donec sed sem sollicitudin, convallis velit aliquam, tincidunt diam. In eu venenatis lorem. Aliquam non augue porttitor tellus faucibus porta et nec ante. Proin sodales, libero vitae commodo sodales, dolor nisi cursus magna, non tincidunt ipsum nibh eget purus. Nam rutrum tincidunt arcu, tincidunt vulputate mi sagittis id. Proin et nisi nec orci tincidunt auctor et porta elit. Praesent eu dolor ac magna cursus euismod. Integer non dictum nunc.
+%% error profile have not been characterised
 
+\subsection{Single molecule somatic mutation calling}
+\subsection{Methods for single molecule somatic mutation calling}
+\subsection{Mutation calling}
+\subsection{Hard filters}
+\subsection{Haplotype Phasing}
+\section{Benchmarks}
+\subsection{Sensitivity and Specificity, F1-statistics}
+\subsection{Receiver-operating characteristics}
+\section{Results}
+\subsection{}
+\subsection{}
+\section{Discussion}
+\subsection{Liquid Biopsy}
+\subsection{False positive substitutions}
+\subsection{DeepConsensus}
+\subsection{Environmental mutagenesis}
+\subsection{Single molecule structural variation detection}
+\subsection{Single molecule somatic mutation detection in non-human species}
 
-\begin{landscape}
-
-\section*{Subplots}
-I can cite Wall-E (see Fig.~\ref{fig:WallE}) and Minions in despicable me (Fig.~\ref{fig:Minnion}) or I can cite the whole figure as Fig.~\ref{fig:animations}
-
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{TomandJerry}
-    \caption{Tom and Jerry}
-    \label{fig:TomJerry}   
-  \end{subfigure}             
-  \begin{subfigure}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{WallE}
-    \caption{Wall-E}
-    \label{fig:WallE}
-  \end{subfigure}             
-  \begin{subfigure}[b]{0.3\textwidth}
-    \includegraphics[width=\textwidth]{minion}
-    \caption{Minions}
-    \label{fig:Minnion}
-  \end{subfigure}
-  \caption{Best Animations}
-  \label{fig:animations}
-\end{figure}
-
-
-\end{landscape}
