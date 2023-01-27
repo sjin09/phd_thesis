@@ -77,7 +77,7 @@ CCS reads were aligned to the human reference genome (b37 and grch38) with minim
 
 Our method first computes the average sequence coverage of the sample from random sampling of the read alignments across the genome to determine the average read length, read length standard deviation, sequence coverage and the maximum read depth threshold. 
 
-Our method assumes that sample has a diploid genome. Our method first identifies the CCS read can be used for mutation detection (-min\_mapq 60 min sequence identity 0.99 min hq base proportion 0.5 min ailgnment proportion). 
+Our method assumes that sample has a diploid genome. Our method first identifies the CCS read can be used for mutation detection (-min\_mapq 60 min sequence identity 0.99 --min\_hq\_base proportion 0.5 -min\_alignment\_proportion). 
 
 This step is done to discard reads that have large structural variations and that might originate from different genomic regions for mutation detection. Minimap2, for example, still has problems aligning reads with inversions. This step is done to restrict the mutation detection to reads where we are confident that the read has originated from the aligned region. Thereafter, single base substitutions, double base substitutions, multiple base substitutions, indels and complex variants are detected from each read. 
 
@@ -99,7 +99,7 @@ Pysam, pyfastx and cyvcf2 were used to process BAM, FASTA/Q and VCF files, respe
 
 \subsection{Panel of Normal construction}
 
-%We obtained publicly available CCS reads (Table XX ) and to maximize the number of systematic errors to be filtered, we relaxed the default thresholds (--min_mapq = 30, min_trim = 0, min_sequence_identity = 0.8, min_hq_base_proportion = 0.3, min_alignment_proportion = 0.5, min_bq = 20) to construct a panel of normal VCF file. 
+We obtained publicly available CCS reads (Table XX ) and to maximize the number of systematic errors to be filtered, we relaxed the default thresholds (--min\_mapq 30 --min\_trim 0 --min\_sequence\_identity = 0.8 -min\_hq\_base\_proportion 0.3 --min\_alignment\_proportion 0.5 --min\_bq = 20) to construct a panel of normal VCF file. 
 
 \subsection{Germline mutation haplotype phasing}
 
@@ -107,7 +107,7 @@ Haplotype phasing requires one to determine whether the polymorphisms are derive
 
 \subsection{Haplotype phased somatic mutation detection}
 
-%CCS reads are typically phased using adjacent hetSNPs. CCS reads, however, spans multiple hetSNPs and can be used to construct haplotype blocks. We use CCS reads to construct haplotype blocks (discussed below) and assign CCS reads to haplotype blocks. If the CCS read belongs to two haplotype blocks or if the hetSNPs belonging to the CCS read doesn’t match the haplotype phased hetSNPs exactly, CCS read is determined to be not phased. In addition, a hetSNP can be misclassified as a somatic mutation if the two haplotypes are sampled unevenly and hence we require both h0 and h1 haplotype counts of the wild type CCS reads without the somatic mutation in the region to be above the --min_hap_count 3. 
+CCS reads are typically phased using adjacent hetSNPs. CCS reads, however, spans multiple hetSNPs and can be used to construct haplotype blocks. We use CCS reads to construct haplotype blocks (discussed below) and assign CCS reads to haplotype blocks. If the CCS read belongs to two haplotype blocks or if the hetSNPs belonging to the CCS read doesn’t match the haplotype phased hetSNPs exactly, CCS read is determined to be not phased. In addition, a hetSNP can be misclassified as a somatic mutation if the two haplotypes are sampled unevenly and hence we require both h0 and h1 haplotype counts of the wild type CCS reads without the somatic mutation in the region to be above the --min\_hap\_count 3. 
 
 \subsection{CCS read base quality score estimation and recalibration}
 
