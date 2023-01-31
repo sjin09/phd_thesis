@@ -15,12 +15,24 @@
 %********************************** %First Section  **************************************
 
 
-\section{Deoxyribonucleic acid (DNA)}
 
-"Let there be light", Genesis 1:3
+
+\section{Last Universal Common Ancestor (LUCA)}
+
+"Let there be light" \begin{flushright} Genesis 1:3 \end{flushright}
+
+\subsection{Origins of Life}
 
 %% According to Aristotle's theory of heredity, males are responsible for providing the "active element" that gives life to the offspring and makes sure that it is a male or female, and females provide the nutrients to the offspring.
 %% https://thelampstand.com.au/the-amazing-living-cell-a-model-for-christs-ecclesia-wrong-part-2/
+
+
+\subsection{Deoxyribonucleic acid (DNA)}
+
+\subsection{Central Dogma}
+
+
+\section{Genome assembly}
 
 Since the start of time, entropy has been increasing following the second law of thermodynamics and biological systems have emerged to reduce or maintain entropy using energy. Phospholipid permeable-membrane was the first spontaenous invention that separated order from disorder and allowed for the movement of molecules between the extracelular and intercellular environemtnt and for the emergence of primordial cell. It is uncertain whether the first cell had both the capacity to recplicate itself or whether had the capacity to catalyze chemical reaction first. In a prebiotic environment, amino acids can be created in a reducing environment if sufficient energy in the form of ioniznig radiation, ultra-violet light, is introduced into a gaseous atmosphere containing methane, ..., ... and ... [ref] and nucleotide bases are thought to be harder to spotaneously create in a prebiotic envrionment [ref]. Despite the uncertainity in how the first cell arised, the first prokaryotic organism is thought to have arise ~XX billion years ago and the first eukaryotic organism is thought to have arisen approximately 2 billion years ago [ref]. Once the first cell was created, selection pressure and natural selection acted upon these cells to create the first multicelullar organism and these muticellular organisms evolved to create multiple different species that is best adapated to the environment surrounding them. Mutations play a central role in creating new innovations that allows for individual species to better adapt to the environment and to produce progenitors that inherit the mutations. 
 
@@ -33,10 +45,20 @@ Amino acids were initially proposed as the physical material responsible for inh
 The Human Genome Project was initiated to sequence and assemble the human reference genome that would standardise the genetics and genomics studies to a single reference genome. There were two approaches towards the human reference genome construction: one was the hiearchical shotgun sequencing and assemgbly strategy and the other was whole-genome shotgun sequencing and assembly approach. The human reference genome constructed from the former approach is still the human reference genome used in most genetic and genomics studies and is the bedrock of genomic medicine revolution [ref]. The availability of the human reference genome together with sequencing-by-synthesis appraoch from Solexa, now Illumina, revolutionsed the field of human genetics and enabled population-scale studies of genetic diseases and cancers [ref]. Population-structure, human history, discovery of somatic mutations that confer selective growth advantage to the tumour cell, the identification of mutations that leads to genetic diseases. In addition, scientists have develooped clever ways to modify library protocol upstream of Illumina adapter ligation to enable the study of epigenomes, base modifiations, transcriptome of bulk tissue and more, recently, the advent of high-throughput chromatin conformation capture sequencing has enabled the study of the three-dimensional configuration of the genome and the nucleotide sequences are organised into regular repeating patterns. 
 %% single cell %% why was hiearchical shotgun stratey more accurate?
 
+\section{Genome sequencing}
+
+\subsection{Sanger sequencing}
+
+\subsection{Illumina sequencing}
 The technical limitations of Illumina sequencing (base accuracy and short read length), however, has been the bottleneck for improving rare genetic disease diagnostics yield, detecting rare somatic mutations and constructing high-quality reference genomes for non-human species. De novo assembly of other species, previously, have been attempted using de brugjin graph based de novo assembly algorithms with short reads, but assemblies produced from short reads were highly fragmented and incomplete. In addition, scaffolding strategies often did not provide sufficient long-range information to produce chromosome-level pseudomolecules and as a result, these assemblies provided incomplete information for comparative genomics purposes. Hence, assemblies produced from short reads often have collapsed repeats or contigs that cannot be placed accurately. To construct complete assemblies, reads need to be longer than the repeats of the target genome such that the reads can traverse the repetitive regions and optimally have unique sequences flanking the repetitive sequences such that the read can be placed in the assembly graph unambiguously. Not all repetitive sequences are actually repetitive. There are unique class of repeats called segmental duplications, which doesn't have a classical repetitive sequence, has a unique sequence, but is duplicated across the many parts of the genome and are thought to be important in driving evolution and these segmental duplications are typically defined as sections greater than 1kb with sequence simliarity above 90\% to other regions of the genome. To distinguish segmental duplications from one another, reads also need to have high base accuracy to be able to distinguish closest segmental duplications from one another. Long-reads from third-generation sequencing technologies such as Oxford Nanopore Technologies (ONT) and Pacific Biosciences (PacBio) provide an alternative towards improving the rare genetic diagnostics yield and improving the reference genome qualities in terms of both completeness and contigutiy. Long-reads produced from third-generation sequencing platforms were orders-of-magnitude longer than that from the Illumina platform, but had a much higher error rate; 10-15\% error rate for continuous long reads (CLR) from PacBio and 20-35\% error rate for ONT reads. Because of these high error rates, higher sequencing costs (lower yield per dollar) and insufficient improvement in read length, these platforms had limited use except for rare cases for real-time monitoring of ... and de novo assembly of plants and animal genomes..., and detection of pathogenic mutations that could not be detected with short reads [ref, ref]. Despite high error rate, the longer read length enabled the detection of structural variations that could not be previously detected with short reads, doubled the number of structural variations that can be detected from a typical human genome compared to the human reference genome. The longer read length allowed for the de novo assembly of BAC clones to hierarchically assemble missing sequences, also known as gaps, in the human reference genome, which have been problematic to assemble before and reveal human-specific gene duplications.   
 
 these companies have improved their library preparation protocol and base callers to improve the base accuracy. PacBio, for example, came up with circular consensus sequencing protocl in 2014, but this protocol had limited use commercially until 2018 because of insufficient DNA polymerase processivitively.   
 
+\subsection{Nanopore sequencing}
+
+\subsection{PacBio single molecule real time sequencing}
+
+\section{Thesis objectives}
 
 %% enhancers, promoters, ribosome profiling, 3D genome structure 
 %% collapsed repeats
