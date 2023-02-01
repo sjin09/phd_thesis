@@ -1,6 +1,1709 @@
 % ------------------------------------------------------------------------
-% SAMPLE BIBLIOGRAPHY FILE
+
+%% introduction
+
 % ------------------------------------------------------------------------
+
+
+
+
+% ------------------------------------------------------------------------
+
+%% himut
+
+% ------------------------------------------------------------------------
+
+
+%% pysam
+
+
+@ARTICLE{Ellis2021-it,
+  title    = "Reliable detection of somatic mutations in solid tissues by
+              laser-capture microdissection and low-input {DNA} sequencing",
+  author   = "Ellis, Peter and Moore, Luiza and Sanders, Mathijs A and Butler,
+              Timothy M and Brunner, Simon F and Lee-Six, Henry and Osborne,
+              Robert and Farr, Ben and Coorens, Tim H H and Lawson, Andrew R J
+              and Cagan, Alex and Stratton, Mike R and Martincorena, Inigo and
+              Campbell, Peter J",
+  abstract = "Somatic mutations accumulate in healthy tissues as we age, giving
+              rise to cancer and potentially contributing to ageing. To study
+              somatic mutations in non-neoplastic tissues, we developed a
+              series of protocols to sequence the genomes of small populations
+              of cells isolated from histological sections. Here, we describe a
+              complete workflow that combines laser-capture microdissection
+              (LCM) with low-input genome sequencing, while circumventing the
+              use of whole-genome amplification (WGA). The protocol is
+              subdivided broadly into four steps: tissue processing, LCM,
+              low-input library generation and mutation calling and filtering.
+              The tissue processing and LCM steps are provided as general
+              guidelines that might require tailoring based on the specific
+              requirements of the study at hand. Our protocol for low-input
+              library generation uses enzymatic rather than acoustic
+              fragmentation to generate WGA-free whole-genome libraries.
+              Finally, the mutation calling and filtering strategy has been
+              adapted from previously published protocols to account for
+              artifacts introduced via library creation. To date, we have used
+              this workflow to perform targeted and whole-genome sequencing of
+              small populations of cells (typically 100-1,000 cells) in
+              thousands of microbiopsies from a wide range of human tissues.
+              The low-input DNA protocol is designed to be compatible with
+              liquid handling platforms and make use of equipment and expertise
+              standard to any core sequencing facility. However, obtaining
+              low-input DNA material via LCM requires specialized equipment and
+              expertise. The entire protocol from tissue reception through
+              whole-genome library generation can be accomplished in as little
+              as 1 week, although 2-3 weeks would be a more typical turnaround
+              time.",
+  journal  = "Nat. Protoc.",
+  volume   =  16,
+  number   =  2,
+  pages    = "841--871",
+  month    =  feb,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{Lee-Six2018-qe,
+  title    = "Population dynamics of normal human blood inferred from somatic
+              mutations",
+  author   = "Lee-Six, Henry and {\O}bro, Nina Friesgaard and Shepherd, Mairi S
+              and Grossmann, Sebastian and Dawson, Kevin and Belmonte, Miriam
+              and Osborne, Robert J and Huntly, Brian J P and Martincorena,
+              Inigo and Anderson, Elizabeth and O'Neill, Laura and Stratton,
+              Michael R and Laurenti, Elisa and Green, Anthony R and Kent,
+              David G and Campbell, Peter J",
+  abstract = "Haematopoietic stem cells drive blood production, but their
+              population size and lifetime dynamics have not been quantified
+              directly in humans. Here we identified 129,582 spontaneous,
+              genome-wide somatic mutations in 140 single-cell-derived
+              haematopoietic stem and progenitor colonies from a healthy
+              59-year-old man and applied population-genetics approaches to
+              reconstruct clonal dynamics. Cell divisions from early
+              embryogenesis were evident in the phylogenetic tree; all blood
+              cells were derived from a common ancestor that preceded
+              gastrulation. The size of the stem cell population grew steadily
+              in early life, reaching a stable plateau by adolescence. We
+              estimate the numbers of haematopoietic stem cells that are
+              actively making white blood cells at any one time to be in the
+              range of 50,000-200,000. We observed adult haematopoietic stem
+              cell clones that generate multilineage outputs, including
+              granulocytes and B lymphocytes. Harnessing naturally occurring
+              mutations to report the clonal architecture of an organ enables
+              the high-resolution reconstruction of somatic cell dynamics in
+              humans.",
+  journal  = "Nature",
+  volume   =  561,
+  number   =  7724,
+  pages    = "473--478",
+  month    =  sep,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Lodato2018-hh,
+  title    = "Aging and neurodegeneration are associated with increased
+              mutations in single human neurons",
+  author   = "Lodato, Michael A and Rodin, Rachel E and Bohrson, Craig L and
+              Coulter, Michael E and Barton, Alison R and Kwon, Minseok and
+              Sherman, Maxwell A and Vitzthum, Carl M and Luquette, Lovelace J
+              and Yandava, Chandri N and Yang, Pengwei and Chittenden, Thomas W
+              and Hatem, Nicole E and Ryu, Steven C and Woodworth, Mollie B and
+              Park, Peter J and Walsh, Christopher A",
+  abstract = "It has long been hypothesized that aging and neurodegeneration
+              are associated with somatic mutation in neurons; however,
+              methodological hurdles have prevented testing this hypothesis
+              directly. We used single-cell whole-genome sequencing to perform
+              genome-wide somatic single-nucleotide variant (sSNV)
+              identification on DNA from 161 single neurons from the prefrontal
+              cortex and hippocampus of 15 normal individuals (aged 4 months to
+              82 years), as well as 9 individuals affected by early-onset
+              neurodegeneration due to genetic disorders of DNA repair
+              (Cockayne syndrome and xeroderma pigmentosum). sSNVs increased
+              approximately linearly with age in both areas (with a higher rate
+              in hippocampus) and were more abundant in neurodegenerative
+              disease. The accumulation of somatic mutations with age-which we
+              term genosenium-shows age-related, region-related, and
+              disease-related molecular signatures and may be important in
+              other human age-associated conditions.",
+  journal  = "Science",
+  volume   =  359,
+  number   =  6375,
+  pages    = "555--559",
+  month    =  feb,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Garrison2018-ae,
+  title    = "Variation graph toolkit improves read mapping by representing
+              genetic variation in the reference",
+  author   = "Garrison, Erik and Sir{\'e}n, Jouni and Novak, Adam M and Hickey,
+              Glenn and Eizenga, Jordan M and Dawson, Eric T and Jones, William
+              and Garg, Shilpa and Markello, Charles and Lin, Michael F and
+              Paten, Benedict and Durbin, Richard",
+  abstract = "Reference genomes guide our interpretation of DNA sequence data.
+              However, conventional linear references represent only one
+              version of each locus, ignoring variation in the population. Poor
+              representation of an individual's genome sequence impacts read
+              mapping and introduces bias. Variation graphs are bidirected DNA
+              sequence graphs that compactly represent genetic variation across
+              a population, including large-scale structural variation such as
+              inversions and duplications. Previous graph genome software
+              implementations have been limited by scalability or topological
+              constraints. Here we present vg, a toolkit of computational
+              methods for creating, manipulating, and using these structures as
+              references at the scale of the human genome. vg provides an
+              efficient approach to mapping reads onto arbitrary variation
+              graphs using generalized compressed suffix arrays, with improved
+              accuracy over alignment to a linear reference, and effectively
+              removing reference bias. These capabilities make using variation
+              graphs as references for DNA sequencing practical at a gigabase
+              scale, or at the topological complexity of de novo assemblies.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  36,
+  number   =  9,
+  pages    = "875--879",
+  month    =  oct,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+@ARTICLE{Li2008-dt,
+  title    = "Mapping short {DNA} sequencing reads and calling variants using
+              mapping quality scores",
+  author   = "Li, Heng and Ruan, Jue and Durbin, Richard",
+  abstract = "New sequencing technologies promise a new era in the use of DNA
+              sequence. However, some of these technologies produce very short
+              reads, typically of a few tens of base pairs, and to use these
+              reads effectively requires new algorithms and software. In
+              particular, there is a major issue in efficiently aligning short
+              reads to a reference genome and handling ambiguity or lack of
+              accuracy in this alignment. Here we introduce the concept of
+              mapping quality, a measure of the confidence that a read actually
+              comes from the position it is aligned to by the mapping
+              algorithm. We describe the software MAQ that can build assemblies
+              by mapping shotgun short reads to a reference genome, using
+              quality scores to derive genotype calls of the consensus sequence
+              of a diploid genome, e.g., from a human sample. MAQ makes full
+              use of mate-pair information and estimates the error probability
+              of each read alignment. Error probabilities are also derived for
+              the final genotype calls, using a Bayesian statistical model that
+              incorporates the mapping qualities, error probabilities from the
+              raw sequence quality scores, sampling of the two haplotypes, and
+              an empirical model for correlated errors at a site. Both read
+              mapping and genotype calling are evaluated on simulated data and
+              real data. MAQ is accurate, efficient, versatile, and
+              user-friendly. It is freely available at
+              http://maq.sourceforge.net.",
+  journal  = "Genome Res.",
+  volume   =  18,
+  number   =  11,
+  pages    = "1851--1858",
+  month    =  nov,
+  year     =  2008,
+  language = "en"
+}
+
+
+@ARTICLE{Vong2019-bi,
+  title    = "Enrichment of fetal and maternal long cell-free {DNA} fragments
+              from maternal plasma following {DNA} repair",
+  author   = "Vong, Joaquim S L and Jiang, Peiyong and Cheng, Suk-Hang and Lee,
+              Wing-Shan and Tsang, Jason C H and Leung, Tak-Yeung and Chan, K C
+              Allen and Chiu, Rossa W K and Lo, Y M Dennis",
+  abstract = "OBJECTIVE: Cell-free DNA (cfDNA) fragments in maternal plasma
+              contain DNA damage and may negatively impact the sensitivity of
+              noninvasive prenatal testing (NIPT). However, some of these DNA
+              damages are potentially reparable. We aimed to recover these
+              damaged cfDNA molecules using PreCR DNA repair mix. METHODS:
+              cfDNA was extracted from 20 maternal plasma samples and was
+              repaired and sequenced by the Illumina platform. Size profiles
+              and fetal DNA fraction changes of repaired samples were
+              characterized. Targeted sequencing of chromosome Y sequences was
+              used to enrich fetal cfDNA molecules following repair.
+              Single-molecule real-time (SMRT) sequencing platform was employed
+              to characterize long (>250 bp) cfDNA molecules. NIPT of five
+              trisomy 21 samples was performed. RESULTS: Size profiles of
+              repaired libraries were altered, with significantly increased
+              long (>250 bp) cfDNA molecules. Single nucleotide polymorphism
+              (SNP)-based analyses showed that both fetal- and maternal-derived
+              cfDNA molecules were enriched by the repair. Fetal DNA fractions
+              in maternal plasma showed a small but consistent (4.8\%)
+              increase, which were contributed by a higher increment of long
+              fetal cfDNA molecules. z-score values were improved in NIPT of
+              all trisomy 21 samples. CONCLUSION: Plasma DNA repair recovers
+              and enriches long cfDNA molecules of both fetal and maternal
+              origins in maternal plasma.",
+  journal  = "Prenat. Diagn.",
+  volume   =  39,
+  number   =  2,
+  pages    = "88--99",
+  month    =  jan,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{Tse2021-or,
+  title    = "Genome-wide detection of cytosine methylation by single molecule
+              real-time sequencing",
+  author   = "Tse, O Y Olivia and Jiang, Peiyong and Cheng, Suk Hang and Peng,
+              Wenlei and Shang, Huimin and Wong, John and Chan, Stephen L and
+              Poon, Liona C Y and Leung, Tak Y and Chan, K C Allen and Chiu,
+              Rossa W K and Lo, Y M Dennis",
+  abstract = "5-Methylcytosine (5mC) is an important type of epigenetic
+              modification. Bisulfite sequencing (BS-seq) has limitations, such
+              as severe DNA degradation. Using single molecule real-time
+              sequencing, we developed a methodology to directly examine 5mC.
+              This approach holistically examined kinetic signals of a DNA
+              polymerase (including interpulse duration and pulse width) and
+              sequence context for every nucleotide within a measurement
+              window, termed the holistic kinetic (HK) model. The measurement
+              window of each analyzed double-stranded DNA molecule comprised 21
+              nucleotides with a cytosine in a CpG site in the center. We used
+              amplified DNA (unmethylated) and M.SssI-treated DNA (methylated)
+              (M.SssI being a CpG methyltransferase) to train a convolutional
+              neural network. The area under the curve for differentiating
+              methylation states using such samples was up to 0.97. The
+              sensitivity and specificity for genome-wide 5mC detection at
+              single-base resolution reached 90\% and 94\%, respectively. The
+              HK model was then tested on human-mouse hybrid fragments in which
+              each member of the hybrid had a different methylation status. The
+              model was also tested on human genomic DNA molecules extracted
+              from various biological samples, such as buffy coat, placental,
+              and tumoral tissues. The overall methylation levels deduced by
+              the HK model were well correlated with those by BS-seq (r = 0.99;
+              P < 0.0001) and allowed the measurement of allele-specific
+              methylation patterns in imprinted genes. Taken together, this
+              methodology has provided a system for simultaneous genome-wide
+              genetic and epigenetic analyses.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  118,
+  number   =  5,
+  month    =  feb,
+  year     =  2021,
+  keywords = "base modifications; epigenetics; epigenomics; third-generation
+              sequencing",
+  language = "en"
+}
+
+
+@ARTICLE{Du2021-ya,
+  title    = "Pyfastx: a robust Python package for fast random access to
+              sequences from plain and gzipped {FASTA/Q} files",
+  author   = "Du, Lianming and Liu, Qin and Fan, Zhenxin and Tang, Jie and
+              Zhang, Xiuyue and Price, Megan and Yue, Bisong and Zhao, Kelei",
+  abstract = "FASTA and FASTQ are the most widely used biological data formats
+              that have become the de facto standard to exchange sequence data
+              between bioinformatics tools. With the avalanche of
+              next-generation sequencing data, the amount of sequence data
+              being deposited and accessed in FASTA/Q formats is increasing
+              dramatically. However, the existing tools have very low
+              efficiency at random retrieval of subsequences due to the
+              requirement of loading the entire index into memory. In addition,
+              most existing tools have no capability to build index for large
+              FASTA/Q files because of the limited memory. Furthermore, the
+              tools do not provide support to randomly accessing sequences from
+              FASTA/Q files compressed by gzip, which is extensively adopted by
+              most public databases to compress data for saving storage. In
+              this study, we developed pyfastx as a versatile Python package
+              with commonly used command-line tools to overcome the above
+              limitations. Compared to other tools, pyfastx yielded the highest
+              performance in terms of building index and random access to
+              sequences, particularly when dealing with large FASTA/Q files
+              with hundreds of millions of sequences. A key advantage of
+              pyfastx over other tools is that it offers an efficient way to
+              randomly extract subsequences directly from gzip compressed
+              FASTA/Q files without needing to uncompress beforehand. Pyfastx
+              can easily be installed from PyPI
+              (https://pypi.org/project/pyfastx) and the source code is freely
+              available at https://github.com/lmdu/pyfastx.",
+  journal  = "Brief. Bioinform.",
+  volume   =  22,
+  number   =  4,
+  month    =  jul,
+  year     =  2021,
+  keywords = "FASTA; FASTQ; random access; sequence parser; sequence retrieval",
+  language = "en"
+}
+
+
+@ARTICLE{Pedersen2017-ld,
+  title    = "cyvcf2: fast, flexible variant analysis with Python",
+  author   = "Pedersen, Brent S and Quinlan, Aaron R",
+  abstract = "MOTIVATION: Variant call format (VCF) files document the genetic
+              variation observed after DNA sequencing, alignment and variant
+              calling of a sample cohort. Given the complexity of the VCF
+              format as well as the diverse variant annotations and genotype
+              metadata, there is a need for fast, flexible methods enabling
+              intuitive analysis of the variant data within VCF and BCF files.
+              RESULTS: We introduce cyvcf2 , a Python library and software
+              package for fast parsing and querying of VCF and BCF files and
+              illustrate its speed, simplicity and utility. CONTACT:
+              bpederse@gmail.com or aaronquinlan@gmail.com. AVAILABILITY AND
+              IMPLEMENTATION: cyvcf2 is available from
+              https://github.com/brentp/cyvcf2 under the MIT license and from
+              common python package managers. Detailed documentation is
+              available at http://brentp.github.io/cyvcf2/.",
+  journal  = "Bioinformatics",
+  volume   =  33,
+  number   =  12,
+  pages    = "1867--1869",
+  month    =  jun,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{Baid2022-or,
+  title    = "{DeepConsensus} improves the accuracy of sequences with a
+              gap-aware sequence transformer",
+  author   = "Baid, Gunjan and Cook, Daniel E and Shafin, Kishwar and Yun,
+              Taedong and Llinares-L{\'o}pez, Felipe and Berthet, Quentin and
+              Belyaeva, Anastasiya and T{\"o}pfer, Armin and Wenger, Aaron M
+              and Rowell, William J and Yang, Howard and Kolesnikov, Alexey and
+              Ammar, Waleed and Vert, Jean-Philippe and Vaswani, Ashish and
+              McLean, Cory Y and Nattestad, Maria and Chang, Pi-Chuan and
+              Carroll, Andrew",
+  abstract = "Circular consensus sequencing with Pacific Biosciences (PacBio)
+              technology generates long (10-25 kilobases), accurate 'HiFi'
+              reads by combining serial observations of a DNA molecule into a
+              consensus sequence. The standard approach to consensus
+              generation, pbccs, uses a hidden Markov model. We introduce
+              DeepConsensus, which uses an alignment-based loss to train a
+              gap-aware transformer-encoder for sequence correction. Compared
+              to pbccs, DeepConsensus reduces read errors by 42\%. This
+              increases the yield of PacBio HiFi reads at Q20 by 9\%, at Q30 by
+              27\% and at Q40 by 90\%. With two SMRT Cells of HG003, reads from
+              DeepConsensus improve hifiasm assembly contiguity ( NG50 4.9
+              megabases (Mb) to 17.2 Mb), increase gene completeness (94\% to
+              97\%), reduce the false gene duplication rate (1.1\% to 0.5\%),
+              improve assembly base accuracy (Q43 to Q45) and reduce
+              variant-calling errors by 24\%. DeepConsensus models could be
+              trained to the general problem of analyzing the alignment of
+              other types of sequences, such as unique molecular identifiers or
+              genome assemblies.",
+  journal  = "Nat. Biotechnol.",
+  month    =  sep,
+  year     =  2022,
+  language = "en"
+}
+
+
+
+@ARTICLE{Gao2021-nf,
+  title    = "{abPOA}: an {SIMD-based} {C} library for fast partial order
+              alignment using adaptive band",
+  author   = "Gao, Yan and Liu, Yongzhuang and Ma, Yanmei and Liu, Bo and Wang,
+              Yadong and Xing, Yi",
+  abstract = "SUMMARY: Partial order alignment, which aligns a sequence to a
+              directed acyclic graph, is now frequently used as a key component
+              in long-read error correction and assembly. We present abPOA
+              (adaptive banded Partial Order Alignment), a Single Instruction
+              Multiple Data (SIMD)-based C library for fast partial order
+              alignment using adaptive banded dynamic programming. It can work
+              as a stand-alone multiple sequence alignment and consensus
+              calling tool or be easily integrated into any long-read error
+              correction and assembly workflow. Compared to a state-of-the-art
+              tool (SPOA), abPOA is up to 10 times faster with a comparable
+              alignment accuracy. AVAILABILITY AND IMPLEMENTATION: abPOA is
+              implemented in C. A stand-alone tool and a C/Python software
+              interface are freely available at
+              https://github.com/yangao07/abPOA. SUPPLEMENTARY INFORMATION:
+              Supplementary data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  37,
+  number   =  15,
+  pages    = "2209--2211",
+  month    =  aug,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{Saunders2012-we,
+  title    = "Strelka: accurate somatic small-variant calling from sequenced
+              tumor-normal sample pairs",
+  author   = "Saunders, Christopher T and Wong, Wendy S W and Swamy, Sajani and
+              Becq, Jennifer and Murray, Lisa J and Cheetham, R Keira",
+  abstract = "MOTIVATION: Whole genome and exome sequencing of matched
+              tumor-normal sample pairs is becoming routine in cancer research.
+              The consequent increased demand for somatic variant analysis of
+              paired samples requires methods specialized to model this problem
+              so as to sensitively call variants at any practical level of
+              tumor impurity. RESULTS: We describe Strelka, a method for
+              somatic SNV and small indel detection from sequencing data of
+              matched tumor-normal samples. The method uses a novel Bayesian
+              approach which represents continuous allele frequencies for both
+              tumor and normal samples, while leveraging the expected genotype
+              structure of the normal. This is achieved by representing the
+              normal sample as a mixture of germline variation with noise, and
+              representing the tumor sample as a mixture of the normal sample
+              with somatic variation. A natural consequence of the model
+              structure is that sensitivity can be maintained at high tumor
+              impurity without requiring purity estimates. We demonstrate that
+              the method has superior accuracy and sensitivity on impure
+              samples compared with approaches based on either diploid genotype
+              likelihoods or general allele-frequency tests. AVAILABILITY: The
+              Strelka workflow source code is available at
+              ftp://strelka@ftp.illumina.com/. CONTACT: csaunders@illumina.com",
+  journal  = "Bioinformatics",
+  volume   =  28,
+  number   =  14,
+  pages    = "1811--1817",
+  month    =  jul,
+  year     =  2012,
+  language = "en"
+}
+
+@ARTICLE{McKenna2010-br,
+  title    = "The Genome Analysis Toolkit: a {MapReduce} framework for
+              analyzing next-generation {DNA} sequencing data",
+  author   = "McKenna, Aaron and Hanna, Matthew and Banks, Eric and Sivachenko,
+              Andrey and Cibulskis, Kristian and Kernytsky, Andrew and
+              Garimella, Kiran and Altshuler, David and Gabriel, Stacey and
+              Daly, Mark and DePristo, Mark A",
+  abstract = "Next-generation DNA sequencing (NGS) projects, such as the 1000
+              Genomes Project, are already revolutionizing our understanding of
+              genetic variation among individuals. However, the massive data
+              sets generated by NGS--the 1000 Genome pilot alone includes
+              nearly five terabases--make writing feature-rich, efficient, and
+              robust analysis tools difficult for even computationally
+              sophisticated individuals. Indeed, many professionals are limited
+              in the scope and the ease with which they can answer scientific
+              questions by the complexity of accessing and manipulating the
+              data produced by these machines. Here, we discuss our Genome
+              Analysis Toolkit (GATK), a structured programming framework
+              designed to ease the development of efficient and robust analysis
+              tools for next-generation DNA sequencers using the functional
+              programming philosophy of MapReduce. The GATK provides a small
+              but rich set of data access patterns that encompass the majority
+              of analysis tool needs. Separating specific analysis calculations
+              from common data management infrastructure enables us to optimize
+              the GATK framework for correctness, stability, and CPU and memory
+              efficiency and to enable distributed and shared memory
+              parallelization. We highlight the capabilities of the GATK by
+              describing the implementation and application of robust,
+              scale-tolerant tools like coverage calculators and single
+              nucleotide polymorphism (SNP) calling. We conclude that the GATK
+              programming framework enables developers and analysts to quickly
+              and easily write efficient and robust NGS tools, many of which
+              have already been incorporated into large-scale sequencing
+              projects like the 1000 Genomes Project and The Cancer Genome
+              Atlas.",
+  journal  = "Genome Res.",
+  volume   =  20,
+  number   =  9,
+  pages    = "1297--1303",
+  month    =  sep,
+  year     =  2010,
+  language = "en"
+}
+
+
+
+@ARTICLE{Poplin2018-ub,
+  title    = "A universal {SNP} and small-indel variant caller using deep
+              neural networks",
+  author   = "Poplin, Ryan and Chang, Pi-Chuan and Alexander, David and
+              Schwartz, Scott and Colthurst, Thomas and Ku, Alexander and
+              Newburger, Dan and Dijamco, Jojo and Nguyen, Nam and Afshar,
+              Pegah T and Gross, Sam S and Dorfman, Lizzie and McLean, Cory Y
+              and DePristo, Mark A",
+  abstract = "Despite rapid advances in sequencing technologies, accurately
+              calling genetic variants present in an individual genome from
+              billions of short, errorful sequence reads remains challenging.
+              Here we show that a deep convolutional neural network can call
+              genetic variation in aligned next-generation sequencing read data
+              by learning statistical relationships between images of read
+              pileups around putative variant and true genotype calls. The
+              approach, called DeepVariant, outperforms existing
+              state-of-the-art tools. The learned model generalizes across
+              genome builds and mammalian species, allowing nonhuman sequencing
+              projects to benefit from the wealth of human ground-truth data.
+              We further show that DeepVariant can learn to call variants in a
+              variety of sequencing technologies and experimental designs,
+              including deep whole genomes from 10X Genomics and Ion Ampliseq
+              exomes, highlighting the benefits of using more automated and
+              generalizable techniques for variant calling.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  36,
+  number   =  10,
+  pages    = "983--987",
+  month    =  nov,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Li2014-ra,
+  title    = "Toward better understanding of artifacts in variant calling from high-coverage samples",
+  author   = "Li, Heng",
+  abstract = "MOTIVATION: Whole-genome high-coverage sequencing has been widely
+              used for personal and cancer genomics as well as in various
+              research areas. However, in the lack of an unbiased whole-genome
+              truth set, the global error rate of variant calls and the leading
+              causal artifacts still remain unclear even given the great
+              efforts in the evaluation of variant calling methods. RESULTS: We
+              made 10 single nucleotide polymorphism and INDEL call sets with
+              two read mappers and five variant callers, both on a haploid
+              human genome and a diploid genome at a similar coverage. By
+              investigating false heterozygous calls in the haploid genome, we
+              identified the erroneous realignment in low-complexity regions
+              and the incomplete reference genome with respect to the sample as
+              the two major sources of errors, which press for continued
+              improvements in these two areas. We estimated that the error rate
+              of raw genotype calls is as high as 1 in 10-15 kb, but the error
+              rate of post-filtered calls is reduced to 1 in 100-200 kb without
+              significant compromise on the sensitivity. AVAILABILITY AND
+              IMPLEMENTATION: BWA-MEM alignment and raw variant calls are
+              available at http://bit.ly/1g8XqRt scripts and miscellaneous data
+              at https://github.com/lh3/varcmp. CONTACT:
+              hengli@broadinstitute.org SUPPLEMENTARY INFORMATION:
+              Supplementary data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  30,
+  number   =  20,
+  pages    = "2843--2851",
+  month    =  oct,
+  year     =  2014,
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{Li2018-am,
+  title    = "Minimap2: pairwise alignment for nucleotide sequences",
+  author   = "Li, Heng",
+  abstract = "MOTIVATION: Recent advances in sequencing technologies promise
+              ultra-long reads of ∼100 kb in average, full-length mRNA or cDNA
+              reads in high throughput and genomic contigs over 100 Mb in
+              length. Existing alignment programs are unable or inefficient to
+              process such data at scale, which presses for the development of
+              new alignment algorithms. RESULTS: Minimap2 is a general-purpose
+              alignment program to map DNA or long mRNA sequences against a
+              large reference database. It works with accurate short reads of
+              $\geq$100 bp in length, $\geq$1 kb genomic reads at error rate
+              ∼15\%, full-length noisy Direct RNA or cDNA reads and assembly
+              contigs or closely related full chromosomes of hundreds of
+              megabases in length. Minimap2 does split-read alignment, employs
+              concave gap cost for long insertions and deletions and introduces
+              new heuristics to reduce spurious alignments. It is 3-4 times as
+              fast as mainstream short-read mappers at comparable accuracy, and
+              is $\geq$30 times faster than long-read genomic or cDNA mappers
+              at higher accuracy, surpassing most aligners specialized in one
+              type of alignment. AVAILABILITY AND IMPLEMENTATION:
+              https://github.com/lh3/minimap2. SUPPLEMENTARY INFORMATION:
+              Supplementary data are available at Bioinformatics online.",
+  journal  = "Bioinformatics",
+  volume   =  34,
+  number   =  18,
+  pages    = "3094--3100",
+  month    =  sep,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+@ARTICLE{Li2011-zj,
+  title    = "Tabix: fast retrieval of sequence features from generic
+              {TAB-delimited} files",
+  author   = "Li, Heng",
+  abstract = "UNLABELLED: Tabix is the first generic tool that indexes position
+              sorted files in TAB-delimited formats such as GFF, BED, PSL, SAM
+              and SQL export, and quickly retrieves features overlapping
+              specified regions. Tabix features include few seek function calls
+              per query, data compression with gzip compatibility and direct
+              FTP/HTTP access. Tabix is implemented as a free command-line tool
+              as well as a library in C, Java, Perl and Python. It is
+              particularly useful for manually examining local genomic features
+              on the command line and enables genome viewers to support huge
+              data files and remote custom tracks over networks. AVAILABILITY
+              AND IMPLEMENTATION: http://samtools.sourceforge.net.",
+  journal  = "Bioinformatics",
+  volume   =  27,
+  number   =  5,
+  pages    = "718--719",
+  month    =  mar,
+  year     =  2011,
+  language = "en"
+}
+
+@ARTICLE{Li2011-ag,
+  title    = "A statistical framework for {SNP} calling, mutation discovery,
+              association mapping and population genetical parameter estimation
+              from sequencing data",
+  author   = "Li, Heng",
+  abstract = "MOTIVATION: Most existing methods for DNA sequence analysis rely
+              on accurate sequences or genotypes. However, in applications of
+              the next-generation sequencing (NGS), accurate genotypes may not
+              be easily obtained (e.g. multi-sample low-coverage sequencing or
+              somatic mutation discovery). These applications press for the
+              development of new methods for analyzing sequence data with
+              uncertainty. RESULTS: We present a statistical framework for
+              calling SNPs, discovering somatic mutations, inferring population
+              genetical parameters and performing association tests directly
+              based on sequencing data without explicit genotyping or
+              linkage-based imputation. On real data, we demonstrate that our
+              method achieves comparable accuracy to alternative methods for
+              estimating site allele count, for inferring allele frequency
+              spectrum and for association mapping. We also highlight the
+              necessity of using symmetric datasets for finding somatic
+              mutations and confirm that for discovering rare events,
+              mismapping is frequently the leading source of errors.
+              AVAILABILITY: http://samtools.sourceforge.net. CONTACT:
+              hengli@broadinstitute.org.",
+  journal  = "Bioinformatics",
+  volume   =  27,
+  number   =  21,
+  pages    = "2987--2993",
+  month    =  nov,
+  year     =  2011,
+  language = "en"
+}
+
+@ARTICLE{Li2009-qp,
+  title    = "The Sequence {Alignment/Map} format and {SAMtools}",
+  author   = "Li, Heng and Handsaker, Bob and Wysoker, Alec and Fennell, Tim
+              and Ruan, Jue and Homer, Nils and Marth, Gabor and Abecasis,
+              Goncalo and Durbin, Richard and {1000 Genome Project Data
+              Processing Subgroup}",
+  abstract = "SUMMARY: The Sequence Alignment/Map (SAM) format is a generic
+              alignment format for storing read alignments against reference
+              sequences, supporting short and long reads (up to 128 Mbp)
+              produced by different sequencing platforms. It is flexible in
+              style, compact in size, efficient in random access and is the
+              format in which alignments from the 1000 Genomes Project are
+              released. SAMtools implements various utilities for
+              post-processing alignments in the SAM format, such as indexing,
+              variant caller and alignment viewer, and thus provides universal
+              tools for processing read alignments. AVAILABILITY:
+              http://samtools.sourceforge.net.",
+  journal  = "Bioinformatics",
+  volume   =  25,
+  number   =  16,
+  pages    = "2078--2079",
+  month    =  aug,
+  year     =  2009,
+  language = "en"
+}
+
+
+@ARTICLE{Petljak2019-wi,
+  title    = "Characterizing Mutational Signatures in Human Cancer Cell Lines
+              Reveals Episodic {APOBEC} Mutagenesis",
+  author   = "Petljak, Mia and Alexandrov, Ludmil B and Brammeld, Jonathan S
+              and Price, Stacey and Wedge, David C and Grossmann, Sebastian and
+              Dawson, Kevin J and Ju, Young Seok and Iorio, Francesco and
+              Tubio, Jose M C and Koh, Ching Chiek and Georgakopoulos-Soares,
+              Ilias and Rodr{\'\i}guez-Mart{\'\i}n, Bernardo and Otlu, Bur{\c
+              c}ak and O'Meara, Sarah and Butler, Adam P and Menzies, Andrew
+              and Bhosle, Shriram G and Raine, Keiran and Jones, David R and
+              Teague, Jon W and Beal, Kathryn and Latimer, Calli and O'Neill,
+              Laura and Zamora, Jorge and Anderson, Elizabeth and Patel, Nikita
+              and Maddison, Mark and Ng, Bee Ling and Graham, Jennifer and
+              Garnett, Mathew J and McDermott, Ultan and Nik-Zainal, Serena and
+              Campbell, Peter J and Stratton, Michael R",
+  abstract = "Multiple signatures of somatic mutations have been identified in
+              cancer genomes. Exome sequences of 1,001 human cancer cell lines
+              and 577 xenografts revealed most common mutational signatures,
+              indicating past activity of the underlying processes, usually in
+              appropriate cancer types. To investigate ongoing patterns of
+              mutational-signature generation, cell lines were cultured for
+              extended periods and subsequently DNA sequenced. Signatures of
+              discontinued exposures, including tobacco smoke and ultraviolet
+              light, were not generated in vitro. Signatures of normal and
+              defective DNA repair and replication continued to be generated at
+              roughly stable mutation rates. Signatures of APOBEC cytidine
+              deaminase DNA-editing exhibited substantial fluctuations in
+              mutation rate over time with episodic bursts of mutations. The
+              initiating factors for the bursts are unclear, although
+              retrotransposon mobilization may contribute. The examined cell
+              lines constitute a resource of live experimental models of
+              mutational processes, which potentially retain patterns of
+              activity and regulation operative in primary human cancers.",
+  journal  = "Cell",
+  volume   =  176,
+  number   =  6,
+  pages    = "1282--1294.e20",
+  month    =  mar,
+  year     =  2019,
+  keywords = "APOBEC deaminases; cancer cell lines; episodic mutagenesis;
+              mutational signatures; xenografts",
+  language = "en"
+}
+
+
+@ARTICLE{Mitchell2022-ry,
+  title    = "Clonal dynamics of haematopoiesis across the human lifespan",
+  author   = "Mitchell, Emily and Spencer Chapman, Michael and Williams,
+              Nicholas and Dawson, Kevin J and Mende, Nicole and Calderbank,
+              Emily F and Jung, Hyunchul and Mitchell, Thomas and Coorens, Tim
+              H H and Spencer, David H and Machado, Heather and Lee-Six, Henry
+              and Davies, Megan and Hayler, Daniel and Fabre, Margarete A and
+              Mahbubani, Krishnaa and Abascal, Federico and Cagan, Alex and
+              Vassiliou, George S and Baxter, Joanna and Martincorena, Inigo
+              and Stratton, Michael R and Kent, David G and Chatterjee, Krishna
+              and Parsy, Kourosh Saeb and Green, Anthony R and Nangalia, Jyoti
+              and Laurenti, Elisa and Campbell, Peter J",
+  abstract = "Age-related change in human haematopoiesis causes reduced
+              regenerative capacity1, cytopenias2, immune dysfunction3 and
+              increased risk of blood cancer4-6, but the reason for such abrupt
+              functional decline after 70 years of age remains unclear. Here we
+              sequenced 3,579 genomes from single cell-derived colonies of
+              haematopoietic cells across 10 human subjects from 0 to 81 years
+              of age. Haematopoietic stem cells or multipotent progenitors
+              (HSC/MPPs) accumulated a mean of 17 mutations per year after
+              birth and lost 30 base pairs per year of telomere length.
+              Haematopoiesis in adults less than 65 years of age was massively
+              polyclonal, with high clonal diversity and a stable population of
+              20,000-200,000 HSC/MPPs contributing evenly to blood production.
+              By contrast, haematopoiesis in individuals aged over 75 showed
+              profoundly decreased clonal diversity. In each of the older
+              subjects, 30-60\% of haematopoiesis was accounted for by 12-18
+              independent clones, each contributing 1-34\% of blood production.
+              Most clones had begun their expansion before the subject was 40
+              years old, but only 22\% had known driver mutations. Genome-wide
+              selection analysis estimated that between 1 in 34 and 1 in 12
+              non-synonymous mutations were drivers, accruing at constant rates
+              throughout life, affecting more genes than identified in blood
+              cancers. Loss of the Y chromosome conferred selective benefits in
+              males. Simulations of haematopoiesis, with constant stem cell
+              population size and constant acquisition of driver mutations
+              conferring moderate fitness benefits, entirely explained the
+              abrupt change in clonal structure in the elderly. Rapidly
+              decreasing clonal diversity is a universal feature of
+              haematopoiesis in aged humans, underpinned by pervasive positive
+              selection acting on many more genes than currently identified.",
+  journal  = "Nature",
+  volume   =  606,
+  number   =  7913,
+  pages    = "343--350",
+  month    =  jun,
+  year     =  2022,
+  language = "en"
+}
+
+
+
+@ARTICLE{Aitken2020-sa,
+  title    = "Pervasive lesion segregation shapes cancer genome evolution",
+  author   = "Aitken, Sarah J and Anderson, Craig J and Connor, Frances and
+              Pich, Oriol and Sundaram, Vasavi and Feig, Christine and Rayner,
+              Tim F and Lukk, Margus and Aitken, Stuart and Luft, Juliet and
+              Kentepozidou, Elissavet and Arnedo-Pac, Claudia and Beentjes,
+              Sjoerd V and Davies, Susan E and Drews, Ruben M and Ewing, Ailith
+              and Kaiser, Vera B and Khamseh, Ava and L{\'o}pez-Arribillaga,
+              Erika and Redmond, Aisling M and Santoyo-Lopez, Javier and
+              Sent{\'\i}s, In{\'e}s and Talmane, Lana and Yates, Andrew D and
+              {Liver Cancer Evolution Consortium} and Semple, Colin A and
+              L{\'o}pez-Bigas, N{\'u}ria and Flicek, Paul and Odom, Duncan T
+              and Taylor, Martin S",
+  abstract = "Cancers arise through the acquisition of oncogenic mutations and
+              grow by clonal expansion1,2. Here we reveal that most mutagenic
+              DNA lesions are not resolved into a mutated DNA base pair within
+              a single cell cycle. Instead, DNA lesions segregate, unrepaired,
+              into daughter cells for multiple cell generations, resulting in
+              the chromosome-scale phasing of subsequent mutations. We
+              characterize this process in mutagen-induced mouse liver tumours
+              and show that DNA replication across persisting lesions can
+              produce multiple alternative alleles in successive cell
+              divisions, thereby generating both multiallelic and combinatorial
+              genetic diversity. The phasing of lesions enables accurate
+              measurement of strand-biased repair processes, quantification of
+              oncogenic selection and fine mapping of sister-chromatid-exchange
+              events. Finally, we demonstrate that lesion segregation is a
+              unifying property of exogenous mutagens, including UV light and
+              chemotherapy agents in human cells and tumours, which has
+              profound implications for the evolution and adaptation of cancer
+              genomes.",
+  journal  = "Nature",
+  volume   =  583,
+  number   =  7815,
+  pages    = "265--270",
+  month    =  jul,
+  year     =  2020,
+  language = "en"
+}
+
+@ARTICLE{Pich2019-ja,
+  title    = "The mutational footprints of cancer therapies",
+  author   = "Pich, Oriol and Mui{\~n}os, Ferran and Lolkema, Martijn Paul and
+              Steeghs, Neeltje and Gonzalez-Perez, Abel and Lopez-Bigas, Nuria",
+  abstract = "Some cancer therapies damage DNA and cause mutations in both
+              cancerous and healthy cells. Therapy-induced mutations may
+              underlie some of the long-term and late side effects of
+              treatments, such as mental disabilities, organ toxicity and
+              secondary neoplasms. Nevertheless, the burden of mutation
+              contributed by different chemotherapies has not been explored.
+              Here we identify the mutational signatures or footprints of six
+              widely used anticancer therapies across more than 3,500
+              metastatic tumors originating from different organs. These
+              include previously known and new mutational signatures generated
+              by platinum-based drugs as well as a previously unknown signature
+              of nucleoside metabolic inhibitors. Exploiting these mutational
+              footprints, we estimate the contribution of different treatments
+              to the mutation burden of tumors and their risk of contributing
+              coding and potential driver mutations in the genome. The
+              mutational footprints identified here allow for precise
+              assessment of the mutational risk of different cancer therapies
+              to understand their long-term side effects.",
+  journal  = "Nat. Genet.",
+  volume   =  51,
+  number   =  12,
+  pages    = "1732--1740",
+  month    =  dec,
+  year     =  2019,
+  language = "en"
+}
+
+
+@ARTICLE{Degasperi2022-qe,
+  title    = "Substitution mutational signatures in whole-genome-sequenced
+              cancers in the {UK} population",
+  author   = "Degasperi, Andrea and Zou, Xueqing and Amarante, Tauanne Dias and
+              Martinez-Martinez, Andrea and Koh, Gene Ching Chiek and Dias,
+              Jo{\~a}o M L and Heskin, Laura and Chmelova, Lucia and Rinaldi,
+              Giuseppe and Wang, Valerie Ya Wen and Nanda, Arjun S and
+              Bernstein, Aaron and Momen, Sophie E and Young, Jamie and
+              Perez-Gil, Daniel and Memari, Yasin and Badja, Cherif and
+              Shooter, Scott and Czarnecki, Jan and Brown, Matthew A and
+              Davies, Helen R and {Genomics England Research Consortium} and
+              Nik-Zainal, Serena",
+  abstract = "Whole-genome sequencing (WGS) permits comprehensive cancer genome
+              analyses, revealing mutational signatures, imprints of DNA damage
+              and repair processes that have arisen in each patient's cancer.
+              We performed mutational signature analyses on 12,222 WGS
+              tumor-normal matched pairs, from patients recruited via the UK
+              National Health Service. We contrasted our results to two
+              independent cancer WGS datasets, the International Cancer Genome
+              Consortium (ICGC) and Hartwig Foundation, involving 18,640 WGS
+              cancers in total. Our analyses add 40 single and 18 double
+              substitution signatures to the current mutational signature
+              tally. Critically, we show for each organ, that cancers have a
+              limited number of 'common' signatures and a long tail of 'rare'
+              signatures. We provide a practical solution for utilizing this
+              concept of common versus rare signatures in future analyses.",
+  journal  = "Science",
+  volume   =  376,
+  number   =  6591,
+  month    =  apr,
+  year     =  2022,
+  language = "en"
+}
+
+
+@ARTICLE{Alexandrov2020-ys,
+  title    = "The repertoire of mutational signatures in human cancer",
+  author   = "Alexandrov, Ludmil B and Kim, Jaegil and Haradhvala, Nicholas J
+              and Huang, Mi Ni and Tian Ng, Alvin Wei and Wu, Yang and Boot,
+              Arnoud and Covington, Kyle R and Gordenin, Dmitry A and
+              Bergstrom, Erik N and Islam, S M Ashiqul and Lopez-Bigas, Nuria
+              and Klimczak, Leszek J and McPherson, John R and Morganella,
+              Sandro and Sabarinathan, Radhakrishnan and Wheeler, David A and
+              Mustonen, Ville and {PCAWG Mutational Signatures Working Group}
+              and Getz, Gad and Rozen, Steven G and Stratton, Michael R and
+              {PCAWG Consortium}",
+  abstract = "Somatic mutations in cancer genomes are caused by multiple
+              mutational processes, each of which generates a characteristic
+              mutational signature1. Here, as part of the Pan-Cancer Analysis
+              of Whole Genomes (PCAWG) Consortium2 of the International Cancer
+              Genome Consortium (ICGC) and The Cancer Genome Atlas (TCGA), we
+              characterized mutational signatures using 84,729,690 somatic
+              mutations from 4,645 whole-genome and 19,184 exome sequences that
+              encompass most types of cancer. We identified 49
+              single-base-substitution, 11 doublet-base-substitution, 4
+              clustered-base-substitution and 17 small insertion-and-deletion
+              signatures. The substantial size of our dataset, compared with
+              previous analyses3-15, enabled the discovery of new signatures,
+              the separation of overlapping signatures and the decomposition of
+              signatures into components that may represent associated-but
+              distinct-DNA damage, repair and/or replication mechanisms. By
+              estimating the contribution of each signature to the mutational
+              catalogues of individual cancer genomes, we revealed associations
+              of signatures to exogenous or endogenous exposures, as well as to
+              defective DNA-maintenance processes. However, many signatures are
+              of unknown cause. This analysis provides a systematic perspective
+              on the repertoire of mutational processes that contribute to the
+              development of human cancer.",
+  journal  = "Nature",
+  volume   =  578,
+  number   =  7793,
+  pages    = "94--101",
+  month    =  feb,
+  year     =  2020,
+  language = "en"
+}
+
+
+
+@ARTICLE{Alexandrov2013-fq,
+  title    = "Deciphering signatures of mutational processes operative in human
+              cancer",
+  author   = "Alexandrov, Ludmil B and Nik-Zainal, Serena and Wedge, David C
+              and Campbell, Peter J and Stratton, Michael R",
+  abstract = "The genome of a cancer cell carries somatic mutations that are
+              the cumulative consequences of the DNA damage and repair
+              processes operative during the cellular lineage between the
+              fertilized egg and the cancer cell. Remarkably, these mutational
+              processes are poorly characterized. Global sequencing initiatives
+              are yielding catalogs of somatic mutations from thousands of
+              cancers, thus providing the unique opportunity to decipher the
+              signatures of mutational processes operative in human cancer.
+              However, until now there have been no theoretical models
+              describing the signatures of mutational processes operative in
+              cancer genomes and no systematic computational approaches are
+              available to decipher these mutational signatures. Here, by
+              modeling mutational processes as a blind source separation
+              problem, we introduce a computational framework that effectively
+              addresses these questions. Our approach provides a basis for
+              characterizing mutational signatures from cancer-derived somatic
+              mutational catalogs, paving the way to insights into the
+              pathogenetic mechanism underlying all cancers.",
+  journal  = "Cell Rep.",
+  volume   =  3,
+  number   =  1,
+  pages    = "246--259",
+  month    =  jan,
+  year     =  2013,
+  language = "en"
+}
+
+
+
+@ARTICLE{ICGCTCGA_Pan-Cancer_Analysis_of_Whole_Genomes_Consortium2020-ts,
+  title    = "Pan-cancer analysis of whole genomes",
+  author   = "{ICGC/TCGA Pan-Cancer Analysis of Whole Genomes Consortium}",
+  abstract = "Cancer is driven by genetic change, and the advent of massively
+              parallel sequencing has enabled systematic documentation of this
+              variation at the whole-genome scale1-3. Here we report the
+              integrative analysis of 2,658 whole-cancer genomes and their
+              matching normal tissues across 38 tumour types from the
+              Pan-Cancer Analysis of Whole Genomes (PCAWG) Consortium of the
+              International Cancer Genome Consortium (ICGC) and The Cancer
+              Genome Atlas (TCGA). We describe the generation of the PCAWG
+              resource, facilitated by international data sharing using compute
+              clouds. On average, cancer genomes contained 4-5 driver mutations
+              when combining coding and non-coding genomic elements; however,
+              in around 5\% of cases no drivers were identified, suggesting
+              that cancer driver discovery is not yet complete. Chromothripsis,
+              in which many clustered structural variants arise in a single
+              catastrophic event, is frequently an early event in tumour
+              evolution; in acral melanoma, for example, these events precede
+              most somatic point mutations and affect several cancer-associated
+              genes simultaneously. Cancers with abnormal telomere maintenance
+              often originate from tissues with low replicative activity and
+              show several mechanisms of preventing telomere attrition to
+              critical levels. Common and rare germline variants affect
+              patterns of somatic mutation, including point mutations,
+              structural variants and somatic retrotransposition. A collection
+              of papers from the PCAWG Consortium describes non-coding
+              mutations that drive cancer beyond those in the TERT promoter4;
+              identifies new signatures of mutational processes that cause base
+              substitutions, small insertions and deletions and structural
+              variation5,6; analyses timings and patterns of tumour evolution7;
+              describes the diverse transcriptional consequences of somatic
+              mutation on splicing, expression levels, fusion genes and
+              promoter activity8,9; and evaluates a range of more-specialized
+              features of cancer genomes8,10-18.",
+  journal  = "Nature",
+  volume   =  578,
+  number   =  7793,
+  pages    = "82--93",
+  month    =  feb,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{Wenger2019-pw,
+  title    = "Accurate circular consensus long-read sequencing improves variant
+              detection and assembly of a human genome",
+  author   = "Wenger, Aaron M and Peluso, Paul and Rowell, William J and Chang,
+              Pi-Chuan and Hall, Richard J and Concepcion, Gregory T and Ebler,
+              Jana and Fungtammasan, Arkarachai and Kolesnikov, Alexey and
+              Olson, Nathan D and T{\"o}pfer, Armin and Alonge, Michael and
+              Mahmoud, Medhat and Qian, Yufeng and Chin, Chen-Shan and
+              Phillippy, Adam M and Schatz, Michael C and Myers, Gene and
+              DePristo, Mark A and Ruan, Jue and Marschall, Tobias and
+              Sedlazeck, Fritz J and Zook, Justin M and Li, Heng and Koren,
+              Sergey and Carroll, Andrew and Rank, David R and Hunkapiller,
+              Michael W",
+  abstract = "The DNA sequencing technologies in use today produce either
+              highly accurate short reads or less-accurate long reads. We
+              report the optimization of circular consensus sequencing (CCS) to
+              improve the accuracy of single-molecule real-time (SMRT)
+              sequencing (PacBio) and generate highly accurate (99.8\%) long
+              high-fidelity (HiFi) reads with an average length of 13.5
+              kilobases (kb). We applied our approach to sequence the
+              well-characterized human HG002/NA24385 genome and obtained
+              precision and recall rates of at least 99.91\% for
+              single-nucleotide variants (SNVs), 95.98\% for insertions and
+              deletions 15 megabases (Mb) and concordance of 99.997\%,
+              substantially outperforming assembly with less-accurate long
+              reads.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  37,
+  number   =  10,
+  pages    = "1155--1162",
+  month    =  oct,
+  year     =  2019,
+  language = "en"
+}
+
+
+
+@ARTICLE{Chaisson2012-vr,
+  title = "Mapping single molecule sequencing reads using basic local alignment with successive refinement (BLASR): application and theory",
+  author = "Chaisson, Mark J and  Tesler, Glenn",
+  abstract = "We describe the method BLASR (Basic Local Alignment with Successive Refinement) for mapping Single Molecule Sequencing (SMS) reads that are thousands of bases long, with divergence between the read and genome
+dominated by insertion and deletion error. The method is benchmarked using both simulated reads and reads from a bacterial sequencing project. We also present a combinatorial model of sequencing error that motivates why our approach is effective.", 
+  journal  = "BMC Bioinformatics",
+  volume   =  13,
+  number   =  238,
+  month    =  sep,
+  year     =  2012,
+  language = "en"
+}
+
+
+@ARTICLE{Hoang2016-jx,
+  title    = "Genome-wide quantification of rare somatic mutations in normal
+              human tissues using massively parallel sequencing",
+  author   = "Hoang, Margaret L and Kinde, Isaac and Tomasetti, Cristian and
+              McMahon, K Wyatt and Rosenquist, Thomas A and Grollman, Arthur P
+              and Kinzler, Kenneth W and Vogelstein, Bert and Papadopoulos,
+              Nickolas",
+  abstract = "We present the bottleneck sequencing system (BotSeqS), a
+              next-generation sequencing method that simultaneously quantifies
+              rare somatic point mutations across the mitochondrial and nuclear
+              genomes. BotSeqS combines molecular barcoding with a simple
+              dilution step immediately before library amplification. We use
+              BotSeqS to show age- and tissue-dependent accumulations of rare
+              mutations and demonstrate that somatic mutational burden in
+              normal human tissues can vary by several orders of magnitude,
+              depending on biologic and environmental factors. We further show
+              major differences between the mutational patterns of the
+              mitochondrial and nuclear genomes in normal tissues. Lastly, the
+              mutation spectra of normal tissues were different from each
+              other, but similar to those of the cancers that arose in them.
+              This technology can provide insights into the number and nature
+              of genetic alterations in normal tissues and can be used to
+              address a variety of fundamental questions about the genomes of
+              diseased tissues.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  113,
+  number   =  35,
+  pages    = "9846--9851",
+  month    =  aug,
+  year     =  2016,
+  keywords = "aging; genomics; next-generation sequencing; somatic mutation",
+  language = "en"
+}
+
+
+
+@ARTICLE{Schmitt2012-yr,
+  title    = "Detection of ultra-rare mutations by next-generation sequencing",
+  author   = "Schmitt, Michael W and Kennedy, Scott R and Salk, Jesse J and
+              Fox, Edward J and Hiatt, Joseph B and Loeb, Lawrence A",
+  abstract = "Next-generation DNA sequencing promises to revolutionize clinical
+              medicine and basic research. However, while this technology has
+              the capacity to generate hundreds of billions of nucleotides of
+              DNA sequence in a single experiment, the error rate of ~1\%
+              results in hundreds of millions of sequencing mistakes. These
+              scattered errors can be tolerated in some applications but become
+              extremely problematic when ``deep sequencing'' genetically
+              heterogeneous mixtures, such as tumors or mixed microbial
+              populations. To overcome limitations in sequencing accuracy, we
+              have developed a method termed Duplex Sequencing. This approach
+              greatly reduces errors by independently tagging and sequencing
+              each of the two strands of a DNA duplex. As the two strands are
+              complementary, true mutations are found at the same position in
+              both strands. In contrast, PCR or sequencing errors result in
+              mutations in only one strand and can thus be discounted as
+              technical error. We determine that Duplex Sequencing has a
+              theoretical background error rate of less than one artifactual
+              mutation per billion nucleotides sequenced. In addition, we
+              establish that detection of mutations present in only one of the
+              two strands of duplex DNA can be used to identify sites of DNA
+              damage. We apply the method to directly assess the frequency and
+              pattern of random mutations in mitochondrial DNA from human
+              cells.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  109,
+  number   =  36,
+  pages    = "14508--14513",
+  month    =  sep,
+  year     =  2012,
+  language = "en"
+}
+
+
+
+@ARTICLE{Osoegawa2001-np,
+  title    = "A bacterial artificial chromosome library for sequencing the
+              complete human genome",
+  author   = "Osoegawa, K and Mammoser, A G and Wu, C and Frengen, E and Zeng,
+              C and Catanese, J J and de Jong, P J",
+  abstract = "A 30-fold redundant human bacterial artificial chromosome (BAC)
+              library with a large average insert size (178 kb) has been
+              constructed to provide the intermediate substrate for the
+              international genome sequencing effort. The DNA was obtained from
+              a single anonymous volunteer, whose identity was protected
+              through a double-blind donor selection protocol. DNA fragments
+              were generated by partial digestion with EcoRI (library segments
+              1--4: 24-fold) and MboI (segment 5: sixfold) and cloned into the
+              pBACe3.6 and pTARBAC1 vectors, respectively. The quality of the
+              library was assessed by extensive analysis of 169 clones for
+              rearrangements and artifacts. Eighteen BACs (11\%) revealed minor
+              insert rearrangements, and none was chimeric. This BAC library,
+              designated as ``RPCI-11,'' has been used widely as the central
+              resource for insert-end sequencing, clone fingerprinting,
+              high-throughput sequence analysis and as a source of mapped
+              clones for diagnostic and functional studies.",
+  journal  = "Genome Res.",
+  volume   =  11,
+  number   =  3,
+  pages    = "483--496",
+  month    =  mar,
+  year     =  2001,
+  language = "en"
+}
+
+
+
+@ARTICLE{Lander2001-du,
+  title    = "Initial sequencing and analysis of the human genome",
+  author   = "Lander, E S and Linton, L M and Birren, B and Nusbaum, C and
+              Zody, M C and Baldwin, J and Devon, K and Dewar, K and Doyle, M
+              and FitzHugh, W and Funke, R and Gage, D and Harris, K and
+              Heaford, A and Howland, J and Kann, L and Lehoczky, J and LeVine,
+              R and McEwan, P and McKernan, K and Meldrim, J and Mesirov, J P
+              and Miranda, C and Morris, W and Naylor, J and Raymond, C and
+              Rosetti, M and Santos, R and Sheridan, A and Sougnez, C and
+              Stange-Thomann, Y and Stojanovic, N and Subramanian, A and Wyman,
+              D and Rogers, J and Sulston, J and Ainscough, R and Beck, S and
+              Bentley, D and Burton, J and Clee, C and Carter, N and Coulson, A
+              and Deadman, R and Deloukas, P and Dunham, A and Dunham, I and
+              Durbin, R and French, L and Grafham, D and Gregory, S and
+              Hubbard, T and Humphray, S and Hunt, A and Jones, M and Lloyd, C
+              and McMurray, A and Matthews, L and Mercer, S and Milne, S and
+              Mullikin, J C and Mungall, A and Plumb, R and Ross, M and
+              Shownkeen, R and Sims, S and Waterston, R H and Wilson, R K and
+              Hillier, L W and McPherson, J D and Marra, M A and Mardis, E R
+              and Fulton, L A and Chinwalla, A T and Pepin, K H and Gish, W R
+              and Chissoe, S L and Wendl, M C and Delehaunty, K D and Miner, T
+              L and Delehaunty, A and Kramer, J B and Cook, L L and Fulton, R S
+              and Johnson, D L and Minx, P J and Clifton, S W and Hawkins, T
+              and Branscomb, E and Predki, P and Richardson, P and Wenning, S
+              and Slezak, T and Doggett, N and Cheng, J F and Olsen, A and
+              Lucas, S and Elkin, C and Uberbacher, E and Frazier, M and Gibbs,
+              R A and Muzny, D M and Scherer, S E and Bouck, J B and Sodergren,
+              E J and Worley, K C and Rives, C M and Gorrell, J H and Metzker,
+              M L and Naylor, S L and Kucherlapati, R S and Nelson, D L and
+              Weinstock, G M and Sakaki, Y and Fujiyama, A and Hattori, M and
+              Yada, T and Toyoda, A and Itoh, T and Kawagoe, C and Watanabe, H
+              and Totoki, Y and Taylor, T and Weissenbach, J and Heilig, R and
+              Saurin, W and Artiguenave, F and Brottier, P and Bruls, T and
+              Pelletier, E and Robert, C and Wincker, P and Smith, D R and
+              Doucette-Stamm, L and Rubenfield, M and Weinstock, K and Lee, H M
+              and Dubois, J and Rosenthal, A and Platzer, M and Nyakatura, G
+              and Taudien, S and Rump, A and Yang, H and Yu, J and Wang, J and
+              Huang, G and Gu, J and Hood, L and Rowen, L and Madan, A and Qin,
+              S and Davis, R W and Federspiel, N A and Abola, A P and Proctor,
+              M J and Myers, R M and Schmutz, J and Dickson, M and Grimwood, J
+              and Cox, D R and Olson, M V and Kaul, R and Raymond, C and
+              Shimizu, N and Kawasaki, K and Minoshima, S and Evans, G A and
+              Athanasiou, M and Schultz, R and Roe, B A and Chen, F and Pan, H
+              and Ramser, J and Lehrach, H and Reinhardt, R and McCombie, W R
+              and de la Bastide, M and Dedhia, N and Bl{\"o}cker, H and
+              Hornischer, K and Nordsiek, G and Agarwala, R and Aravind, L and
+              Bailey, J A and Bateman, A and Batzoglou, S and Birney, E and
+              Bork, P and Brown, D G and Burge, C B and Cerutti, L and Chen, H
+              C and Church, D and Clamp, M and Copley, R R and Doerks, T and
+              Eddy, S R and Eichler, E E and Furey, T S and Galagan, J and
+              Gilbert, J G and Harmon, C and Hayashizaki, Y and Haussler, D and
+              Hermjakob, H and Hokamp, K and Jang, W and Johnson, L S and
+              Jones, T A and Kasif, S and Kaspryzk, A and Kennedy, S and Kent,
+              W J and Kitts, P and Koonin, E V and Korf, I and Kulp, D and
+              Lancet, D and Lowe, T M and McLysaght, A and Mikkelsen, T and
+              Moran, J V and Mulder, N and Pollara, V J and Ponting, C P and
+              Schuler, G and Schultz, J and Slater, G and Smit, A F and Stupka,
+              E and Szustakowki, J and Thierry-Mieg, D and Thierry-Mieg, J and
+              Wagner, L and Wallis, J and Wheeler, R and Williams, A and Wolf,
+              Y I and Wolfe, K H and Yang, S P and Yeh, R F and Collins, F and
+              Guyer, M S and Peterson, J and Felsenfeld, A and Wetterstrand, K
+              A and Patrinos, A and Morgan, M J and de Jong, P and Catanese, J
+              J and Osoegawa, K and Shizuya, H and Choi, S and Chen, Y J and
+              Szustakowki, J and {International Human Genome Sequencing
+              Consortium}",
+  abstract = "The human genome holds an extraordinary trove of information
+              about human development, physiology, medicine and evolution. Here
+              we report the results of an international collaboration to
+              produce and make freely available a draft sequence of the human
+              genome. We also present an initial analysis of the data,
+              describing some of the insights that can be gleaned from the
+              sequence.",
+  journal  = "Nature",
+  volume   =  409,
+  number   =  6822,
+  pages    = "860--921",
+  month    =  feb,
+  year     =  2001,
+  language = "en"
+}
+
+
+
+@ARTICLE{Aganezov2022-dv,
+  title    = "A complete reference genome improves analysis of human genetic
+              variation",
+  author   = "Aganezov, Sergey and Yan, Stephanie M and Soto, Daniela C and
+              Kirsche, Melanie and Zarate, Samantha and Avdeyev, Pavel and
+              Taylor, Dylan J and Shafin, Kishwar and Shumate, Alaina and Xiao,
+              Chunlin and Wagner, Justin and McDaniel, Jennifer and Olson,
+              Nathan D and Sauria, Michael E G and Vollger, Mitchell R and
+              Rhie, Arang and Meredith, Melissa and Martin, Skylar and Lee,
+              Joyce and Koren, Sergey and Rosenfeld, Jeffrey A and Paten,
+              Benedict and Layer, Ryan and Chin, Chen-Shan and Sedlazeck, Fritz
+              J and Hansen, Nancy F and Miller, Danny E and Phillippy, Adam M
+              and Miga, Karen H and McCoy, Rajiv C and Dennis, Megan Y and
+              Zook, Justin M and Schatz, Michael C",
+  abstract = "Compared to its predecessors, the Telomere-to-Telomere CHM13
+              genome adds nearly 200 million base pairs of sequence, corrects
+              thousands of structural errors, and unlocks the most complex
+              regions of the human genome for clinical and functional study. We
+              show how this reference universally improves read mapping and
+              variant calling for 3202 and 17 globally diverse samples
+              sequenced with short and long reads, respectively. We identify
+              hundreds of thousands of variants per sample in previously
+              unresolved regions, showcasing the promise of the T2T-CHM13
+              reference for evolutionary and biomedical discovery.
+              Simultaneously, this reference eliminates tens of thousands of
+              spurious variants per sample, including reduction of false
+              positives in 269 medically relevant genes by up to a factor of
+              12. Because of these improvements in variant discovery coupled
+              with population and functional genomic resources, T2T-CHM13 is
+              positioned to replace GRCh38 as the prevailing reference for
+              human genetics.",
+  journal  = "Science",
+  volume   =  376,
+  number   =  6588,
+  pages    = "eabl3533",
+  month    =  apr,
+  year     =  2022,
+  language = "en"
+}
+
+
+
+@ARTICLE{Nurk2022-dv,
+  title = "The complete sequence of a human genome",
+  author = "Nurk, Sergey and Koren, Sergey and Rhie, Arang and Rautiainen, Mikko and Bzikadze, Andrey V., Mikheenko, Alla and Vollger, Mitchell R. and Altemose, Nicolas and Uralsky, Lev and Gershman, Ariel and Aganezov, Sergey and Hoyt, Savannah J. and Diekhans, Mark and Logsdon, Glennis A. and Alonge, Michael and Antonarakis, Stylianos E. and Borchers, Matthew and Bouffard, Gerard G. and Brooks, Shelise Y. and Caldas, Gina V. and Chen, Nae-Chyun and Cheng, Haoyu and Chin, Chen-Shan and Chow, William and Chow, William and Dishuck, Philip C. and Durbin, Richard and Dvorkina, Tatiana and Fiddes, Ian T. and Formenti, Giulio and Fulton, Robert S. and Fungtammasan, Arkarachai and Garrison, Erik and Garrison, Erik and Graves-Lindsay, Tina A. and Hall, Ira M. and Hansen, Nancy F. and Hartley, Gabrielle A. and Haukness, Marina and Howe, Kerstin and Hunkapiller, Michael W. and Jain, Chirag and Jain, Miten and Jarvis, Erich D. and Kerpedjiev, Peter and Kirsche, Melanie and Kolmogorov, Mikhail and Korlach, Jonas and Kremitzki, Milinn and Li, Heng and Maduro, Valerie V. and Marschall, Tobias and McCartney, Ann M. and McDaniel, Jennifer and Miller, Danny E. and Mullikin, James C. and Myers, Eugene W. and Olson, Nathan D. and Paten, Benedict and Peluso, Paul and Pevzner, Pavel A. and Porubsky, David and Potapova, Tamara and Rogaev, Evgeny I. and Rosenfeld, Jeffrey A. and Salzberg, Steven L. and Schneider, Valerie A. and Sedlazeck, Fritz J. and Shafin, Kishwar and Shew, Colin J. and Shumate, Alaina and Sims, Ying and Sims, Ying and Soto, Daniela C. and Sovic, Ivan and Storer, Jessica M. and Streets, Aaron and Sullivan, Beth A. and Thibaud-Nissen, Françoise and Torrance, James and Wagner, Justin and Walenz, Brian P. and Wenger, Aaron and Wenger, Aaron and Xiao, Chunlin and Yan, Stephanie M. and Young, Alice C. and Zarate, Samantha and Surti, Urvashi and McCoy, Rajiv C. and Dennis, Megan Y. and Alexandrov, Ivan A. and Gerton, Jennifer L. and O’Neill, Rachel J. and Timp, Winston and Zook, Justin M. and Schatz, Michael C. and Eichler, Evan E. and Miga, Karen H. and Phillippy, Adam M.",
+  abstract = "Since its initial release in 2000, the human reference genome has covered only the euchromatic fraction of the genome, leaving important heterochromatic regions unfinished. Addressing the remaining 8\% of the genome, the Telomere-to-Telomere (T2T) Consortium presents a complete 3.055 billion–base pair sequence of a human genome, T2T-CHM13, that includes gapless assemblies for all chromosomes except Y, corrects errors in the prior references, and introduces nearly 200 million base pairs of sequence containing 1956 gene predictions, 99 of which are predicted to be protein coding. The completed regions include all centromeric satellite arrays, recent segmental duplications, and the short arms of all five acrocentric chromosomes, unlocking these complex regions of the genome to variational and functional studies.",
+  journal  = "Science",
+  volume   =  376,
+  number   =  6588,
+  pages    = "44–53",
+  month    =  apr,
+  year     =  2022,
+  language = "en"
+}
+
+
+@ARTICLE{Schneider2017-yo,
+  title    = "Evaluation of GRCh38 and de novo haploid genome assemblies
+              demonstrates the enduring quality of the reference assembly",
+  author   = "Schneider, Valerie A and Graves-Lindsay, Tina and Howe, Kerstin
+              and Bouk, Nathan and Chen, Hsiu-Chuan and Kitts, Paul A and
+              Murphy, Terence D and Pruitt, Kim D and Thibaud-Nissen, Fran{\c
+              c}oise and Albracht, Derek and Fulton, Robert S and Kremitzki,
+              Milinn and Magrini, Vincent and Markovic, Chris and McGrath, Sean
+              and Steinberg, Karyn Meltz and Auger, Kate and Chow, William and
+              Collins, Joanna and Harden, Glenn and Hubbard, Timothy and Pelan,
+              Sarah and Simpson, Jared T and Threadgold, Glen and Torrance,
+              James and Wood, Jonathan M and Clarke, Laura and Koren, Sergey
+              and Boitano, Matthew and Peluso, Paul and Li, Heng and Chin,
+              Chen-Shan and Phillippy, Adam M and Durbin, Richard and Wilson,
+              Richard K and Flicek, Paul and Eichler, Evan E and Church, Deanna
+              M",
+  abstract = "The human reference genome assembly plays a central role in
+              nearly all aspects of today's basic and clinical research. GRCh38
+              is the first coordinate-changing assembly update since 2009; it
+              reflects the resolution of roughly 1000 issues and encompasses
+              modifications ranging from thousands of single base changes to
+              megabase-scale path reorganizations, gap closures, and
+              localization of previously orphaned sequences. We developed a new
+              approach to sequence generation for targeted base updates and
+              used data from new genome mapping technologies and single
+              haplotype resources to identify and resolve larger assembly
+              issues. For the first time, the reference assembly contains
+              sequence-based representations for the centromeres. We also
+              expanded the number of alternate loci to create a reference that
+              provides a more robust representation of human population
+              variation. We demonstrate that the updates render the reference
+              an improved annotation substrate, alter read alignments in
+              unchanged regions, and impact variant interpretation at
+              clinically relevant loci. We additionally evaluated a collection
+              of new de novo long-read haploid assemblies and conclude that
+              although the new assemblies compare favorably to the reference
+              with respect to continuity, error rate, and gene completeness,
+              the reference still provides the best representation for complex
+              genomic regions and coding sequences. We assert that the
+              collected updates in GRCh38 make the newer assembly a more robust
+              substrate for comprehensive analyses that will promote our
+              understanding of human biology and advance our efforts to improve
+              health.",
+  journal  = "Genome Res.",
+  volume   =  27,
+  number   =  5,
+  pages    = "849--864",
+  month    =  may,
+  year     =  2017,
+  language = "en"
+}
+
+
+@ARTICLE{1000_Genomes_Project_Consortium2012-rj,
+  title    = "An integrated map of genetic variation from 1,092 human genomes",
+  author   = "{1000 Genomes Project Consortium} and Abecasis, Goncalo R and
+              Auton, Adam and Brooks, Lisa D and DePristo, Mark A and Durbin,
+              Richard M and Handsaker, Robert E and Kang, Hyun Min and Marth,
+              Gabor T and McVean, Gil A",
+  abstract = "By characterizing the geographic and functional spectrum of human
+              genetic variation, the 1000 Genomes Project aims to build a
+              resource to help to understand the genetic contribution to
+              disease. Here we describe the genomes of 1,092 individuals from
+              14 populations, constructed using a combination of low-coverage
+              whole-genome and exome sequencing. By developing methods to
+              integrate information across several algorithms and diverse data
+              sources, we provide a validated haplotype map of 38 million
+              single nucleotide polymorphisms, 1.4 million short insertions and
+              deletions, and more than 14,000 larger deletions. We show that
+              individuals from different populations carry different profiles
+              of rare and common variants, and that low-frequency variants show
+              substantial geographic differentiation, which is further
+              increased by the action of purifying selection. We show that
+              evolutionary conservation and coding consequence are key
+              determinants of the strength of purifying selection, that
+              rare-variant load varies substantially across biological
+              pathways, and that each individual contains hundreds of rare
+              non-coding variants at conserved sites, such as motif-disrupting
+              changes in transcription-factor-binding sites. This resource,
+              which captures up to 98\% of accessible single nucleotide
+              polymorphisms at a frequency of 1\% in related populations,
+              enables analysis of common and low-frequency variants in
+              individuals from diverse, including admixed, populations.",
+  journal  = "Nature",
+  volume   =  491,
+  number   =  7422,
+  pages    = "56--65",
+  month    =  nov,
+  year     =  2012,
+  language = "en"
+}
+
+
+@ARTICLE{Abascal2021-pk,
+  title    = "Somatic mutation landscapes at single-molecule resolution",
+  author   = "Abascal, Federico and Harvey, Luke M R and Mitchell, Emily and
+              Lawson, Andrew R J and Lensing, Stefanie V and Ellis, Peter and
+              Russell, Andrew J C and Alcantara, Raul E and Baez-Ortega, Adrian
+              and Wang, Yichen and Kwa, Eugene Jing and Lee-Six, Henry and
+              Cagan, Alex and Coorens, Tim H H and Chapman, Michael Spencer and
+              Olafsson, Sigurgeir and Leonard, Steven and Jones, David and
+              Machado, Heather E and Davies, Megan and {\O}bro, Nina F and
+              Mahubani, Krishnaa T and Allinson, Kieren and Gerstung, Moritz
+              and Saeb-Parsy, Kourosh and Kent, David G and Laurenti, Elisa and
+              Stratton, Michael R and Rahbari, Raheleh and Campbell, Peter J
+              and Osborne, Robert J and Martincorena, I{\~n}igo",
+  abstract = "Somatic mutations drive the development of cancer and may
+              contribute to ageing and other diseases1,2. Despite their
+              importance, the difficulty of detecting mutations that are only
+              present in single cells or small clones has limited our knowledge
+              of somatic mutagenesis to a minority of tissues. Here, to
+              overcome these limitations, we developed nanorate sequencing
+              (NanoSeq), a duplex sequencing protocol with error rates of less
+              than five errors per billion base pairs in single DNA molecules
+              from cell populations. This rate is two orders of magnitude lower
+              than typical somatic mutation loads, enabling the study of
+              somatic mutations in any tissue independently of clonality. We
+              used this single-molecule sensitivity to study somatic mutations
+              in non-dividing cells across several tissues, comparing stem
+              cells to differentiated cells and studying mutagenesis in the
+              absence of cell division. Differentiated cells in blood and colon
+              displayed remarkably similar mutation loads and signatures to
+              their corresponding stem cells, despite mature blood cells having
+              undergone considerably more divisions. We then characterized the
+              mutational landscape of post-mitotic neurons and polyclonal
+              smooth muscle, confirming that neurons accumulate somatic
+              mutations at a constant rate throughout life without cell
+              division, with similar rates to mitotically active tissues.
+              Together, our results suggest that mutational processes that are
+              independent of cell division are important contributors to
+              somatic mutagenesis. We anticipate that the ability to reliably
+              detect mutations in single DNA molecules could transform our
+              understanding of somatic mutagenesis and enable non-invasive
+              studies on large-scale cohorts.",
+  journal  = "Nature",
+  volume   =  593,
+  number   =  7859,
+  pages    = "405--410",
+  month    =  may,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{Costello2013-cz,
+  title    = "Discovery and characterization of artifactual mutations in deep
+              coverage targeted capture sequencing data due to oxidative DNA
+              damage during sample preparation",
+  author   = "Costello, Maura and Pugh, Trevor J and Fennell, Timothy J and
+              Stewart, Chip and Lichtenstein, Lee and Meldrim, James C and
+              Fostel, Jennifer L and Friedrich, Dennis C and Perrin, Danielle
+              and Dionne, Danielle and Kim, Sharon and Gabriel, Stacey B and
+              Lander, Eric S and Fisher, Sheila and Getz, Gad",
+  abstract = "As researchers begin probing deep coverage sequencing data for
+              increasingly rare mutations and subclonal events, the fidelity of
+              next generation sequencing (NGS) laboratory methods will become
+              increasingly critical. Although error rates for sequencing and
+              polymerase chain reaction (PCR) are well documented, the effects
+              that DNA extraction and other library preparation steps could
+              have on downstream sequence integrity have not been thoroughly
+              evaluated. Here, we describe the discovery of novel C > A/G > T
+              transversion artifacts found at low allelic fractions in targeted
+              capture data. Characteristics such as sequencer read orientation
+              and presence in both tumor and normal samples strongly indicated
+              a non-biological mechanism. We identified the source as oxidation
+              of DNA during acoustic shearing in samples containing reactive
+              contaminants from the extraction process. We show generation of
+              8-oxoguanine (8-oxoG) lesions during DNA shearing, present
+              analysis tools to detect oxidation in sequencing data and suggest
+              methods to reduce DNA oxidation through the introduction of
+              antioxidants. Further, informatics methods are presented to
+              confidently filter these artifacts from sequencing data sets.
+              Though only seen in a low percentage of reads in affected
+              samples, such artifacts could have profoundly deleterious effects
+              on the ability to confidently call rare mutations, and
+              eliminating other possible sources of artifacts should become a
+              priority for the research community.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  41,
+  number   =  6,
+  pages    = "e67",
+  month    =  apr,
+  year     =  2013,
+  language = "en"
+}
+
+@ARTICLE{Chen2017-ba,
+  title    = "{DNA} damage is a pervasive cause of sequencing errors, directly
+              confounding variant identification",
+  author   = "Chen, Lixin and Liu, Pingfang and Evans, Jr, Thomas C and
+              Ettwiller, Laurence M",
+  abstract = "Mutations in somatic cells generate a heterogeneous genomic
+              population and may result in serious medical conditions. Although
+              cancer is typically associated with somatic variations, advances
+              in DNA sequencing indicate that cell-specific variants affect a
+              number of phenotypes and pathologies. Here, we show that
+              mutagenic damage accounts for the majority of the erroneous
+              identification of variants with low to moderate (1 to 5\%)
+              frequency. More important, we found signatures of damage in most
+              sequencing data sets in widely used resources, including the 1000
+              Genomes Project and The Cancer Genome Atlas, establishing damage
+              as a pervasive cause of sequencing errors. The extent of this
+              damage directly confounds the determination of somatic variants
+              in these data sets.",
+  journal  = "Science",
+  volume   =  355,
+  number   =  6326,
+  pages    = "752--756",
+  month    =  feb,
+  year     =  2017,
+  language = "en"
+}
+
+
+
+@ARTICLE{Bailey2020-ou,
+  title    = "Retrospective evaluation of whole exome and genome mutation calls
+              in 746 cancer samples",
+  author   = "Bailey, Matthew H and Meyerson, William U and Dursi, Lewis
+              Jonathan and Wang, Liang-Bo and Dong, Guanlan and Liang, Wen-Wei
+              and Weerasinghe, Amila and Li, Shantao and Li, Yize and Kelso,
+              Sean and {MC3 Working Group} and {PCAWG novel somatic mutation
+              calling methods working group} and Saksena, Gordon and Ellrott,
+              Kyle and Wendl, Michael C and Wheeler, David A and Getz, Gad and
+              Simpson, Jared T and Gerstein, Mark B and Ding, Li and {PCAWG
+              Consortium}",
+  abstract = "The Cancer Genome Atlas (TCGA) and International Cancer Genome
+              Consortium (ICGC) curated consensus somatic mutation calls using
+              whole exome sequencing (WES) and whole genome sequencing (WGS),
+              respectively. Here, as part of the ICGC/TCGA Pan-Cancer Analysis
+              of Whole Genomes (PCAWG) Consortium, which aggregated whole
+              genome sequencing data from 2,658 cancers across 38 tumour types,
+              we compare WES and WGS side-by-side from 746 TCGA samples,
+              finding that ~80\% of mutations overlap in covered exonic
+              regions. We estimate that low variant allele fraction (VAF <
+              15\%) and clonal heterogeneity contribute up to 68\% of private
+              WGS mutations and 71\% of private WES mutations. We observe that
+              ~30\% of private WGS mutations trace to mutations identified by a
+              single variant caller in WES consensus efforts. WGS captures both
+              ~50\% more variation in exonic regions and un-observed mutations
+              in loci with variable GC-content. Together, our analysis
+              highlights technological divergences between two reproducible
+              somatic variant detection efforts.",
+  journal  = "Nat. Commun.",
+  volume   =  11,
+  number   =  1,
+  pages    = "4748",
+  month    =  sep,
+  year     =  2020,
+  language = "en"
+}
+
+
+@ARTICLE{Martinez-Jimenez2020-kn,
+  title    = "A compendium of mutational cancer driver genes",
+  author   = "Mart{\'\i}nez-Jim{\'e}nez, Francisco and Mui{\~n}os, Ferran and
+              Sent{\'\i}s, In{\'e}s and Deu-Pons, Jordi and Reyes-Salazar, Iker
+              and Arnedo-Pac, Claudia and Mularoni, Loris and Pich, Oriol and
+              Bonet, Jose and Kranas, Hanna and Gonzalez-Perez, Abel and
+              Lopez-Bigas, Nuria",
+  abstract = "A fundamental goal in cancer research is to understand the
+              mechanisms of cell transformation. This is key to developing more
+              efficient cancer detection methods and therapeutic approaches.
+              One milestone towards this objective is the identification of all
+              the genes with mutations capable of driving tumours. Since the
+              1970s, the list of cancer genes has been growing steadily.
+              Because cancer driver genes are under positive selection in
+              tumorigenesis, their observed patterns of somatic mutations
+              across tumours in a cohort deviate from those expected from
+              neutral mutagenesis. These deviations, which constitute signals
+              of positive selection, may be detected by carefully designed
+              bioinformatics methods, which have become the state of the art in
+              the identification of driver genes. A systematic approach
+              combining several of these signals could lead to a compendium of
+              mutational cancer genes. In this Review, we present the
+              Integrative OncoGenomics (IntOGen) pipeline, an implementation of
+              such an approach to obtain the compendium of mutational cancer
+              drivers. Its application to somatic mutations of more than 28,000
+              tumours of 66 cancer types reveals 568 cancer genes and points
+              towards their mechanisms of tumorigenesis. The application of
+              this approach to the ever-growing datasets of somatic tumour
+              mutations will support the continuous refinement of our knowledge
+              of the genetic basis of cancer.",
+  journal  = "Nat. Rev. Cancer",
+  volume   =  20,
+  number   =  10,
+  pages    = "555--572",
+  month    =  oct,
+  year     =  2020,
+  language = "en"
+}
+
+
+
+@ARTICLE{Behjati2014-gb,
+  title    = "Genome sequencing of normal cells reveals developmental lineages
+              and mutational processes",
+  author   = "Behjati, Sam and Huch, Meritxell and van Boxtel, Ruben and
+              Karthaus, Wouter and Wedge, David C and Tamuri, Asif U and
+              Martincorena, Inigo and Petljak, Mia and Alexandrov, Ludmil B and
+              Gundem, Gunes and Tarpey, Patrick S and Roerink, Sophie and
+              Blokker, Joyce and Maddison, Mark and Mudie, Laura and Robinson,
+              Ben and Nik-Zainal, Serena and Campbell, Peter and Goldman, Nick
+              and van de Wetering, Marc and Cuppen, Edwin and Clevers, Hans and
+              Stratton, Michael R",
+  abstract = "The somatic mutations present in the genome of a cell accumulate
+              over the lifetime of a multicellular organism. These mutations
+              can provide insights into the developmental lineage tree, the
+              number of divisions that each cell has undergone and the
+              mutational processes that have been operative. Here we describe
+              whole genomes of clonal lines derived from multiple tissues of
+              healthy mice. Using somatic base substitutions, we reconstructed
+              the early cell divisions of each animal, demonstrating the
+              contributions of embryonic cells to adult tissues. Differences
+              were observed between tissues in the numbers and types of
+              mutations accumulated by each cell, which likely reflect
+              differences in the number of cell divisions they have undergone
+              and varying contributions of different mutational processes. If
+              somatic mutation rates are similar to those in mice, the results
+              indicate that precise insights into development and mutagenesis
+              of normal human cells will be possible.",
+  journal  = "Nature",
+  volume   =  513,
+  number   =  7518,
+  pages    = "422--425",
+  month    =  sep,
+  year     =  2014,
+  language = "en"
+}
+
+
+
+@ARTICLE{Alexandrov2013-kg,
+  title    = "Signatures of mutational processes in human cancer",
+  author   = "Alexandrov, Ludmil B and Nik-Zainal, Serena and Wedge, David C
+              and Aparicio, Samuel A J R and Behjati, Sam and Biankin, Andrew V
+              and Bignell, Graham R and Bolli, Niccol{\`o} and Borg, Ake and
+              B{\o}rresen-Dale, Anne-Lise and Boyault, Sandrine and Burkhardt,
+              Birgit and Butler, Adam P and Caldas, Carlos and Davies, Helen R
+              and Desmedt, Christine and Eils, Roland and Eyfj{\"o}rd,
+              J{\'o}runn Erla and Foekens, John A and Greaves, Mel and Hosoda,
+              Fumie and Hutter, Barbara and Ilicic, Tomislav and Imbeaud,
+              Sandrine and Imielinski, Marcin and J{\"a}ger, Natalie and Jones,
+              David T W and Jones, David and Knappskog, Stian and Kool, Marcel
+              and Lakhani, Sunil R and L{\'o}pez-Ot{\'\i}n, Carlos and Martin,
+              Sancha and Munshi, Nikhil C and Nakamura, Hiromi and Northcott,
+              Paul A and Pajic, Marina and Papaemmanuil, Elli and Paradiso,
+              Angelo and Pearson, John V and Puente, Xose S and Raine, Keiran
+              and Ramakrishna, Manasa and Richardson, Andrea L and Richter,
+              Julia and Rosenstiel, Philip and Schlesner, Matthias and
+              Schumacher, Ton N and Span, Paul N and Teague, Jon W and Totoki,
+              Yasushi and Tutt, Andrew N J and Vald{\'e}s-Mas, Rafael and van
+              Buuren, Marit M and van 't Veer, Laura and Vincent-Salomon, Anne
+              and Waddell, Nicola and Yates, Lucy R and {Australian Pancreatic
+              Cancer Genome Initiative} and {ICGC Breast Cancer Consortium} and
+              {ICGC MMML-Seq Consortium} and {ICGC PedBrain} and Zucman-Rossi,
+              Jessica and Futreal, P Andrew and McDermott, Ultan and Lichter,
+              Peter and Meyerson, Matthew and Grimmond, Sean M and Siebert,
+              Reiner and Campo, El{\'\i}as and Shibata, Tatsuhiro and Pfister,
+              Stefan M and Campbell, Peter J and Stratton, Michael R",
+  abstract = "All cancers are caused by somatic mutations; however,
+              understanding of the biological processes generating these
+              mutations is limited. The catalogue of somatic mutations from a
+              cancer genome bears the signatures of the mutational processes
+              that have been operative. Here we analysed 4,938,362 mutations
+              from 7,042 cancers and extracted more than 20 distinct mutational
+              signatures. Some are present in many cancer types, notably a
+              signature attributed to the APOBEC family of cytidine deaminases,
+              whereas others are confined to a single cancer class. Certain
+              signatures are associated with age of the patient at cancer
+              diagnosis, known mutagenic exposures or defects in DNA
+              maintenance, but many are of cryptic origin. In addition to these
+              genome-wide mutational signatures, hypermutation localized to
+              small genomic regions, 'kataegis', is found in many cancer types.
+              The results reveal the diversity of mutational processes
+              underlying the development of cancer, with potential implications
+              for understanding of cancer aetiology, prevention and therapy.",
+  journal  = "Nature",
+  volume   =  500,
+  number   =  7463,
+  pages    = "415--421",
+  month    =  aug,
+  year     =  2013,
+  language = "en"
+}
 
 
 @ARTICLE{Saunders2012-we,
@@ -101,48 +1804,6 @@
 
 
 
-@ARTICLE{Alexandrov2020-ys,
-  title    = "The repertoire of mutational signatures in human cancer",
-  author   = "Alexandrov, Ludmil B and Kim, Jaegil and Haradhvala, Nicholas J
-              and Huang, Mi Ni and Tian Ng, Alvin Wei and Wu, Yang and Boot,
-              Arnoud and Covington, Kyle R and Gordenin, Dmitry A and
-              Bergstrom, Erik N and Islam, S M Ashiqul and Lopez-Bigas, Nuria
-              and Klimczak, Leszek J and McPherson, John R and Morganella,
-              Sandro and Sabarinathan, Radhakrishnan and Wheeler, David A and
-              Mustonen, Ville and {PCAWG Mutational Signatures Working Group}
-              and Getz, Gad and Rozen, Steven G and Stratton, Michael R and
-              {PCAWG Consortium}",
-  abstract = "Somatic mutations in cancer genomes are caused by multiple
-              mutational processes, each of which generates a characteristic
-              mutational signature1. Here, as part of the Pan-Cancer Analysis
-              of Whole Genomes (PCAWG) Consortium2 of the International Cancer
-              Genome Consortium (ICGC) and The Cancer Genome Atlas (TCGA), we
-              characterized mutational signatures using 84,729,690 somatic
-              mutations from 4,645 whole-genome and 19,184 exome sequences that
-              encompass most types of cancer. We identified 49
-              single-base-substitution, 11 doublet-base-substitution, 4
-              clustered-base-substitution and 17 small insertion-and-deletion
-              signatures. The substantial size of our dataset, compared with
-              previous analyses3-15, enabled the discovery of new signatures,
-              the separation of overlapping signatures and the decomposition of
-              signatures into components that may represent associated-but
-              distinct-DNA damage, repair and/or replication mechanisms. By
-              estimating the contribution of each signature to the mutational
-              catalogues of individual cancer genomes, we revealed associations
-              of signatures to exogenous or endogenous exposures, as well as to
-              defective DNA-maintenance processes. However, many signatures are
-              of unknown cause. This analysis provides a systematic perspective
-              on the repertoire of mutational processes that contribute to the
-              development of human cancer.",
-  journal  = "Nature",
-  volume   =  578,
-  number   =  7793,
-  pages    = "94--101",
-  month    =  feb,
-  year     =  2020,
-  language = "en"
-}
-
 
 @ARTICLE{Letouze2017-tl,
   title    = "Mutational signatures reveal the dynamic interplay of risk
@@ -211,57 +1872,6 @@
   pages    = "885--892",
   month    =  jul,
   year     =  2021,
-  language = "en"
-}
-
-
-@ARTICLE{Mitchell2022-ry,
-  title    = "Clonal dynamics of haematopoiesis across the human lifespan",
-  author   = "Mitchell, Emily and Spencer Chapman, Michael and Williams,
-              Nicholas and Dawson, Kevin J and Mende, Nicole and Calderbank,
-              Emily F and Jung, Hyunchul and Mitchell, Thomas and Coorens, Tim
-              H H and Spencer, David H and Machado, Heather and Lee-Six, Henry
-              and Davies, Megan and Hayler, Daniel and Fabre, Margarete A and
-              Mahbubani, Krishnaa and Abascal, Federico and Cagan, Alex and
-              Vassiliou, George S and Baxter, Joanna and Martincorena, Inigo
-              and Stratton, Michael R and Kent, David G and Chatterjee, Krishna
-              and Parsy, Kourosh Saeb and Green, Anthony R and Nangalia, Jyoti
-              and Laurenti, Elisa and Campbell, Peter J",
-  abstract = "Age-related change in human haematopoiesis causes reduced
-              regenerative capacity1, cytopenias2, immune dysfunction3 and
-              increased risk of blood cancer4-6, but the reason for such abrupt
-              functional decline after 70 years of age remains unclear. Here we
-              sequenced 3,579 genomes from single cell-derived colonies of
-              haematopoietic cells across 10 human subjects from 0 to 81 years
-              of age. Haematopoietic stem cells or multipotent progenitors
-              (HSC/MPPs) accumulated a mean of 17 mutations per year after
-              birth and lost 30 base pairs per year of telomere length.
-              Haematopoiesis in adults less than 65 years of age was massively
-              polyclonal, with high clonal diversity and a stable population of
-              20,000-200,000 HSC/MPPs contributing evenly to blood production.
-              By contrast, haematopoiesis in individuals aged over 75 showed
-              profoundly decreased clonal diversity. In each of the older
-              subjects, 30-60\% of haematopoiesis was accounted for by 12-18
-              independent clones, each contributing 1-34\% of blood production.
-              Most clones had begun their expansion before the subject was 40
-              years old, but only 22\% had known driver mutations. Genome-wide
-              selection analysis estimated that between 1 in 34 and 1 in 12
-              non-synonymous mutations were drivers, accruing at constant rates
-              throughout life, affecting more genes than identified in blood
-              cancers. Loss of the Y chromosome conferred selective benefits in
-              males. Simulations of haematopoiesis, with constant stem cell
-              population size and constant acquisition of driver mutations
-              conferring moderate fitness benefits, entirely explained the
-              abrupt change in clonal structure in the elderly. Rapidly
-              decreasing clonal diversity is a universal feature of
-              haematopoiesis in aged humans, underpinned by pervasive positive
-              selection acting on many more genes than currently identified.",
-  journal  = "Nature",
-  volume   =  606,
-  number   =  7913,
-  pages    = "343--350",
-  month    =  jun,
-  year     =  2022,
   language = "en"
 }
 
