@@ -5,6 +5,1577 @@
 % ------------------------------------------------------------------------
 
 
+@ARTICLE{Luo2019-tf,
+  title    = "A multi-task convolutional deep neural network for variant
+              calling in single molecule sequencing",
+  author   = "Luo, Ruibang and Sedlazeck, Fritz J and Lam, Tak-Wah and Schatz,
+              Michael C",
+  abstract = "The accurate identification of DNA sequence variants is an
+              important, but challenging task in genomics. It is particularly
+              difficult for single molecule sequencing, which has a
+              per-nucleotide error rate of ~5-15\%. Meeting this demand, we
+              developed Clairvoyante, a multi-task five-layer convolutional
+              neural network model for predicting variant type (SNP or indel),
+              zygosity, alternative allele and indel length from aligned reads.
+              For the well-characterized NA12878 human sample, Clairvoyante
+              achieves 99.67, 95.78, 90.53\% F1-score on 1KP common variants,
+              and 98.65, 92.57, 87.26\% F1-score for whole-genome analysis,
+              using Illumina, PacBio, and Oxford Nanopore data, respectively.
+              Training on a second human sample shows Clairvoyante is sample
+              agnostic and finds variants in less than 2 h on a standard
+              server. Furthermore, we present 3,135 variants that are missed
+              using Illumina but supported independently by both PacBio and
+              Oxford Nanopore reads. Clairvoyante is available open-source (
+              https://github.com/aquaskyline/Clairvoyante ), with modules to
+              train, utilize and visualize the model.",
+  journal  = "Nat. Commun.",
+  volume   =  10,
+  number   =  1,
+  pages    = "998",
+  month    =  mar,
+  year     =  2019,
+  language = "en"
+}
+
+@ARTICLE{Denti2022-ux,
+  title    = "{SVDSS}: structural variation discovery in hard-to-call genomic
+              regions using sample-specific strings from accurate long reads",
+  author   = "Denti, Luca and Khorsand, Parsoa and Bonizzoni, Paola and
+              Hormozdiari, Fereydoun and Chikhi, Rayan",
+  abstract = "Structural variants (SVs) account for a large amount of sequence
+              variability across genomes and play an important role in human
+              genomics and precision medicine. Despite intense efforts over the
+              years, the discovery of SVs in individuals remains challenging
+              due to the diploid and highly repetitive structure of the human
+              genome, and by the presence of SVs that vastly exceed sequencing
+              read lengths. However, the recent introduction of low-error
+              long-read sequencing technologies such as PacBio HiFi may finally
+              enable these barriers to be overcome. Here we present SV
+              discovery with sample-specific strings (SVDSS)-a method for
+              discovery of SVs from long-read sequencing technologies (for
+              example, PacBio HiFi) that combines and effectively leverages
+              mapping-free, mapping-based and assembly-based methodologies for
+              overall superior SV discovery performance. Our experiments on
+              several human samples show that SVDSS outperforms
+              state-of-the-art mapping-based methods for discovery of insertion
+              and deletion SVs in PacBio HiFi reads and achieves notable
+              improvements in calling SVs in repetitive regions of the genome.",
+  journal  = "Nat. Methods",
+  month    =  dec,
+  year     =  2022,
+  language = "en"
+}
+
+@ARTICLE{Sedlazeck2018-oh,
+  title    = "Accurate detection of complex structural variations using
+              single-molecule sequencing",
+  author   = "Sedlazeck, Fritz J and Rescheneder, Philipp and Smolka, Moritz
+              and Fang, Han and Nattestad, Maria and von Haeseler, Arndt and
+              Schatz, Michael C",
+  abstract = "Structural variations are the greatest source of genetic
+              variation, but they remain poorly understood because of
+              technological limitations. Single-molecule long-read sequencing
+              has the potential to dramatically advance the field, although
+              high error rates are a challenge with existing methods.
+              Addressing this need, we introduce open-source methods for
+              long-read alignment (NGMLR; https://github.com/philres/ngmlr )
+              and structural variant identification (Sniffles;
+              https://github.com/fritzsedlazeck/Sniffles ) that provide
+              unprecedented sensitivity and precision for variant detection,
+              even in repeat-rich regions and for complex nested events that
+              can have substantial effects on human health. In several
+              long-read datasets, including healthy and cancerous human
+              genomes, we discovered thousands of novel variants and
+              categorized systematic errors in short-read approaches. NGMLR and
+              Sniffles can automatically filter false events and operate on
+              low-coverage data, thereby reducing the high costs that have
+              hindered the application of long reads in clinical and research
+              settings.",
+  journal  = "Nat. Methods",
+  volume   =  15,
+  number   =  6,
+  pages    = "461--468",
+  month    =  jun,
+  year     =  2018,
+  language = "en"
+}
+
+@ARTICLE{Clark2011-jz,
+  title    = "Direct detection and sequencing of damaged {DNA} bases",
+  author   = "Clark, Tyson A and Spittle, Kristi E and Turner, Stephen W and
+              Korlach, Jonas",
+  abstract = "Products of various forms of DNA damage have been implicated in a
+              variety of important biological processes, such as aging,
+              neurodegenerative diseases, and cancer. Therefore, there exists
+              great interest to develop methods for interrogating damaged DNA
+              in the context of sequencing. Here, we demonstrate that
+              single-molecule, real-time (SMRT\textregistered{}) DNA sequencing
+              can directly detect damaged DNA bases in the DNA template - as a
+              by-product of the sequencing method - through an analysis of the
+              DNA polymerase kinetics that are altered by the presence of a
+              modified base. We demonstrate the sequencing of several DNA
+              templates containing products of DNA damage, including
+              8-oxoguanine, 8-oxoadenine, O6-methylguanine, 1-methyladenine,
+              O4-methylthymine, 5-hydroxycytosine, 5-hydroxyuracil,
+              5-hydroxymethyluracil, or thymine dimers, and show that these
+              base modifications can be readily detected with
+              single-modification resolution and DNA strand specificity. We
+              characterize the distinct kinetic signatures generated by these
+              DNA base modifications.",
+  journal  = "Genome Integr.",
+  volume   =  2,
+  pages    = "10",
+  month    =  dec,
+  year     =  2011,
+  language = "en"
+}
+
+
+@ARTICLE{Clark2011-jz,
+  title    = "Direct detection and sequencing of damaged {DNA} bases",
+  author   = "Clark, Tyson A and Spittle, Kristi E and Turner, Stephen W and
+              Korlach, Jonas",
+  abstract = "Products of various forms of DNA damage have been implicated in a
+              variety of important biological processes, such as aging,
+              neurodegenerative diseases, and cancer. Therefore, there exists
+              great interest to develop methods for interrogating damaged DNA
+              in the context of sequencing. Here, we demonstrate that
+              single-molecule, real-time (SMRT\textregistered{}) DNA sequencing
+              can directly detect damaged DNA bases in the DNA template - as a
+              by-product of the sequencing method - through an analysis of the
+              DNA polymerase kinetics that are altered by the presence of a
+              modified base. We demonstrate the sequencing of several DNA
+              templates containing products of DNA damage, including
+              8-oxoguanine, 8-oxoadenine, O6-methylguanine, 1-methyladenine,
+              O4-methylthymine, 5-hydroxycytosine, 5-hydroxyuracil,
+              5-hydroxymethyluracil, or thymine dimers, and show that these
+              base modifications can be readily detected with
+              single-modification resolution and DNA strand specificity. We
+              characterize the distinct kinetic signatures generated by these
+              DNA base modifications.",
+  journal  = "Genome Integr.",
+  volume   =  2,
+  pages    = "10",
+  month    =  dec,
+  year     =  2011,
+  language = "en"
+}
+
+
+@ARTICLE{Flusberg2010-ub,
+  title    = "Direct detection of {DNA} methylation during single-molecule,
+              real-time sequencing",
+  author   = "Flusberg, Benjamin A and Webster, Dale R and Lee, Jessica H and
+              Travers, Kevin J and Olivares, Eric C and Clark, Tyson A and
+              Korlach, Jonas and Turner, Stephen W",
+  abstract = "We describe the direct detection of DNA methylation, without
+              bisulfite conversion, through single-molecule, real-time (SMRT)
+              sequencing. In SMRT sequencing, DNA polymerases catalyze the
+              incorporation of fluorescently labeled nucleotides into
+              complementary nucleic acid strands. The arrival times and
+              durations of the resulting fluorescence pulses yield information
+              about polymerase kinetics and allow direct detection of modified
+              nucleotides in the DNA template, including N6-methyladenine,
+              5-methylcytosine and 5-hydroxymethylcytosine. Measurement of
+              polymerase kinetics is an intrinsic part of SMRT sequencing and
+              does not adversely affect determination of primary DNA sequence.
+              The various modifications affect polymerase kinetics differently,
+              allowing discrimination between them. We used these kinetic
+              signatures to identify adenine methylation in genomic samples and
+              found that, in combination with circular consensus sequencing,
+              they can enable single-molecule identification of epigenetic
+              modifications with base-pair resolution. This method is amenable
+              to long read lengths and will likely enable mapping of
+              methylation patterns in even highly repetitive genomic regions.",
+  journal  = "Nat. Methods",
+  volume   =  7,
+  number   =  6,
+  pages    = "461--465",
+  month    =  jun,
+  year     =  2010,
+  language = "en"
+}
+
+
+@ARTICLE{Eid2009-ol,
+  title    = "Real-time {DNA} sequencing from single polymerase molecules",
+  author   = "Eid, John and Fehr, Adrian and Gray, Jeremy and Luong, Khai and
+              Lyle, John and Otto, Geoff and Peluso, Paul and Rank, David and
+              Baybayan, Primo and Bettman, Brad and Bibillo, Arkadiusz and
+              Bjornson, Keith and Chaudhuri, Bidhan and Christians, Frederick
+              and Cicero, Ronald and Clark, Sonya and Dalal, Ravindra and
+              Dewinter, Alex and Dixon, John and Foquet, Mathieu and Gaertner,
+              Alfred and Hardenbol, Paul and Heiner, Cheryl and Hester, Kevin
+              and Holden, David and Kearns, Gregory and Kong, Xiangxu and Kuse,
+              Ronald and Lacroix, Yves and Lin, Steven and Lundquist, Paul and
+              Ma, Congcong and Marks, Patrick and Maxham, Mark and Murphy,
+              Devon and Park, Insil and Pham, Thang and Phillips, Michael and
+              Roy, Joy and Sebra, Robert and Shen, Gene and Sorenson, Jon and
+              Tomaney, Austin and Travers, Kevin and Trulson, Mark and Vieceli,
+              John and Wegener, Jeffrey and Wu, Dawn and Yang, Alicia and
+              Zaccarin, Denis and Zhao, Peter and Zhong, Frank and Korlach,
+              Jonas and Turner, Stephen",
+  abstract = "We present single-molecule, real-time sequencing data obtained
+              from a DNA polymerase performing uninterrupted template-directed
+              synthesis using four distinguishable fluorescently labeled
+              deoxyribonucleoside triphosphates (dNTPs). We detected the
+              temporal order of their enzymatic incorporation into a growing
+              DNA strand with zero-mode waveguide nanostructure arrays, which
+              provide optical observation volume confinement and enable
+              parallel, simultaneous detection of thousands of single-molecule
+              sequencing reactions. Conjugation of fluorophores to the terminal
+              phosphate moiety of the dNTPs allows continuous observation of
+              DNA synthesis over thousands of bases without steric hindrance.
+              The data report directly on polymerase dynamics, revealing
+              distinct polymerization states and pause sites corresponding to
+              DNA secondary structure. Sequence data were aligned with the
+              known reference sequence to assay biophysical parameters of
+              polymerization for each template position. Consensus sequences
+              were generated from the single-molecule reads at 15-fold
+              coverage, showing a median accuracy of 99.3\%, with no systematic
+              error beyond fluorophore-dependent error rates.",
+  journal  = "Science",
+  volume   =  323,
+  number   =  5910,
+  pages    = "133--138",
+  month    =  jan,
+  year     =  2009,
+  language = "en"
+}
+
+@ARTICLE{Korlach2008-aq,
+  title    = "Selective aluminum passivation for targeted immobilization of
+              single {DNA} polymerase molecules in zero-mode waveguide
+              nanostructures",
+  author   = "Korlach, Jonas and Marks, Patrick J and Cicero, Ronald L and
+              Gray, Jeremy J and Murphy, Devon L and Roitman, Daniel B and
+              Pham, Thang T and Otto, Geoff A and Foquet, Mathieu and Turner,
+              Stephen W",
+  abstract = "Optical nanostructures have enabled the creation of
+              subdiffraction detection volumes for single-molecule fluorescence
+              microscopy. Their applicability is extended by the ability to
+              place molecules in the confined observation volume without
+              interfering with their biological function. Here, we demonstrate
+              that processive DNA synthesis thousands of bases in length was
+              carried out by individual DNA polymerase molecules immobilized in
+              the observation volumes of zero-mode waveguides (ZMWs) in
+              high-density arrays. Selective immobilization of polymerase to
+              the fused silica floor of the ZMW was achieved by passivation of
+              the metal cladding surface using polyphosphonate chemistry,
+              producing enzyme density contrasts of glass over aluminum in
+              excess of 400:1. Yields of single-molecule occupancies of
+              approximately 30\% were obtained for a range of ZMW diameters
+              (70-100 nm). Results presented here support the application of
+              immobilized single DNA polymerases in ZMW arrays for
+              long-read-length DNA sequencing.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  105,
+  number   =  4,
+  pages    = "1176--1181",
+  month    =  jan,
+  year     =  2008,
+  language = "en"
+}
+
+@ARTICLE{Korlach2008-fv,
+  title    = "Long, processive enzymatic {DNA} synthesis using 100\%
+              dye-labeled terminal phosphate-linked nucleotides",
+  author   = "Korlach, Jonas and Bibillo, Arek and Wegener, Jeffrey and Peluso,
+              Paul and Pham, Thang T and Park, Insil and Clark, Sonya and Otto,
+              Geoff A and Turner, Stephen W",
+  abstract = "We demonstrate the efficient synthesis of DNA with complete
+              replacement of the four deoxyribonucleoside triphosphate (dNTP)
+              substrates with nucleotides carrying fluorescent labels. A
+              different, spectrally separable fluorescent dye suitable for
+              single molecule fluorescence detection was conjugated to each of
+              the four dNTPs via linkage to the terminal phosphate. Using these
+              modified nucleotides, DNA synthesis by phi 29 DNA polymerase was
+              observed to be processive for products thousands of bases in
+              length, with labeled nucleotide affinities and DNA polymerization
+              rates approaching unmodified dNTP levels. Results presented here
+              show the compatibility of these nucleotides for single-molecule,
+              real-time DNA sequencing applications.",
+  journal  = "Nucleosides Nucleotides Nucleic Acids",
+  volume   =  27,
+  number   =  9,
+  pages    = "1072--1083",
+  month    =  sep,
+  year     =  2008,
+  language = "en"
+}
+
+
+@ARTICLE{Levene2003-og,
+  title    = "Zero-mode waveguides for single-molecule analysis at high
+              concentrations",
+  author   = "Levene, M J and Korlach, J and Turner, S W and Foquet, M and
+              Craighead, H G and Webb, W W",
+  abstract = "Optical approaches for observing the dynamics of single molecules
+              have required pico- to nanomolar concentrations of fluorophore in
+              order to isolate individual molecules. However, many biologically
+              relevant processes occur at micromolar ligand concentrations,
+              necessitating a reduction in the conventional observation volume
+              by three orders of magnitude. We show that arrays of zero-mode
+              waveguides consisting of subwavelength holes in a metal film
+              provide a simple and highly parallel means for studying
+              single-molecule dynamics at micromolar concentrations with
+              microsecond temporal resolution. We present observations of DNA
+              polymerase activity as an example of the effectiveness of
+              zero-mode waveguides for performing single-molecule experiments
+              at high concentrations.",
+  journal  = "Science",
+  volume   =  299,
+  number   =  5607,
+  pages    = "682--686",
+  month    =  jan,
+  year     =  2003,
+  language = "en"
+}
+
+
+@ARTICLE{Travers2010-sx,
+  title    = "A flexible and efficient template format for circular consensus
+              sequencing and {SNP} detection",
+  author   = "Travers, Kevin J and Chin, Chen-Shan and Rank, David R and Eid,
+              John S and Turner, Stephen W",
+  abstract = "A novel template design for single-molecule sequencing is
+              introduced, a structure we refer to as a SMRTbell template. This
+              structure consists of a double-stranded portion, containing the
+              insert of interest, and a single-stranded hairpin loop on either
+              end, which provides a site for primer binding. Structurally, this
+              format resembles a linear double-stranded molecule, and yet it is
+              topologically circular. When placed into a single-molecule
+              sequencing reaction, the SMRTbell template format enables a
+              consensus sequence to be obtained from multiple passes on a
+              single molecule. Furthermore, this consensus sequence is obtained
+              from both the sense and antisense strands of the insert region.
+              In this article, we present a universal method for constructing
+              these templates, as well as an application of their use. We
+              demonstrate the generation of high-quality consensus accuracy
+              from single molecules, as well as the use of SMRTbell templates
+              in the identification of rare sequence variants.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  38,
+  number   =  15,
+  pages    = "e159",
+  month    =  aug,
+  year     =  2010,
+  language = "en"
+}
+
+
+@ARTICLE{Zhou2022-ci,
+  title    = "Neurodegenerative diseases associated with non-coding {CGG}
+              tandem repeat expansions",
+  author   = "Zhou, Zhi-Dong and Jankovic, Joseph and Ashizawa, Tetsuo and Tan,
+              Eng-King",
+  abstract = "Non-coding CGG repeat expansions cause multiple neurodegenerative
+              disorders, including fragile X-associated tremor/ataxia syndrome,
+              neuronal intranuclear inclusion disease, oculopharyngeal myopathy
+              with leukodystrophy, and oculopharyngodistal myopathy. The
+              underlying genetic causes of several of these diseases have been
+              identified only in the past 2-3 years. These expansion disorders
+              have substantial overlapping clinical, neuroimaging and
+              histopathological features. The shared features suggest common
+              mechanisms that could have implications for the development of
+              therapies for this group of diseases - similar therapeutic
+              strategies or drugs may be effective for various
+              neurodegenerative disorders induced by non-coding CGG expansions.
+              In this Review, we provide an overview of clinical and
+              pathological features of these CGG repeat expansion diseases and
+              consider the likely pathological mechanisms, including RNA
+              toxicity, CGG repeat-associated non-AUG-initiated translation,
+              protein aggregation and mitochondrial impairment. We then discuss
+              future research needed to improve the identification and
+              diagnosis of CGG repeat expansion diseases, to improve modelling
+              of these diseases and to understand their pathogenesis. We also
+              consider possible therapeutic strategies. Finally, we propose
+              that CGG repeat expansion diseases may represent manifestations
+              of a single underlying neuromyodegenerative syndrome in which
+              different organs are affected to different extents depending on
+              the gene location of the repeat expansion.",
+  journal  = "Nat. Rev. Neurol.",
+  volume   =  18,
+  number   =  3,
+  pages    = "145--157",
+  month    =  mar,
+  year     =  2022,
+  language = "en"
+}
+
+
+@ARTICLE{Chin2013-hp,
+  title    = "Nonhybrid, finished microbial genome assemblies from long-read
+              {SMRT} sequencing data",
+  author   = "Chin, Chen-Shan and Alexander, David H and Marks, Patrick and
+              Klammer, Aaron A and Drake, James and Heiner, Cheryl and Clum,
+              Alicia and Copeland, Alex and Huddleston, John and Eichler, Evan
+              E and Turner, Stephen W and Korlach, Jonas",
+  abstract = "We present a hierarchical genome-assembly process (HGAP) for
+              high-quality de novo microbial genome assemblies using only a
+              single, long-insert shotgun DNA library in conjunction with
+              Single Molecule, Real-Time (SMRT) DNA sequencing. Our method uses
+              the longest reads as seeds to recruit all other reads for
+              construction of highly accurate preassembled reads through a
+              directed acyclic graph-based consensus procedure, which we follow
+              with assembly using off-the-shelf long-read assemblers. In
+              contrast to hybrid approaches, HGAP does not require highly
+              accurate raw reads for error correction. We demonstrate efficient
+              genome assembly for several microorganisms using as few as three
+              SMRT Cell zero-mode waveguide arrays of sequencing and for BACs
+              using just one SMRT Cell. Long repeat regions can be successfully
+              resolved with this workflow. We also describe a consensus
+              algorithm that incorporates SMRT sequencing primary quality
+              values to produce de novo genome sequence exceeding 99.999\%
+              accuracy.",
+  journal  = "Nat. Methods",
+  volume   =  10,
+  number   =  6,
+  pages    = "563--569",
+  month    =  jun,
+  year     =  2013,
+  language = "en"
+}
+
+
+@ARTICLE{Spielmann2018-fm,
+  title    = "Structural variation in the {3D} genome",
+  author   = "Spielmann, Malte and Lupi{\'a}{\~n}ez, Dar{\'\i}o G and Mundlos,
+              Stefan",
+  abstract = "Structural and quantitative chromosomal rearrangements,
+              collectively referred to as structural variation (SV), contribute
+              to a large extent to the genetic diversity of the human genome
+              and thus are of high relevance for cancer genetics, rare diseases
+              and evolutionary genetics. Recent studies have shown that SVs can
+              not only affect gene dosage but also modulate basic mechanisms of
+              gene regulation. SVs can alter the copy number of regulatory
+              elements or modify the 3D genome by disrupting higher-order
+              chromatin organization such as topologically associating domains.
+              As a result of these position effects, SVs can influence the
+              expression of genes distant from the SV breakpoints, thereby
+              causing disease. The impact of SVs on the 3D genome and on gene
+              expression regulation has to be considered when interpreting the
+              pathogenic potential of these variant types.",
+  journal  = "Nat. Rev. Genet.",
+  volume   =  19,
+  number   =  7,
+  pages    = "453--467",
+  month    =  jul,
+  year     =  2018,
+  language = "en"
+}
+
+@ARTICLE{Weischenfeldt2013-tl,
+  title    = "Phenotypic impact of genomic structural variation: insights from
+              and for human disease",
+  author   = "Weischenfeldt, Joachim and Symmons, Orsolya and Spitz, Fran{\c
+              c}ois and Korbel, Jan O",
+  abstract = "Genomic structural variants have long been implicated in
+              phenotypic diversity and human disease, but dissecting the
+              mechanisms by which they exert their functional impact has proven
+              elusive. Recently however, developments in high-throughput DNA
+              sequencing and chromosomal engineering technology have
+              facilitated the analysis of structural variants in human
+              populations and model systems in unprecedented detail. In this
+              Review, we describe how structural variants can affect molecular
+              and cellular processes, leading to complex organismal phenotypes,
+              including human disease. We further present advances in
+              delineating disease-causing elements that are affected by
+              structural variants, and we discuss future directions for
+              research on the functional consequences of structural variants.",
+  journal  = "Nat. Rev. Genet.",
+  volume   =  14,
+  number   =  2,
+  pages    = "125--138",
+  month    =  feb,
+  year     =  2013,
+  language = "en"
+}
+
+
+@ARTICLE{Yu2010-jr,
+  title    = "Synthesis-dependent microhomology-mediated end joining accounts
+              for multiple types of repair junctions",
+  author   = "Yu, Amy Marie and McVey, Mitch",
+  abstract = "Ku or DNA ligase 4-independent alternative end joining (alt-EJ)
+              repair of DNA double-strand breaks (DSBs) frequently correlates
+              with increased junctional microhomology. However, alt-EJ also
+              produces junctions without microhomology (apparent blunt joins),
+              and the exact role of microhomology in both alt-EJ and classical
+              non-homologous end joining (NHEJ) remains unclear. To better
+              understand the degree to which alt-EJ depends on annealing at
+              pre-existing microhomologies, we examined inaccurate repair of an
+              I-SceI DSB lacking nearby microhomologies of greater than four
+              nucleotides in Drosophila. Lig4 deficiency affected neither
+              frequency nor length of junctional microhomology, but
+              significantly increased insertion frequency. Many insertions
+              appeared to be templated. Based on sequence analysis of repair
+              junctions, we propose a model of synthesis-dependent
+              microhomology-mediated end joining (SD-MMEJ), in which de novo
+              synthesis by an accurate non-processive DNA polymerase creates
+              microhomology. Repair junctions with apparent blunt joins,
+              junctional microhomologies and short indels (deletion with
+              insertion) are often considered to reflect different repair
+              mechanisms. However, a majority of each type had structures
+              consistent with the predictions of our SD-MMEJ model. This
+              suggests that a single underlying mechanism could be responsible
+              for all three repair product types. Genetic analysis indicates
+              that SD-MMEJ is Ku70, Lig4 and Rad51-independent but impaired in
+              mus308 (POLQ) mutants.",
+  journal  = "Nucleic Acids Res.",
+  volume   =  38,
+  number   =  17,
+  pages    = "5706--5717",
+  month    =  sep,
+  year     =  2010,
+  language = "en"
+}
+
+
+@ARTICLE{Baca2013-po,
+  title    = "Punctuated evolution of prostate cancer genomes",
+  author   = "Baca, Sylvan C and Prandi, Davide and Lawrence, Michael S and
+              Mosquera, Juan Miguel and Romanel, Alessandro and Drier, Yotam
+              and Park, Kyung and Kitabayashi, Naoki and MacDonald, Theresa Y
+              and Ghandi, Mahmoud and Van Allen, Eliezer and Kryukov, Gregory V
+              and Sboner, Andrea and Theurillat, Jean-Philippe and Soong, T
+              David and Nickerson, Elizabeth and Auclair, Daniel and Tewari,
+              Ashutosh and Beltran, Himisha and Onofrio, Robert C and Boysen,
+              Gunther and Guiducci, Candace and Barbieri, Christopher E and
+              Cibulskis, Kristian and Sivachenko, Andrey and Carter, Scott L
+              and Saksena, Gordon and Voet, Douglas and Ramos, Alex H and
+              Winckler, Wendy and Cipicchio, Michelle and Ardlie, Kristin and
+              Kantoff, Philip W and Berger, Michael F and Gabriel, Stacey B and
+              Golub, Todd R and Meyerson, Matthew and Lander, Eric S and
+              Elemento, Olivier and Getz, Gad and Demichelis, Francesca and
+              Rubin, Mark A and Garraway, Levi A",
+  abstract = "The analysis of exonic DNA from prostate cancers has identified
+              recurrently mutated genes, but the spectrum of genome-wide
+              alterations has not been profiled extensively in this disease. We
+              sequenced the genomes of 57 prostate tumors and matched normal
+              tissues to characterize somatic alterations and to study how they
+              accumulate during oncogenesis and progression. By modeling the
+              genesis of genomic rearrangements, we identified abundant DNA
+              translocations and deletions that arise in a highly
+              interdependent manner. This phenomenon, which we term
+              ``chromoplexy,'' frequently accounts for the dysregulation of
+              prostate cancer genes and appears to disrupt multiple cancer
+              genes coordinately. Our modeling suggests that chromoplexy may
+              induce considerable genomic derangement over relatively few
+              events in prostate cancer and other neoplasms, supporting a model
+              of punctuated cancer evolution. By characterizing the clonal
+              hierarchy of genomic lesions in prostate tumors, we charted a
+              path of oncogenic events along which chromoplexy may drive
+              prostate carcinogenesis.",
+  journal  = "Cell",
+  volume   =  153,
+  number   =  3,
+  pages    = "666--677",
+  month    =  apr,
+  year     =  2013,
+  language = "en"
+}
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{Stephens2011-gj,
+  title    = "Massive genomic rearrangement acquired in a single catastrophic
+              event during cancer development",
+  author   = "Stephens, Philip J and Greenman, Chris D and Fu, Beiyuan and
+              Yang, Fengtang and Bignell, Graham R and Mudie, Laura J and
+              Pleasance, Erin D and Lau, King Wai and Beare, David and
+              Stebbings, Lucy A and McLaren, Stuart and Lin, Meng-Lay and
+              McBride, David J and Varela, Ignacio and Nik-Zainal, Serena and
+              Leroy, Catherine and Jia, Mingming and Menzies, Andrew and
+              Butler, Adam P and Teague, Jon W and Quail, Michael A and Burton,
+              John and Swerdlow, Harold and Carter, Nigel P and Morsberger,
+              Laura A and Iacobuzio-Donahue, Christine and Follows, George A
+              and Green, Anthony R and Flanagan, Adrienne M and Stratton,
+              Michael R and Futreal, P Andrew and Campbell, Peter J",
+  abstract = "Cancer is driven by somatically acquired point mutations and
+              chromosomal rearrangements, conventionally thought to accumulate
+              gradually over time. Using next-generation sequencing, we
+              characterize a phenomenon, which we term chromothripsis, whereby
+              tens to hundreds of genomic rearrangements occur in a one-off
+              cellular crisis. Rearrangements involving one or a few
+              chromosomes crisscross back and forth across involved regions,
+              generating frequent oscillations between two copy number states.
+              These genomic hallmarks are highly improbable if rearrangements
+              accumulate over time and instead imply that nearly all occur
+              during a single cellular catastrophe. The stamp of chromothripsis
+              can be seen in at least 2\%-3\% of all cancers, across many
+              subtypes, and is present in ∼25\% of bone cancers. We find that
+              one, or indeed more than one, cancer-causing lesion can emerge
+              out of the genomic crisis. This phenomenon has important
+              implications for the origins of genomic remodeling and temporal
+              emergence of cancer.",
+  journal  = "Cell",
+  volume   =  144,
+  number   =  1,
+  pages    = "27--40",
+  month    =  jan,
+  year     =  2011,
+  language = "en"
+}
+
+@ARTICLE{Korbel2013-to,
+  title    = "Criteria for inference of chromothripsis in cancer genomes",
+  author   = "Korbel, Jan O and Campbell, Peter J",
+  abstract = "Chromothripsis scars the genome when localized chromosome
+              shattering and repair occurs in a one-off catastrophe. Outcomes
+              of this process are detectable as massive DNA rearrangements
+              affecting one or a few chromosomes. Although recent findings
+              suggest a crucial role of chromothripsis in cancer development,
+              the reproducible inference of this process remains challenging,
+              requiring that cataclysmic one-off rearrangements be
+              distinguished from localized lesions that occur progressively. We
+              describe conceptual criteria for the inference of chromothripsis,
+              based on ruling out the alternative hypothesis that stepwise
+              rearrangements occurred. Robust means of inference may facilitate
+              in-depth studies on the impact of, and the mechanisms underlying,
+              chromothripsis.",
+  journal  = "Cell",
+  volume   =  152,
+  number   =  6,
+  pages    = "1226--1236",
+  month    =  mar,
+  year     =  2013,
+  language = "en"
+}
+
+
+@ARTICLE{Chaisson2015-zz,
+  title    = "Resolving the complexity of the human genome using
+              single-molecule sequencing",
+  author   = "Chaisson, Mark J P and Huddleston, John and Dennis, Megan Y and
+              Sudmant, Peter H and Malig, Maika and Hormozdiari, Fereydoun and
+              Antonacci, Francesca and Surti, Urvashi and Sandstrom, Richard
+              and Boitano, Matthew and Landolin, Jane M and Stamatoyannopoulos,
+              John A and Hunkapiller, Michael W and Korlach, Jonas and Eichler,
+              Evan E",
+  abstract = "The human genome is arguably the most complete mammalian
+              reference assembly, yet more than 160 euchromatic gaps remain and
+              aspects of its structural variation remain poorly understood ten
+              years after its completion. To identify missing sequence and
+              genetic variation, here we sequence and analyse a haploid human
+              genome (CHM1) using single-molecule, real-time DNA sequencing. We
+              close or extend 55\% of the remaining interstitial gaps in the
+              human GRCh37 reference genome--78\% of which carried long runs of
+              degenerate short tandem repeats, often several kilobases in
+              length, embedded within (G+C)-rich genomic regions. We resolve
+              the complete sequence of 26,079 euchromatic structural variants
+              at the base-pair level, including inversions, complex insertions
+              and long tracts of tandem repeats. Most have not been previously
+              reported, with the greatest increases in sensitivity occurring
+              for events less than 5 kilobases in size. Compared to the human
+              reference, we find a significant insertional bias (3:1) in
+              regions corresponding to complex insertions and long short tandem
+              repeats. Our results suggest a greater complexity of the human
+              genome in the form of variation of longer and more complex
+              repetitive DNA that can now be largely resolved with the
+              application of this longer-read sequencing technology.",
+  journal  = "Nature",
+  volume   =  517,
+  number   =  7536,
+  pages    = "608--611",
+  month    =  jan,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{Alkan2011-dv,
+  title    = "Genome structural variation discovery and genotyping",
+  author   = "Alkan, Can and Coe, Bradley P and Eichler, Evan E",
+  abstract = "Comparisons of human genomes show that more base pairs are
+              altered as a result of structural variation - including copy
+              number variation - than as a result of point mutations. Here we
+              review advances and challenges in the discovery and genotyping of
+              structural variation. The recent application of massively
+              parallel sequencing methods has complemented microarray-based
+              methods and has led to an exponential increase in the discovery
+              of smaller structural-variation events. Some global discovery
+              biases remain, but the integration of experimental and
+              computational approaches is proving fruitful for accurate
+              characterization of the copy, content and structure of variable
+              regions. We argue that the long-term goal should be routine,
+              cost-effective and high quality de novo assembly of human genomes
+              to comprehensively assess all classes of structural variation.",
+  journal  = "Nat. Rev. Genet.",
+  volume   =  12,
+  number   =  5,
+  pages    = "363--376",
+  month    =  may,
+  year     =  2011,
+  language = "en"
+}
+
+
+
+@ARTICLE{Chin_undated-ye,
+  title  = "Human Genome Assembly in 100 Minutes",
+  author = "Chin, Chen-Shan",
+  abstract = "De novo genome assembly provides comprehensive, unbiased genomic information and makes it possible to gain insight into new DNA sequences not present in reference genomes. Many de novo human genomes have been published in the last few years, leveraging a combination of inexpensive short-read and single-molecule long-read technologies. As long-read DNA sequencers become more prevalent, the computational burden of generating assemblies persists as a critical factor. The most common approach to long-read assembly, using an overlap-layout-consensus (OLC) paradigm, requires all-to-all read comparisons, which quadratically scales in computational complexity with the number of reads. We assert that recently achievements in sequencing technology (i.e. with accuracy ~99\% and read length ~10-15k) enables a fundamentally better strategy for OLC that is effectively linear rather than quadratic. Our genome assembly implementation, Peregrine uses sparse hierarchical minimizers (SHIMMER) to index reads thereby avoiding the need for an all-to-all read comparison step. Peregrine can assemble 30x human PacBio CCS read datasets in less than 30 CPU hours and around 100 wall-clock minutes to a high contiguity assembly (N50 > 20Mb). The continued advance of sequencing technologies coupled with the Peregrine assembler enables routine generation of human de novo assemblies. This will allow for population scale measurements of more comprehensive genomic variations -- beyond SNPs and small indels -- as well as novel applications requiring rapid access to de novo assemblies",
+  journal  = "bioRxiv",
+  month    =  july,
+  year     =  2019,
+  language = "en"
+
+}
+
+@ARTICLE{Nurk2020-gu,
+  title    = "{HiCanu}: accurate assembly of segmental duplications,
+              satellites, and allelic variants from high-fidelity long reads",
+  author   = "Nurk, Sergey and Walenz, Brian P and Rhie, Arang and Vollger,
+              Mitchell R and Logsdon, Glennis A and Grothe, Robert and Miga,
+              Karen H and Eichler, Evan E and Phillippy, Adam M and Koren,
+              Sergey",
+  abstract = "Complete and accurate genome assemblies form the basis of most
+              downstream genomic analyses and are of critical importance.
+              Recent genome assembly projects have relied on a combination of
+              noisy long-read sequencing and accurate short-read sequencing,
+              with the former offering greater assembly continuity and the
+              latter providing higher consensus accuracy. The recently
+              introduced Pacific Biosciences (PacBio) HiFi sequencing
+              technology bridges this divide by delivering long reads (>10 kbp)
+              with high per-base accuracy (>99.9\%). Here we present HiCanu, a
+              modification of the Canu assembler designed to leverage the full
+              potential of HiFi reads via homopolymer compression,
+              overlap-based error correction, and aggressive false overlap
+              filtering. We benchmark HiCanu with a focus on the recovery of
+              haplotype diversity, major histocompatibility complex (MHC)
+              variants, satellite DNAs, and segmental duplications. For diploid
+              human genomes sequenced to 30$\times$ HiFi coverage, HiCanu
+              achieved superior accuracy and allele recovery compared to the
+              current state of the art. On the effectively haploid CHM13 human
+              cell line, HiCanu achieved an NG50 contig size of 77 Mbp with a
+              per-base consensus accuracy of 99.999\% (QV50), surpassing recent
+              assemblies of high-coverage, ultralong Oxford Nanopore
+              Technologies (ONT) reads in terms of both accuracy and
+              continuity. This HiCanu assembly correctly resolves 337 out of
+              341 validation BACs sampled from known segmental duplications and
+              provides the first preliminary assemblies of nine complete human
+              centromeric regions. Although gaps and errors still remain within
+              the most challenging regions of the genome, these results
+              represent a significant advance toward the complete assembly of
+              human genomes.",
+  journal  = "Genome Res.",
+  volume   =  30,
+  number   =  9,
+  pages    = "1291--1305",
+  month    =  sep,
+  year     =  2020,
+  language = "en"
+}
+
+@ARTICLE{Cheng2021-ij,
+  title    = "Haplotype-resolved de novo assembly using phased assembly graphs
+              with hifiasm",
+  author   = "Cheng, Haoyu and Concepcion, Gregory T and Feng, Xiaowen and
+              Zhang, Haowen and Li, Heng",
+  abstract = "Haplotype-resolved de novo assembly is the ultimate solution to
+              the study of sequence variations in a genome. However, existing
+              algorithms either collapse heterozygous alleles into one
+              consensus copy or fail to cleanly separate the haplotypes to
+              produce high-quality phased assemblies. Here we describe hifiasm,
+              a de novo assembler that takes advantage of long high-fidelity
+              sequence reads to faithfully represent the haplotype information
+              in a phased assembly graph. Unlike other graph-based assemblers
+              that only aim to maintain the contiguity of one haplotype,
+              hifiasm strives to preserve the contiguity of all haplotypes.
+              This feature enables the development of a graph trio binning
+              algorithm that greatly advances over standard trio binning. On
+              three human and five nonhuman datasets, including California
+              redwood with a ~30-Gb hexaploid genome, we show that hifiasm
+              frequently delivers better assemblies than existing tools and
+              consistently outperforms others on haplotype-resolved assembly.",
+  journal  = "Nat. Methods",
+  volume   =  18,
+  number   =  2,
+  pages    = "170--175",
+  month    =  feb,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{Jain2018-mg,
+  title    = "Linear assembly of a human centromere on the {Y} chromosome",
+  author   = "Jain, Miten and Olsen, Hugh E and Turner, Daniel J and Stoddart,
+              David and Bulazel, Kira V and Paten, Benedict and Haussler, David
+              and Willard, Huntington F and Akeson, Mark and Miga, Karen H",
+  abstract = "The human genome reference sequence remains incomplete owing to
+              the challenge of assembling long tracts of near-identical tandem
+              repeats in centromeres. We implemented a nanopore sequencing
+              strategy to generate high-quality reads that span hundreds of
+              kilobases of highly repetitive DNA in a human Y chromosome
+              centromere. Combining these data with short-read variant
+              validation, we assembled and characterized the centromeric region
+              of a human Y chromosome.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  36,
+  number   =  4,
+  pages    = "321--323",
+  month    =  apr,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Jain2018-zh,
+  title    = "Nanopore sequencing and assembly of a human genome with
+              ultra-long reads",
+  author   = "Jain, Miten and Koren, Sergey and Miga, Karen H and Quick, Josh
+              and Rand, Arthur C and Sasani, Thomas A and Tyson, John R and
+              Beggs, Andrew D and Dilthey, Alexander T and Fiddes, Ian T and
+              Malla, Sunir and Marriott, Hannah and Nieto, Tom and O'Grady,
+              Justin and Olsen, Hugh E and Pedersen, Brent S and Rhie, Arang
+              and Richardson, Hollian and Quinlan, Aaron R and Snutch, Terrance
+              P and Tee, Louise and Paten, Benedict and Phillippy, Adam M and
+              Simpson, Jared T and Loman, Nicholas J and Loose, Matthew",
+  abstract = "We report the sequencing and assembly of a reference genome for
+              the human GM12878 Utah/Ceph cell line using the MinION (Oxford
+              Nanopore Technologies) nanopore sequencer. 91.2 Gb of sequence
+              data, representing ∼30$\times$ theoretical coverage, were
+              produced. Reference-based alignment enabled detection of large
+              structural variants and epigenetic modifications. De novo
+              assembly of nanopore reads alone yielded a contiguous assembly
+              (NG50 ∼3 Mb). We developed a protocol to generate ultra-long
+              reads (N50 > 100 kb, read lengths up to 882 kb). Incorporating an
+              additional 5$\times$ coverage of these ultra-long reads more than
+              doubled the assembly contiguity (NG50 ∼6.4 Mb). The final
+              assembled genome was 2,867 million bases in size, covering 85.8\%
+              of the reference. Assembly accuracy, after incorporating
+              complementary short-read sequencing data, exceeded 99.8\%.
+              Ultra-long reads enabled assembly and phasing of the 4-Mb major
+              histocompatibility complex (MHC) locus in its entirety,
+              measurement of telomere repeat length, and closure of gaps in the
+              reference human genome assembly GRCh38.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  36,
+  number   =  4,
+  pages    = "338--345",
+  month    =  apr,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Miga2014-uv,
+  title    = "Centromere reference models for human chromosomes X and Y
+              satellite arrays",
+  author   = "Miga, Karen H and Newton, Yulia and Jain, Miten and Altemose,
+              Nicolas and Willard, Huntington F and Kent, W James",
+  abstract = "The human genome sequence remains incomplete, with
+              multimegabase-sized gaps representing the endogenous centromeres
+              and other heterochromatic regions. Available sequence-based
+              studies within these sites in the genome have demonstrated a role
+              in centromere function and chromosome pairing, necessary to
+              ensure proper chromosome segregation during cell division. A
+              common genomic feature of these regions is the enrichment of long
+              arrays of near-identical tandem repeats, known as satellite DNAs,
+              which offer a limited number of variant sites to differentiate
+              individual repeat copies across millions of bases. This
+              substantial sequence homogeneity challenges available assembly
+              strategies and, as a result, centromeric regions are omitted from
+              ongoing genomic studies. To address this problem, we utilize
+              monomer sequence and ordering information obtained from
+              whole-genome shotgun reads to model two haploid human satellite
+              arrays on chromosomes X and Y, resulting in an initial
+              characterization of 3.83 Mb of centromeric DNA within an
+              individual genome. To further expand the utility of each
+              centromeric reference sequence model, we evaluate sites within
+              the arrays for short-read mappability and chromosome specificity.
+              Because satellite DNAs evolve in a concerted manner, we use these
+              centromeric assemblies to assess the extent of sequence variation
+              among 366 individuals from distinct human populations. We thus
+              identify two satellite array variants in both X and Y
+              centromeres, as determined by array length and sequence
+              composition. This study provides an initial sequence
+              characterization of a regional centromere and establishes a
+              foundation to extend genomic characterization to these sites as
+              well as to other repeat-rich regions within complex genomes.",
+  journal  = "Genome Res.",
+  volume   =  24,
+  number   =  4,
+  pages    = "697--707",
+  month    =  apr,
+  year     =  2014,
+  language = "en"
+}
+
+
+@ARTICLE{Matthews2018-tv,
+  title    = "Improved reference genome of Aedes aegypti informs arbovirus
+              vector control",
+  author   = "Matthews, Benjamin J and Dudchenko, Olga and Kingan, Sarah B and
+              Koren, Sergey and Antoshechkin, Igor and Crawford, Jacob E and
+              Glassford, William J and Herre, Margaret and Redmond, Seth N and
+              Rose, Noah H and Weedall, Gareth D and Wu, Yang and Batra, Sanjit
+              S and Brito-Sierra, Carlos A and Buckingham, Steven D and
+              Campbell, Corey L and Chan, Saki and Cox, Eric and Evans,
+              Benjamin R and Fansiri, Thanyalak and Filipovi{\'c}, Igor and
+              Fontaine, Albin and Gloria-Soria, Andrea and Hall, Richard and
+              Joardar, Vinita S and Jones, Andrew K and Kay, Raissa G G and
+              Kodali, Vamsi K and Lee, Joyce and Lycett, Gareth J and Mitchell,
+              Sara N and Muehling, Jill and Murphy, Michael R and Omer, Arina D
+              and Partridge, Frederick A and Peluso, Paul and Aiden, Aviva
+              Presser and Ramasamy, Vidya and Ra{\v s}i{\'c}, Gordana and Roy,
+              Sourav and Saavedra-Rodriguez, Karla and Sharan, Shruti and
+              Sharma, Atashi and Smith, Melissa Laird and Turner, Joe and
+              Weakley, Allison M and Zhao, Zhilei and Akbari, Omar S and Black,
+              4th, William C and Cao, Han and Darby, Alistair C and Hill,
+              Catherine A and Johnston, J Spencer and Murphy, Terence D and
+              Raikhel, Alexander S and Sattelle, David B and Sharakhov, Igor V
+              and White, Bradley J and Zhao, Li and Aiden, Erez Lieberman and
+              Mann, Richard S and Lambrechts, Louis and Powell, Jeffrey R and
+              Sharakhova, Maria V and Tu, Zhijian and Robertson, Hugh M and
+              McBride, Carolyn S and Hastie, Alex R and Korlach, Jonas and
+              Neafsey, Daniel E and Phillippy, Adam M and Vosshall, Leslie B",
+  abstract = "Female Aedes aegypti mosquitoes infect more than 400 million
+              people each year with dangerous viral pathogens including dengue,
+              yellow fever, Zika and chikungunya. Progress in understanding the
+              biology of mosquitoes and developing the tools to fight them has
+              been slowed by the lack of a high-quality genome assembly. Here
+              we combine diverse technologies to produce the markedly improved,
+              fully re-annotated AaegL5 genome assembly, and demonstrate how it
+              accelerates mosquito science. We anchored physical and
+              cytogenetic maps, doubled the number of known chemosensory
+              ionotropic receptors that guide mosquitoes to human hosts and
+              egg-laying sites, provided further insight into the size and
+              composition of the sex-determining M locus, and revealed
+              copy-number variation among glutathione S-transferase genes that
+              are important for insecticide resistance. Using high-resolution
+              quantitative trait locus and population genomic analyses, we
+              mapped new candidates for dengue vector competence and
+              insecticide resistance. AaegL5 will catalyse new biological
+              insights and intervention strategies to fight this deadly disease
+              vector.",
+  journal  = "Nature",
+  volume   =  563,
+  number   =  7732,
+  pages    = "501--507",
+  month    =  nov,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Koren2018-wg,
+  title    = "De novo assembly of haplotype-resolved genomes with trio binning",
+  author   = "Koren, Sergey and Rhie, Arang and Walenz, Brian P and Dilthey,
+              Alexander T and Bickhart, Derek M and Kingan, Sarah B and
+              Hiendleder, Stefan and Williams, John L and Smith, Timothy P L
+              and Phillippy, Adam M",
+  abstract = "Complex allelic variation hampers the assembly of
+              haplotype-resolved sequences from diploid genomes. We developed
+              trio binning, an approach that simplifies haplotype assembly by
+              resolving allelic variation before assembly. In contrast with
+              prior approaches, the effectiveness of our method improved with
+              increasing heterozygosity. Trio binning uses short reads from two
+              parental genomes to first partition long reads from an offspring
+              into haplotype-specific sets. Each haplotype is then assembled
+              independently, resulting in a complete diploid reconstruction. We
+              used trio binning to recover both haplotypes of a diploid human
+              genome and identified complex structural variants missed by
+              alternative approaches. We sequenced an F1 cross between the
+              cattle subspecies Bos taurus taurus and Bos taurus indicus and
+              completely assembled both parental haplotypes with NG50 haplotig
+              sizes of >20 Mb and 99.998\% accuracy, surpassing the quality of
+              current cattle reference genomes. We suggest that trio binning
+              improves diploid genome assembly and will facilitate new studies
+              of haplotype variation and inheritance.",
+  journal  = "Nat. Biotechnol.",
+  month    =  oct,
+  year     =  2018,
+  language = "en"
+}
+
+@ARTICLE{Porubsky2021-ct,
+  title    = "Fully phased human genome assembly without parental data using
+              single-cell strand sequencing and long reads",
+  author   = "Porubsky, David and Ebert, Peter and Audano, Peter A and Vollger,
+              Mitchell R and Harvey, William T and Marijon, Pierre and Ebler,
+              Jana and Munson, Katherine M and Sorensen, Melanie and Sulovari,
+              Arvis and Haukness, Marina and Ghareghani, Maryam and {Human
+              Genome Structural Variation Consortium} and Lansdorp, Peter M and
+              Paten, Benedict and Devine, Scott E and Sanders, Ashley D and
+              Lee, Charles and Chaisson, Mark J P and Korbel, Jan O and
+              Eichler, Evan E and Marschall, Tobias",
+  abstract = "Human genomes are typically assembled as consensus sequences that
+              lack information on parental haplotypes. Here we describe a
+              reference-free workflow for diploid de novo genome assembly that
+              combines the chromosome-wide phasing and scaffolding capabilities
+              of single-cell strand sequencing1,2 with continuous long-read or
+              high-fidelity3 sequencing data. Employing this strategy, we
+              produced a completely phased de novo genome assembly for each
+              haplotype of an individual of Puerto Rican descent (HG00733) in
+              the absence of parental data. The assemblies are accurate
+              (quality value > 40) and highly contiguous (contig N50 > 23 Mbp)
+              with low switch error rates (0.17\%), providing fully phased
+              single-nucleotide variants, indels and structural variants. A
+              comparison of Oxford Nanopore Technologies and Pacific
+              Biosciences phased assemblies identified 154 regions that are
+              preferential sites of contig breaks, irrespective of sequencing
+              technology or phasing algorithms.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  39,
+  number   =  3,
+  pages    = "302--308",
+  month    =  mar,
+  year     =  2021,
+  language = "en"
+}
+
+
+@ARTICLE{Robinson2018-os,
+  title    = "Juicebox.js Provides a {Cloud-Based} Visualization System for
+              {Hi-C} Data",
+  author   = "Robinson, James T and Turner, Douglass and Durand, Neva C and
+              Thorvaldsd{\'o}ttir, Helga and Mesirov, Jill P and Aiden, Erez
+              Lieberman",
+  abstract = "Contact mapping experiments such as Hi-C explore how genomes fold
+              in 3D. Here, we introduce Juicebox.js, a cloud-based web
+              application for exploring the resulting datasets. Like the
+              original Juicebox application, Juicebox.js allows users to zoom
+              in and out of such datasets using an interface similar to Google
+              Earth. Juicebox.js also has many features designed to facilitate
+              data reproducibility and sharing. Furthermore, Juicebox.js
+              encodes the exact state of the browser in a shareable URL.
+              Creating a public browser for a new Hi-C dataset does not require
+              coding and can be accomplished in under a minute. The web app
+              also makes it possible to create interactive figures online that
+              can complement or replace ordinary journal figures. When combined
+              with Juicer, this makes the entire process of data analysis
+              transparent, insofar as every step from raw reads to published
+              figure is publicly available as open source code.",
+  journal  = "Cell Syst",
+  volume   =  6,
+  number   =  2,
+  pages    = "256--258.e1",
+  month    =  feb,
+  year     =  2018,
+  keywords = "3D genomics; Hi-C; contact domains; contact map; enhancers;
+              genome architecture; loop extrusion; loops; nuclear architecture;
+              visualization",
+  language = "en"
+}
+
+
+
+@ARTICLE{Dudchenko2017-kb,
+  title    = "De novo assembly of the Aedes aegypti genome using {Hi-C} yields
+              chromosome-length scaffolds",
+  author   = "Dudchenko, Olga and Batra, Sanjit S and Omer, Arina D and
+              Nyquist, Sarah K and Hoeger, Marie and Durand, Neva C and Shamim,
+              Muhammad S and Machol, Ido and Lander, Eric S and Aiden, Aviva
+              Presser and Aiden, Erez Lieberman",
+  abstract = "The Zika outbreak, spread by the Aedes aegypti mosquito,
+              highlights the need to create high-quality assemblies of large
+              genomes in a rapid and cost-effective way. Here we combine Hi-C
+              data with existing draft assemblies to generate chromosome-length
+              scaffolds. We validate this method by assembling a human genome,
+              de novo, from short reads alone (67$\times$ coverage). We then
+              combine our method with draft sequences to create genome
+              assemblies of the mosquito disease vectors Aeaegypti and Culex
+              quinquefasciatus, each consisting of three scaffolds
+              corresponding to the three chromosomes in each species. These
+              assemblies indicate that almost all genomic rearrangements among
+              these species occur within, rather than between, chromosome arms.
+              The genome assembly procedure we describe is fast, inexpensive,
+              and accurate, and can be applied to many species.",
+  journal  = "Science",
+  volume   =  356,
+  number   =  6333,
+  pages    = "92--95",
+  month    =  apr,
+  year     =  2017,
+  language = "en"
+}
+
+@ARTICLE{Dudchenko2018-yl,
+  title    = "The Juicebox Assembly Tools module facilitates de novo assembly
+              of mammalian genomes with chromosome-length scaffolds for under
+              \$1000",
+  author   = "Dudchenko, Olga and Shamim, Muhammad S and Batra, Sanjit S and
+              Durand, Neva C and Musial, Nathaniel T and Mostofa, Ragib and
+              Pham, Melanie and St Hilaire, Brian Glenn and Yao, Weijie and
+              Stamenova, Elena and Hoeger, Marie and Nyquist, Sarah K and
+              Korchina, Valeriya and Pletch, Kelcie and Flanagan, Joseph P and
+              Tomaszewicz, Ania and McAloose, Denise and Estrada, Cynthia
+              P{\'e}rez and Novak, Ben J and Omer, Arina D and Aiden, Erez
+              Lieberman",
+  abstract = "Hi-C contact maps are valuable for genome assembly
+              ([Lieberman-Aiden, van Berkum et al. 2009][1]; [Burton et al.
+              2013][2]; [Dudchenko et al. 2017][3]). Recently, we developed
+              Juicebox, a system for the visual exploration of Hi-C data
+              ([Durand, Robinson et al. 2016][4]), and 3D-DNA, an automated
+              pipeline for using Hi-C data to assemble genomes ([Dudchenko et
+              al. 2017][3]). Here, we introduce ``Assembly Tools,'' a new
+              module for Juicebox, which provides a point-and-click interface
+              for using Hi-C heatmaps to identify and correct errors in a
+              genome assembly. Together, 3D-DNA and the Juicebox Assembly Tools
+              greatly reduce the cost of accurately assembling complex
+              eukaryotic genomes. To illustrate, we generated de novo
+              assemblies with chromosome-length scaffolds for three mammals:
+              the wombat, Vombatus ursinus (3.3Gb), the Virginia opossum,
+              Didelphis virginiana (3.3Gb), and the raccoon, Procyon lotor
+              (2.5Gb). The only inputs for each assembly were Illumina reads
+              from a short insert DNA-Seq library (300 million Illumina reads,
+              maximum length 2x150 bases) and an in situ Hi-C library (100
+              million Illumina reads, maximum read length 2x150 bases), which
+              cost <\$1000. [1]: \#ref-25 [2]: \#ref-3 [3]: \#ref-10 [4]:
+              \#ref-11",
+  journal  = "bioRxiv",
+  month    =  jan,
+  year     =  2018,
+  language = "en"
+}
+
+
+@ARTICLE{Pendleton2015-ue,
+  title    = "Assembly and diploid architecture of an individual human genome
+              via single-molecule technologies",
+  author   = "Pendleton, Matthew and Sebra, Robert and Pang, Andy Wing Chun and
+              Ummat, Ajay and Franzen, Oscar and Rausch, Tobias and St{\"u}tz,
+              Adrian M and Stedman, William and Anantharaman, Thomas and
+              Hastie, Alex and Dai, Heng and Fritz, Markus Hsi-Yang and Cao,
+              Han and Cohain, Ariella and Deikus, Gintaras and Durrett, Russell
+              E and Blanchard, Scott C and Altman, Roger and Chin, Chen-Shan
+              and Guo, Yan and Paxinos, Ellen E and Korbel, Jan O and Darnell,
+              Robert B and McCombie, W Richard and Kwok, Pui-Yan and Mason,
+              Christopher E and Schadt, Eric E and Bashir, Ali",
+  abstract = "We present the first comprehensive analysis of a diploid human
+              genome that combines single-molecule sequencing with
+              single-molecule genome maps. Our hybrid assembly markedly
+              improves upon the contiguity observed from traditional shotgun
+              sequencing approaches, with scaffold N50 values approaching 30
+              Mb, and we identified complex structural variants (SVs) missed by
+              other high-throughput approaches. Furthermore, by combining
+              Illumina short-read data with long reads, we phased both
+              single-nucleotide variants and SVs, generating haplotypes with
+              over 99\% consistency with previous trio-based studies. Our work
+              shows that it is now possible to integrate single-molecule and
+              high-throughput sequence data to generate de novo assembled
+              genomes that approach reference quality.",
+  journal  = "Nat. Methods",
+  volume   =  12,
+  number   =  8,
+  pages    = "780--786",
+  month    =  aug,
+  year     =  2015,
+  language = "en"
+}
+
+
+@ARTICLE{Huddleston2014-rs,
+  title    = "Reconstructing complex regions of genomes using long-read
+              sequencing technology",
+  author   = "Huddleston, John and Ranade, Swati and Malig, Maika and
+              Antonacci, Francesca and Chaisson, Mark and Hon, Lawrence and
+              Sudmant, Peter H and Graves, Tina A and Alkan, Can and Dennis,
+              Megan Y and Wilson, Richard K and Turner, Stephen W and Korlach,
+              Jonas and Eichler, Evan E",
+  abstract = "Obtaining high-quality sequence continuity of complex regions of
+              recent segmental duplication remains one of the major challenges
+              of finishing genome assemblies. In the human and mouse genomes,
+              this was achieved by targeting large-insert clones using costly
+              and laborious capillary-based sequencing approaches. Sanger
+              shotgun sequencing of clone inserts, however, has now been
+              largely abandoned, leaving most of these regions unresolved in
+              newer genome assemblies generated primarily by next-generation
+              sequencing hybrid approaches. Here we show that it is possible to
+              resolve regions that are complex in a genome-wide context but
+              simple in isolation for a fraction of the time and cost of
+              traditional methods using long-read single molecule, real-time
+              (SMRT) sequencing and assembly technology from Pacific
+              Biosciences (PacBio). We sequenced and assembled BAC clones
+              corresponding to a 1.3-Mbp complex region of chromosome 17q21.31,
+              demonstrating 99.994\% identity to Sanger assemblies of the same
+              clones. We targeted 44 differences using Illumina sequencing and
+              find that PacBio and Sanger assemblies share a comparable number
+              of validated variants, albeit with different sequence context
+              biases. Finally, we targeted a poorly assembled 766-kbp
+              duplicated region of the chimpanzee genome and resolved the
+              structure and organization for a fraction of the cost and time of
+              traditional finishing approaches. Our data suggest a
+              straightforward path for upgrading genomes to a higher quality
+              finished state.",
+  journal  = "Genome Res.",
+  volume   =  24,
+  number   =  4,
+  pages    = "688--696",
+  month    =  apr,
+  year     =  2014,
+  language = "en"
+}
+
+
+@ARTICLE{Chin2016-at,
+  title    = "Phased diploid genome assembly with single-molecule real-time
+              sequencing",
+  author   = "Chin, Chen-Shan and Peluso, Paul and Sedlazeck, Fritz J and
+              Nattestad, Maria and Concepcion, Gregory T and Clum, Alicia and
+              Dunn, Christopher and O'Malley, Ronan and Figueroa-Balderas, Rosa
+              and Morales-Cruz, Abraham and Cramer, Grant R and Delledonne,
+              Massimo and Luo, Chongyuan and Ecker, Joseph R and Cantu, Dario
+              and Rank, David R and Schatz, Michael C",
+  abstract = "While genome assembly projects have been successful in many
+              haploid and inbred species, the assembly of noninbred or
+              rearranged heterozygous genomes remains a major challenge. To
+              address this challenge, we introduce the open-source FALCON and
+              FALCON-Unzip algorithms
+              (https://github.com/PacificBiosciences/FALCON/) to assemble
+              long-read sequencing data into highly accurate, contiguous, and
+              correctly phased diploid genomes. We generate new reference
+              sequences for heterozygous samples including an F1 hybrid of
+              Arabidopsis thaliana, the widely cultivated Vitis vinifera cv.
+              Cabernet Sauvignon, and the coral fungus Clavicorona pyxidata,
+              samples that have challenged short-read assembly approaches. The
+              FALCON-based assemblies are substantially more contiguous and
+              complete than alternate short- or long-read approaches. The
+              phased diploid assembly enabled the study of haplotype structure
+              and heterozygosities between homologous chromosomes, including
+              the identification of widespread heterozygous structural
+              variation within coding sequences.",
+  journal  = "Nat. Methods",
+  volume   =  13,
+  number   =  12,
+  pages    = "1050--1054",
+  month    =  dec,
+  year     =  2016,
+  language = "en"
+}
+
+@ARTICLE{Myers2005-ei,
+  title    = "The fragment assembly string graph",
+  author   = "Myers, Eugene W",
+  abstract = "We present a concept and formalism, the string graph, which
+              represents all that is inferable about a DNA sequence from a
+              collection of shotgun sequencing reads collected from it. We give
+              time and space efficient algorithms for constructing a string
+              graph given the collection of overlaps between the reads and, in
+              particular, present a novel linear expected time algorithm for
+              transitive reduction in this context. The result demonstrates
+              that the decomposition of reads into kmers employed in the de
+              Bruijn graph approach described earlier is not essential, and
+              exposes its close connection to the unitig approach we developed
+              at Celera. This paper is a preliminary piece giving the basic
+              algorithm and results that demonstrate the efficiency and
+              scalability of the method. These ideas are being used to build a
+              next-generation whole genome assembler called BOA (Berkeley Open
+              Assembler) that will easily scale to mammalian genomes.",
+  journal  = "Bioinformatics",
+  volume   = "21 Suppl 2",
+  pages    = "ii79--85",
+  month    =  sep,
+  year     =  2005,
+  language = "en"
+}
+
+@ARTICLE{Lin2016-vl,
+  title    = "Assembly of long error-prone reads using de Bruijn graphs",
+  author   = "Lin, Yu and Yuan, Jeffrey and Kolmogorov, Mikhail and Shen, Max W
+              and Chaisson, Mark and Pevzner, Pavel A",
+  abstract = "The recent breakthroughs in assembling long error-prone reads
+              were based on the overlap-layout-consensus (OLC) approach and did
+              not utilize the strengths of the alternative de Bruijn graph
+              approach to genome assembly. Moreover, these studies often assume
+              that applications of the de Bruijn graph approach are limited to
+              short and accurate reads and that the OLC approach is the only
+              practical paradigm for assembling long error-prone reads. We show
+              how to generalize de Bruijn graphs for assembling long
+              error-prone reads and describe the ABruijn assembler, which
+              combines the de Bruijn graph and the OLC approaches and results
+              in accurate genome reconstructions.",
+  journal  = "Proc. Natl. Acad. Sci. U. S. A.",
+  volume   =  113,
+  number   =  52,
+  pages    = "E8396--E8405",
+  month    =  dec,
+  year     =  2016,
+  keywords = "de Bruijn graph; genome assembly; single-molecule sequencing",
+  language = "en"
+}
+
+@ARTICLE{Bashir2012-cs,
+  title    = "A hybrid approach for the automated finishing of bacterial
+              genomes",
+  author   = "Bashir, Ali and Klammer, Aaron and Robins, William P and Chin,
+              Chen-Shan and Webster, Dale and Paxinos, Ellen and Hsu, David and
+              Ashby, Meredith and Wang, Susana and Peluso, Paul and Sebra,
+              Robert and Sorenson, Jon and Bullard, James and Yen, Jackie and
+              Valdovino, Marie and Mollova, Emilia and Luong, Khai and Lin,
+              Steven and LaMay, Brianna and Joshi, Amruta and Rowe, Lori and
+              Frace, Michael and Tarr, Cheryl L and Turnsek, Maryann and Davis,
+              Brigid M and Kasarskis, Andrew and Mekalanos, John J and Waldor,
+              Matthew K and Schadt, Eric E",
+  abstract = "Advances in DNA sequencing technology have improved our ability
+              to characterize most genomic diversity. However, accurate
+              resolution of large structural events is challenging because of
+              the short read lengths of second-generation technologies.
+              Third-generation sequencing technologies, which can yield longer
+              multikilobase reads, have the potential to address limitations
+              associated with genome assembly. Here we combine sequencing data
+              from second- and third-generation DNA sequencing technologies to
+              assemble the two-chromosome genome of a recent Haitian cholera
+              outbreak strain into two nearly finished contigs at >99.9\%
+              accuracy. Complex regions with clinically relevant structure were
+              completely resolved. In separate control assemblies on
+              experimental and simulated data for the canonical N16961 cholera
+              reference strain, we obtained 14 scaffolds of greater than 1 kb
+              for the experimental data and 8 scaffolds of greater than 1 kb
+              for the simulated data, which allowed us to correct several
+              errors in contigs assembled from the short-read data alone. This
+              work provides a blueprint for the next generation of rapid
+              microbial identification and full-genome assembly.",
+  journal  = "Nat. Biotechnol.",
+  volume   =  30,
+  number   =  7,
+  pages    = "701--707",
+  month    =  jul,
+  year     =  2012,
+  language = "en"
+}
+
+@ARTICLE{Koren2017-cq,
+  title    = "Canu: scalable and accurate long-read assembly via adaptive k-mer
+              weighting and repeat separation",
+  author   = "Koren, Sergey and Walenz, Brian P and Berlin, Konstantin and
+              Miller, Jason R and Bergman, Nicholas H and Phillippy, Adam M",
+  abstract = "Long-read single-molecule sequencing has revolutionized de novo
+              genome assembly and enabled the automated reconstruction of
+              reference-quality genomes. However, given the relatively high
+              error rates of such technologies, efficient and accurate assembly
+              of large repeats and closely related haplotypes remains
+              challenging. We address these issues with Canu, a successor of
+              Celera Assembler that is specifically designed for noisy
+              single-molecule sequences. Canu introduces support for nanopore
+              sequencing, halves depth-of-coverage requirements, and improves
+              assembly continuity while simultaneously reducing runtime by an
+              order of magnitude on large genomes versus Celera Assembler 8.2.
+              These advances result from new overlapping and assembly
+              algorithms, including an adaptive overlapping strategy based on
+              tf-idf weighted MinHash and a sparse assembly graph construction
+              that avoids collapsing diverged repeats and haplotypes. We
+              demonstrate that Canu can reliably assemble complete microbial
+              genomes and near-complete eukaryotic chromosomes using either
+              Pacific Biosciences (PacBio) or Oxford Nanopore technologies and
+              achieves a contig NG50 of >21 Mbp on both human and Drosophila
+              melanogaster PacBio data sets. For assembly structures that
+              cannot be linearly represented, Canu provides graph-based
+              assembly outputs in graphical fragment assembly (GFA) format for
+              analysis or integration with complementary phasing and
+              scaffolding techniques. The combination of such highly resolved
+              assembly graphs with long-range scaffolding information promises
+              the complete and automated assembly of complex genomes.",
+  journal  = "Genome Res.",
+  volume   =  27,
+  number   =  5,
+  pages    = "722--736",
+  month    =  may,
+  year     =  2017,
+  language = "en"
+}
+
+
+
+@ARTICLE{Willard1985-bo,
+  title    = "Chromosome-specific organization of human alpha satellite {DNA}",
+  author   = "Willard, H F",
+  abstract = "Restriction endonuclease analysis of human genomic DNA has
+              previously revealed several prominent repeated DNA families
+              defined by regularly spaced enzyme recognition sites. One of
+              these families, termed alpha satellite DNA, was originally
+              identified as tandemly repeated 340- or 680-base pair (bp) EcoRI
+              fragments that hybridize to the centromeric regions of human
+              chromosomes. We have investigated the molecular organization of
+              alpha satellite DNA on individual human chromosomes by filter
+              hybridization and in situ hybridization analysis of human DNA and
+              DNA from rodent/human somatic cell hybrids, each containing only
+              a single human chromosome. We used as probes a cloned 340-bp
+              EcoRI alpha satellite fragment and a cloned alpha
+              satellite-containing 2.0-kilobase pair (kbp) BamHI fragment from
+              the pericentromeric region of the human X chromosome. In each
+              somatic cell hybrid DNA, the two probes hybridized to a distinct
+              subset of DNA fragments detected in total human genomic DNA.
+              Thus, alpha satellite DNA on each of the human chromosomes
+              examined--the X and Y chromosomes and autosomes 3, 4, and 21--is
+              organized in a specific and limited number of molecular domains.
+              The data indicate that subsets of alpha satellite DNA on
+              individual chromosomes differ from one another, both with respect
+              to restriction enzyme periodicities and with respect to their
+              degree of sequence relatedness. The results suggest that some,
+              and perhaps many, human chromosomes are characterized by a
+              specific organization of alpha satellite DNA at their centromeres
+              and that, under appropriate experimental conditions, cloned
+              representatives of alpha satellite subfamilies may serve as a new
+              class of chromosome-specific DNA markers.",
+  journal  = "Am. J. Hum. Genet.",
+  volume   =  37,
+  number   =  3,
+  pages    = "524--532",
+  month    =  may,
+  year     =  1985,
+  language = "en"
+}
+
+
+@ARTICLE{Skaletsky2003-sr,
+  title    = "The male-specific region of the human {Y} chromosome is a mosaic
+              of discrete sequence classes",
+  author   = "Skaletsky, Helen and Kuroda-Kawaguchi, Tomoko and Minx, Patrick J
+              and Cordum, Holland S and Hillier, Ladeana and Brown, Laura G and
+              Repping, Sjoerd and Pyntikova, Tatyana and Ali, Johar and Bieri,
+              Tamberlyn and Chinwalla, Asif and Delehaunty, Andrew and
+              Delehaunty, Kim and Du, Hui and Fewell, Ginger and Fulton,
+              Lucinda and Fulton, Robert and Graves, Tina and Hou, Shun-Fang
+              and Latrielle, Philip and Leonard, Shawn and Mardis, Elaine and
+              Maupin, Rachel and McPherson, John and Miner, Tracie and Nash,
+              William and Nguyen, Christine and Ozersky, Philip and Pepin,
+              Kymberlie and Rock, Susan and Rohlfing, Tracy and Scott, Kelsi
+              and Schultz, Brian and Strong, Cindy and Tin-Wollam, Aye and
+              Yang, Shiaw-Pyng and Waterston, Robert H and Wilson, Richard K
+              and Rozen, Steve and Page, David C",
+  abstract = "The male-specific region of the Y chromosome, the MSY,
+              differentiates the sexes and comprises 95\% of the chromosome's
+              length. Here, we report that the MSY is a mosaic of
+              heterochromatic sequences and three classes of euchromatic
+              sequences: X-transposed, X-degenerate and ampliconic. These
+              classes contain all 156 known transcription units, which include
+              78 protein-coding genes that collectively encode 27 distinct
+              proteins. The X-transposed sequences exhibit 99\% identity to the
+              X chromosome. The X-degenerate sequences are remnants of ancient
+              autosomes from which the modern X and Y chromosomes evolved. The
+              ampliconic class includes large regions (about 30\% of the MSY
+              euchromatin) where sequence pairs show greater than 99.9\%
+              identity, which is maintained by frequent gene conversion
+              (non-reciprocal transfer). The most prominent features here are
+              eight massive palindromes, at least six of which contain testis
+              genes.",
+  journal  = "Nature",
+  volume   =  423,
+  number   =  6942,
+  pages    = "825--837",
+  month    =  jun,
+  year     =  2003,
+  language = "en"
+}
+
+
+@ARTICLE{Bailey2002-xn,
+  title    = "Recent segmental duplications in the human genome",
+  author   = "Bailey, Jeffrey A and Gu, Zhiping and Clark, Royden A and
+              Reinert, Knut and Samonte, Rhea V and Schwartz, Stuart and Adams,
+              Mark D and Myers, Eugene W and Li, Peter W and Eichler, Evan E",
+  abstract = "Primate-specific segmental duplications are considered important
+              in human disease and evolution. The inability to distinguish
+              between allelic and duplication sequence overlap has hampered
+              their characterization as well as assembly and annotation of our
+              genome. We developed a method whereby each public sequence is
+              analyzed at the clone level for overrepresentation within a
+              whole-genome shotgun sequence. This test has the ability to
+              detect duplications larger than 15 kilobases irrespective of copy
+              number, location, or high sequence similarity. We mapped 169
+              large regions flanked by highly similar duplications. Twenty-four
+              of these hot spots of genomic instability have been associated
+              with genetic disease. Our analysis indicates a highly nonrandom
+              chromosomal and genic distribution of recent segmental
+              duplications, with a likely role in expanding protein diversity.",
+  journal  = "Science",
+  volume   =  297,
+  number   =  5583,
+  pages    = "1003--1007",
+  month    =  aug,
+  year     =  2002,
+  language = "en"
+}
+
+
+@ARTICLE{Lander2001-du,
+  title    = "Initial sequencing and analysis of the human genome",
+  author   = "Lander, E S and Linton, L M and Birren, B and Nusbaum, C and
+              Zody, M C and Baldwin, J and Devon, K and Dewar, K and Doyle, M
+              and FitzHugh, W and Funke, R and Gage, D and Harris, K and
+              Heaford, A and Howland, J and Kann, L and Lehoczky, J and LeVine,
+              R and McEwan, P and McKernan, K and Meldrim, J and Mesirov, J P
+              and Miranda, C and Morris, W and Naylor, J and Raymond, C and
+              Rosetti, M and Santos, R and Sheridan, A and Sougnez, C and
+              Stange-Thomann, Y and Stojanovic, N and Subramanian, A and Wyman,
+              D and Rogers, J and Sulston, J and Ainscough, R and Beck, S and
+              Bentley, D and Burton, J and Clee, C and Carter, N and Coulson, A
+              and Deadman, R and Deloukas, P and Dunham, A and Dunham, I and
+              Durbin, R and French, L and Grafham, D and Gregory, S and
+              Hubbard, T and Humphray, S and Hunt, A and Jones, M and Lloyd, C
+              and McMurray, A and Matthews, L and Mercer, S and Milne, S and
+              Mullikin, J C and Mungall, A and Plumb, R and Ross, M and
+              Shownkeen, R and Sims, S and Waterston, R H and Wilson, R K and
+              Hillier, L W and McPherson, J D and Marra, M A and Mardis, E R
+              and Fulton, L A and Chinwalla, A T and Pepin, K H and Gish, W R
+              and Chissoe, S L and Wendl, M C and Delehaunty, K D and Miner, T
+              L and Delehaunty, A and Kramer, J B and Cook, L L and Fulton, R S
+              and Johnson, D L and Minx, P J and Clifton, S W and Hawkins, T
+              and Branscomb, E and Predki, P and Richardson, P and Wenning, S
+              and Slezak, T and Doggett, N and Cheng, J F and Olsen, A and
+              Lucas, S and Elkin, C and Uberbacher, E and Frazier, M and Gibbs,
+              R A and Muzny, D M and Scherer, S E and Bouck, J B and Sodergren,
+              E J and Worley, K C and Rives, C M and Gorrell, J H and Metzker,
+              M L and Naylor, S L and Kucherlapati, R S and Nelson, D L and
+              Weinstock, G M and Sakaki, Y and Fujiyama, A and Hattori, M and
+              Yada, T and Toyoda, A and Itoh, T and Kawagoe, C and Watanabe, H
+              and Totoki, Y and Taylor, T and Weissenbach, J and Heilig, R and
+              Saurin, W and Artiguenave, F and Brottier, P and Bruls, T and
+              Pelletier, E and Robert, C and Wincker, P and Smith, D R and
+              Doucette-Stamm, L and Rubenfield, M and Weinstock, K and Lee, H M
+              and Dubois, J and Rosenthal, A and Platzer, M and Nyakatura, G
+              and Taudien, S and Rump, A and Yang, H and Yu, J and Wang, J and
+              Huang, G and Gu, J and Hood, L and Rowen, L and Madan, A and Qin,
+              S and Davis, R W and Federspiel, N A and Abola, A P and Proctor,
+              M J and Myers, R M and Schmutz, J and Dickson, M and Grimwood, J
+              and Cox, D R and Olson, M V and Kaul, R and Raymond, C and
+              Shimizu, N and Kawasaki, K and Minoshima, S and Evans, G A and
+              Athanasiou, M and Schultz, R and Roe, B A and Chen, F and Pan, H
+              and Ramser, J and Lehrach, H and Reinhardt, R and McCombie, W R
+              and de la Bastide, M and Dedhia, N and Bl{\"o}cker, H and
+              Hornischer, K and Nordsiek, G and Agarwala, R and Aravind, L and
+              Bailey, J A and Bateman, A and Batzoglou, S and Birney, E and
+              Bork, P and Brown, D G and Burge, C B and Cerutti, L and Chen, H
+              C and Church, D and Clamp, M and Copley, R R and Doerks, T and
+              Eddy, S R and Eichler, E E and Furey, T S and Galagan, J and
+              Gilbert, J G and Harmon, C and Hayashizaki, Y and Haussler, D and
+              Hermjakob, H and Hokamp, K and Jang, W and Johnson, L S and
+              Jones, T A and Kasif, S and Kaspryzk, A and Kennedy, S and Kent,
+              W J and Kitts, P and Koonin, E V and Korf, I and Kulp, D and
+              Lancet, D and Lowe, T M and McLysaght, A and Mikkelsen, T and
+              Moran, J V and Mulder, N and Pollara, V J and Ponting, C P and
+              Schuler, G and Schultz, J and Slater, G and Smit, A F and Stupka,
+              E and Szustakowki, J and Thierry-Mieg, D and Thierry-Mieg, J and
+              Wagner, L and Wallis, J and Wheeler, R and Williams, A and Wolf,
+              Y I and Wolfe, K H and Yang, S P and Yeh, R F and Collins, F and
+              Guyer, M S and Peterson, J and Felsenfeld, A and Wetterstrand, K
+              A and Patrinos, A and Morgan, M J and de Jong, P and Catanese, J
+              J and Osoegawa, K and Shizuya, H and Choi, S and Chen, Y J and
+              Szustakowki, J and {International Human Genome Sequencing
+              Consortium}",
+  abstract = "The human genome holds an extraordinary trove of information
+              about human development, physiology, medicine and evolution. Here
+              we report the results of an international collaboration to
+              produce and make freely available a draft sequence of the human
+              genome. We also present an initial analysis of the data,
+              describing some of the insights that can be gleaned from the
+              sequence.",
+  journal  = "Nature",
+  volume   =  409,
+  number   =  6822,
+  pages    = "860--921",
+  month    =  feb,
+  year     =  2001,
+  language = "en"
+}
+
+
+
 
 
 % ------------------------------------------------------------------------
@@ -1177,90 +2748,6 @@ dominated by insertion and deletion error. The method is benchmarked using both 
   year     =  2001,
   language = "en"
 }
-
-
-
-@ARTICLE{Lander2001-du,
-  title    = "Initial sequencing and analysis of the human genome",
-  author   = "Lander, E S and Linton, L M and Birren, B and Nusbaum, C and
-              Zody, M C and Baldwin, J and Devon, K and Dewar, K and Doyle, M
-              and FitzHugh, W and Funke, R and Gage, D and Harris, K and
-              Heaford, A and Howland, J and Kann, L and Lehoczky, J and LeVine,
-              R and McEwan, P and McKernan, K and Meldrim, J and Mesirov, J P
-              and Miranda, C and Morris, W and Naylor, J and Raymond, C and
-              Rosetti, M and Santos, R and Sheridan, A and Sougnez, C and
-              Stange-Thomann, Y and Stojanovic, N and Subramanian, A and Wyman,
-              D and Rogers, J and Sulston, J and Ainscough, R and Beck, S and
-              Bentley, D and Burton, J and Clee, C and Carter, N and Coulson, A
-              and Deadman, R and Deloukas, P and Dunham, A and Dunham, I and
-              Durbin, R and French, L and Grafham, D and Gregory, S and
-              Hubbard, T and Humphray, S and Hunt, A and Jones, M and Lloyd, C
-              and McMurray, A and Matthews, L and Mercer, S and Milne, S and
-              Mullikin, J C and Mungall, A and Plumb, R and Ross, M and
-              Shownkeen, R and Sims, S and Waterston, R H and Wilson, R K and
-              Hillier, L W and McPherson, J D and Marra, M A and Mardis, E R
-              and Fulton, L A and Chinwalla, A T and Pepin, K H and Gish, W R
-              and Chissoe, S L and Wendl, M C and Delehaunty, K D and Miner, T
-              L and Delehaunty, A and Kramer, J B and Cook, L L and Fulton, R S
-              and Johnson, D L and Minx, P J and Clifton, S W and Hawkins, T
-              and Branscomb, E and Predki, P and Richardson, P and Wenning, S
-              and Slezak, T and Doggett, N and Cheng, J F and Olsen, A and
-              Lucas, S and Elkin, C and Uberbacher, E and Frazier, M and Gibbs,
-              R A and Muzny, D M and Scherer, S E and Bouck, J B and Sodergren,
-              E J and Worley, K C and Rives, C M and Gorrell, J H and Metzker,
-              M L and Naylor, S L and Kucherlapati, R S and Nelson, D L and
-              Weinstock, G M and Sakaki, Y and Fujiyama, A and Hattori, M and
-              Yada, T and Toyoda, A and Itoh, T and Kawagoe, C and Watanabe, H
-              and Totoki, Y and Taylor, T and Weissenbach, J and Heilig, R and
-              Saurin, W and Artiguenave, F and Brottier, P and Bruls, T and
-              Pelletier, E and Robert, C and Wincker, P and Smith, D R and
-              Doucette-Stamm, L and Rubenfield, M and Weinstock, K and Lee, H M
-              and Dubois, J and Rosenthal, A and Platzer, M and Nyakatura, G
-              and Taudien, S and Rump, A and Yang, H and Yu, J and Wang, J and
-              Huang, G and Gu, J and Hood, L and Rowen, L and Madan, A and Qin,
-              S and Davis, R W and Federspiel, N A and Abola, A P and Proctor,
-              M J and Myers, R M and Schmutz, J and Dickson, M and Grimwood, J
-              and Cox, D R and Olson, M V and Kaul, R and Raymond, C and
-              Shimizu, N and Kawasaki, K and Minoshima, S and Evans, G A and
-              Athanasiou, M and Schultz, R and Roe, B A and Chen, F and Pan, H
-              and Ramser, J and Lehrach, H and Reinhardt, R and McCombie, W R
-              and de la Bastide, M and Dedhia, N and Bl{\"o}cker, H and
-              Hornischer, K and Nordsiek, G and Agarwala, R and Aravind, L and
-              Bailey, J A and Bateman, A and Batzoglou, S and Birney, E and
-              Bork, P and Brown, D G and Burge, C B and Cerutti, L and Chen, H
-              C and Church, D and Clamp, M and Copley, R R and Doerks, T and
-              Eddy, S R and Eichler, E E and Furey, T S and Galagan, J and
-              Gilbert, J G and Harmon, C and Hayashizaki, Y and Haussler, D and
-              Hermjakob, H and Hokamp, K and Jang, W and Johnson, L S and
-              Jones, T A and Kasif, S and Kaspryzk, A and Kennedy, S and Kent,
-              W J and Kitts, P and Koonin, E V and Korf, I and Kulp, D and
-              Lancet, D and Lowe, T M and McLysaght, A and Mikkelsen, T and
-              Moran, J V and Mulder, N and Pollara, V J and Ponting, C P and
-              Schuler, G and Schultz, J and Slater, G and Smit, A F and Stupka,
-              E and Szustakowki, J and Thierry-Mieg, D and Thierry-Mieg, J and
-              Wagner, L and Wallis, J and Wheeler, R and Williams, A and Wolf,
-              Y I and Wolfe, K H and Yang, S P and Yeh, R F and Collins, F and
-              Guyer, M S and Peterson, J and Felsenfeld, A and Wetterstrand, K
-              A and Patrinos, A and Morgan, M J and de Jong, P and Catanese, J
-              J and Osoegawa, K and Shizuya, H and Choi, S and Chen, Y J and
-              Szustakowki, J and {International Human Genome Sequencing
-              Consortium}",
-  abstract = "The human genome holds an extraordinary trove of information
-              about human development, physiology, medicine and evolution. Here
-              we report the results of an international collaboration to
-              produce and make freely available a draft sequence of the human
-              genome. We also present an initial analysis of the data,
-              describing some of the insights that can be gleaned from the
-              sequence.",
-  journal  = "Nature",
-  volume   =  409,
-  number   =  6822,
-  pages    = "860--921",
-  month    =  feb,
-  year     =  2001,
-  language = "en"
-}
-
 
 
 @ARTICLE{Aganezov2022-dv,

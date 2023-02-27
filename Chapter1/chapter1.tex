@@ -81,14 +81,16 @@ Amino acids were initially proposed as the physical material responsible for inh
 
 \subsection{Central Dogma: from DNA to protein}
 
-\subsection{Sanger sequencing}
+\subsection{Sanger sequencing: the beginning}
 
-Frederick Sanger and Walter Gilbert came up with Sanger dideoxy sequencing and Maxam-Gilbert sequencing, respectively, to determine the nucleotide monomer that constitutes the given nucleic acid. Sanger was able to determine the genetic sequence of XXXX and XXXX using Sanger dideoxy sequencing for the first time. The Sanger dideoxy sequencing was more amenable to sequencing at scale and was adopted for the Human Genome Project (HGP) as the primary sequencing instrument and Sanger reads produced from ABI had an average read length of 500bp to 1000bp and had an average base accuracy between Q20 and Q50. 
+The definitive identification of DNA as the genetic that material is responsible for transformation of R strain of bacteria into S strain bacteria by Oswald Avery in 1944\cite{} and the discovery of the structure of the DNA by James Watson and Francis Crick in 1953\cite{} has sparked interest to develop DNA sequencing technologies to determine the nucleotide composition of organisms and to better understand genetic variations. In 1977, Frederick Sanger developed chain termination method\cite{}, and Allan Maxam and Walter Gilbert developed chemical cleavage method\cite{} for DNA sequencing. The chain termination method, also referred to as Sanger dideoxy sequencing, became the preferred method for DNA sequencing thanks to scalable implementation of the method using fluorescent nucleotides by Applied Biosystems (ABI) \cite{} and was the primary sequencing method for the Human Genome Project.
 
-ABI capillary sequencing
+The original chain termination method starts with a single-stranded template DNA and a primer designed to bind to the start of the single-stranded template DNA. DNA polymerase (DNAP) binds to the primer and initiates DNA elongation using the free nucleotides in the mixture. Sanger mixed used both deoxyribonucleotides and dideoxyribonucleotides where the concentration of deoxyribonucleotides were higher than the concentration of dideoxyribonucleotides such that DNA elongation will be preferred. Until the incorporation of the dideoxyribonucleotide, DNAP will use the template DNA and perform DNA elgonation. Upon the incorporation of dideoxyribonucleotide, DNA elongation is terminated as the dideoxyribonucleotide does not have the 3’-OH to form phosphodiester bond with next nucleotide. Repeat chain-termination experiments results in DNA fragments of varying sizes and these fragments are ordered by their size through gel electrophoresis. This sequencing experiment is repeated with the four dideoxynucleotides (ddATP, ddGTP, ddCTP and ddTTP) such that the DNA sequence can be determined from reading the gel image from top to bottom \cite{}. Sanger and colleagues used this method to determine the sequence of the 5,375 bp long $\Phi$X174 bacteriophage. ABI modified the chain-termination method such that fluorophore-labelled dideoxynucleotide is used and this allowed sequencing from reading the fluorescence emitted from the chain-terminating nucleotide. The chain-termination method produces reads that are typically 500bp to 1000 bp long. 
+
 
 \subsection{Genome assembly}
 
+The ability to determine the nucleotide composition of organisms at scale with ABI capillary sequencing platform initiated a race to sequence the organisms around us to understand the structure and organisation of genomes and to the evolutionary relationship between organisms through comparative genomics. 
 
 \subsection{Human Genome Project}
 
@@ -106,23 +108,23 @@ The technical limitations of Illumina sequencing (base accuracy and short read l
 
 these companies have improved their library preparation protocol and base callers to improve the base accuracy. PacBio, for example, came up with circular consensus sequencing protocol in 2014, but this protocol had limited use commercially until 2018 because of insufficient DNA polymerase processivity.   
 
-\subsubsection{Liquid Biopsy}
+% \subsubsection{Liquid Biopsy}
 
-\subsubsection{Clinical sequencing}
+% \subsubsection{Clinical sequencing}
 
-\subsubsection{Single-cell sequencing}
+% \subsubsection{Single-cell sequencing}
 
-linked-reads
+% linked-reads
 
-\subsubsection{High-throughput chromatin conformation capture sequencing}
+% \subsubsection{High-throughput chromatin conformation capture sequencing}
 
-Job Dekker
-Erez Liberman Aiden
-CTCF, Cohesin, WAPL
+% Job Dekker
+% Erez Liberman Aiden
+% CTCF, Cohesin, WAPL
 
-\subsubsection{Strand-seq}
+% \subsubsection{Strand-seq}
 
-\subsubsection{Genome engineering}
+% \subsubsection{Genome engineering}
 
 \section{Single molecule sequencing}
 
@@ -130,8 +132,9 @@ Single molecule sequencing technologies from Oxford Nanopore Technologies (ONT) 
 
 \subsection{Nanopore sequencing}
 
+David Deamer first proposed in the 1990s that a nanopore could be used to sequence DNA by measuring the changes in electrical current as the DNA molecule passes through the pore \cite{}. Oxford Nanopore Technologies (ONT) was founded in 2005 to develop and commercialise nanopore sequencing technologies. ONT reads from XX pore had XX\% error rate, but new generations of nanopore and advances in base calling algorithms has reduced the error rate to XX\%.
 
-\subsection{Pacific Biosciences Single-Molecule Real-Time sequencing}
+\subsection{Pacific Biosciences Single-Molecule Real-Time sequencing: the end}
 
 PacBio was founded in 2004 with aspirations to commercialise single molecule real time (SMRT) sequencing technology developed at Cornell University. The SMRT platform is the culmination of multiple technical innovations from a range of disciplines. The zero-mode-waveguide (ZMW), a nano-scaled hole fabricated in a metal film, for example, is at the heart of the SMRT platform. The ZMW acts as the sequencing unit and its unique properties help the SMRT platform achieve the high signal-to-noise ratio required to observe activity of individual DNA polymerases (DNAP)\cite{Levene2003-og}. 
 
@@ -147,7 +150,8 @@ The PacBio RS instrument with the first generation of polymerase and chemistry (
 
 In the beginning, long reads from ONT and PacBio SMRT platform did not have a competitive advantage compared to short reads from Illumina platform; Long reads were only marginally longer than short reads and their higher error rate made germline mutation detection more challenging. Long-read sequencing, most importantly, could not compete with short-read sequencing on sequencing cost. 
 
-A substantial increase in read length from ~1,500 bp to 10,000 bp with the introduction of XX chemistry for ONT and P5-C3 chemistry for PacBio Sequel I instrument reignited interest for new \textit{de novo} assembly algorithm development and structural variation detection. 
+\subsubsection{\textit{De novo} assembly}
+A substantial increase in read length from ~1,500 bp to 10,000 bp with the introduction of XX chemistry for ONT and P5-C3 chemistry for PacBio Sequel I instrument reignited interest for new \textit{de novo} assembly algorithm development, full-length transcript sequencing and accessing the inaccessible regions of the genome.
 
 Genomes are peppered with repetitive sequences. These repetitive sequences, for example, account for approximately 50\% of the human genome\cite{Lander2001-du}. The unique placement of a read in an assembly graph, hence, requires read length to be longer than the repeat length such that unique sequences not found elsewhere in the genome flank the repetitive sequence in the read. Gaps and collapsed regions of the genome, hence, often result from regions of the genome where the repeat length is longer than read length. There are, however, not many repeats except for segmental duplications\cite{Bailey2002-xn}, higher order repeats (HOR) in centromeres\cite{Willard1985-bo} and palindromic sequences in sex chromosomes that are longer than ONT and CLR reads \cite{Skaletsky2003-sr}. 
 
@@ -157,7 +161,14 @@ Ultra-long read library preparation from ONT and CCS library preparation from Pa
 
 CCS read length and accuracy have been leveraged to reduce computational complexity of all-to-all pairwise read alignments and shorten genome assembly time \cite{Chin_undated-ye} and to distinguish recently diverged haplotypes and repeat copies such as segmental duplications \cite{Nurk2020-gu, Cheng2021-ij}. CCS reads are, routinely, used to produce haplotype-resolved chromosome-arm length contigs. It is worth mentioning that assembly algorithms often assumes that the sample in question has a haploid genome. This assumption results in haplotype collapsed assemblies where the assembled haplotype is not present in the population \cite{Schneider2017-yo}. The completion of telomere-to-telomere (T2T) CHM13 (T2T-CHM13) genome, including the short arms of five acrocentric chromosomes and centromeric satellite array, has been the culmination of years of effort to produce gapless and error-free assemblies \cite{Nurk2022-dv}. These advancements allow us construct high-quality reference genomes for fraction of what it used to cost to build the human reference genome. The number of new plant and animal assemblies has burgeoned thanks to these developments \cite{}. 
 
-Structural variation detection with short reads relies on either changes in sequence coverage for copy number variation (CNV) detection and identification of discordant read pairs with aberrant distance and orientation for breakpoint, translocation and inversion detection \cite{Alkan2011-dv}. In contrast, long reads enable structural variation detection with nucleotide resolution through direct comparison of read and reference genome and is also more sensitive towards short tandem repeat (STR) expansions, short interspersed nuclear element (SINE) and long interspersed nuclear elements (LINE) insertion detection \cite{Chaisson2015-zz}. CHM1 CLR reads, for example, were also used to correct small misassembles in the reference genome and identify approximately 26,000 structural variations that were recalcitrant to detection using short reads \cite{Chaisson2015-zz}; the number of structural variations detected with long reads is at least double that detected with short reads. The number of structural variations is orders of magnitude smaller than the number of SNPs and indels, but structural variations alter greater number of bases and have a more pronounced impact on speciation and phenotype through gene regulation, duplication, translocation\cite{Weischenfeldt2013-tl} and conformational changes in three-dimensional genome configuration\cite{Spielmann2018-fm,}. In addition, complex structural rearrangements such as chromothripsis\cite{Stephens2011-gj, Korbel2013-to}, chromoplexy\cite{Baca2013-po} and templated insertions\cite{Yu2010-jr} are common oncogenic mechanisms. Repeat expansions and accompanied hypermethylation are common causes of neurological diseases\cite{Zhou2022-ci}. The severity of Parkinson’s disease, for example, is associated with repeat content and the size of the repeat expansion\cite{}. Single-molecule sequencing is the only reliable technology for repeat expansion detection. Low genetic diagnosis rate of approximately 30\% with short read sequencing and ability to detect haplotype phased genetic and epigenetic variations with single molecule sequencing has renewed interest to detect causal and putative pathogenic mutations in patients with rare genetic disease\cite{}. 
+\subsubsection{Full-length transcript sequencing}
+
+In contrast, to short-read sequencing that requires \textit{de novo} assembly of RNA reads to acquire full-length transcripts, long-read sequencing can be used to obtain full-length transcript without assembly. Long-read sequencing has been used to successfully identify new isoforms in tissues and novel gene fusions in cancers \cite{}. Single-cell isoform-sequencing has also been used to find new isoform, to define the transcriptome atlas and to quantify the transcript in combination with single-cell RNA sequencing. In addition, these full-length transcripts has been successfully used for gene annotation of newly assembled genomes \cite{}.
+
+\subsubsection{Germline and somatic mutation detection}
+
+
+Structural variation detection with short reads relies on either changes in sequence coverage for copy number variation (CNV) detection and identification of discordant read pairs with aberrant distance and orientation for breakpoint, translocation and inversion detection \cite{Alkan2011-dv}. In contrast, long reads enable structural variation detection with nucleotide resolution through direct comparison of read and reference genome and is also more sensitive towards short tandem repeat (STR) expansions, short interspersed nuclear element (SINE) and long interspersed nuclear elements (LINE) insertion detection \cite{Chaisson2015-zz, Sedlazeck2018-oh, Denti2022-ux}. CHM1 CLR reads, for example, were also used to correct small misassembles in the reference genome and identify approximately 26,000 structural variations that were recalcitrant to detection using short reads \cite{Chaisson2015-zz}; the number of structural variations detected with long reads is at least double that detected with short reads. The number of structural variations is orders of magnitude smaller than the number of SNPs and indels, but structural variations alter greater number of bases and have a more pronounced impact on speciation and phenotype through gene regulation, duplication, translocation\cite{Weischenfeldt2013-tl} and conformational changes in three-dimensional genome configuration\cite{Spielmann2018-fm,}. In addition, complex structural rearrangements such as chromothripsis\cite{Stephens2011-gj, Korbel2013-to}, chromoplexy\cite{Baca2013-po} and templated insertions\cite{Yu2010-jr} are common oncogenic mechanisms. Repeat expansions and accompanied hypermethylation are common causes of neurological diseases\cite{Zhou2022-ci}. The severity of Parkinson’s disease, for example, is associated with repeat content and the size of the repeat expansion\cite{}. Single-molecule sequencing is the only reliable technology for repeat expansion detection. Low genetic diagnosis rate of approximately 30\% with short read sequencing and ability to detect haplotype phased genetic and epigenetic variations with single molecule sequencing has renewed interest to detect causal and putative pathogenic mutations in patients with rare genetic disease\cite{}. 
 
 \section{The Darwin Tree of Life Project}
 
