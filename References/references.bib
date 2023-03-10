@@ -4,6 +4,115 @@
 
 % ------------------------------------------------------------------------
 
+@software{pysam,
+  author = "pysam developers",
+  title = "pysam",
+  url = https://github.com/pysam-developers/pysam,
+  version = ">0.18.0",
+}
+
+@ARTICLE{Kim2018-qi,
+  title    = "Strelka2: fast and accurate calling of germline and somatic
+              variants",
+  author   = "Kim, Sangtae and Scheffler, Konrad and Halpern, Aaron L and
+              Bekritsky, Mitchell A and Noh, Eunho and K{\"a}llberg, Morten and
+              Chen, Xiaoyu and Kim, Yeonbin and Beyter, Doruk and Krusche,
+              Peter and Saunders, Christopher T",
+  abstract = "We describe Strelka2 ( https://github.com/Illumina/strelka ), an
+              open-source small-variant-calling method for research and
+              clinical germline and somatic sequencing applications. Strelka2
+              introduces a novel mixture-model-based estimation of
+              insertion/deletion error parameters from each sample, an
+              efficient tiered haplotype-modeling strategy, and a normal sample
+              contamination model to improve liquid tumor analysis. For both
+              germline and somatic calling, Strelka2 substantially outperformed
+              the current leading tools in terms of both variant-calling
+              accuracy and computing cost.",
+  journal  = "Nat. Methods",
+  volume   =  15,
+  number   =  8,
+  pages    = "591--594",
+  month    =  aug,
+  year     =  2018,
+  language = "en"
+}
+
+
+
+% The entry below contains non-ASCII chars that could not be converted
+% to a LaTeX equivalent.
+@ARTICLE{DePristo2011-vf,
+  title    = "A framework for variation discovery and genotyping using
+              next-generation {DNA} sequencing data",
+  author   = "DePristo, Mark A and Banks, Eric and Poplin, Ryan and Garimella,
+              Kiran V and Maguire, Jared R and Hartl, Christopher and
+              Philippakis, Anthony A and del Angel, Guillermo and Rivas, Manuel
+              A and Hanna, Matt and McKenna, Aaron and Fennell, Tim J and
+              Kernytsky, Andrew M and Sivachenko, Andrey Y and Cibulskis,
+              Kristian and Gabriel, Stacey B and Altshuler, David and Daly,
+              Mark J",
+  abstract = "Recent advances in sequencing technology make it possible to
+              comprehensively catalog genetic variation in population samples,
+              creating a foundation for understanding human disease, ancestry
+              and evolution. The amounts of raw data produced are prodigious,
+              and many computational steps are required to translate this
+              output into high-quality variant calls. We present a unified
+              analytic framework to discover and genotype variation among
+              multiple samples simultaneously that achieves sensitive and
+              specific results across five sequencing technologies and three
+              distinct, canonical experimental designs. Our process includes
+              (i) initial read mapping; (ii) local realignment around indels;
+              (iii) base quality score recalibration; (iv) SNP discovery and
+              genotyping to find all potential variants; and (v) machine
+              learning to separate true segregating variation from machine
+              artifacts common to next-generation sequencing technologies. We
+              here discuss the application of these tools, instantiated in the
+              Genome Analysis Toolkit, to deep whole-genome, whole-exome
+              capture and multi-sample low-pass (∼4$\times$) 1000 Genomes
+              Project datasets.",
+  journal  = "Nat. Genet.",
+  volume   =  43,
+  number   =  5,
+  pages    = "491--498",
+  month    =  may,
+  year     =  2011,
+  language = "en"
+}
+
+
+
+@ARTICLE{Sim2022-pi,
+  title    = "{HiFiAdapterFilt}, a memory efficient read processing pipeline,
+              prevents occurrence of adapter sequence in {PacBio} {HiFi} reads
+              and their negative impacts on genome assembly",
+  author   = "Sim, Sheina B and Corpuz, Renee L and Simmonds, Tyler J and Geib,
+              Scott M",
+  abstract = "BACKGROUND: Pacific Biosciences HiFi read technology is currently
+              the industry standard for high accuracy long-read sequencing that
+              has been widely adopted by large sequencing and assembly
+              initiatives for generation of de novo assemblies in non-model
+              organisms. Though adapter contamination filtering is routine in
+              traditional short-read analysis pipelines, it has not been widely
+              adopted for HiFi workflows. RESULTS: Analysis of 55 publicly
+              available HiFi datasets revealed that a read-sanitation step to
+              remove sequence artifacts derived from PacBio library preparation
+              from read pools is necessary as adapter sequences can be
+              erroneously integrated into assemblies. CONCLUSIONS: Here we
+              describe the nature of adapter contaminated reads, their
+              consequences in assembly, and present HiFiAdapterFilt, a simple
+              and memory efficient solution for removing adapter contaminated
+              reads prior to assembly.",
+  journal  = "BMC Genomics",
+  volume   =  23,
+  number   =  1,
+  pages    = "157",
+  month    =  feb,
+  year     =  2022,
+  keywords = "Adapter; Circular consensus sequencing; PacBio HiFi; Sequence
+              data filtering",
+  language = "en"
+}
+
 
 @ARTICLE{Osorio2018-mh,
   title    = "Somatic Mutations Reveal Lineage Relationships and {Age-Related}
