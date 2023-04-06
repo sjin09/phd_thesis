@@ -2,7 +2,7 @@
 %*******************************************************************************
 %****************************** Third Chapter **********************************
 %*******************************************************************************
-\chapter{Germline and somatic mutational processes across eukaryotic species in the Darwin Tree of Life project}
+\chapter{Germline and somatic mutational processes across the tree of life}
 
 % **************************** Define Graphics Path **************************
 \ifpdf
@@ -122,8 +122,84 @@ We studied the germline mutational process in the light of somatic mutational pr
 
 In addition, we discovered new PacBio artefact signatures independent of that one discovered and discussed in Chapter 2. The discovered PacBio artefact signature, we believe to be from library errors. 
 
+\subsection{Germline and somatic mutational signature analysis}
 
+\pagebreak 
+\subsubsection{SBS52 classification}
 
+%\ttfamily
+%\begingroup
+%\begin{table}
+%\caption{SBS52 classification}
+%\label{tab:SBS52}
+%\begin{tabular}{ccc}
+
+\begingroup
+\ttfamily
+\begin{longtable}{c|c|c}
+\caption{SBS52 classification} 
+\label{tab:SBS52} \\ 
+\makecell{forward strand \\ (reference centred)} & \makecell{reverse strand \\ (read centred)} & SBS52 \\ \hline
+ACA>AAA = A[C>A]A & TTT>TGT = T[T>G]T & A[C>A]A \\ \hline
+ACC>AAC	= A[C>A]C &	GTT>GGT	= G[T>G]T & A[C>A]C \\ \hline
+ACG>AAG	= A[C>A]G & CTT>CGT	= C[T>G]T & A[C>A]G \\ \hline
+ACT>AAT	= A[C>A]T & ATT>AGT	= A[T>G]T &	A[C>A]T \\ \hline
+CCA>CAA	= C[C>A]A & TTG>TGG	= T[T>G]G &	C[C>A]A \\ \hline
+CCC>CAC	= C[C>A]C & GTG>GGG	= G[T>G]G &	C[C>A]C \\ \hline
+CCG>CAG	= C[C>A]G & CTG>CGG	= C[T>G]G &	C[C>A]G \\ \hline
+CCT>CAT	= C[C>A]T & ATG>AGG	= A[T>G]G &	C[C>A]T \\ \hline
+GCA>GAA	= G[C>A]A & TTC>TGC	= T[T>G]C &	G[C>A]A \\ \hline
+GCC>GAC	= G[C>A]C & GTC>GGC	= G[T>G]C &	G[C>A]C \\ \hline
+GCG>GAG	= G[C>A]G & CTC>CGC	= C[T>G]C &	G[C>A]G \\ \hline
+GCT>GAT	= G[C>A]T & ATC>AGC	= A[T>G]C &	G[C>A]T \\ \hline
+TCA>TAA	= T[C>A]A & TTA>TGA	= T[T>G]A &	T[C>A]A \\ \hline
+TCC>TAC	= T[C>A]C & GTA>GGA	= G[T>G]A &	T[C>A]C \\ \hline
+TCG>TAG	= T[C>A]G & CTA>CGA	= C[T>G]A &	T[C>A]G \\ \hline
+TCT>TAT	= T[C>A]T & ATA>AGA	= A[T>G]A &	T[C>A]T \\ \hline
+ACA>ATA	= A[C>T]A & TAT>TGT	= A[T>C]A & A[C>T]A \\ \hline
+ACC>ATC	= A[C>T]C & GAT>GGT	= A[T>C]C & A[C>T]C \\ \hline
+ACG>ATG	= A[C>T]G & CAT>CGT	= A[T>C]G & A[C>T]G \\ \hline
+ACT>ATT	= A[C>T]T & AAT>AGT	= A[T>C]T & A[C>T]T \\ \hline
+CCA>CTA	= C[C>T]A & TAG>TGG	= C[T>C]A & C[C>T]A \\ \hline
+CCC>CTC	= C[C>T]C & GAG>GGG	= C[T>C]C & C[C>T]C \\ \hline
+CCG>CTG	= C[C>T]G & CAG>CGG	= C[T>C]G & C[C>T]G \\ \hline
+CCT>CTT	= C[C>T]T & AAG>AGG	= C[T>C]T & C[C>T]T \\ \hline
+GCA>GTA	= G[C>T]A & TAC>TGC	= G[T>C]A & G[C>T]A \\ \hline
+GCC>GTC	= G[C>T]C & GAC>GGC	= G[T>C]C & G[C>T]C \\ \hline
+GCG>GTG	= G[C>T]G & CAC>CGC	= G[T>C]G & G[C>T]G \\ \hline
+GCT>GTT	= G[C>T]T & AAC>AGC	= G[T>C]T & G[C>T]T \\ \hline
+TCA>TTA	= T[C>T]A & TAA>TGA	= T[T>C]A & T[C>T]A \\ \hline
+TCC>TTC	= T[C>T]C & GAA>GGA	= T[T>C]C & T[C>T]C \\ \hline
+TCG>TTG	= T[C>T]G & CAA>CGA	= T[T>C]G & T[C>T]G \\ \hline
+TCT>TTT	= T[C>T]T & AAA>AGA	= T[T>C]T & T[C>T]T \\ \hline
+ACA>AGA	= A[C>G]A & TCT>TGT	= T[C>G]T & A[C>G]A \\ \hline
+ACC>AGC	= A[C>G]C & GCT>GGT	= G[C>G]T & A[C>G]C \\ \hline
+ACG>AGG	= A[C>G]G & CCT>CGT	= C[C>G]T & A[C>G]G \\ \hline
+ACT>AGT	= A[C>G]T & ACT>AGT	= A[C>G]T & A[C>G]T \\ \hline
+CCA>CGA	= C[C>G]A & TCG>TGG	= T[C>G]G & C[C>G]A \\ \hline
+CCC>CGC	= C[C>G]C & GCG>GGG	= G[C>G]G & C[C>G]C \\ \hline
+CCG>CGG	= C[C>G]G & CCG>CGG	= C[C>G]G & C[C>G]G \\ \hline
+GCA>GGA	= G[C>G]A & TCC>TGC = T[C>G]C & G[C>G]A \\ \hline
+GCC>GGC	= G[C>G]C & GCC>GGC = G[C>G]C & G[C>G]C \\ \hline
+TCA>TGA	= T[C>G]A & TCA>TGA = T[C>G]A & T[C>G]A \\ \hline
+ATA>AAA	= A[T>A]A & TTT>TAT = T[T>A]T & A[T>A]A \\ \hline
+ATC>AAC	= A[T>A]C & GTT>GAT	= G[T>A]T & A[T>A]C \\ \hline
+ATG>AAG	= A[T>A]G & CTT>CAT	= C[T>A]T & A[T>A]G \\ \hline
+ATT>AAT	= A[T>A]T & ATT>AAT	= A[T>A]T & A[T>A]T \\ \hline
+CTA>CAA	= C[T>A]A & TTG>TAG	= T[T>A]G & C[T>A]A \\ \hline
+CTC>CAC	= C[T>A]C & GTG>GAG = G[T>A]G & C[T>A]C \\ \hline
+CTG>CAG	= C[T>A]G & CTG>CAG	= C[T>A]G & C[T>A]G \\ \hline
+GTA>GAA	= G[T>A]A & TTC>TAC = T[T>A]C & G[T>A]A \\ \hline
+GTC>GAC	= G[T>A]C & GTC>GAC	= G[T>A]C & G[T>A]C \\ \hline
+TTA>TAA	= T[T>A]A & TTA>TAA	= T[T>A]A & T[T>A]A \\ \hline
+%\end{adjustbox} 
+%x\floatfoot{\small{CCS sequencing statistics, mutational process, associated mutational signatures and mutation burden are described for the negative control (PD47269d) and positive control (BC-1, HT-115 and PD48473b) samples.}}
+\end{longtable}
+%\end{tabular}
+%\end{table}
+\endgroup
+
+\pagebreak
 
 
 \subsection{Germline and somatic mutational processes}
