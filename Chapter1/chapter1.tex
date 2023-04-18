@@ -3,7 +3,7 @@
 %*********************************** First Chapter *****************************
 %*******************************************************************************
 
-\chapter{from Last Universal Common Ancestor to the Darwin Tree of Life project}  %Title of the First Chapter
+\chapter{Introduction}  %Title of the First Chapter
 
 \ifpdf
     \graphicspath{{Chapter1/Figs/Raster/}{Chapter1/Figs/PDF/}{Chapter1/Figs/}}
@@ -14,122 +14,17 @@
 
 %********************************** %First Section  **************************************
 
-\section{The Genomics Revolution}
-
-%
-%
-%We must have wondered about the physical material that is responsible for the unit of inheritance from ancient times\cite{}. [Greeks, Romans, Bible], Gregor Mendel is thought to be the father of modern genetics and provided the theoretical framework for the study of genetics with his famous experiment where the studied he inheritance of Peas's traits to their descenents in 1866X.  Mendel carefully cross-breeded peas with different traits to discover that traits were inherited with a fixed ratio, also known as Mendelian ratio, and how certain traits are governed by dominant and recessive alleles. His experiment revealed how the physical material that is responsible for unit of inheritance must be separated into gametes and randomly united during fertilisation to determine the phenotype of the progenies and that the factors responsible for the phenotypic differences must be located independent of each other. These two rules are referred principle of segregation and principle of independent assortment.
-
-%Microscopes, organelles
-%Pasteur
+\section{Somatic mutations}
 
 
-%\subsection{Genetics: the study of inheritance (heredity and variation)}
-%Charles Darwin
-%Thomas Hunt Moragn
-%Bateson
-%Fisher
+\subsection{Somatic mutation detection}
 
+\subsection{Somatic mutations in normal tissues}
 
+\subsection{Somatic mutational processes}
 
-%\subsection{Gene: the unit of inheritance, the unit of and the unit of }
+\subsection{Mutational signature analysis}
 
-%X-ray irradiation, fruitflies
-%What is Life? aperiodic crystal
-%Oswald Avery
-%% "Let there be light" \begin{flushright} Genesis 1:3 \end{flushright}
-
-%% According to Aristotle's theory of heredity, males are responsible for providing the "active element" that gives life to the offspring and makes sure that it is a male or female, and females provide the nutrients to the offspring.
-%% https://thelampstand.com.au/the-amazing-living-cell-a-model-for-christs-ecclesia-wrong-part-2/
-%% aperiodic crystal
-%%% reverse transcription
-%search for the unit of inheritance
-%discovery of DNA structure
-%central dogma
-%
-%It is now widely accepted truth that DNA is the unit of inheritance and that DNA has a double-helix structure and that the structure of the DNA drives many of the important chemical reactions in the cells such DNA replication and transcription. In addition, sequencing technologies has become cheap enough such that clinical sequencing is routine enough to be able to detect the mutations that is responsible for disease and to understand the mutations that confer selective growth advantage to cancer genomes and amazingly, the cost of sequencing is still decreasing and new sequencing technologies are emerging to differentiate itself from short reads produced from next-generation sequencing platform. These widely accepted truth, however, were only enabled by giants who reimagined what was possible and who were willing to against the norm. 
-% 
-%Amino acids were initially proposed as the physical material responsible for inheritance as the number of amino acids and different varieties of proteins that could be created from different combinations of amino acid could potentially explain the complexity of a living organism and DNA was thought to be too simple to be able to encode the complexity of a living organism. It was not until the Oswald Avery's experiment in XXXX that demonstrated the DNA to be the physical material responsible for the transformation of R-strain bacteria to S-strain bacteria and despite the evidence, DNA was not believed to be physical material for unit of inheritance. The next race started with the aim of discovering the structure of the DNA and there were many potential protagonists who could have discovered the structure of the DNA, but James Watson and Francis Crick, then post-doctoral fellow and PhD student at the laboratory of molecular biology, respectively, were the first to the race in 1954\cite{}. Despite the initial skepticism of how DNA could be the unit of inheritance and how DNA could be responsible for the complexity of an organism, the mechanisms of the central dogma was slowly revealed. Series of discoveries following the discovery of the structure of the DNA has cemented the importance of DNA as the central unit responsible for directing cellular behaviours and determining phenotypes and encoding the software to produce proteins, the hardware that is responsible for catalysing chemical reactions within the cell. Despite their simplify, methods for DNA sequencing was designed later than that for amino acid sequencing. 
-
-%\subsection{Central Dogma: from DNA to protein}
-
-%\subsection{Sanger sequencing: the beginning}
-
-%The definitive identification of DNA as the genetic that material is responsible for transformation of R strain of bacteria into S strain bacteria by Oswald Avery in 1944\cite{} and the discovery of the structure of the DNA by James Watson and Francis Crick in 1953\cite{} has sparked interest to develop DNA sequencing technologies to determine the nucleotide composition of organisms and to better understand genetic variations. In 1977, Frederick Sanger developed chain termination method\cite{}, and Allan Maxam and Walter Gilbert developed chemical cleavage method\cite{} for DNA sequencing. The chain termination method, also referred to as Sanger dideoxy sequencing, became the preferred method for DNA sequencing thanks to scalable implementation of the method using fluorescent nucleotides by Applied Biosystems (ABI) \cite{} and was the primary sequencing method for the Human Genome Project.
-%
-%The original chain termination method starts with a single-stranded template DNA and a primer designed to bind to the start of the single-stranded template DNA. DNA polymerase (DNAP) binds to the primer and initiates DNA elongation using the free nucleotides in the mixture. Sanger mixed used both deoxyribonucleotides and dideoxyribonucleotides where the concentration of deoxyribonucleotides were higher than the concentration of dideoxyribonucleotides such that DNA elongation will be preferred. Until the incorporation of the dideoxyribonucleotide, DNAP will use the template DNA and perform DNA elgonation. Upon the incorporation of dideoxyribonucleotide, DNA elongation is terminated as the dideoxyribonucleotide does not have the 3’-OH to form phosphodiester bond with next nucleotide. Repeat chain-termination experiments results in DNA fragments of varying sizes and these fragments are ordered by their size through gel electrophoresis. This sequencing experiment is repeated with the four dideoxynucleotides (ddATP, ddGTP, ddCTP and ddTTP) such that the DNA sequence can be determined from reading the gel image from top to bottom \cite{}. Sanger and colleagues used this method to determine the sequence of the 5,375 bp long $\Phi$X174 bacteriophage. ABI modified the chain-termination method such that fluorophore-labelled dideoxynucleotide is used and this allowed sequencing from reading the fluorescence emitted from the chain-terminating nucleotide. The chain-termination method produces reads that are typically 500bp to 1000 bp long. 
-
-
-\subsection{Genome assembly}
-
-
-Genome assembly aims to determine to entire genetic information of an organism.  Genome assembly can be divided into four distinct stages: 1) shotgun or hierarchical shotgun sequencing and quality control to remove reads from contamination, 2) all-to-all read alignments to find overlaps between reads and to connect overlapping reads into contigs 3) to use long-range information to order and orient contigs into scaffolds, 4) and to assess and finish the genome through gap closing. 
-
-The ability to determine the nucleotide composition of organisms at scale with ABI capillary sequencing platform initiated a race to determine the genome sequence of scientific and economic interest and to determine the method that is most suitable for the human genome project. In principle, genome assembly aims to use randomly selected DNA fragments from the genome, to find overlaps between the DNA fragments and to connect the overlaps into a single contiguous sequence. If the genome in question does not have repeats or if the read length is greater than repeat length, genome assembly becomes a trivial problem. Repeats account for less than X\% of prokaryotic genomes. Repeats, however, are common in eukaryotic genomes and account for ~50\% of the human genome. Repeats take many forms and repeats can exist as tandem repeats, palindromes, or inverted repeats. There are repeats created by retrotransposons where retrotransposons use copy and paste mechanisms to create copies of themselves in the genome. Segmental duplications is a special type of repeat where non-repetitive sequences greater than 1kb with interchromosmal or intrachromosomal duplications with sequence identity greater than 99\% \cite{}. Simple repeats such as short-tandem repeat (STR) expansions where dinucleotides or trinucleotides exist as tandem repeats. 
-
-In addition, These repeats create false overlaps between reads and these false overlaps either leads to misassemblies such as collapsed haplotypes or to disconnected contigs\cite{}
-
-Shotgun sequencing was initially used to create the first prokaryotic genomes of X, X and X and first eukaryotic genomes with Sanger sequencing. These genomes, thereafter, served as an excellent public resource to perform comparative genomics to find a common set of genes, to find conserved regions of the genome, to understand their evolutionary relationship. 
-
-
-
-%The ability to determine the nucleotide composition of organisms at scale with ABI capillary sequencing platform initiated a race to sequence the organisms around us to understand the structure and organisation of genomes and to the evolutionary relationship between organisms through comparative genomics. 
-
-\subsection{Human Genome Project}
-
-
-Prior to the construction of the human reference genome through the Human Genome Project, the identification of pathogenic mutations in Mendelian diseases required the narrowing of the region with the likely causal gene through linkage analysis \cite{}, identifying the BAC clone that contains the sequence of the region through physical mapping, sequencing and assembling the BAC clone to retrieve the sequence of the region, and to find the pathogenic mutation through comparison with the BAC clone sequence \cite{}. 
-
-The availability of high-throughput Sanger sequencing instruments from ABI and initial success of construction of X, X, X and X genomes with Sanger reads inspired discussion to construct the human reference genome with aims to 1) accelerate the discovery of causal pathogenic mutations in Mendelian diseases 2),  to create a single reference genome that can function as a single coordinate system for the scientific community to standardize research results, 3).  Shotgun sequencing and hierarchical shotgun sequencing method were proposed for the construction of the human reference genome by JCVI and NIH, respectively \cite{}.  Shotgun sequencing aims to assemble the genome from random DNA fragments sampled from the genome. Simulations has shown that if paired-end sequencing is performed on inserts of vary length with sufficient coverage, sufficient overlaps can be found to create contigs. In addition, mate-pairs can, thereafter, be used to order and orient contigs into scaffolds. Shotgun sequencing was proposed as an alternative to hierarchical shotgun sequencing approach as shotgun sequencing approach would not require the creation of BAC clones libraries, physical mapping of the BAC clones and independent sequencing and assembly of the BAC clones, thereby reducing the cost of the genome assembly drastically. 
-
-Prior to the completion of the human genome project, standardisation was absent from human genetic studies and the identification of pathogenic mutations in rare genetic diseases required arduous physical mapping and sequencing of BAC clones. The human genome project was initiated to determine the number of genes in the human genome, to accelerate the discovery of pathogenic mutations in rare genetic diseases, to expedite the drug discovery process. There were two competing efforts from the private sector and public sector with two distinct approaches to assemble the human genome. The private effort led by J. Craig Venter Institute (JCVI) used shotgun-sequencing approach and the public effort led by NIH used hierarchical shotgun-sequencing approach to assemble the human genome. Their contrasting aims led to differences in their methods. JCVI aimed to sequence and assemble the genome as fast as possible to patent the genes and to commercialize their proprietary database while the NIH aimed to create the most accurate human reference genome for biomedical research. 
-
-In contrast, NIH preferred hierarchical shotgun sequencing, also known as clone-by-clone, approach for construction of the human reference genome as the aims of NIH was not to create the assembly in shortest time, but to create a reference genome that can withstand the test of time and that can act as a focal point for scientific research and for scientific community. The hierarchical shotgun sequencing approach simplifies the assembly problem to the assembly of the 50-100kb BAC clone. Upon the successful assembly of the BAC clone, the location of the BAC contig can be determined from physical maps and overlapping BAC contigs can be assembled into a unitig \cite{}. Hierarchical shotgun sequencing approach aimed to use minimally overlapping BAC clones to create chromosome-length scaffolds for each contigs. The human genome project was an expensive enterprise and human reference genome is estimated to have cost 3 billion dollars.  The human reference genome is undoubtedly one of the most accurate mammalian reference genome, but the human reference genome remains incomplete. The latest human reference genome build grch38 still has unplaced and unlocalized scaffolds and XX number of gaps, representing missing sequences \cite{}. The short arms of acrocentric chromosomes are, for example, missing from the human reference genome. Unplaced and unlocalized are scaffolds where their location is not known and where their chromosomal origin is known, but their location is unknown, respectively. In addition, the centromeric sequences are not real and are modelled based on HuRef Sanger reads \cite{}. In addition, GigAssembler used for the Human Genome Project and Celera used for the HuRef assembly assumes that sequence data is derived from a haploid genome and if there is sufficient sequence divergence between two haplotypes in the same region, these assembly algorithms will collapse the two haplotypes into a chimeric haplotype that is not present in the population. Decoy sequences exist to prevent mismapping of sequences originating from satellite DNA to other regions of the genome and cause variant miscalling \cite{}. 
-
-The assembly quality was often assessed with paired-end reads from BAC clones. As the insert size and the expected orientation of the paired-end is known, if the insert size estimated from the paired-end read alignment and if the orientation of the reads are different from what is expected, these misoriented reads and misdistanced reads can be used to assess the assembly quality/scaffolding quality \cite{}. 
-
-Segmental duplications are often one of the common causes of genome misassemblies and where sequences are not successfully assembled resulting in missing sequences in the human reference genome\cite{}. Segmental duplications have resulted in human-specific gene duplications not found in other great apes \cite{}, but these human-specific gene duplications are often missing from the human reference genome. Recovering these human specific gene duplications such as SRGAP2, NOTCH2L, BOLA2 required the selection, sequencing, and assembly of BAC clones to resolve these missing sequences. These human-specific genes have been associated with neocortex expansion and brain development \cite{}.
-
-Updating and finishing the human reference genome is an ongoing process. The Genome Reference Consortium (GRC) is responsible for finding misassembled regions and updating the existing reference genomes of Homo sapiens, mouse, zebrafish, rat, and chicken. The update from grch37 to grch38 added X number of bases and was aimed to unify the existing different builds and was one of the first steps to better represent diverse haplotypes in different ethnic populations. The grch38 has X number of alternative loci and where each alternative loci represent a haplotype distinct from that in the human reference genome. GRC has used sequence data from CHM1 and CHM13 and CHM cell line BAC clones to resolve some of the existing issues in the human reference genome. 
-
-CHM cell lines are created when an egg without an embryo is fertilized with a sperm to create a cell line with a haploid genome \cite{}. 
-
-BAC clones were chosen as the vector of choice to retain large inserts as BAC clones were more stable than YAC clones and BAC clone DNA could be more easily amplified through E. coli culturing. 
-
-
-The human reference genome is continually updated to reflect the identification of misassemblies and to incorporate new sequencing and optical mapping data. The grch38 build, for example, currently has patch 13 with XX number of new bases \cite{}, but there is no immediate plans to release grch39 build. To better represent the genetic diversity and to improve variant calling sensitivity and specificity, genome graphs and variation graphs are under development to incorporate genetic polymorphisms into a graph and to provide a set of tools for scientific community to use the graphical representation of the reference genome for read alignment, variant calling, visualization \cite{}. 
-
-In addition, the advent of long and accurate single molecule sequencing technologies brings renaissance to the genomic assembly field (discussed later in the chapter). 
-
-
-%The Human Genome Project was initiated to sequence and assemble the human reference genome that would standardise the genetics and genomics studies to a single reference genome. There were two approaches towards the human reference genome construction: one was the hierarchical shotgun sequencing and assembly strategy and the other was whole-genome shotgun sequencing and assembly approach. The human reference genome constructed from the former approach is still the human reference genome used in most genetic and genomics studies and is the bedrock of genomic medicine revolution\cite{}. The availability of the human reference genome together with sequencing-by-synthesis approach from Solexa, now Illumina, revolutionised the field of human genetics and enabled population-scale studies of genetic diseases and cancers [ref]. Population-structure, human history, discovery of somatic mutations that confer selective growth advantage to the tumour cell, the identification of mutations that leads to genetic diseases. In addition, scientists have developed clever ways to modify library protocol upstream of Illumina adapter ligation to enable the study of epigenomes, base modifications, transcriptome of bulk tissue and more, recently, the advent of high-throughput chromatin conformation capture sequencing has enabled the study of the three-dimensional configuration of the genome and the nucleotide sequences are organised into regular repeating patterns. 
-
-%% single cell %% why was hiearchical shotgun stratey more accurate?
-
-%% single cell %% why was hiearchical shotgun stratey more accurate?
-
-\subsection{Illumina sequencing}
-%The technical limitations of Illumina sequencing (base accuracy and short read length), however, has been the bottleneck for improving rare genetic disease diagnostics yield, detecting rare somatic mutations and constructing high-quality reference genomes for non-human species. De novo assembly of other species, previously, have been attempted using de brugjin graph based de novo assembly algorithms with short reads, but assemblies produced from short reads were highly fragmented and incomplete. In addition, scaffolding strategies often did not provide sufficient long-range information to produce chromosome-level pseudomolecules and as a result, these assemblies provided incomplete information for comparative genomics purposes. Hence, assemblies produced from short reads often have collapsed repeats or contigs that cannot be placed accurately. To construct complete assemblies, reads need to be longer than the repeats of the target genome such that the reads can traverse the repetitive regions and optimally have unique sequences flanking the repetitive sequences such that the read can be placed in the assembly graph unambiguously. Not all repetitive sequences are actually repetitive. There are unique class of repeats called segmental duplications, which doesn't have a classical repetitive sequence, has a unique sequence, but is duplicated across the many parts of the genome and are thought to be important in driving evolution and these segmental duplications are typically defined as sections greater than 1kb with sequence similarity above 90\% to other regions of the genome. To distinguish segmental duplications from one another, reads also need to have high base accuracy to be able to distinguish closest segmental duplications from one another. Long-reads from third-generation sequencing technologies such as Oxford Nanopore Technologies (ONT) and Pacific Biosciences (PacBio) provide an alternative towards improving the rare genetic diagnostics yield and improving the reference genome qualities in terms of both completeness and contigutiy. Long-reads produced from third-generation sequencing platforms were orders-of-magnitude longer than that from the Illumina platform, but had a much higher error rate; 10-15\% error rate for continuous long reads (CLR) from PacBio and 20-35\% error rate for ONT reads. Because of these high error rates, higher sequencing costs (lower yield per dollar) and insufficient improvement in read length, these platforms had limited use except for rare cases for real-time monitoring of ... and de novo assembly of plants and animal genomes..., and detection of pathogenic mutations that could not be detected with short reads [ref, ref]. Despite high error rate, the longer read length enabled the detection of structural variations that could not be previously detected with short reads, doubled the number of structural variations that can be detected from a typical human genome compared to the human reference genome. The longer read length allowed for the de novo assembly of BAC clones to hierarchically assemble missing sequences, also known as gaps, in the human reference genome, which have been problematic to assemble before and reveal human-specific gene duplications.   
-%
-%these companies have improved their library preparation protocol and base callers to improve the base accuracy. PacBio, for example, came up with circular consensus sequencing protocol in 2014, but this protocol had limited use commercially until 2018 because of insufficient DNA polymerase processivity.   
-%
-%% \subsubsection{Liquid Biopsy}
-
-% \subsubsection{Clinical sequencing}
-
-% \subsubsection{Single-cell sequencing}
-
-% linked-reads
-
-% \subsubsection{High-throughput chromatin conformation capture sequencing}
-
-% Job Dekker
-% Erez Liberman Aiden
-% CTCF, Cohesin, WAPL
-
-% \subsubsection{Strand-seq}
-
-% \subsubsection{Genome engineering}
 
 
 Somatic mutations can occur in cells at all stages of life and in all tissues. The biochemical manifestation of a somatic mutation requires three distinct stages: DNA damage or modification from either endogenous or exogenous sources, mutation resulting from incorrect DNA damage repair and unrepaired DNA damage, and the persistence of the mutation in the genome of the cell and its descendants \cite{Stratton2009-of}. Most somatic mutations are benign, but some confer a proliferative advantage and are referred to as driver mutations. The advent of next-generation sequencing and the continued decline in sequencing costs have enabled us to sequence thousands of cancer genomes at scale and subsequent downstream sequence analysis has allowed us to discover tissue-specific driver mutations \cite{Martinez-Jimenez2020-kn}, identify biological processes that generate these mutations \cite{Alexandrov2013-kg}, to use somatic mutations as timestamps and biological barcodes to lineage trace development \cite{Behjati2014-gb}, to discover complex structural rearrangements such as chromothripsis \cite{Stephens2011-gj} that fundamentally changed the conventional view of tumorigenesis as the gradual process of the accumulation of somatic mutations \cite{Doll1954-of, Knudson1971-fg} and to better understand the relationship between abnormal embryonic development and paediatric tumour formation \cite{Marshall2014-ec}. International efforts such as the Cancer Genome Atlas (TCGA) program \cite{Weinstein2013-ko} and the Pan-Cancer Analysis of Whole Genomes (PCAWG) consortium \cite{ICGCTCGA_Pan-Cancer_Analysis_of_Whole_Genomes_Consortium2020-ts} have also measured and analysed genetic, epigenetic, transcriptomic and proteomic aberrations in thousands of tumour genomes to understand how these aberrations contribute to the hallmarks of cancer \cite{Hanahan2000-dp, Hanahan2011-zr}. 
@@ -218,6 +113,13 @@ Structural variation detection with short reads relies on either changes in sequ
 \section{The Darwin Tree of Life Project}
 
 We cannot understate the significance that we can study physics and chemistry anywhere in the universe, but we can only study biology on planet Earth. We search for signs of life elsewhere in the universe, but we have yet to succeed in this endeavour. We must, hence, assume what distinguishes the inanimate from animate can be only understood here on Earth. 
+
+%7. We know very little about the somatic mutation landscape outside of humans (worth a paragraph on Alex's mammals paper though...)
+%8. Why we might want to understand somatic mutational processes across the tree of life - 
+%8a. Somatic mutations as a barometer of mutagenic exposures in the environment
+%8b. Understanding adaptation to toxic niches
+%8c. Comparative studies across species for ageing
+%8d. As a route to understanding processes underlying germline evolution across the tree of life
 
 \subsection{Origins of Life, Prebiotic Earth, RNA world, The emergence and evolution of life on Earth}
 %
