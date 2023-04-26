@@ -8,15 +8,6 @@
   \RequirePackage[left=37mm,right=30mm,top=35mm,bottom=30mm]{geometry}
   \setFancyHdr % To apply fancy header after geometry package is loaded
 \fi
-\usepackage{adjustbox}
-\usepackage{caption}
-\usepackage{longtable}
-\usepackage{makecell}
-\usepackage{floatrow}
-\usepackage{textcomp,mathcomp}
-% \floatsetup[figure]{capposition=top}
-% \usepackage{graphicx,floatrow}
-% \captionsetup[table]{position=bottom}
 
 % Add spaces between paragraphs
 %\setlength{\parskip}{0.5em}
@@ -32,6 +23,7 @@
 % Add `customfont' in the document class option to use this section
 
 \ifsetCustomFont
+  \RequirePackage{helvet} % ekg
   % Set your custom font here and use `customfont' in options. Leave empty to
   % load computer modern font (default LaTeX font).
   %\RequirePackage{helvet}
@@ -225,3 +217,17 @@
 % *****************************************************************************
 % ******************* Better enumeration my MB*************
 \usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{floatrow}
+\usepackage{textcomp,mathcomp}
+\usepackage{hyperref}
+\urlstyle{sf}
+% \floatsetup[figure]{capposition=top}
+% \usepackage{graphicx,floatrow}
+% \captionsetup[table]{position=bottom}
+
+
+
