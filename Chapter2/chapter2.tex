@@ -16,7 +16,6 @@
 \textit{Most sequences have been derived by priming on both strands; this allows more confidence than when only one strand could be used} 
 \begin{flushright} (Frederick Sanger, 1977 \cite{Sanger1977-os}) \end{flushright}
 
-\section{Introduction}
 
 As described in chapter 1, both duplex and CCS sequencing leverages redundant sequencing and complementary base pairing between the forward and reverse strand of a double-stranded DNA molecule to create a highly accurate consensus sequence. Considering the similarities between duplex and CCS sequencing \cite{Schmitt2012-yr, Hoang2016-jx, Abascal2021-pk}, I hypothesised that CCS reads might be as accurate or more accurate than duplex reads and that they can be used for single molecule somatic mutation detection. If my hypothesis proves to be true, somatic mutation detection and mutational signature identification will be possible from CCS sequencing of a bulk normal tissue. 
 
@@ -31,26 +30,22 @@ The current incarnation of the duplex sequencing method takes advantage of the h
 
 The duplex library preparation protocol starts with the sonication and fragmentation of genomic DNA. Unique molecular identifier (UMI) consisting of 8 to 12 nucleotides and Illumina adapters are attached to double-stranded DNA molecules prior to their PCR amplification \cite{Schmitt2012-yr}. The duplex library is diluted before PCR amplification to achieve optimal sampling and duplication per template molecule \cite{Hoang2016-jx, Abascal2021-pk}. Illumina reads from the library are subsequently grouped according to their UMI and are classified as Watson or Crick strand depending on whether the sequence was derived from the P5 or P7 Illumina adapter, respectively. 
 
-A highly accurate duplex consensus sequence is, thereafter, generated taking advantage of the redundancies and complementary base pairing between the forward and reverse strand reads (Figure \ref{}). 
+A highly accurate duplex consensus sequence is, thereafter, generated taking advantage of the redundancies and complementary base pairing between the forward and reverse strand reads (Figure \ref{figure:duplex-sequencing}). 
 
-%\begin{figure}[h!]
-%\caption{}
-%
-%\floatfoot{}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{Duplex sequencing}
+\label{figure:duplex-sequencing}
+\begin{centering}
+\includegraphics[width=0.55\textwidth]{Vector/duplex_sequencing.pdf}
+\end{centering}
+\floatfoot{A double-stranded DNA with a UMI and Illumina library adapters are PCR amplified. The forward strand is in yellow and reverse strand is in green. Strand orientation of the read is determined from the Illumina adapter.}
+\end{figure}
 
 The higher sequence throughput of Illumina instruments is critical in acquiring multiple reads from both strands of the template molecule and to identifying library and amplification errors introduced upstream of sequencing. DNAP, for example, might incorrectly replicate the template DNA molecule during PCR amplification, but the polymerase error will be present only in one copy or a subset of the copies. Moreover, if both forward and reverse strands are adequately sampled, complementarity between the two strands can be leveraged to identify bases with high accuracy or \cite{Schmitt2012-yr} or estimate the base accuracy \cite{Abascal2021-pk} based on supporting bases and the associated base quality scores. Duplex reads, therefore, promises theoretical base accuracy of $1 \times 10^{-9}$ (Q90), although in practice duplex reads achieves a base accuracy of $1 \times 10^{-6}$ (Q60) \cite{Schmitt2012-yr}.
 
-
 \subsection{Nanorate sequencing}
 
-In contrast, duplex reads from the most recent nanorate library protocol achieve the promised Q90 base accuracy, which is sufficient for single-molecule resolution somatic mutation detection \cite{Abascal2021-pk} (the name of the protocol is derived from the error rate of 1 error per billion bases). To accomplish this, the nanorate library protocol reduces library errors upstream of PCR amplification, and duplex libraries are created from DNA molecules assumed to be free of errors. Blunt end restriction enzyme, for example, is used to fragment gDNA to prevent enzymatic DNA misincorporation during end-repair and gap-filling. In addition, dideoxynucleotides are added to terminate single-strand displacement synthesis through nick translation, rendering DNA molecules that require this process unsuitable for library creation (Figure \ref{}). A highly accurate duplex read, thereafter, is constructed as described above.  
-
-%\begin{figure}[h!]
-%\caption{}
-%
-%\floatfoot{}
-%\end{figure}
+In contrast, duplex reads from the most recent nanorate library protocol achieve the promised Q90 base accuracy, which is sufficient for single-molecule resolution somatic mutation detection \cite{Abascal2021-pk} (the name of the protocol is derived from the error rate of 1 error per billion bases). To accomplish this, the nanorate library protocol reduces library errors upstream of PCR amplification, and duplex libraries are created from DNA molecules assumed to be free of errors. Blunt end restriction enzyme, for example, is used to fragment gDNA to prevent enzymatic DNA misincorporation during end-repair and gap-filling. In addition, dideoxynucleotides are added to terminate single-strand displacement synthesis through nick translation, rendering DNA molecules that require this process unsuitable for library creation. A highly accurate duplex read, thereafter, is constructed as described above.  
 
 \subsection{CCS sequencing}
 
@@ -62,7 +57,7 @@ In contrast to duplex sequencing, CCS sequencing also offers several advantages 
 
 \subsection{Sources of CCS errors}
 
-Single-molecule resolution somatic mutation detection requires only a single read, derived from a single molecule of double-stranded DNA, to support the mismatch between the sample and the reference genome. CCS library preparation, sequencing and consensus sequence generation, processes upstream of downstream sequence analysis, can generate errors and these errors can be often misclassified as somatic mutations \cite{Saunders2012-we, Cibulskis2013-gw}. Compared to paired tumour-normal sequencing, single molecule somatic mutation detection from normal tissues has a greater risk of mislabelling errors as somatic mutations. Furthermore, in samples with high heterozygosity and low sequence coverage, there is a possibility of miscategorising heterozygous mutations as somatic mutations. Here, I detail the potential sources of errors and I address some of these errors in the results section.
+Single-molecule resolution somatic mutation detection requires only a single read, derived from a single molecule of double-stranded DNA, to support the mismatch between the sample and the reference genome. CCS library preparation, sequencing and consensus sequence generation, processes upstream of downstream sequence analysis, can generate errors and these errors can be often misclassified as somatic mutations \cite{Cibulskis2013-gw}. Compared to paired tumour-normal sequencing, single molecule somatic mutation detection from normal tissues has a greater risk of mislabelling errors as somatic mutations. Furthermore, in samples with high heterozygosity and low sequence coverage, there is a possibility of miscategorising heterozygous mutations as somatic mutations. Here, I detail the potential sources of errors and I address some of these errors in the results section.
 
 \subsubsection{Library and sequencing errors}
 
@@ -72,50 +67,98 @@ During CCS library preparation, A DNA damage repair enzyme cocktail (unpublished
 
 After CCS library preparation, SMRTbell templates are loaded onto the SMRTcell, whereupon template DNA molecules diffuses into one of the available ZMWs. PacBio defines a ZMW as a productive if and only if it has a single template molecule and if it generates a CCS read with at least Q20 read accuracy. DNAP at the bottom of the ZMW binds to the DNA primer and initiates rolling circle amplification through strand-displacement synthesis. DNAP incorporates fluorescently labelled nucleotides, fluorescence emitted during DNA incorporation is measured and fluorophore is cleaved off upon successful incorporation. The wavelength of the fluorescence, length of the fluorescence, and duration between the successive pulses of fluorescence are used to determine the identity of the base and chemical modifications to the base. If the detected fluorescence pulse is too short or too long compared to the expected fluorescence pulse from the template molecule, erroneous deletions or insertions can be introduced to the polymerase reads \cite{Eid2009-ol} and 1bp indel errors are common in homopolymer regions \cite{Chaisson2012-vr}. 
 
-The DNAP from the latest library protocol has sufficient processivity to generate an average of 10-12 full-length subreads on average for template molecules with read-of-insert length between 16kb and 20kb. The single-strand readouts of the forward and reverse strand of the template molecule are referred to as subreads and individual subreads are reported to have 10 to 15\% error rate \cite{Chaisson2012-vr}. The first subread and the last subread are often partial readouts of the template molecule resulting from internal priming and early sequencing termination respectively, while the subreads from the second to the penultimate subreads are full-length readouts of the template molecule (Fig \ref{}). 
-%
-%\begin{figure}[h!]
-%\caption{}
-%
-%\floatfoot{}
-%\end{figure}
+The DNAP from the latest library protocol has sufficient processivity to generate an average of 10-12 full-length subreads on average for template molecules with read-of-insert length between 16kb and 20kb. The single-strand readouts of the forward and reverse strand of the template molecule are referred to as subreads and individual subreads are reported to have 10 to 15\% error rate \cite{Chaisson2012-vr}. The first subread and the last subread are often partial readouts of the template molecule resulting from internal priming and early sequencing termination respectively, while the subreads from the second to the penultimate subreads are full-length readouts of the template molecule.
 
 \subsubsection{Software errors}
 
-To construct CCS reads, PacBio circular consensus sequence (pbccs) algorithm identifies and removes adapter sequences from polymerase reads, and uses the adapter sequences to demarcate the start and end of subreads (Fig \ref{}). Afterwards, the median subread length is calculated and subreads with read length between 50\% of median subread length and 200\% of median subread length are used for consensus sequence generation. A sparse k-mer graph is generated from the subreads and a draft consensus sequence is inferred from the path with the highest confidence \cite{}. To polish the draft consensus sequence, subreads are realigned to the draft consensus sequence and A dinucleotide sequence context Hidden Markov Model (HMM) is used to infer the correct base and to assign base quality (BQ) scores from the observed subread bases (personal communication with Aaron Wenger, principal scientist at PacBio). A highly accurate consensus sequence can be constructed as sequencing errors are thought to be randomly introduced without sequence context bias and are independent of each other (Fig \ref{}). In addition, non-complementary base pairing between the forward and reverse strand indicates the presence of an error and CCS base resulting from the heteroduplex is assigned a low BQ score. 
+To construct CCS reads, PacBio circular consensus sequence (pbccs) algorithm identifies and removes adapter sequences from polymerase reads, and uses the adapter sequences to demarcate the start and end of subreads (Figure \ref{figure:adpater-sequence-detection}). 
 
-%\begin{figure}[h!]
-%\caption{}
-%
-%\floatfoot{}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{Adapter sequence detection}
+\label{figure:adapter-sequence-detection}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{Vector/adapter-sequence-detection.pdf}
+\end{centering}
+\floatfoot{A hairpin adapter in purple detected from the polymerase read to create subreads.}
+\end{figure}
 
-Data processing and software design errors also have the potential to introduce false positive mutations during downstream sequence analysis. If adapter sequences are not trimmed properly from subreads, adapter sequences can be incorporated into CCS reads and alignment errors arising from the adapter sequence can be a source of false positive mutations (Fig \ref{}). 
+Afterwards, the median subread length is calculated and subreads with read length between 50\% of median subread length and 200\% of median subread length are used for consensus sequence generation. A sparse k-mer graph is generated from the subreads and a draft consensus sequence is inferred from the path with the highest confidence \cite{Ye2016-qe}. To polish the draft consensus sequence, subreads are realigned to the draft consensus sequence and A dinucleotide sequence context Hidden Markov Model (HMM) is used to infer the correct base and to assign base quality (BQ) scores from the observed subread bases (personal communication with Aaron Wenger, principal scientist at PacBio). A highly accurate consensus sequence can be constructed as sequencing errors are thought to be randomly introduced without sequence context bias and are independent of each other (Figure \ref{figure:ccs-generation}). In addition, non-complementary base pairing between the forward and reverse strand indicates the presence of an error and CCS base resulting from the heteroduplex is assigned a low BQ score \cite{ccs2023}. 
 
+\begin{figure}[htbp!]
+\caption{CCS generation}
+\label{figure:ccs-generation}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{Vector/ccs-generation.pdf}
+\end{centering}
+\floatfoot{Subreads, in green and yellow, derived from a double-stranded DNA molecule is used to generate a highly accurate consensus sequence, in brown, with at least Q20 read accuracy. The bases colour coded in red are sequencing errors introduced randomly to the subreads. }
+\end{figure}
 
-%\begin{figure}[h!]
-%\caption{}
-%
-%\floatfoot{}
-%\end{figure}
+Data processing and software design errors also have the potential to introduce false positive mutations during downstream sequence analysis. If adapter sequences are not trimmed properly from subreads, adapter sequences can be incorporated into CCS reads and alignment errors arising from the adapter sequence can be a source of false positive mutations. 
 
-Furthermore, pbccs algorithm currently uses a hard filter to distinguish full-length subreads from subreads where adapter sequence has been miscalled, but a hard filter is not an adequate classification method.  If adapter sequences are inappropriately detected within a subread or not detected where present, full-length subreads can be fragmented into multiple subreads and more than two subreads can be concatenated into a single subread, respectively (Fig \ref{}ab). In some cases, fragmented and concatenated subreads are also joined together to produce a subread with sequences from both the forward and reverse strand (Fig \ref{}c). Moreover, as DNAP is agnostic to strand orientation, odd-numbered and even-numbered subreads are often assumed to have the same sequence orientation. If adapter sequences are miscalled, this assumption does not hold true, and documentation does not detail how these edge cases are considered.
+\begin{figure}[htbp!]
+\caption{Subread fragmentation}
+\label{figure:subread-fragmentation}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{Vector/subread-fragmentation.pdf}
+\end{centering}
+\floatfoot{The red triangle indicates where adapter sequence has been miscalled in the subread, resulting in two partial subreads}
+\end{figure}
+
+Furthermore, pbccs algorithm currently uses a hard filter to distinguish full-length subreads from subreads where adapter sequence has been miscalled, but a hard filter is not an adequate classification method.  If adapter sequences are inappropriately detected within a subread or not detected where present, full-length subreads can be fragmented into multiple subreads (Figure \ref{figure:subread-fragmentation}) and more than two subreads can be concatenated into a single subread, respectively (Figure \ref{figure:subread-concatenation}).
+
+In some cases, fragmented and concatenated subreads are also joined together to produce a subread with sequences from both the forward and reverse strand. Moreover, as DNAP is agnostic to strand orientation, odd-numbered and even-numbered subreads are often assumed to have the same sequence orientation. If adapter sequences are miscalled, this assumption does not hold true, and documentation does not detail how these edge cases are considered.
+
+\begin{figure}[htbp!]
+\caption{Subread concatenation }
+\label{figure:subread-concatenation}
+\begin{centering}
+\includegraphics[width=0.7\textwidth]{Vector/subread_concatenation.pdf}
+\end{centering}
+\floatfoot{If adapter is not called where present, two subreads with different sequence orientation can be connected to a single subread.}
+\end{figure}
 
 \subsubsection{Samples with a single somatic mutational process}
 
-Single molecule somatic mutation candidates are generated from either a biological process or from library, sequencing, or bioinformatics errors. To determine whether single molecule somatic mutation detection is possible with CCS reads, I selected a set of samples with a single somatic mutational process with characterised mutational signatures as positive controls and a sample with few somatic mutations as a negative control. In contrast to a typical sample where multiple mutational processes might be active at any given time, single-cell clone expansion and sequencing studies have identified APOBEC, POLE and clock-like mutational processes to be the main source of somatic mutations in BC-1, HT-115 and normal blood granulocytes, respectively \cite{Petljak2019-wi, Mitchell2022-ry}. In this chapter, the mutational spectra from previous studies and the contribution of different mutational signatures to the mutational spectrum served as truth sets to unbiasedly assess the accuracy of our somatic mutation detection algorithm and to evaluate the impact of different hard filters to sensitivity and specificity.
+Single molecule somatic mutation candidates are generated from either a biological process or from library, sequencing, or bioinformatics errors. To determine whether single molecule somatic mutation detection is possible with CCS reads, I selected a set of samples with a single somatic mutational process with characterised mutational signatures as positive controls and a sample with few somatic mutations as a negative control. In contrast to a typical sample where multiple mutational processes might be active at any given time, single-cell clone expansion and sequencing studies have identified APOBEC, POLE and clock-like mutational processes to be the main source of somatic mutations in BC-1, HT-115 and normal blood granulocytes, respectively \cite{Mitchell2022-ry, Petljak2019-wi}. In this chapter, the mutational spectra from previous studies and the contribution of different mutational signatures to the mutational spectrum served as truth sets to unbiasedly assess the accuracy of our somatic mutation detection algorithm and to evaluate the impact of different hard filters to sensitivity and specificity.
 
-The APOBEC family of proteins functions as part of the innate immune response to viruses and retrotransposons. APOBEC enzymes act upon single-stranded DNA and RNA as cytidine deaminase and catalyse cytosine to uracil deamination to deteriorate and initiate the degradation of the viral genome \cite{}. APOBEC mutational process inadvertently introduces C>T (SBS2) and C>G/C>A (SBS13) mutations to the genome at TCN trinucleotides (Figure \ref{}) \cite{} and localised hypermutations called kataegis, which is often observed at chromothriptic breakpoints \cite{}. APOBEC mutagenesis is, in fact, observed in more than 50\% of human cancers and accounts for a considerable proportion of the total mutational burden \cite{}.
+The APOBEC family of proteins functions as part of the innate immune response to viruses and retrotransposons. APOBEC enzymes act upon single-stranded DNA and RNA as cytidine deaminase and catalyse cytosine to uracil deamination to deteriorate and initiate the degradation of the viral genome \cite{Salter2016-go}. APOBEC mutational process inadvertently introduces C>T (SBS2) and C>G/C>A (SBS13) mutations to the genome at TCN trinucleotides (Figure \ref{figure:apobec-mutagenesis}) \cite{Burns2013-xn} and localised hypermutations called kataegis, which is often observed at chromothriptic breakpoints \cite{Nik-Zainal2012-nz}. APOBEC mutagenesis is, in fact, observed in more than 50\% of human cancers and accounts for a considerable proportion of the total mutational burden \cite{Alexandrov2013-fq}.
 
-During eukaryotic DNA replication, DNA polymerase $\delta$ (POLD) and $\varepsilon$ (POLE) are critical for DNA synthesis on the lagging and leading strand, respectively \cite{}. POLD and POLE enzymes both have intrinsic proofreading capabilities and their 3’-5’ exonuclease activity removes the 3’-terminal misincorporated nucleotide. Replicative DNA polymerases still introduce errors every $10^4 – 10^5$ nucleotides, but the mismatch repair (MMR) machinery corrects these errors. Individuals with inherited germline mutations or acquired somatic mutations that inactivate the POLE exonuclease activity have elevated somatic mutation rate and predisposes them to polymerase proofreading-associated polyposis, endometrial and colorectal cancers \cite{}. C>A mutations at TCN trinucleotides (SBS10a), C>A/C>T mutations at TCN trinucleotides (SBS10b) T>G mutations at NTT trinucleotides (SBS28) (Figure \ref{}) characterise POLE mutagenesis \cite{}. 
+\begin{figure}[htbp!]
+\caption{APOBEC mutagenesis}
+\label{figure:apobec-mutagenesis}
+\begin{centering}
+\includegraphics[width=1\textwidth]{Vector/SBS2_SBS13_sbs96.pdf}
+\end{centering}
+\end{figure}
 
-Clock-like mutational processes are mutational processes that introduce somatic mutations at a constant rate throughout life and hence, the number of mutations attributable to clock-like mutational processes is proportional to the age of the individual. Clock-like mutational process is sample and species dependent, but C>T (SBS1) mutations at NCG trinucleotide (Figure \ref{} ) and cell division independent mutational process (SBS5) (Figure \ref{}) \cite{} are determined to be clock-like mutational processes in normal human tissues. C>T mutations at CpG dinucleotide result from spontaneous deamination of 5-methylcytosine to thymine and the unrepaired T:G mismatch manifests as somatic mutations. The exact aetiology of SBS5 is unknown, but somatic mutagenesis study in post-mitotic tissues such as neurons and smooth muscle suggests that SBS5 might be a manifestation of multiple different cell division independent mutational processes \cite{}.
+During eukaryotic DNA replication, DNA polymerase $\delta$ (POLD) and $\varepsilon$ (POLE) are critical for DNA synthesis on the lagging and leading strand, respectively \cite{Swan2009-ew, Pursell2007-cu}. POLD and POLE enzymes both have intrinsic proofreading capabilities and their 3’-5’ exonuclease activity removes the 3’-terminal misincorporated nucleotide. Replicative DNA polymerases still introduce errors every $10^4 – 10^5$ nucleotides, but the mismatch repair (MMR) machinery corrects these errors. Individuals with inherited germline mutations or acquired somatic mutations that inactivate the POLE exonuclease activity have elevated somatic mutation rate and predisposes them to polymerase proofreading-associated polyposis, endometrial and colorectal cancers \cite{Palles2013-ua}. C>A mutations at TCN trinucleotides (SBS10a), C>A/C>T mutations at TCN trinucleotides (SBS10b) T>G mutations at NTT trinucleotides (SBS28) characterise POLE mutagenesis (Figure \ref{figure:pole-mutagenesis}) \cite{Robinson2021-te}. 
+
+\begin{figure}[htbp!]
+\caption{POLE mutagenesis}
+\label{figure:pole-mutagenesis}
+\begin{centering}
+\includegraphics[width=\textwidth]{Vector/SBS10a_SBS10b_SBS28_sbs96.pdf}
+\end{centering}
+\end{figure}
+
+
+Clock-like mutational processes are mutational processes that introduce somatic mutations at a constant rate throughout life and hence, the number of mutations attributable to clock-like mutational processes is proportional to the age of the individual. Clock-like mutational process is sample and species dependent, but C>T (SBS1) mutations at NCG trinucleotide and cell division independent mutational process (SBS5) (Figure \ref{figure:clock-like-mutagenesis}) are determined to be clock-like mutational processes in normal human tissues \cite{Alexandrov2015-db}. C>T mutations at CpG dinucleotide result from spontaneous deamination of 5-methylcytosine to thymine and the unrepaired T:G mismatch manifests as somatic mutations. The exact aetiology of SBS5 is unknown, but somatic mutagenesis study in post-mitotic tissues such as neurons and smooth muscle suggests that SBS5 might be a manifestation of multiple different cell division independent mutational processes \cite{Abascal2021-pk}.
+
+\begin{figure}[htbp!]
+\caption{Clock-like mutational processes}
+\label{figure:clock-like-mutagenesis}
+\begin{centering}
+\includegraphics[width=\textwidth]{Vector/SBS1_SBS5_sbs96.pdf}
+\end{centering}
+\end{figure}
+
+\pagebreak
 
 \section{Results}
 
 \subsection{CCS library errors and sequencing errors}
 
-CCS reads have been successfully used for construction of highly contiguous and complete de novo assemblies \cite{Wenger2019-pw} and germline mutation detection \cite{Poplin2018-ub}. In these applications, the accuracy of individual base quality scores is not so important as ~50\% or ~100\% of the bases will support the consensus base, heterozygous or homozygous mutation. The accuracy of individual base quality scores, however, matters for ultra-rare somatic mutation detection as the base accuracy must be higher than the human genome somatic mutation rate to distinguish sequencing errors from single molecule somatic mutations (As discussed in the introduction, the human genome typically acquires somatic mutations at a rate between Q82 and Q93 per year depending on the tissue). Genomic DNA contamination is another common source of false positive somatic mutations \cite{Cibulskis2013-gw}
+CCS reads have been successfully used for construction of highly contiguous and complete de novo assemblies \cite{Wenger2019-pw} and germline mutation detection \cite{Poplin2018-ub}. In these applications, the accuracy of individual base quality scores is not so important as ~50\% or ~100\% of the bases will support the consensus base, heterozygous or homozygous mutation. The accuracy of individual base quality scores, however, matters for ultra-rare somatic mutation detection as the base accuracy must be higher than the human genome somatic mutation rate to distinguish sequencing errors from single molecule somatic mutations (As discussed in the introduction, the human genome typically acquires somatic mutations at a rate between Q82 and Q93 per year, depending on the tissue). 
 
 \begin{table}[h!]
 \caption{Experimental Data}
@@ -134,7 +177,7 @@ Mutational signature 				 & SBS2   & SBS10a, SBS10b and SBS28 & \multicolumn{2}{
 Mutation burden per cell 		     & $\sim$2,000 - 22,000 & $\sim$8,000 - 11,000 & $\sim$40 - 50 & $\sim$1400 - 1500 \\ \hline 
 \end{tabular}
 \end{adjustbox} 
-\floatfoot{\small{CCS sequencing statistics, mutational process, associated mutational signatures and mutation burden are described for the negative control (PD47269d) and positive control (BC-1, HT-115 and PD48473b) samples.}}
+\floatfoot{CCS sequencing statistics, mutational process, associated mutational signatures and mutation burden are described for the negative control (PD47269d) and positive control (BC-1, HT-115 and PD48473b) samples.}
 \end{table}
 
 I generated 30-fold CCS sequence coverage from BC-1, HT-115 and blood granulocytes from an 82-year-old female individual (PD48473b) and 70-fold CCS sequence coverage from cord blood granulocyte (PD47269d) with an average read length between 16 and 20kb (Table \ref{tab:CCS-sequence-statistics}) to achieve the following objectives: 
@@ -146,52 +189,165 @@ I generated 30-fold CCS sequence coverage from BC-1, HT-115 and blood granulocyt
 \item to identify sources of errors and to develop solutions to reduce the contribution of errors to the total mutation burden of the sample
 \end{enumerate}
 
-I, first, analysed CCS and subreads from the same ZMW to identify false positive substitutions resulting from library and sequencing errors (Methods). I observed that X\% of ZMWs have subreads arising from miscalling of adapter sequences. I hypothesise that CCS reads with read length deviating from the mean CCS read length are the result of failed adapter sequence detection and exclude these CCS reads from somatic mutation detection (Method). In addition, I also noticed higher than expected adenine and thymine proportion and higher number of somatic mutations called from the end of CCS reads (Fig \ref{}). Incomplete adapter sequence trimming is thought to be responsible for this phenomenon. Hence, CCS reads with adapter sequences are removed before sequence alignment and somatic mutations called from 5’ and 3’ of CCS reads are discarded before downstream sequence analysis. 
+I, first, analysed CCS and subreads from the same ZMW to identify false positive substitutions resulting from library and sequencing errors (Methods). I observed that 0.41-2.16\% of productive ZMWs have subreads arising from miscalling of adapter sequences (Table \ref{tab:adapter-miscalling-statistics}).
 
-CCS base BQ scores range from Q1 to nominal Q93, corresponding to $0.5\times10^{-9}$ error rate (Figure \ref{}). A reduction in the number of mismatches to the reference genome is often used as a metric to evaluate whether CCS read generated from the more recent algorithm is superior to that produced from existing algorithms \cite{Wenger2019-pw, Baid2022-or}. This approach, however, discounts the presence of somatic mutations and assumes that all mismatches to the reference genome, that are not germline mutations, are errors. Here, I examined the accuracy of individual CCS base BQ score to assess the potential for single molecule somatic mutation detection using CCS reads.   
+\begin{table}[h!]
+\caption{Adapter miscalling statistics}
+\label{tab:adapter-miscalling-statistics}
+\begin{tabular}{c|c|c}
+SMRTcell & Number of adapter miscalling & Number of productive ZMWs \\ \hline
+m64089\_201022\_131119 & 2,696 (0.53\%) & 504,858 \\ \hline
+m64089\_201023\_192624 & 2,222 (0.53\%) & 416,110 \\ \hline
+m64089e\_210729\_164631 & 37,346 (2.00\%) & 1,867,538 \\ \hline
+m64089e\_210731\_014247 & 41,723 (2.16\%) & 1,929,308 \\ \hline
+m64089e\_210801\_075423 & 10,249 (1.27\%) & 804,082 \\ \hline
+m64125\_201017\_124255 & 6,383 (0.41\%) & 1,539,077 \\ \hline
+m64125\_201109\_000332 & 5,623 (0.45\%) & 1,241,983 \\ \hline
+m64125\_201110\_063134 & 5,613 (0.44\%) & 1,282,810 \\ \hline
+m64125e\_210718\_021224 & 29,351 (1.70\%) & 1,731,793 \\ \hline
+m64125e\_210719\_111136 & 16,711 (1.84\%) & 909,397 \\ \hline
+m64125e\_210720\_172316 & 5,452 (1.21\%) & 450,437 \\ \hline
+\end{tabular}
+\floatfoot{Adapter miscalling statistics from nine 8M SMRTcells used for PD47269 CCS sequencing}
+\end{table}
 
-CCS BQ score is dependent on the number of subreads per CCS read and concordance between the subread bases and the CCS base (Figure \ref{}). I was able to confirm that the number of substitutions and indels is negatively correlated with the number of subreads per CCS read as reported in a previous publication (Figure \ref{}) \cite{Wenger2019-pw}. The accuracy of the BQ score, hence, is expected to increase with the number of supporting subread bases. I, however, discovered that the accuracy of the CCS BQ score decreases with increase in the number of subreads and that increase in the number of subreads per CCS read results in not diminishing returns, but negative returns to CCS base accuracy (discussed later in Chapter 3). 
+I hypothesise that CCS reads with read length deviating from the mean CCS read length are the result of failed adapter sequence detection and exclude these CCS reads from somatic mutation detection (Method). In addition, I also noticed higher than expected adenine and thymine proportion and higher number of somatic mutations called from the end of CCS reads (Figure \ref{figure:base-proportion-per-ccs-position}). 
+
+\begin{figure}[h!]
+\caption{Base proportion per relative CCS position}
+\label{figure:base-proportion-per-ccs-position}
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{Vector/base_proportion_per_ccs_position.pdf}
+\end{centering}
+\end{figure}
+
+Incomplete adapter sequence trimming is thought to be responsible for this phenomenon. Hence, CCS reads with adapter sequences are removed before sequence alignment and somatic mutations called from 5’ and 3’ of CCS reads are discarded before downstream sequence analysis. 
+
+CCS base BQ scores range from Q1 to nominal Q93, corresponding to $0.5\times10^{-9}$ error rate. A reduction in the number of mismatches to the reference genome is often used as a metric to evaluate whether CCS read generated from the more recent algorithm is superior to that produced from existing algorithms \cite{Wenger2019-pw, Baid2022-or}. This approach, however, discounts the presence of somatic mutations and assumes that all mismatches to the reference genome, that are not germline mutations, are errors. Here, I examined the accuracy of individual CCS base BQ score to assess the potential for single molecule somatic mutation detection using CCS reads (Figure \refP{})   
+
+%\begin{figure}[htbp!]
+%\caption{A boxplot of number of SBS per CCS read (sample: PD47269d)}
+%\label{figure:sbs-count-per-ccs-read}
+%\begin{centering}
+%\includegraphics[width=0.6\textwidth]{Vector/sbs_count_per_ccs_read.pdf}
+%\end{centering}
+%\end{figure}
+
+CCS BQ score is dependent on the number of subreads per CCS read and concordance between the subread bases and the CCS base. I was able to confirm that the number of substitutions and is negatively correlated with the number of subreads per CCS read as reported in a previous publication (Figure \ref{figure:sbs-count-per-ccs-read}) \cite{Wenger2019-pw}. 
+
+\begin{figure}[htbp!]
+\caption{A boxplot of number of SBS per CCS read (sample: PD47269d)}
+\label{figure:sbs-count-per-ccs-read}
+\begin{centering}
+\includegraphics[width=0.6\textwidth]{Vector/sbs_count_per_ccs_read.pdf}
+\end{centering}
+\end{figure}
+
+The accuracy of the BQ score, hence, is expected to increase with the number of supporting subread bases. I, however, discovered that the accuracy of the CCS BQ score decreases with increase in the number of subreads and that increase in the number of subreads per CCS read results in not diminishing returns, but negative returns to CCS base accuracy (discussed later in Chapter 3). 
 
 Despite these issues, I was able to demonstrate that CCS read have sufficient base accuracy for single molecule somatic mutation in most normal human tissue. Firstly, I used the positive control samples to identify and evaluate parameters that influence somatic mutation detection sensitivity and specificity. Secondly, I used the negative control sample to determine the CCS error rate for Q93 CCS bases and the limit of detection threshold. Finally, I was able to find potential solutions to minimise the number of false positive mutations arising from errors upstream of downstream sequence analysis. 
 
 
-\subsection{Germline mutation and somatic mutation detection}
+\subsection{Germline mutation detection}
 
 Bulk normal tissue has germline mutations that are inherited from parents, mosaic mutations that occurred during embryonic development and newly acquired somatic mutations from ongoing mutational processes. In addition, cells with driver mutations can outcompete neighbouring cells and clones of cells can occupy pockets of tissues. These clonal somatic mutations can often be confused with heterozygous germline mutations in normal bulk tissue. To distinguish germline mutations from somatic mutations, paired tumour-normal sequencing is often performed. In contrast, himut can confidently call somatic mutations from a bulk tissue without a matched normal sample (Methods). 
 
-I, first, compared germline SNPs detected from both himut and deepvariant to assess whether our algorithm can accurately call germline mutations (Methods, Table \ref{}). The number of SNPs and transition to transversion (TiTv) ratio is within the expected range, demonstrating that himut can also function as a standalone variant caller. Deepvariant is a deep learning method that uses uses read pileup images for germline mutation detection. On the other hand, himut uses an analytical approach like GATK and strelka2 \cite{DePristo2011-vf, Kim2018-qi}  for germline mutation detection.  
+I, first, compared germline SNPs detected from both himut and deepvariant to assess whether our algorithm can accurately call germline mutations (Methods, Table \ref{}).
 
-To distinguish germline mutations from somatic mutations, himut first collects single-base-substitution (SBS) candidates from CCS reads that meets the read-level prerequisites (Methods, Figure \ref{}). Afterwards, SBS candidates are classified as either a germline mutation or as co-occurrence of both germline and somatic mutation. Germline mutation is further categorised as a heterozygous, heterozygous alternative (tri-allelic), homozygous alternative or homozygous reference allele (Methods). Somatic mutation candidates occurring on heterozygous, heterozygous alternative or homozygous alternative alleles are labelled as somatic reversions and are not considered further as somatic reversions can also arise from gDNA contamin
-ation (Figure \ref{}). To be classified as a somatic mutation, somatic mutation candidate must originate from a homozygous reference allele site and fulfil several base-level prerequisites that distinguishes mutations from errors (Methods). A VCF file with common SNPs and a PoN VCF file can also be optionally provided to exclude false positive mutations resulting from DNA contamination and systematic errors, respectively. Afterwards, himut calculates the mutation burden of the sample based on the number of called somatic mutations and the number of callable CCS and reference base (Methods). 
+\begin{table}[h!]
+\caption{Germline mutation statistics (sample: PD47269d)}
+\label{tab:adapter-miscalling-statistics}
+\begin{tabular}{c|c|c}
+& Deepvariant & Himut \\ \hline
+Heterozygous SNP & 2,394,488 & 2,040,007 \\ \hline
+Homozygous SNP & 1,493,950 & 1,292,806 \\ \hline
+TiTv ratio & 2.00 & 2.08 \\ \hline
+\end{tabular}
+\end{table}
 
-If a sample has a low sequence coverage, himut can also leverage CCS read length and base accuracy to phase heterozygous SNPs (hetSNPs) and connect phased hetSNPs to construct contiguous haplotype blocks (Methods). A VCF file containing haplotype phased hetSNPs to identify genomic regions where both haplotypes of the diploid genome have been sampled sufficiently and to call haplotype phased somatic mutations (Methods), which has numerous advantages to read-backed phasing of somatic mutations with Illumina reads.
+The number of SNPs and transition to transversion (TiTv) ratio is within the expected range, demonstrating that himut can also function as a standalone variant caller. Deepvariant is a deep learning method that uses uses read pileup images for germline mutation detection. On the other hand, himut uses an analytical approach like GATK and strelka2 \cite{Kim2018-qi, DePristo2011-vf}  for germline mutation detection. Here, the germline mutation detected using himut is restricted to that with GQ score above 20, while that from deepvariant is not filtered.
 
+\subsection{Somatic mutation detection}
+
+To distinguish germline mutations from somatic mutations, himut first collects single-base-substitution (SBS) candidates from CCS reads that meets the read-level prerequisites (Methods). Afterwards, SBS candidates are classified as either a germline mutation or as co-occurrence of both germline and somatic mutation. Germline mutation is further categorised as a heterozygous, heterozygous alternative (tri-allelic), homozygous alternative or homozygous reference allele (Methods). Somatic mutation candidates occurring on heterozygous, heterozygous alternative or homozygous alternative alleles are labelled as somatic reversions and are not considered further as somatic reversions can also arise from gDNA contamination. To be classified as a somatic mutation, somatic mutation candidate must originate from a homozygous reference allele site and fulfil several base-level prerequisites that distinguishes mutations from errors (Methods, Figure \ref{figure:somatic-mutation-detection}). A VCF file with common SNPs and a PoN VCF file can also be optionally provided to exclude false positive mutations resulting from DNA contamination and systematic errors, respectively. Afterwards, himut calculates the mutation burden of the sample based on the number of called somatic mutations and the number of callable CCS and reference base (Methods). 
+
+\begin{figure}[htbp!]
+\caption{A framework for single molecule somatic mutation detection using himut}
+\label{figure:somatic-mutation-detection}
+\begin{centering}
+\includegraphics[width=\textwidth]{Vector/himut.pdf}
+\end{centering}
+\floatfoot{Red and blue rectangle indicates germline mutations while green rectangle indicates either somatic mutation candidates or called somatic mutations. After selection of CCS reads that meets pre-defined thresholds, a SBS is defined either as a germline mutation or as a somatic mutation candidate. Afterwards, a number of hard filters are applied to the somatic mutation candidate to determine whether it is an error or a somatic mutation. A PoN VCF can be optionally supplied to filter false positive somatic mutations arising from systematic errors.}
+\end{figure}
+
+\pagebreak
+
+\subsubsection{Haplotype phased somatic mutation detection}
+
+If a sample has a low sequence coverage, himut can also leverage CCS read length and base accuracy to phase heterozygous SNPs (hetSNPs) and connect phased hetSNPs to construct contiguous haplotype blocks (Methods). A VCF file containing haplotype phased hetSNPs to identify genomic regions where both haplotypes of the diploid genome have been sampled sufficiently and to call haplotype phased somatic mutations (Methods), which has numerous advantages to read-backed phasing of somatic mutations with Illumina reads (Figure \ref{figure:haplotype-phased-somatic-mutation-detection}).
 
 \begin{enumerate}
-\item Read-backed phasing with Illumina reads uses adjacent hetSNPs to phase approximately $\sim$30\% of detected somatic mutations \cite{Nik-Zainal2012-nz}. In contrast, haplotype phased somatic mutation detection with CCS reads uses all hetSNPs that the CCS read spans and phases approximately $\sim$70\% of somatic mutations (Figure \ref{}). 
-\item CCS reads derived from gDNA contamination often have a different haplotype than that of the sample. Consequently, if haplotype of a CCS read does not match the consensus haplotype of the sample, it can be classified as a contamination and be excluded from analysis (Figure \ref{})
-\item If somatic mutation detection is restricted to haplotype phased regions, hetSNP cannot be misclassified as a somatic mutation as haplotype phasing requires sufficient sampling of both haplotypes (Figure \ref{}). 
-\item CCS reads with the same somatic mutation should share the same haplotype. If a somatic mutation should is present on both haplotypes, it can be categorised as an error (Figure \ref{}). 
+\item Read-backed phasing with Illumina reads uses adjacent hetSNPs to phase approximately $\sim$30\% of detected somatic mutations \cite{Nik-Zainal2012-nz}. In contrast, haplotype phased somatic mutation detection with CCS reads uses all hetSNPs that the CCS read spans and phases approximately $\sim$70\% of somatic mutations.
+\item CCS reads derived from gDNA contamination often have a different haplotype than that of the sample. Consequently, if haplotype of a CCS read does not match the consensus haplotype of the sample, it can be classified as a contamination and be excluded from analysis.
+\item If somatic mutation detection is restricted to haplotype phased regions, hetSNP cannot be misclassified as a somatic mutation as haplotype phasing requires sufficient sampling of both haplotypes.
+\item CCS reads with the same somatic mutation should share the same haplotype. If a somatic mutation should is present on both haplotypes, it can be categorised as an error.
 \end{enumerate}
 
+\begin{figure}[htbp!]
+\caption{A framework for haplotype phased somatic mutation detection}
+\label{figure:haplotype-phased-somatic-mutation-detection}
+\begin{centering}
+\includegraphics[width=\textwidth]{Vector/haplotype_phased_somatic_mutation_detection.pdf}
+\end{centering}
+\floatfoot{As before, red and blue rectangle indicates germline mutations while green rectangle indicates either somatic mutation candidates or called somatic mutations. }
+\end{figure}
 
 \subsection{Somatic mutation detection sensitivity and specificity}
 
-I called and benchmarked haplotype unphased and phased somatic mutations from the three positive controls with different mutational burdens and distinct mutational processes. Our unique benchmarking approach leverages the fact that a single somatic mutational process is active in each sample and that somatic mutation candidates are derived from either errors or newly acquired somatic mutations. Himut cannot be certain whether individual somatic mutations are derived from an error or a somatic mutational process, but if there is sufficient signal-to-noise ratio, mutational spectrum produced from the aggregate somatic mutations should be consistent with the expected mutational signature. In addition, our approach is not biased towards Illumina callable regions of the genome unlike the Genome in a Bottle (GIAB) benchmarks \cite{} as our somatic mutation detection method is agnostic to reference position. 
+I called and benchmarked haplotype unphased and phased somatic mutations from the three positive controls with different mutational burdens and distinct mutational processes. Our unique benchmarking approach leverages the fact that a single somatic mutational process is active in each sample and that somatic mutation candidates are derived from either errors or newly acquired somatic mutations. Himut cannot be certain whether individual somatic mutations are derived from an error or a somatic mutational process, but if there is sufficient signal-to-noise ratio, mutational spectrum produced from the aggregate somatic mutations should be consistent with the expected mutational signature. In addition, our approach is not biased towards Illumina callable regions of the genome unlike the Genome in a Bottle (GIAB) benchmarks \cite{Zook2014-et} as our somatic mutation detection method is agnostic to reference position. 
 
-The mutation burden of BC-1, HT-115 and PD48473b samples were calculated to be X, X, X, respectively, consistent with previous estimates \cite{Petljak2019-wi, Mitchell2022-ry} (Table \ref{}). In addition, high cosine similarity between the expected mutational signatures and mutational spectrum from our positive control samples demonstrate that CCS bases have sufficient base accuracy for rare somatic mutation detection where samples have a high mutation burden or a high somatic mutation rate (Methods, Figure \ref{}). 
+The mutational spectrum generated from BC-1 (Figure \ref{figure:BC-1}), HT-115 (Figure \ref{figure:HT-115}) and PD48473b (Figure \ref{figure:PD48473b}) somatic mutations were concordant with the expected mutational signatures from these samples (Methods). 
 
-%\begin{figure}[h!]
-%\caption{}
-%\floatfoot{}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{Comparison between SBS2 and the BC-1 mutational spectrum}
+\label{figure:BC-1}
+\includegraphics[width=\textwidth]{Vector/hg19.SBS2.BC-1.pdf}
+\end{figure}
+
+\begin{figure}[htbp!]
+\caption{Comparison between the linear combination of SBS10a, SBS10b and SBS28 and the HT-115 mutational spectrum}
+\label{figure:HT-115}
+\includegraphics[width=\textwidth]{Vector/hg19.SBS10a.SBS10b.SBS28.HT-115.pdf}
+\floatfoot{As previously observed \cite{Petljak2019-wi}, the contribution of SBS10b to the mutational burden of the HT-115 sample is reduced in \textit{in vitro} conditions.}
+\end{figure}
+
+\begin{figure}[htbp!]
+\caption{Comparison between KX004 mutational spectrum and the PD48473b mutational spectrum}
+\label{figure:PD48473b}
+\includegraphics[width=\textwidth]{Vector/hg19.KX001.PD48473b.pdf}
+\floatfoot{KX004 mutational spectrum was previously generated from single-cell clone expansion and sequencing \cite{Mitchell2022-ry}}
+\end{figure}
+
+In addition, The mutation burden of BC-1, HT-115 and PD48473b samples were calculated to be X, X, X, respectively, consistent with previous estimates \cite{Mitchell2022-ry, Petljak2019-wi}, demonstrating that CCS bases have sufficient base accuracy for rare somatic mutation detection where samples have a high mutation burden or a high somatic mutation rate (Methods) 
 
 Through mutational signature analysis< I was also able to determine the number of true positive mutations and false positive mutations from the called somatic mutations and the number of true negative mutations and false negative mutations from the filtered somatic mutations. These estimates were subsequently used to calculate the sensitivity, specificity, and F1-score for each our sample (Method, Table \ref{}).
 
-%\begin{figure}[h!]
-%\caption{}
-%\floatfoot{}}
-%\end{figure}
+\begin{table}[h!]
+\caption{}
+\label{}
+\begin{tabular}{l|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}}
+ & BC-1 & HT-115 & PD48473b \\ \hline
+Mutation burden per cell & 11,301 & 19,739 & 2,692 \\ \hline
+True positive mutations &  &  & \\ \hline 
+False positive mutations &  &  & \\ \hline
+True negative mutations &  &  & \\ \hline
+False negative mutations &  &  & \\ \hline
+Sensitivity &  &  & \\ \hline
+Specificity &  &  & \\ \hline
+F1-score &  &  & \\ \hline
+\end{tabular}
+\floatfoot{The number of false positive substitutions are included in the mutation burden per cell. Typically, false positive mutations contributes around 700 somatic mutations per cell}
+\end{table}
 
 We also selected appropriate hard filter thresholds based on receiver operating characteristic (ROC) curve generated under a range of hard filter conditions (Figure \ref{}) and determined hard filters with the greatest impact on sensitivity based on odds ratio calculated in the absence and presence of the hard filter in question. BQ and GQ score were crucial for somatic mutation detection while other filters had marginally positive impact on somatic mutation sensitivity. We would like to also highlight that somatic mutation detection sensitivity and specificity increased when grch38 was used as a reference genome, reflecting better representation of genetic polymorphisms with improvements in assembly quality (Table). We, unfortunately, could not compare himut with other methods as himut is the first somatic SBS detection method with CCS reads and as somatic mutation detection below 0.1\% VAF has not been technically feasible with standard Illumina reads. 
 
@@ -250,7 +406,6 @@ Here, I determined that Q93 CCS bases have base accuracy that ranges from Q60 to
 
 BC-1 and HT-115 cell lines were cultured at 37 \textcelsius, 5\% CO2 in RPMI and DMEM media, respectively, supplemented with 5\% fetal bovine serum and penicillin. Umbilical blood from a newborn female (PD47269d) and peripheral blood sample of an 82-year-old female (PD48473b) were collected in 40-60mL lithium-heparin tubes and blood granulocytes were subsequently isolated using Lymphophorep. High molecular weight (HMW) DNA from BC-1 and HT-115 cell line and PD47269d and PD484873b blood granulocytes were extracted using Qiagen MagAttract HMW DNA extraction kit (67563) and sheared to 16-20kb DNA fragments using Megaruptor 3 system (B06010003) with speed setting 30. CCS sequencing libraries were constructed according to the CCS library preparation protocol 1.0 (100-222-300), and the libraries were sequenced using a Sequel IIe instrument at the Wellcome Sanger Institute. 
 
-
 \subsection{CCS read alignment and germline mutation detection}
 CCS reads with adapter sequences were identified with HiFiAdapterFilt \cite{Sim2022-pi} and were removed from downstream sequence analysis. CCS reads were aligned to the human reference genome (b37 and grch38) with minimap2 (version 2.24-r1155-dirty) with default parameters for CCS read alignment (-ax map-hifi --cs=short) \cite{Li2018-am} and primary alignments were selected, compressed, merged, and sorted with samtools (version 1.6) \cite{Li2009-qp}. Germline SNPs and indels were detected with deepvariant (version 1.1.0) \cite{Poplin2018-ub}. VCF files were compressed and indexed with tabix \cite{Li2011-zj} and left aligned and normalised with bcftools (version 1.17-7-g097bda6) \cite{Li2011-ag}
 
@@ -265,9 +420,9 @@ To assess the potential for somatic mutation detection with CCS reads, the accur
 
 \subsection{Germline and somatic mutation detection}
 
-To detect germline and somatic mutations from bulk normal tissue, himut leverages CCS read length and base accuracy for somatic mutation candidate detection and applies a set of hard filters to distinguish potential errors from somatic mutations. Himut uses pysam \cite{pysam}, pyfastx \cite{Du2021-ya} and cyvcf2 \cite{Pedersen2017-ld} to process BAM, FASTA/Q and VCF files, respectively. Himut also uses the multiprocessing Python package \cite{} to enable parallel processing of all the chromosomes. 
+To detect germline and somatic mutations from bulk normal tissue, himut leverages CCS read length and base accuracy for somatic mutation candidate detection and applies a set of hard filters to distinguish potential errors from somatic mutations. Himut uses pysam \cite{pysam}, pyfastx \cite{Du2021-ya} and cyvcf2 \cite{Pedersen2017-ld} to process BAM, FASTA/Q and VCF files, respectively. Himut also uses the multiprocessing Python package \cite{multiprocessing} to enable parallel processing of all the chromosomes. 
 
-Upon initiation, read alignments are first randomly sampled from each target chromosome to compute the lower and upper bound read length and maximum read depth threshold $4d + \sqrt{d}$ where $d$ is the average read depth \cite{}. Afterwards, CCS reads with average read accuracy, mapping quality score (MAPQ) and sequence identity equal or greater than the predefined thresholds are selected and SBS candidates are collected from these reads. Average read accuracy is the mean BQ score of the CCS read (eq \ref{eq:average-read-accuracy}).
+Upon initiation, read alignments are first randomly sampled from each target chromosome to compute the lower and upper bound read length and maximum read depth threshold $4d + \sqrt{d}$ where $d$ is the average read depth \cite{Li2014-ra}. Afterwards, CCS reads with average read accuracy, mapping quality score (MAPQ) and sequence identity equal or greater than the predefined thresholds are selected and SBS candidates are collected from these reads. Average read accuracy is the mean BQ score of the CCS read (eq \ref{eq:average-read-accuracy}).
 
 \begin{equation} \label{eq:average-read-accuracy}
 \text{Average read accuracy} = \frac{\sum^{l}_{i}b_{i}}{l} \smallskip
@@ -282,7 +437,6 @@ Sequence identity is the ratio of matching bases relative to the total number of
 \end{equation}
 
 In addition, CCS read length must be between the lower and upper bound read length to prevent somatic mutation detection from erroneously fragmented or concatenated reads. The lower and upper bound read length is defined as such (eq \ref{eq:lower-upper-read-length}): 
-
 
 \begin{equation}
 \begin{aligned} 
@@ -381,18 +535,40 @@ Somatic mutations were called in both positive and negative control samples usin
 
 \subsection{Panel of Normal construction}
 
-To generate a PoN VCF file, publicly available CCS dataset from 11 normal unrelated individuals was collected \cite{Zook2019-pm} (Table \ref{}) and processed as described above to generate merged and sorted primary read alignments. Afterwards, somatic mutations were identified from these samples using himut with less stringent parameters (--min\_qv 20 -{}-min\_mapq 30 –{}-min\_trim 0 –{}-min\_sequence\_identity = 0.8 -{}-min\_gq –{}-min\_bq = 20) to maximise the number of mutations called from each sample. 
+To generate a PoN VCF file, publicly available CCS dataset from 11 normal unrelated individuals was collected \cite{Zook2019-pm} (Table \ref{tab:pon-fastq-statistics}) and processed as described above to generate merged and sorted primary read alignments. Afterwards, somatic mutations were identified from these samples using himut with less stringent parameters (--min\_qv 20 -{}-min\_mapq 30 –{}-min\_trim 0 –{}-min\_sequence\_identity = 0.8 -{}-min\_gq –{}-min\_bq = 20) to maximise the number of mutations called from each sample. 
 
-%\begin{table}[h!]{label}
-%\caption{}
-%\floatfoot{}
-%\end{table}
+\begin{table}[h!]
+\caption{PoN sample FASTQ statistics}
+\label{tab:pon-fastq-statistics}
+\begin{adjustbox}{max width=1.1\textwidth,center}
+\begin{tabular}{c|c|c|c|c}
+& Number of CCS reads & Average CCS read length(bp) & BQ93 proportion (\%) & Sequence coverage \\ \hline
+HG001 & 9,076,967 & 9,963 & 58.9 & 30.1 \\ \hline
+HG003 & 12,490,825 & 15,423 & 60.6 & 64.2 \\ \hline
+HG004 & 11,528,550 & 16,044 & 57.0 & 61.6 \\ \hline
+HG005 & 9,425,306 & 10,423 & 58.1 & 32.7  \\ \hline
+HG00514 & 4,500,935 & 16,988 & 45.1 & 25.5 \\ \hline
+HG00731 & 9,286,164 & 11,133 & 58.0 & 34.5 \\ \hline
+HG00732 & 9,566,270 & 14,935 & 45.2 & 47.6 \\ \hline
+HG00733 & 7,657,979 & 13,552 & 51.8 & 34.6 \\ \hline
+NA19238 & 1,320,856 & 11,420 & 53.8 & 5.0 \\ \hline
+NA19239 & 2,661,222 & 15,358 & 44.7 & 13.6 \\ \hline
+NA19240 & 5,695,556 & 12,743 & 52.3 & 24.1 \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
 
 The number of samples in the PoN VCF is currently limited to the number of publicly available CCS dataset. As the number of CCS sequenced samples increases, the power to distinguish errors from somatic mutations will also increase in the future.  
 
 \subsection{Germline mutation haplotype phasing}
 
-A haplotype is defined as a group of genetic variants that are inherited together from a single parent. Haplotype phasing is treated as a graph algorithm problem where each hetSNP is a node in a graph and there is an edge between a pair of haplotype consistent hetSNPs (Figure \ref{}). A single CCS read spans multiple heterozygous SNPs and evidence from multiple CCS reads can determine whether a pair of hetSNPs is haplotype consistent (p < 0.0001, one-sided binomial test) (Figure\ref{}). If a pair of hetSNP is haplotype consistent, a pair of hetSNP exists in cis-configuration or trans-configuration (Figure \ref{}). A haplotype inconsistent pair of hetSNP results from non-biological sources. Haplotype consistency is measured between all possible hetSNP pairs and hetSNPs that are haplotype consistent with at least 20\% of their possible pairs are connected through breadth-first search algorithm to construct haplotype blocks. Himut accepts as input a VCF file with germline mutations and returns a VCF file with haplotype phased hetSNPs.
+A haplotype is defined as a group of genetic variants that are inherited together from a single parent. Haplotype phasing is treated as a graph algorithm problem where each hetSNP is a node in a graph and there is an edge between a pair of haplotype consistent hetSNPs. A single CCS read spans multiple heterozygous SNPs and evidence from multiple CCS reads can determine whether a pair of hetSNPs is haplotype consistent (p < 0.0001, one-sided binomial test) . If a pair of hetSNP is haplotype consistent, a pair of hetSNP exists in cis-configuration or trans-configuration (Figure \ref{figure:cis-trans-configuration}). A haplotype inconsistent pair of hetSNP results from non-biological sources. Haplotype consistency is measured between all possible hetSNP pairs and hetSNPs that are haplotype consistent with at least 20\% of their possible pairs are connected through breadth-first search algorithm to construct haplotype blocks. Himut accepts as input a VCF file with germline mutations and returns a VCF file with haplotype phased hetSNPs.
+
+\begin{figure}[htbp!]
+\caption{cis- and trans-configuration for a hetSNP pair}
+\label{figure:cis-trans-configuration}
+\includegraphics[width=0.4\textwidth]{Vector/cis_trans_configuration.pdf}
+\end{figure}
 
 \subsection{Haplotype phased somatic mutation detection}
 
@@ -423,7 +599,7 @@ The ratio of reference to callable reference trinucleotide frequency and the rat
 
 \begin{equation}
 \begin{aligned} 
-r^{g}_{i} &= \frac{f^{g_{\text{callable}}}_{i}}{f^{g}_{i}} \\ \smallskip
+r^{g}_{i} &= \frac{f^{g_{\text{callable}}}_{i}}{f^{g}_{i}} \\[1em]
 r^{\text{callable}}_{i} &= \frac{f^{g_{\text{callable}}}_{i}}{f^{\text{CCS}_{\text{callable}}}_{i}}
 \end{aligned}
 \label{eq:trinucleotide-ratio}
@@ -446,6 +622,34 @@ g_{\text{burden}} = n * (\sum^{32}_{i=1} m_{i} * t^{g}_{i})
 \end{equation}
 
 where $n$ is the ploidy of the sample, $m_{i}$ is the trinucleotide sequence context somatic mutation rate and $t^{g}_{i}$ is the number of trinucleotides in the reference genome.
+
+\subsection{Concordance between mutational spectrum and expected mutational signature}
+
+In order to determine the degree of concordance between the mutational spectrum derived from the sample and the expected mutational signature from the sample, cosine similarity is measured (equation \ref{eq:cosine-similarity})
+
+\begin{equation} 
+\label{eq:cosine-similarity}
+\text{Cosine similarity} (A,B) = \frac{\sum^{n}_{i=1}A_{i}B_{i}}{\sqrt{\sum^{n}_{i=1}A^{2}_{i}}\sqrt{\sum^{n}_{i=1}B^{2}_{i}}}
+\end{equation}
+
+where $A$ and $B$ are two mutational spectra to be compared. Both $A$ and $B$ are vectors with non-negative integers and have the same number of mutation types. Cosine similarity ranges from 0 to 1. A cosine similarity of 0 means that the two mutational spectra are independent while a cosine similarity of 1 indicates that the two mutational spectra are identical. 
+
+BC-1 mutational spectrum was compared with SBS2 mutational signature, HT-115 mutational spectrum was compared with linear combination of SBS10a, SBS10b and SBS28 mutational signatures and PD48473b mutational spectrum was compared with KX004 mutational spectrum.
+
+\subsection{Somatic mutation detection sensitivity and specificity}
+
+The number of true positive (TP), false positive (FP), true negative (TN) and false negative (FN) somatic mutations were calculated from filtered and passed somatic mutations using MutationalPatterns R package \cite{Blokzijl2018-jo}. Afterwards, sensitivity, specificity and F1-score were derived as such: (equation \ref{eq:sensitivity-specificity})
+
+\begin{equation}
+\begin{aligned} 
+\text{Sensitivity} &= \frac{\text{TP}}{\text{TP+FN}} \\[1em] 
+\bigskip \text{Specificity} &= \frac{\text{TN}}{\text{TN+FP}} \\[1em] 
+\text{F1-score} &= \frac{\text{2TP}}{\text{2TP+FP+FN}}
+\end{aligned}
+\label{eq:sensitivity-specificity}
+\end{equation}
+
+
 
 \subsection{CCS error rate per trinucleotide sequence context}
 
@@ -470,9 +674,12 @@ The normalised SBS96 counts were adjusted with the expected number of somatic mu
 \end{equation}
 
 
+
+
+
 \subsection{CCS base quality score recalibration}
 
-To re-calculate the CCS BQ scores, actc \cite{} was used to align subreads to CCS reads from the same ZMW and the resulting BAM file was provided as input towards deepConsensus (v1.1.0, ) \cite {} and for partial order alignment based BQ score recalibration. Afterwards, CCS reads with recalibrated BQ scores were processed as described above to call somatic mutations and assess. 
+To re-calculate the CCS BQ scores, actc \cite{actc} was used to align subreads to CCS reads from the same ZMW and the resulting BAM file was provided as input towards deepConsensus (v1.1.0, 37fb6b2) \cite{Baid2022-or} and for partial order alignment based BQ score recalibration. Afterwards, CCS reads with recalibrated BQ scores were processed as described above to call somatic mutations and assess. 
 
 \subsubsection{DeepConsensus}
 
@@ -480,7 +687,12 @@ DeepConsensus accepts as input the actc BAM file where subreads have been aligne
 
 \subsubsection{CCS bases with unanimous support from subread bases}
 
-To find CCS bases where all the subread bases support the CCS base, actc BAM file is processed to determine the median subread length per ZMW, to determine the sequence orientation of subreads relative to the CCS read and return a FASTA file per ZMW with CCS reads and 10 full-length subreads. As before, a full-length subread is defined as a subread that has a length between 0.8 $\times$ median subread length and $1.2 \times$ median subread length, and first and last subreads are not returned to the FASTA file. A partial order alignment is constructed from each FASTA file using abPOA \cite{Gao2021-nf}. The resulting multiple sequence alignment is analysed to identify CCS bases where all the subread bases support the CCS base and Q93 BQ score is assigned to the CCS base, while Q0 BQ score is assigned to all other CCS bases. 
+To find CCS bases where all the subread bases support the CCS base, actc BAM file is processed to determine the median subread length per ZMW, to determine the sequence orientation of subreads relative to the CCS read and return a FASTA file per ZMW with CCS reads and 10 full-length subreads. As before, a full-length subread is defined as a subread that has a length between 0.8 $\times$ median subread length and $1.2 \times$ median subread length, and first and last subreads are not returned to the FASTA file. A partial order alignment is constructed from each FASTA file using abPOA \cite{Gao2021-nf}. The resulting multiple sequence alignment is analysed to identify CCS bases where all the subread bases support the CCS base and Q93 BQ score is assigned to the CCS base, while a BQ score is calculated as such for all other CCS base (equation \ref{eq:bq-score-calculation})
 
+\begin{equation}
+\text{BQ} = -10\log10 \Biggl(\epsilon^k {n \choose k}\Biggl)
+\label{eq:bq-score-calculation}
+\end{equation}
 
+where $\epsilon$ is a constant error prior of 0.1 for all bases, $n$ is the number of subreads, which is also a constant at 10, and $k$ is the number of subreads supporting the CCS base.
 

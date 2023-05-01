@@ -11,404 +11,264 @@
     \graphicspath{{Chapter1/Figs/Vector/}{Chapter1/Figs/}}
 \fi
 
+Somatic mutations can occur in cells at all stages of life and in all tissues. Somatic mutational processes in asexually reproducing cells and in the germline of sexually producing species are the source of genetic diversity upon which natural and sexual selection acts. The completion of the Human Genome Project (HGP) \cite{Lander2001-du} and the advent of next-generation sequencing platform \cite{} have made it possible to detect and analyse somatic mutation landscapes of thousands of tumours \cite{Weinstein2013-ko, ICGCTCGA_Pan-Cancer_Analysis_of_Whole_Genomes_Consortium2020-ts}. In stark contrast, the inability to detect somatic mutations in normal tissues at scale and the high cost of constructing high-quality reference genomes has prevented the characterisation of somatic mutational processes across the Tree of Life. The ability to produce long and accurate reads through circular consensus sequencing (CCS) from Pacific Biosciences (PacBio) \cite{Wenger2019-pw} has recently renewed interest for \textit{de novo} assembly of genomes across the tree of life \cite{Darwin_Tree_of_Life_Project_Consortium2022-ma}. Here, I describe a new method that uses CCS reads to enable the detection of somatic mutations present as a single copy from bulk normal tissue. I also discuss application of this method to discovering new somatic mutational processes across the Tree of Life. 
 
-%********************************** %First Section  **************************************
+\section{The somatic mutation landscape of \textit{H. sapiens}}
 
-\section{Somatic mutations}
+To date, the study of somatic mutagenesis has largely been limited to \textit{H. Sapiens} and to somatic mutations present either in clones of cells as part of an ongoing effort to describe the driver mutation landscape in tumours. The contribution of somatic mutations to oncogenesis has been implicated as early as 1890 by Friedrich von Hansemann when he observed aberrant chromosomal alterations in cancer cells under the microscope \cite{hansemann_1890}.  
+
+The continued decline in sequencing costs and the concurrent development of somatic mutation detection algorithms have enabled the detection of somatic mutations in thousands of tumour samples \cite{Weinstein2013-ko, ICGCTCGA_Pan-Cancer_Analysis_of_Whole_Genomes_Consortium2020-ts}. Although most somatic mutations are benign (passenger mutations), some somatic mutations can confer a proliferative advantage to a cell and are classified as driver mutations. The detection of these driver mutations and their subsequent characterisation to the hallmarks of cancer \cite{Hanahan2000-dp, Hanahan2011-zr} has been one of the primary motivations for cataloguing somatic mutations in cancer genomes. In more recent times, somatic mutation detection in normal cells has become increasingly important to lineage trace embryonic development \cite{Behjati2014-gb} and to understand the transformation of normal cells to neoplastic cells \cite{Martincorena2015-io}. 
 
 
-\subsection{Somatic mutation detection}
+\subsection{Somatic mutation detection in tumours}
 
-\subsection{Somatic mutations in normal tissues}
+Cancer is often described as the disease of the genome. The acquisition of driver mutations through a single event such as chromothripsis \cite{Stephens2011-gj} or gradual accumulation of somatic mutations \cite{Doll1954-of, Knudson1971-fg} is one of the primary contributors to tumorigenesis. Hence, somatic mutation detection is often the first step towards characterising the cancer genome. 
+
+Unlike germline mutations, where approximately 50\% and 100\% of reads will support the germline mutation, somatic mutations in tumour tissues can have a variant allele fraction (VAF) that ranges from 0-100\% based on their purity, cell clonality and changes in the number of chromosomes. As tumour samples often contain a mixture of both normal and cancer cells, the accurate measurement of somatic mutation VAF can present a challenge. In addition, the copy number of the chromosome can wildly fluctuate in the cancer genome as a result of chromothripsis \cite{Stephens2011-gj}, aberrant chromosomal alternations \cite{Albertson2003-lr, Frohling2008-uc} or loss of heterozygosity (LOH) \cite{Lasko1991-wq}. 
+
+A matched tumour-normal sequencing is often performed to distinguish germline mutations from somatic mutations and to detect somatic mutations present in a clone of cancer cells. The presence of a matched normal also enables the calculation of tumour purity, the proportion of cancer cells in a tumour sample, which is another critical component that determines somatic mutation detection sensitivity.  Germline mutations detected in the matched normal serves as a reference panel to determine whether the mutation detected in the tumour sample is a germline mutation or a somatic mutation. If a tumour sample, for example, has a low sequence coverage or low tumour purity, heterozygous germline mutation can be misclassified as a somatic mutation \cite{Cibulskis2013-gw}. Each somatic mutation detection algorithm uses a unique strategy to calculate the normal contamination in tumour \cite{Cibulskis2011-tp}, tumour contamination in normal \cite{Taylor-Weiner2018-af} and to differentiate somatic mutations from germline mutations. For instance, VarScan2 uses a hard filter \cite{Koboldt2012-wd}, MuTect uses a likelihood ratio \cite{Cibulskis2013-gw} and Strelka2 uses a mixture model \cite{Kim2018-qi} based on the number of reads supporting the mutation in the normal and tumour for classification of each somatic mutation candidate. Because each somatic mutation detection algorithm exhibits varying sensitivity and specificity and has different strengths and weaknesses, a consensus somatic mutation call from different somatic mutation algorithms is often used for downstream sequence analysis \cite{Bailey2020-ou}.
+
+During library preparation, DNA damage is introduced to the template molecule and a set of DNA damage repair enzymes are used to repair the DNA damage. If DNA damage is left unrepaired or incorrectly repaired, the template DNA molecule is permanently altered prior to sequencing. During sequencing, base quality (BQ) scores are assigned to individual bases to the uncertainty of each base call. Somatic mutation detection algorithms depend on sequence coverage and BQ scores to calculate the genotype quality (GQ) score of a germline mutation \cite{McKenna2010-br, Li2011-ag} and the confidence with which the somatic mutation is called \cite{Cibulskis2013-gw}. Because sequencing instruments are agnostic to whether the base in the template molecule is derived from a somatic mutation or from a library error, BQ score does not necessarily reflect the probability that the non-reference base in read is the result of a mutation. Hence, low frequency library errors are often misclassified as somatic mutations, and their removal requires specialised filters to minimise the number of false positive mutations \cite{Costello2013-cz, Chen2017-ba}. 
+
+PCR amplification, DNA oxidation and DNA crosslinking (in formalin-fixed tissues) commonly recognised sources of library errors \cite{Chen2017-ba}. The identification of oxidative DNA damage during DNA fragmentation through sonication, and the characterisation of read features that facilitate the differentiation of artefactual mutations from somatic mutations, serves as an illustrative example \cite{Costello2013-cz}. Acoustic shearing of DNA oxidises guanine to 8-oxoguanine (8-oxoG) and the preferential pairing of 8-oxoG with adenine \cite{Shibutani1991-tw} is responsible for the generation of CCG>CAG/CGG>CTG transversions during PCR amplification \cite{Costello2013-cz}. The addition of DNA glycosylases during library preparation can ameliorate the effect of DNA oxidation. Furthermore, the sequence context and orientation bias of the mutation can also be assessed to determine the extent of the oxidative DNA damage in the library \cite{Costello2013-cz}. 
+
+The repeat content of the reference genome is another important factor for somatic mutation detection that is often ignored. Repetitive sequences account for approximately 50\% of the human genome \cite{Lander2001-du}. If the repeat length is greater than the read length, read aligners cannot determine the location of the read with respect to the reference genome as the read could have originated from any copies of the repetitive sequence in the genome \cite{Li2008-dt}. Therefore, the accurate placement of reads requires repetitive sequences to be flanked with unique sequences not present elsewhere in the reference genome. Alignment errors in low sequence complexity regions is another common source of false positive mutations \cite{Li2014-ra}. Consequently, both germline and somatic mutation detection algorithms discard mutations when the total number of mutations in close proximity to the called mutation, within a defined window, exceeds a predefined threshold \cite{Cibulskis2013-gw, DePristo2011-vf}. As a result, the reference genome is divided into callable region and non-callable regions based on mappability of Illumina short reads and variant calling is often restricted to the callable regions of the genome \cite{1000_Genomes_Project_Consortium2012-rj} and clinically relevant genes in non-callable regions are often excluded from analysis \cite{Wagner2022-ph}. 
+
+The completeness of the reference genome is another important consideration for somatic mutation detection. The human reference genome, for example, still remains incomplete with missing sequences, unplaced and unlocalised scaffolds and misassemblies such as erroneous sequence collapse and expansion \cite{Schneider2017-yo}. The telomere-to-telomere CHM13 (T2T-CHM13) genome, constructed from a combination of sequencing and mapping technologies, is currently the most accurate and complete human genome available to date. Compared to the human reference genome, the T2T-CHM13 genome has fully resolved sequences for the short arms of acrocentric chromosomes and centromeres of all chromosomes, with the exception of chromosome Y \cite{Nurk2022-dv}. As expected, T2T-CHM13 improves the accuracy and precision of both read alignment and variant calling \cite{Aganezov2022-dv}. 
+
+To account for errors that cannot be eliminated through an analytical approach, a panel of normal (PoN) VCF file is generated from a set of normal samples, using the same parameters as those applied in somatic mutation detection. Afterwards, somatic mutation detections found in the PoN VCF is filtered out \cite{Cibulskis2013-gw}
+
+
+\subsection{Somatic mutation detection in normal cells}
+
+An individual begins to accumulate somatic mutations upon fertilisation and the gradual accumulation of driver mutations is one of the principal drivers of tumorigenesis \cite{Stratton2009-of}. To understand the mechanism underlying the transformation of a normal cell to a neoplastic cells require the study of the driver mutation landscape in normal tissue across different ages and of individuals with genetic predisposition to cancer \cite{Martincorena2015-io}. In addition, the ability to detect somatic mutations in normal cells is critical for earlier detection of cancer and monitoring of cancer relapse \cite{Newman2014-qq, Newman2016-cy}.
+
+Somatic mutation detection in normal tissue presents a unique set of challenges as they are typically present as single copies in a DNA extract from bulk normal tissue, except for mosaic mutations arising during embryonic development. Somatic mutation detection in tumour samples is possible, if a somatic mutation is present in a clone of cells above the 0.1-1\% Illumina sequencing error rate \cite{Cibulskis2013-gw}. A newly acquired somatic mutation or somatic mutation with a VAF below the Illumina sequencing error rate is distinguishable from background noise. Hence, the detection of somatic mutation in normal tissue either requires an increase in the copy number of the mutant DNA above the limit of detection threshold or an increase in the base accuracy of the Illumina reads through upstream changes in the library preparation protocol. 
+
+\subsubsection{Single-cell resolution somatic mutation detection}
+
+Both single-cell whole-genome amplification \cite{Lodato2018-hh} and single-cell clone expansion and sequencing \cite{Lee-Six2018-qe, MSpencer_Chapman2021-cq} aims to increase the copy number of the mutant DNA prior to library preparation and sequencing. On the other hand, laser-capture microdissection (LCM) and sequencing leverage spatial partitioning of tissues through histological staining to isolate and sequence a clonal unit of cells, such as the colonic crypt \cite{Ellis2021-it}. Single-cell clone expansion and LCM sequencing are recognised as the gold-standard methods for somatic mutation detection in single cells or clonal tissues. In contrast, single-cell whole-genome amplification has several disadvantages, such as allele dropout, which occurs when one of the two alleles at heterozygous locus is not amplified, leading to a false homozygous mutation call. To date, single-cell clone expansion and LCM sequencing have been successfully used to determine the somatic mutation rate, the somatic mutational processes, and the clonal structure across a range across a range of normal tissues, including adrenal gland, blood, bladder, bronchus, cardiac muscle, colon, endometrium, oesophagus, pancreas, placenta, prostate, skin, smooth muscle, testis, thyroid, ureter, visceral fat \cite{Lee-Six2018-qe, MSpencer_Chapman2021-cq, Martincorena2015-gu, Ju2017-vw, Martincorena2018-av, Brunner2019-xg, Lee-Six2019-vt, Yoshida2020-yr, Olafsson2020-vi, Moore2020-pi, Lawson2020-em, Coorens2021-ct, Robinson2021-te, Grossmann2021-gd, Moore2021-dl, Park2021-fx, Ng2021-jd, Mitchell2022-ry}. 
+
+\subsubsection{Single-molecule resolution somatic mutation detection}
+
+Unfortunately, single-cell clone expansion and LCM sequencing are arduous processes that are difficult to scale up for routine use in clinical settings. In contrast, liquid biopsies use duplex sequencing methods to detect driver mutations from circulating tumour DNA (ctDNA) in the plasma, enabling earlier detection of cancers and monitoring of tumour evolution \cite{Newman2016-cy}. Duplex sequencing methods generates multiple copies of the same template molecule and construct a highly accurate consensus sequence, leveraging the redundancies between the copies of the same template molecule and the complementary base pairing between the forward and reverse strand of a double-stranded DNA molecule \cite{Schmitt2012-yr, Hoang2016-jx, Abascal2021-pk}. The recently developed nanorate sequencing protocol enables single-molecule resolution somatic mutation detection \cite{Abascal2021-pk}. Duplex sequencing based somatic mutation detection is discussed further in chapter 2. 
+
+\subsection{Somatic mutations as biological barcodes}
+
+The fusion of the egg and sperm creates a zygote, whose genome has a unique combination of maternal and paternal alleles. The genome of the zygote orchestrates the programmed embryonic development from a single cell to a multicellular organism. Somatic mutations begin to accumulate with the first cell division of an embryo and are inherited by all the descendants of the embryonic stem cell that carries the mutation. Cells with the same somatic mutation are assumed to share the same stem cell lineage. Hence, somatic mutations have been used as biological barcodes to facilitate the lineage tracing of a cell and gain insight into embryonic development and the cellular origin of tissues \cite{Behjati2014-gb}. 
+
+The number of somatic mutations in a cell is a function of age and somatic mutation rate of the sample. Paediatric cancers from children, in contrast to tumours from adults, have a low mutation burden \cite{Grobner2018-ve}. The hypothesis that tumours result from gradual accumulation of somatic mutations, therefore, does not apply to paediatric cancers. Abnormal embryonic development has been proposed as an alternative hypothesis to explain paediatric cancers \cite{Marshall2014-ec}. In the former hypothesis, paediatric cancer will have unique set of somatic mutations, while in the latter hypothesis, paediatric cancer will share mosaic mutations and premalignant clones with the neighbouring normal tissue (Mosaic mutations are somatic mutations that occur during the first few cell divisions of embryonic development and shared across multiple tissues). The study of shared somatic mutations between bilateral and unilateral Wilms tumour and adjacent normal kidney tissues corroborates the latter hypothesis that paediatric cancer arises from aberrant foetal development \cite{Coorens2019-zf}. A similar analysis in bilateral adrenal neuroblastoma revealed that the left and right adrenal gland tumours do not arise from a single premalignant clone, but rather two independent premalignant clones separated before the first few cell divisions of a zygote \cite{Coorens2020-ut}. Intriguingly, these studies also show that the left-right axis of the kidneys and adrenal glands are established during the early cell divisions of a zygote. 
+
 
 \subsection{Somatic mutational processes}
 
-\subsection{Mutational signature analysis}
+Somatic mutational process is a continuous process throughout life, and multiple somatic mutational processes simultaneously act on the cell’s genome at any given time. The biochemical manifestation of a somatic mutation occurs in three distinct stages: 1) DNA damage or modification from either endogenous or exogenous sources, 2) mutation resulting from incorrect DNA damage repair and unrepaired DNA damage, and 3) the persistence of the mutation in the cell’s genome and its descendants \cite{Stratton2009-of}. As a result, each somatic mutational process leaves a characteristic imprint to the genome. 
 
+Mutational signature analysis is performed to determine the somatic mutational processes that have acted upon the genome and measure the contribution of each somatic mutational process to the mutational burden of the sample. Mutational signature analysis can either \textit{de novo} extract new mutational signatures from a catalogue of somatic mutations from multiple samples or use a set of reference mutational signatures to calculate the attribution of each mutational signature to the mutation burden of the sample. A mutational signature is a group of probabilities that represent the likelihood of a somatic mutational process generating a mutation at specific sequence contexts. The sum of these probabilities across all possible sequence contexts is equal to 1 \cite{Alexandrov2013-fq}.
 
+During mutational signature analysis, somatic mutations are classified according to the event, the size of the event and the sequence context. For example, single base substitutions (SBS) are often classified using the SBS96 classification system. In the pyrimidine sequence context, there are 6 types of substitutions (C>A, C>G, C>T, T>A, T>C and T>G) and 16 possible trinucleotide sequence contexts derived from the 4 bases upstream and downstream of the substitution. This combination of substitutions and trinucleotide sequence contexts generates the canonical SBS96 classification system. SBS96 classification can be further expanded to the SBS288 or the SBS1536 classification. SBS288 classification considers whether the somatic mutation has occurred on the intergenic DNA or transcribed or transcribed strand of the gene. SBS1536 classification adds additional 5’ and 3’ bases to the trinucleotide sequence context and further subclassifies SBS based on their pentanucleotide sequence context. Additional classification systems also exist for double base substitution (DBS), insertions and deletions (indels) and structural variations for mutational signature analysis, but they are not the subject of interest in this PhD thesis \cite{Alexandrov2013-kg, Alexandrov2020-ys, Li2020-vw, Steele2022-mn}.
 
-Somatic mutations can occur in cells at all stages of life and in all tissues. The biochemical manifestation of a somatic mutation requires three distinct stages: DNA damage or modification from either endogenous or exogenous sources, mutation resulting from incorrect DNA damage repair and unrepaired DNA damage, and the persistence of the mutation in the genome of the cell and its descendants \cite{Stratton2009-of}. Most somatic mutations are benign, but some confer a proliferative advantage and are referred to as driver mutations. The advent of next-generation sequencing and the continued decline in sequencing costs have enabled us to sequence thousands of cancer genomes at scale and subsequent downstream sequence analysis has allowed us to discover tissue-specific driver mutations \cite{Martinez-Jimenez2020-kn}, identify biological processes that generate these mutations \cite{Alexandrov2013-kg}, to use somatic mutations as timestamps and biological barcodes to lineage trace development \cite{Behjati2014-gb}, to discover complex structural rearrangements such as chromothripsis \cite{Stephens2011-gj} that fundamentally changed the conventional view of tumorigenesis as the gradual process of the accumulation of somatic mutations \cite{Doll1954-of, Knudson1971-fg} and to better understand the relationship between abnormal embryonic development and paediatric tumour formation \cite{Marshall2014-ec}. International efforts such as the Cancer Genome Atlas (TCGA) program \cite{Weinstein2013-ko} and the Pan-Cancer Analysis of Whole Genomes (PCAWG) consortium \cite{ICGCTCGA_Pan-Cancer_Analysis_of_Whole_Genomes_Consortium2020-ts} have also measured and analysed genetic, epigenetic, transcriptomic and proteomic aberrations in thousands of tumour genomes to understand how these aberrations contribute to the hallmarks of cancer \cite{Hanahan2000-dp, Hanahan2011-zr}. 
+The PCAWG consortium has discovered 67 SBS mutational signatures \cite{Alexandrov2020-ys} and the biological aetiology has been determined for 49 SBS mutational signatures (Table \ref{tab:pcawg-mutational-signatures}, Appendix). 
 
-Cancer is often described as the disease of the genome. Somatic mutation detection, hence, is often the first step towards characterising the cancer genome and these somatic mutations have been catalogued and analysed to determine their contribution to tumorigenesis. Multiple mutational processes simultaneously act on the genome at any given time and contribute to the accumulation of somatic mutations over an individual’s lifetime. To determine the mutational sources from a set of samples, mutational signature analysis is performed to either \textit{de novo} extract new mutational signatures or to assign the contribution of known mutational signatures to the mutation burden \cite{Alexandrov2013-fq}; a mutational signature is a mathematical abstraction of the likelihood that a particular biological process will produce a somatic mutation in a specific sequence context. During mutational signature analysis, somatic mutations are classified according to the event, the size of the event and the sequence context. Single base substitutions (SBS), for example, can be classified using the SBS96 classification system, which categorises SBS according to the six types of substitutions in the pyrimidine context (C>A, C>G, C>T, T>A, T>C and T>G) and the 16 possible trinucleotide sequence contexts derived from the 4 possible bases upstream and downstream of the substitution. SBS can be further subclassified based on their pentanucleotide sequence context (SBS1536 classification) and whether the SBS is located on the intergenic DNA, transcribed or untranscribed strand of the gene (SBS288 classification). Double base substitution, indel and structural variation classification system also exist for mutational signature analysis, but they are not the subject of interest in this chapter \cite{Alexandrov2013-fq, Li2020-vw, Steele2022-mn}. 
+\begingroup
+\setlength{\LTleft}{-10cm plus -1fill} %% centering
+\setlength{\LTright}{\LTleft}
+\begin{longtable}{c|p{10cm}|c}
+\label{tab:pcawg-mutational-signatures} \\ \smallskip
+Mutational Signature & Aetiology & Reference \\ \hline
 
-The PCAWG consortium has discovered 67 single-base-substitution (SBS) mutational signatures \cite{Alexandrov2020-ys}. To date, the biological aetiology for 49 SBS mutational signatures has been determined (Table X). The discovery of new somatic mutational signatures is an ongoing process where the number and the aetiology of mutational signatures is constantly updated and refined with increase in the number of sequenced genomes. Genomics England and collaborators, for example, have leveraged 100,000 cancer genomes from around 85,000 patients to detect mutational signatures associated with rare and sporadic somatic mutagenesis \cite{Degasperi2022-qe}. In addition, somatic mutations resulting from chemotherapeutic agents is another active area of research \cite{Pich2019-ja, Aitken2020-sa}. Clinical sequencing of matched tumour and normal genomes is now routinely performed in the developed countries to help cancer patient treatment, fulfilling one of the many promises of the human genome project..
+SBS1 & Spontaneous deamination of 5-methylcytosine to thymine & \cite{Alexandrov2015-db} \\ \hline
+SBS2 & APOBEC mutagenesis & \cite{Burns2013-xn} \\ \hline
+SBS3 & Defective homologous recombination-based DNA damage repair & \cite{Zamborszky2017-ma} \\ \hline
+SBS4 & Tobacco smoking & \cite{Alexandrov2016-uw} \\ \hline
+SBS5 & - & \cite{Alexandrov2015-db} \\ \hline
+SBS6 & Defective DNA mismatch repair & \cite{Meier2018-cj} \\ \hline
+SBS7abcd & UV light exposure & \cite{Nik-Zainal2015-bj} \\ \hline
+SBS8 & - & \\ \hline
+SBS9 & POLE mutagenesis & - \\ \hline
+SBS10ab & POLE mutagenesis & \cite{Robinson2021-te} \\ \hline
+SBS10cd & POLD mutagenesis & \cite{Robinson2021-te} \\ \hline
+SBS11 & Temozolomide treatment & \cite{Kucab2019-fy} \\ \hline
+SBS12 & - & - \\ \hline
+SBS13 & APOBEC3A mutagenesis & \cite{Chan2015-sk} \\ \hline
+SBS14 & POLE mutagenesis and defective DNA mismatch repair & \cite{Hodel2020-je} \\ \hline
+SBS15 & Defective DNA mismatch repair & \cite{Meier2018-cj} \\ \hline
+SBS16 & - & - \\ \hline
+SBS17ab & - & - \\ \hline
+SBS18 & Oxidative DNA damage & \cite{Kucab2019-fy} \\ \hline
+SBS19 & - & - \\ \hline
+SBS20 & POLD mutagenesis and defective DNA mismatch repair  & \cite{Meier2018-cj} \\ \hline
+SBS21 & Defective DNA mismatch repair & \cite{Meier2018-cj} \\ \hline
+SBS22 & Aristolochic acid exposure & \cite{Nik-Zainal2015-bj} \\ \hline
+SBS23 & - & - \\ \hline
+SBS24 & Aflatoxin exposure &  \cite{Chawanthayatham2017-oh} \\ \hline
+SBS25 & Chemotherapy treatment & - \\ \hline
+SBS26 & Defective DNA mismatch repair &  \cite{Meier2018-cj} \\ \hline
+SBS28 & - & - \\ \hline
+SBS29 & Tobacco chewing & - \\ \hline
+SBS30 & Defective DNA base excision repair due to NTHL1 mutations &  \cite{Drost2017-xw} \\ \hline
+SBS31 & Platinum chemotherapy treatment & \cite{Boot2018-gv} \\ \hline
+SBS32 & Azathioprine treatment & \cite{Inman2018-fh} \\ \hline
+SBS33 & - & - \\ \hline
+SBS34 & - & - \\ \hline
+SBS35 & Platinum chemotherapy treatment & \cite{Boot2018-gv} \\ \hline
+SBS36 & Defective DNA base excision repair due to MUTYH mutations & \cite{Pilati2017-mx} \\ \hline
+SBS37 & - &  - \\ \hline
+SBS38 & Indirect effect of UV light & - \\ \hline
+SBS39 & - & - \\ \hline
+SBS40 & - & - \\ \hline
+SBS41 & - & - \\ \hline
+SBS42 & Haloalkane exposure &  \cite{Mimaki2016-kh} \\ \hline
+SBS44 & Defective DNA mismatch repair & \cite{Drost2017-xw} \\ \hline
+SBS84 & Activity of activation-induced cytidine deaminase (AID) & - \\ \hline
+SBS85 & Indirect effects of activity of AID & - \\ \hline
+SBS86 & Unknown chemotherapy treatment & - \\ \hline
+SBS87 & Thiopurine chemotherapy treatment & \cite{Li2020-re} \\ \hline
+SBS88 & Colibactin exposure &  \cite{Pleguezuelos-Manzano2020-er} \\ \hline
+SBS89 & - & - \\ \hline
+SBS90 & Duocarmycin exposure &  \cite{Boot2020-gg} \\ \hline
+SBS91 & - & -\\ \hline
+SBS92 & Tobacco smoking & - \\ \hline
+SBS93 & - & - \\ \hline
+SBS94 & - & - \\ \hline
+\caption{COSMIC mutational signatures}
+% \floatfoot{If a mutational process has been identified for the mutational signature through external experimental validation, citations have been provided. There are several mutational signatures where both the cause and aetiology of the mutation is unknown.}
+\end{longtable}
+\endgroup
 
-Somatic mutation detection, however, is not a solved problem. Somatic mutation callers, for example, employ different strategies and exhibit varying specificities and sensitivities. Consensus somatic mutation call from multiple different detection algorithms, hence, is often used for downstream analysis \cite{Bailey2020-ou}. The base accuracy and read length of Illumina reads, most importantly, is the common technical factor that limits the resolution at which the somatic mutations can be detected. MuTect, for example, cannot differentiate Illumina sequencing errors from low variant allele fraction (VAF) somatic mutations as a typical Illumina base call has a 0.01-1\% error rate \cite{Cibulskis2013-gw}. Library errors, introduced upstream of sequencing, are also often misclassified as somatic mutations \cite{Costello2013-cz, Chen2017-ba, Abascal2021-pk}. Newly acquired somatic mutations, therefore, are indistinguishable from background noise using conventional methods and required breakthroughs in sample and library preparation (Figure \ref{}). The detection of these somatic mutations, however, are critical for early detection of cancer, monitoring of tumour evolution during patient treatment and to enhance our understanding of the transformation of normal cells to neoplastic cells. 
-
-The repeat content of the genome is another hurdle for accurate somatic mutation detection. Repetitive sequences (e.g., tandem repeat expansions, retrotransposons, segmental duplications, telomeric repeats and centromeric alpha-satellite) account for approximately 50\% of the human genome \cite{Lander2001-du}. If the repeat length is greater than the read length, read alignment software cannot determine the location of the read with respect to the reference genome as the read could have originated from any copies of the repetitive sequence \cite{Li2008-dt}. The accurate placement of reads, hence, requires repetitive sequences to be flanked with unique sequences not present elsewhere in the reference genome. Consequently, the reference genome is divided into callable region and non-callable regions based on mappability of Illumina short reads and variant calling is often restricted to the callable regions of the genome \cite{1000_Genomes_Project_Consortium2012-rj}. Clinically relevant genes in non-callable regions, hence, are often excluded from analysis \cite{Wagner2022-ph}.
-
-The completeness and contiguity of the reference genome is another often ignored, but important factor, for somatic mutation detection. The human reference genome constructed from physical mapping and clone-by-clone sequencing and assembly of overlapping BAC clones is undoubtedly the best mammalian reference genome \cite{Lander2001-du}, but the human reference genome is still incomplete. The human reference genome, for example, still has missing sequences, unplaced scaffolds and unlocalised scaffolds without a reference coordinate, and misassemblies such as incorrect sequence collapse and expansion. Furthermore, approximately 70\% of the human reference genome is derived from genomic DNA of an anonymous individual of African-European ancestry \cite{Osoegawa2001-np}. The current linear sequence of the human reference genome, therefore, may not accurately reflect the genomic diversity present in other populations and alternative graph-based representations might better incorporate genomic diversity \cite{Garrison2018-ae}. The Genome Reference Consortium (GRC) has released GRCh38 build with alternative loci to address some of these issues \cite{Schneider2017-yo}. The recent completion of telomere-to-telomere CHM13 (T2T-CHM13) haploid genome using a combination of sequencing and mapping technologies has been a major milestone for genomics research \cite{Nurk2022-dv}. T2T-CHM13 genome, as expected, improve the accuracy and precision of both read alignment and variant calling \cite{Aganezov2022-dv}. 
-
-% Table of current somatic mutation callers, their sensitivity and specificity, and their approaches \cite{}.
-
-\subsection{Challenges in somatic mutation detection}
-
-Cancer is often described as the disease of the genome. Somatic mutation detection, hence, is often the first step towards characterising the cancer genome and 
-
-these somatic mutations have been catalogued and analysed to determine their contribution to tumorigenesis. 
-
-Somatic mutation detection, however, is not a solved problem. Somatic mutation callers, for example, employ different strategies and exhibit varying specificities and sensitivities. Consensus somatic mutation call from multiple different detection algorithms, hence, is often used for downstream analysis \cite{Bailey2020-ou}. The base accuracy and read length of Illumina reads, most importantly, is the common technical factor that limits the resolution at which the somatic mutations can be detected. MuTect, for example, cannot differentiate Illumina sequencing errors from low variant allele fraction (VAF) somatic mutations as a typical Illumina base call has a 0.01-1\% error rate \cite{Cibulskis2013-gw}. Library errors, introduced upstream of sequencing, are also often misclassified as somatic mutations \cite{Costello2013-cz, Chen2017-ba, Abascal2021-pk}. Newly acquired somatic mutations, therefore, are indistinguishable from background noise using conventional methods and required breakthroughs in sample and library preparation (Figure \ref{}). The detection of these somatic mutations, however, are critical for early detection of cancer, monitoring of tumour evolution during patient treatment and to enhance our understanding of the transformation of normal cells to neoplastic cells. 
-
-\subsection{Single molecule somatic mutation detection}
-
-Illumina’s technical limitations have limited somatic mutation detection to clonal or sub-clonal mutations. Two approaches have been developed to address these challenges: 1) to increase the copy number of the mutant DNA above the limit of detection threshold and 2) to increase the base accuracy of the Illumina reads through upstream changes in the library preparation protocol. Single-cell whole-genome amplification \cite{Lodato2018-hh}, single-cell clone expansion \cite{Lee-Six2018-qe} and laser-capture microdissection (LCM) \cite{Ellis2021-it} and sequencing adopts the former approach. Rolling circle amplification \cite{Lizardi1998-qh, Dahl2004-tm} and duplex sequencing methods \cite{Schmitt2012-yr, Abascal2021-pk, Hoang2016-jx} adopt the latter approach where a highly accurate consensus sequence is created from multiple copies of a single molecule. 
-
-Single-cell clone expansion and LCM sequencing are recognized as the gold-standard methods for somatic mutation detection in single-cells or clonal tissues, respectively. These methods have enabled the study of embryogenesis, somatic mutation rate, mutational processes, clonal structure, driver mutation landscape and earliest transformation of normal cells to neoplastic cells across a range of normal tissues, including adrenal gland, blood, bladder, bronchus, cardiac muscle, colon, endometrium, oesophagus, pancreas, placenta, prostate, skin, smooth muscle, testis, thyroid, ureter, visceral fat \cite{Lee-Six2018-qe, Martincorena2015-gu, Ju2017-vw, Martincorena2018-av, Brunner2019-xg, Lee-Six2019-vt, Yoshida2020-yr, Olafsson2020-vi, Moore2020-pi, Lawson2020-em, MSpencer_Chapman2021-cq, Coorens2021-ct, Robinson2021-te, Grossmann2021-gd, Moore2021-dl, Park2021-fx, Ng2021-jd}. Duplex sequencing, however, is the most scalable option for ultra-rare somatic mutation detection and is the preferred method for circulating tumour DNA (ctDNA) based clinical applications \cite{Newman2016-cy}.
+The mutational signatures listed here are not an exhaustive list of all the discovered SBS mutational signatures. If a mutational process has been identified for the mutational signature through external experimental validation, citations have been provided. Ongoing research continues to find new somatic mutational signatures and determine the aetiology of these mutational signatures. For instance, Genomics England and collaborators have leveraged 100,000 cancer genomes from around 85,000 patients to detect mutational signatures associated with rare and sporadic somatic mutagenesis \cite{Degasperi2022-qe}. Somatic mutations resulting from chemotherapeutic agents is another active area of research \cite{Pich2019-ja, Aitken2020-sa}. 
 
 \section{Single molecule sequencing}
 
-Single molecule sequencing technologies from Oxford Nanopore Technologies (ONT) and Pacific Biosciences (PacBio) are spearheading the next decade of the genomics revolution. These upcoming technologies promise a new era of genomics where: 1) lower input material is required for library preparation and sequencing, 2) library preparation is location-agnostic and does not require skilled technicians, 3) sequencing takes hours and not days, 4) higher base accuracy, 5) longer read length (10kb – 100kb), 6) simultaneous detection of genetic variations and base modifications and 7) nucleotide-resolution identification of structural variations where event size is $\geq$50bp. Despite these promising capabilities, the higher error rate and marginally longer read length of first generation of ONT reads and PacBio continuous long reads (CLR) limited their adoption. Illumina is still the primary sequencing method in most labs as per base sequencing cost is still cheaper with the Illumina platform. After decades of development, ONT and PacBio have introduced new sequencing instruments and library preparation that exceeds the capabilities of Illumina platform in read length and accuracy, enabling researchers to access the inaccessible regions of the genome and to explore biological phenomena that could not be explored before.
+Single molecule sequencing method, unlike sequencing by synthesis method from Illumina, does not require the amplification of the template molecule and determines the nucleotide composition of an individual DNA molecule. Single-molecule real-time (SMRT) sequencing platform from Pacific Biosciences (PacBio) is one of the leading single molecule sequencing methods. Oxford Nanopore Technologies (ONT) is an alternative provider of a single molecule sequencing platform, but their platform is not the subject of this PhD dissertation. During the early years of development, SMRT sequencing promised the following potential benefits:
 
-\subsection{Nanopore sequencing}
+\begin{enumerate}
+\item lower input material for library preparation and sequencing
+\item higher base accuracy
+\item longer read length (10kb – 100kb)
+\item production of contigs with higher N50
+\item nucleotide-resolution identification of structural variations. 
+\item simultaneous detection of genetic variations and base modifications
+\end{enumerate}
 
-Cells use membrane proteins to move ions and molecules, critical to the maintenance of cellular function, across the permeable plasma membrane through passive and active transport \cite{}. David Deamer and George Church independently hypothesised 197X that a single strand of DNA molecule could be passed through a protein pore if voltage is applied through the membrane holding protein pore cite{}. If electrostatic potential is present across the protein. The disruption of the passage of ionic currents by the passage of the DNA molecule through the pore can be recorded and can be interpreted as a specific nucleotide base. Nanopore based sequencing methods promised 1) minimal library preparation, 2) ultra-fast native DNA and RNA sequencing and 3) unlimited read length 
+The first generation of PacBio continuous long reads (CLR) failed to meet these expectations. Illumina concurrently developed sequencing instruments that produced shorter reads with higher base accuracy, as well as cheaper per base sequencing cost \cite{Bentley2008-kl}. Consequently, Illumina sequencing quickly emerged as the preferred method for sequencing. However, PacBio has started to fulfil some of these promises with recent developments that increase both read length and base accuracy. 
 
-Today, Oxford Nanopore Technologies (ONT) has fulfilled many of these promises. To fulfil these promises, Deamer and colleagues had to demonstrate the potential of the Nanopore sequencing method through successive demonstrations and improvements of the technology that first shows that passage of the DNA through a pore and disruption of the ionic current is a detectable event \cite{}, and that a single nucleotide difference can be detected from a background of homopolymer sequence \cite{}. In addition, the first generation of pores based on $alpha$ had a pore that was too long such that 10-15 nucleotides will be interpreted as a single signal and hence, a pore that had a similar aperture, but shorter pore was required to improve the signal-to-noise ratio. MytA protein, hence, thereafter, was used for nanopore sequencing to improve the signal-to-noise ratio. To improve their base accuracy, ONT introduced 2D reads where both forward and reverser strand of the double-stranded DNA with a hairpin adapter could be sequenced through the nanopore \cite{}. ONT, however, long no supports 2D reads as a result of legal dispute with PacBio \cite{}.
+\subsection{Single-molecule real-time sequencing}
 
-ONT licensed these patents to commercialise the technology in 2005 and the most recent ONT reads are reported to have Q20 read accuracy \cite{}. To date, ONT reads have been successfully used to identify and characterise complex pathogenic mutations\cite{},  accelerate clinical diagnosis \cite{}, and to help the assembly of the complex regions in the human reference genome \cite{}. It could be said that ONT sequencing has fulfilled all of it promises and more.   
+PacBio was founded in 2004 with aspirations to commercialise SMRT sequencing technology developed at Cornell University. The SMRT platform is the culmination of multiple technical innovations from a range of disciplines. The zero-mode-waveguide (ZMW), a nano-scaled hole fabricated in a metal film, is at the heart of the SMRT platform. The ZMW acts as the sequencing unit and its unique properties helps the SMRT platform achieve the high signal-to-noise ratio required to observe activity of individual DNA polymerases (DNAP) \cite{Levene2003-og}. 
 
+The metal film with the ZMW is placed on top of a glass and DNAP is immobilised at the bottom glass surface through surface chemistry modifications that prevents the adsorption of DNAP to the metal side walls \cite{Korlach2008-aq, Eid2009-ol}. A topologically circular template, also known as a SMRTbell template, is created through the attachment of hairpin adapters to a double-stranded DNA molecule (Figure \ref{figure:smrtbell-template}).
 
-\subsection{Pacific Biosciences Single-Molecule Real-Time sequencing}
+\begin{figure}[htbp!]
+\caption{SMRTbell template}
+\label{figure:smrtbell-template}
+\begin{centering}
+\includegraphics[width=\textwidth]{Vector/SMRTbell_template.pdf}
+\end{centering}
+\floatfoot{A hairpin adapter in purple is attached to a double-stranded DNA with forward strand in yellow and reverse strand in green. The primer that DNAP binds to is indicated in black.}
+\end{figure}
 
-PacBio was founded in 2004 with aspirations to commercialise single molecule real time (SMRT) sequencing technology developed at Cornell University. The SMRT platform is the culmination of multiple technical innovations from a range of disciplines. The zero-mode-waveguide (ZMW), a nano-scaled hole fabricated in a metal film, for example, is at the heart of the SMRT platform. The ZMW acts as the sequencing unit and its unique properties help the SMRT platform achieve the high signal-to-noise ratio required to observe activity of individual DNA polymerases (DNAP)\cite{Levene2003-og}. 
+The successful loading of SMRTbell template into a ZMW follows a Poisson distribution and typically 30 to 50\% of the ZMWs are classified as productive ZMWs where a single DNAP successfully initiates and completes rolling circle sequencing. SMRT sequencing initially used $\Phi$29 DNAP for its high processivity, minimal amplification bias and ability to perform strand displacement DNA synthesis \cite{Eid2009-ol}. In addition, $\Phi$29 DNAP was engineered through site-directed mutagenesis to allow incorporation of fluorophore-labelled deoxyribonucleoside triphosphate (dNTP) during DNA elongation \cite{Korlach2008-fv, Eid2009-ol}. 
 
-The metal film with the ZMW is placed on top of a glass and DNAP is immobilised at the bottom glass surface through surface chemistry modifications that prevent the adsorption of DNAP to the metal side walls\cite{Korlach2008-aq, Eid2009-ol}. A topologically circular template, also known as a SMRTbell template, is created through the attachment of hairpin adapters to a double-stranded DNA molecule (Figure X). The successful loading of SMRTbell template into a ZMW follows a Poisson distribution and typically 30 to 50\% of the ZMWs are classified as productive ZMWs where a single DNAP successfully initiates and completes rolling circle amplification. SMRT sequencing initially used $\Phi$29 DNAP for its high processivity, minimal amplification bias and ability to perform strand displacement DNA synthesis \cite{Eid2009-ol}. In addition, $\Phi$29 DNAP was engineered through site-directed mutagenesis to use fluorophore-labelled deoxyribonucleoside triphosphate (dNTP) during DNA elongation \cite{Korlach2008-fv,Eid2009-ol}. 
+Upon successful loading of the SMRTbell template, free nucleotides are released above the ZMW array and free nucleotides diffuse in and out of the ZMW. DNAP binds and incorporates the correct nucleotide into the growing DNA strand, and upon nucleotide incorporation, DNAP cleaves the fluorophore from the nucleotide such that the synthesised DNA molecule consists of native DNA molecules. DNAP continues DNA elongation until DNA replication is terminated. The length of the extension is dependent on DNAP processivity and the presence of bulky DNA damage on the template DNA that can lead to premature termination of replication. Illumination from the laser below the glass surface excites the fluorophore and the emitted fluorescence is measured. An image processor leverages the temporal difference between diffusion of free nucleotides (which occurs in microseconds) and nucleotide incorporation (which occurs in milliseconds) to separate the background fluorescence from free nucleotides and fluorescence from nucleotide bound to DNAP. Critically, the size and shape of the ZMW prevents laser light from passing through the ZMW and limits the illumination to the bottom of the ZMW, which further increases the signal-to-noise ratio. As the four dNTPs are each labelled with a different fluorophore, each nucleotide can be identified from their unique fluorescence \cite{Eid2009-ol}. DNA base modification detection can also be achieved from analysing DNAP kinetics, which is comprised of duration of fluorescence pulse, known as pulse width, and the duration between successive fluorescence pulses, referred to as interpulse duration (IPD) \cite{Flusberg2010-ub}. To date, DNAP kinetics has been used to detect including base modifications such as N6-methyladenine, 5-methylcytosine (5mC) and 5-hydroxymethylcytosine \cite{Flusberg2010-ub} and DNA damage such as O6-mmethylguanine, 1-methyladenine, O4-methylthymien, 5-hydroxycyostine, 5hydroxyuracil, 5-hydroxymethyluyracil and thymine dimers \cite{Clark2011-jz}. 
 
-Upon successful loading of SMRTbell templates, free nucleotides are released above the ZMW array and free nucleotides diffuse in and out of the ZMW. DNAP binds and incorporates the correct nucleotide into the growing DNA strand, and upon nucleotide incorporation, DNAP cleaves the fluorophore from the nucleotide such that the synthesised DNA molecule consists of native DNA molecules. DNAP continues DNA elongation until DNA replication is terminated. The length of the reaction time is dependent on DNAP processivity and the presence of bulky DNA damage on the template DNA that can lead to premature termination of replication\cite{}. Illumination from the laser below the glass surface excites the fluorophore and the emitted fluorescence is measured. Image processor leverages the temporal difference between diffusion of free nucleotides (which occurs in microseconds) and nucleotide incorporation (which occurs in milliseconds) to separate the background fluorescence from free nucleotides and fluorescence from nucleotide bound to DNAP. In addition, the size and shape of the ZMW prevents laser light from passing through the ZMW and limits the illumination to the bottom of the ZMW, which further increases the signal-to-noise ratio. As the four dNTPs are each labelled with a different fluorophore, each nucleotide can be identified from their unique fluorescence\cite{Eid2009-ol}. DNA base modification detection can also be achieved from analyzing DNAP kinetics, which consist of duration of fluorescence pulse, known as pulse width, and the duration between successive fluorescence pulses, referred to as interpulse duration \cite{Flusberg2010-ub}. To date, DNAP kinetics have been used to detect base modifications such as N6-methyladenine, 5-methylcytosine (5mC) and 5-hydroxymethylcytosine \cite{Flusberg2010-ub} and DNA damage such as O6-methylguanine, 1-methyladenine, O4-methylthymine, 5-hydroxycytosine, 5hydroxyuracil, 5-hydroxymethyluyracil and thymine dimers \cite{Clark2011-jz}. 
+SMRT platform capability was initially limited to continuous long read (CLR) generation with 10-15\% error rate \cite{Eid2009-ol}. This was because there is an inherent trade-off between read length and read accuracy while DNAP processivity is held as a constant. The earlier generations of DNAP had insufficient processivity to sequence both the forward and reverse strand of a SMRTbell template multiple times (Figure \ref{figure:clr-sequencing}).
 
-SMRT platform capability was initially limited to continuous long read (CLR) generation with 10-15\% error rate \cite{Eid2009-ol} instead of circular consensus sequence (CCS) generation with 0.1-1\% error rate \cite{Wenger2019-pw}. This was because there is an inherent trade-off between read length and read accuracy while DNAP processivity is held as a constant. The earlier generations of DNAP had insufficient processivity to sequence both the forward and reverse strand of a SMRTbell template multiple times. In contrast, the more recent generations of DNAP have sufficient processivity to sequence the forward and reverse strand of long SMRTbell templates (>10kb) multiple times such that both long and accurate reads are produced \cite{Wenger2019-pw}. SMRT platform, hence, leveraged the improvements in DNAP processivity to first increase read length and subsequently improve read accuracy. 
+\begin{figure}[h!]
+\caption{CLR sequencing}
+\label{figure:clr-sequencing}
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{Vector/CLR_sequencing.pdf}
+\end{centering}
+\floatfoot{DNAP used in CLR sequencing doesn't have sufficient processivity to enable multiple-pass sequencing of read-of-insert greater than 10kb.}
+\end{figure}
 
-The PacBio RS instrument with the first generation of polymerase and chemistry (P1-C1) produced continuous long reads (CLR) with an average read length of 1,500 bp with 10-15\% error rate \cite{}. In contrast, the most recent PacBio Revio instrument generates circular consensus sequence (CCS) reads with an average read length of 20,000 bp with 0.1-1\% error rate \cite{}. In addition, the PacBio RS instrument used the first generation of SMRTcell with 150,000 ZMWs \cite{} while the PacBio Revio instrument uses the latest SMRTcell with 25 million ZMWs, increasing the sequence throughput exponentially from 22 million bases to 90 billion bases per SMRTcell \cite{} (Figure \ref{}). Compared to Illumina sequencing, CLR sequencing had a higher error rate and cost per-base, with only marginal increases in read length. In addition, the shortage of bioinformatics algorithms to process CLR reads with high error rate also slowed market adoption. The PacBio Revio instrument, however, can generate 30-fold CCS sequence coverage of the human genome under \$1000. The sequence data from a single SMRTcell, therefore, can be used for not only \textit{de novo} assembly \cite{} but also haplotype-phased base modification\cite{}, SNP and indel, \cite{} and structural variation detection \cite{}, enabling the most comprehensive characterisation of both genetic and epigenetic variation from a single human individual. We also expect the sequence throughput per SMRTcell to increase exponentially in the foreseeable future with improvements in DNA processivity that increases CCS read length and advances in semiconductor fabrication technologies that doubles or triples the number of ZMWs per SMRTcell. 
+In contrast, the more recent generations of DNAP have sufficient processivity to sequence the forward and reverse strand of long SMRTbell templates (>10kb) multiple times such that both long and accurate reads are produced \cite{Wenger2019-pw}. SMRT platform, hence, leveraged the improvements in DNAP processivity to first increase read length and subsequently, improve read accuracy. Circular consensus sequence (CCS) reads from the Sequel II instrument are reported to have 0.1-1\% error rate \cite{Wenger2019-pw} (Figure \ref{}).
+
+\begin{figure}[htbp!]
+\caption{CCS sequencing}
+\label{figure:ccs-sequencing}
+\begin{centering}
+\includegraphics[width=0.8\textwidth]{Vector/CCS_sequencing.pdf}
+\end{centering}
+\floatfoot{In contrast, DNAP used in CCS sequencing have sufficient processivity to sequence a 20kb read-of-insert 10 to 16 times.}
+\end{figure}
+
+The PacBio RS instrument with the first generation of polymerase and chemistry (P1-C1) produced CLR reads with an average read length of 1,500 bp with 10-15\% error rate \cite{Quail2012-cx} and the first generation of SMRTcells had 150, 000 ZMWs \cite{Rhoads2015-pk}. In contrast, the most recent PacBio Revio instrument generates CCS reads with an average read length of around 20,000 bp with 0.1-1\% error rate \cite{revio2022} and the latest SMRTcell has 25 million ZMWs. The sequence throughput of SMRTcells has increased exponentially from approximately 112 million CLR bases per SMRTcell to 250 billion CCS bases per SMRTcell, assuming that around half of the ZMWs are productive ZMWs. Thus, a single SMRTcell can generate 30-fold CCS sequence coverage of a human genome under one thousand dollars. The resulting output not only facilitates \textit{de novo} assembly \cite{Nurk2020-gu, Cheng2021-ij} but also enables haplotype phasing of \cite{Patterson2015-an} and detection of both germline mutations \cite{Poplin2018-ub} and base modifications \cite{Tse2021-or}. 
+
 
 \subsection{Long-read sequencing applications}
 
-In the beginning, long reads from ONT and PacBio SMRT platform did not have a competitive advantage compared to short reads from Illumina platform; long reads were only marginally longer than short reads and their higher error rate made accurate germline mutation detection more challenging. Long-read sequencing, most importantly, could not compete with short-read sequencing on sequencing cost. 
+The high error rate of CLR reads and lower sequence throughput relative to Illumina sequencing instruments initially limited the applications of CLR reads to the assembly of microbial genomes \cite{Chin2013-hp}, targeted BAC clone sequencing to close gaps in the human reference genome \cite{Huddleston2014-rs}, and nucleotide-resolution structural variation detection for rare genetic disease diagnostics \cite{Miller2021-lt} or the study of hidden genetic variations \cite{Chaisson2015-zz}. The introduction of the P6-C4 chemistry and PacBio RSII instrument resulted in a substantial increase in CLR read length and sequence throughput \cite{Rhoads2015-pk}. This breakthrough has enabled the successfully assembly of larger and more repetitive mammalian genomes, including those of great apes such as gorillas \cite{Gordon2016-ho}, chimpanzees \cite{Kronenberg2018-wy}, and orangutans \cite{Kronenberg2018-wy}. CCS sequencing appears to be another advancement that allows us to explore the unexplored biological phenomenon. 
 
-\subsubsection{\textit{De novo} assembly}
-A substantial increase in read length from ~1,500 bp to 10,000 bp with the introduction of XX chemistry for ONT and P5-C3 chemistry for PacBio Sequel I instrument reignited interest for new \textit{de novo} assembly algorithm development, full-length transcript sequencing and accessing the inaccessible regions of the genome.
+\subsubsection{Genome assembly}
 
-Genomes are peppered with repetitive sequences. These repetitive sequences, for example, account for more than 50\% of the human genome\cite{Lander2001-du}. The unique placement of a read in an assembly graph, therefore, requires read length to be longer than the repeat length such that unique sequences not found elsewhere in the genome flank the repetitive sequence in the read. Gaps and collapsed regions in genome assemblies, hence, often result from regions of the genome where the repeat length is longer than read length. There are, however, not many repeats except for segmental duplications\cite{Bailey2002-xn}, higher order repeats (HOR) in centromeres\cite{Willard1985-bo} and palindromic sequences in sex chromosomes that are longer than ONT and CLR reads \cite{Skaletsky2003-sr}. 
+Genome assembly aims to determine the entire the genetic information of an organism. Genome assembly can be divided into four distinct stages: 1) shotgun or hierarchical shotgun sequencing and quality control to remove reads from contamination, 2) all-to-all read alignments to find overlaps between reads and to connect overlapping reads into contigs 3) the use of long-range information to order and orient contigs into scaffolds, 4) and finishing the genome through polishing and gap closing.
 
-A new generation of assembly algorithms based on de Brujin graph\cite{Lin2016-vl}, string graph\cite{Myers2005-ei, Chin2016-at} and OLC\cite{Koren2017-cq} were developed to leverage these long reads and enable end-to-end assembly of microbial genomes\cite{Bashir2012-cs, Chin2013-hp} and large mammalian genomes\cite{Chin2016-at, Koren2017-cq}. Complete hydatidiform mole (CHM) 1 BAC clones, for example, were selected for hierarchical shotgun sequencing to close existing gaps in the human reference genome \cite{Huddleston2014-rs}. At the time, contigs produced from these new assembly algorithms had unparalleled contiguity as measured by contig N50 \cite{}. In addition, misassemblies can be corrected, and contigs can be ordered and oriented into scaffolds using optical genome maps from Bionano Genomics \cite{Pendleton2015-ue}. Chromosome-length scaffold construction, more importantly, has become routine through Hi-C scaffolding\cite{Dudchenko2017-kb} and the ability to visualise\cite{Robinson2018-os} and manually inspect Hi-C contact matrix for assembly curation\cite{Dudchenko2018-yl}. Trio-sequencing\cite{Koren2018-wg} and single-cell strand sequencing data\cite{Porubsky2021-ct} have also been used to also construct haplotype-resolved assemblies. These chromosome-length scaffolds, most importantly, are often comparable or better than existing reference genomes in both contiguity and completeness \cite{Matthews2018-tv}. 
 
-Ultra-long read library preparation from ONT and CCS library preparation from PacBio were two additional breakthroughs that transformed how \textit{de novo} assembly is performed today. Ultra-long reads (>100kb) have been particularly useful for closing gaps\cite{Jain2018-zh} and for full-length sequencing of overlapping BAC clones for assembly of human chromosome Y centromere\cite{Jain2018-mg}. Human centromeres are enriched with AT-rich 171 bp tandem repeats called $\alpha$-satellite DNA. Centromeric $\alpha$-satellite DNA organises into HOR structures that are several megabases in length. Despite their crucial role in cell division, the organisation and structure of human centromeres were inaccessible to interrogation until the introduction of ultra-long reads. It is worth mentioning that centromeres in the b37 and hg38 reference genome are recorded as sequences and therefore do not provide a true representation of the underlying sequence \cite{Miga2014-uv}.
+The contiguity and completeness of the assembly is dependent on the repeat content and sequence coverage of the genome \cite{Lander1988-hu}. For instance, repetitive sequences account for approximately 50\% of the human genome \cite{Lander2001-du}. If a read originates from a repetitive sequence, the read will overlap with another read with a similar or identical repeat sequence, creating a false overlap in the assembly graph. If a read longer than the repeat length is not present, repeat-induced overlap leads to either gaps or collapsed regions of the genome. To minimise the number of potential assembly errors, the human genome project (HGP) adopted hierarchical shotgun sequencing of 100-200kb bacterial artificial chromosome (BAC) clones to construct the human reference genome \cite{Lander2001-du}. The use of BAC clones reduces the simplifies the genome assembly process by reducing the complexity of the problem to a local assembly problem. 
 
-CCS read length and accuracy have been leveraged to reduce computational complexity of all-to-all pairwise read alignments and shorten genome assembly time \cite{Chin_undated-ye} and to distinguish recently diverged haplotypes and repeat copies such as segmental duplications \cite{Nurk2020-gu, Cheng2021-ij}. CCS reads are, routinely, used to produce haplotype-resolved chromosome-arm length contigs. It is worth mentioning that assembly algorithms often assume that the sample in question has a haploid genome. This assumption results in haplotype collapsed assemblies where the assembled haplotype is not present in the population \cite{Schneider2017-yo}. The completion of telomere-to-telomere (T2T) CHM13 (T2T-CHM13) genome, including the short arms of five acrocentric chromosomes and centromeric satellite array, has been the culmination of years of effort to produce gapless and error-free assemblies \cite{Nurk2022-dv}. These advancements allow us to construct high-quality reference genomes for a fraction of what it used to cost to build the human reference genome. The number of new plant and animal assemblies has burgeoned thanks to these developments \cite{}. 
+In contrast, shotgun sequencing based \text{de novo} assembly requires read length to be longer than the repeat length to construct high-quality reference genomes. Read length must be longer than the repeat length to ensure that unique sequences not found elsewhere in the genome flank the repetitive sequence in the read. This enables the unique placement of a read in an assembly graph. Except for segmental duplications \cite{Bailey2002-xn}, higher order repeats in centromeres (HOR) \cite{Willard1985-bo}  and palindromic sequences in sex chromosomes \cite{Skaletsky2003-sr}, long reads from the SMRT platform are able to span the most commonly occurring repeats such as $\sim$300 bp short interspersed nuclear element (SINE) and $\sim$5000 bp long interspersed nuclear element (LINE). Hence, long reads can be unambiguously aligned to the reference genome and can be used to resolve repeat-induced false overlaps in the assembly graph. 
+
+A new generation of assembly algorithms based on de Brujin graph \cite{Lin2016-vl}, string graph \cite{Myers2005-ei, Chin2016-at} and overlap layout consensus (OLC) \cite{Koren2017-cq} were developed to leverage these long reads and enable end-to-end assembly of microbial genomes\cite{Bashir2012-cs, Chin2013-hp} and large mammalian genomes \cite{Chin2016-at, Koren2017-cq}. \textit{De novo} assembly algorithms perform all-against-all pairwise read alignments to identify overlaps between pairs of reads and the reliable overlaps are connected to produce contigs. The length of the overlap and the shared sequence identity between the overlap determines the reliability of the overlap. A repeat-induced overlap is generated when a read, derived from a repeat sequence, aligns to another read with a similar repeat sequence. If these repeat-induced false overlaps are left unresolved, fragmented contigs are generated from the assembly graph. As long reads often have unique sequences flanking the repeat sequence, repeat-induced overlaps that could not be resolved with short reads can be easily unentangled with long reads, enabling the generation of chromosome-arm level contigs \cite{Nurk2020-gu, Cheng2021-ij}. CCS reads, with their higher base accuracy, excel at distinguishing more recently diverged repeats \cite{Nurk2022-dv}. Long reads can also unravel divergences in the assembly graph, often referred to as a bubble, resulting from structural differences between the two haplotypes and produce haplotype phased contigs (haplotigs) \cite{Chin2016-at}. As a result, the contigs produced from long reads have unparalleled completeness and contiguity compared to that produced from short reads \cite{Gordon2016-ho}, reigniting interest for the development of \textit{de novo} assembly and scaffolding algorithms.  
+
+
+To complement the contigs produced from long reads, several new sequencing, physical mapping, and assembly and scaffolding algorithms have been developed. For instance, haplotype-resolved assemblies can be generated by leveraging the parent-specific kmers available through trio-sequencing \cite{Koren2018-wg} or through haplotype phasing using Strand-sequencing \cite{Porubsky2021-ct}.  Genome maps from Bionano Genomics have been also used to correct misassemblies and to order and orient contigs into chromosome-arm level scaffolds \cite{Pendleton2015-ue}. Above all, chromosome-length scaffold construction has become routine through Hi-C scaffolding and the ability to visualise \cite{Robinson2018-os} and manually inspect Hi-C contact matrix for assembly curation\cite{Dudchenko2018-yl}. The ultra-long read (>100kb) library preparation and sequencing using the ONT platform \cite{Jain2018-zh} also facilitates the full-length sequencing of individual BAC clones \cite{Jain2018-mg} and closing of gaps in the genome that could not be assembled with CCS reads. The completion of the gapless T2T-CHM13 genome, including the short arms of five acrocentric chromosomes and centromeric satellite array, represents the latest advances in sequencing and assembly algorithms \cite{Nurk2022-dv}. 
 
 \subsubsection{Full-length transcript sequencing}
 
-In contrast, to short-read sequencing that requires \textit{de novo} assembly of RNA reads to acquire full-length transcripts, long-read sequencing can be used to obtain full-length transcript without assembly. Long-read sequencing has been used to successfully identify new isoforms in tissues and novel gene fusions in cancers \cite{}. Single-cell isoform-sequencing has also been used to find new isoforms, to define the transcriptome atlas and to quantify the transcript in combination with single-cell RNA sequencing. In addition, these full-length transcripts have been successfully used for gene annotation of newly assembled genomes \cite{}.
+The \textit{de novo} assembly of RNA reads is required to acquire full-length transcripts with short read sequencing \cite{Grabherr2011-yi}. In contrast, long-read sequencing enables the acquisition of full-length transcript without assembly. Hence, long-read transcriptome sequencing is often referred to as isoform sequencing (Iso-seq). To date, Iso-seq has been used to successfully identify new isoforms in tissues \cite{Tian2021-tn}, associate new isoforms with neurodegenerative diseases \cite{Zhu2021-up} and for gene annotation of new assembly genomes \cite{Mao2021-pj}.
 
 \subsubsection{Germline and somatic mutation detection}
 
+To date, long reads have been successfully used for germline SNP and indel \cite{Poplin2018-ub} and structural variation detection \cite{Chaisson2015-zz}. The lower base accuracy and higher per base sequencing cost has limited the use of CLR reads for SNP and indel detection. However, the long reads can access regions of the genome previously inaccessible with short reads and has significant advantage compared to short reads for structural variation detection. 
 
-To date, ONT, CLR and CCS reads have been successfully used for germline SNP, small insertion and deletion\cite{} and structural variation detection \cite{}. The lower base accuracy and higher per base sequencing cost has limited the use of ONT and CLR reads for SNP and indel detection. The longer read length, however, enabled access to regions of the genome inaccessible with short reads and early success in identification of pathogenic mutations in undiagnosed patients with rare diseases \cite{}.
+Short-read based structural variation detection reads relies on changes in sequence coverage for copy number variation (CNV) detection \cite{Abyzov2011-xl} and identification of discordant read pairs with aberrant distance and orientation for breakpoint, translocation and inversion detection \cite{Alkan2011-dv}. In contrast, long reads enable nucleotide-resolution structural variation detection through direct comparison of the read and the reference genome. Long-read based structural variation detection is particularly more sensitive towards short tandem repeat (STR), SINE and LINE insertion detection \cite{Chaisson2015-zz, Sedlazeck2018-oh, Denti2022-ux}. If the length and base accuracy of the long read is not sufficient to detect structural variations at the required resolution, \textit{de novo} assembled contigs facilitate the identification of larger and more complex structural rearrangements \cite{Nattestad2016-og}.
 
-Structural variation detection with short reads relies on either changes in sequence coverage for copy number variation (CNV) detection and identification of discordant read pairs with aberrant distance and orientation for breakpoint, translocation and inversion detection \cite{Alkan2011-dv}. In contrast, long reads enable structural variation detection with nucleotide resolution through direct comparison of read and reference genome and is also more sensitive towards short tandem repeat (STR) expansions, short interspersed nuclear element (SINE) and long interspersed nuclear elements (LINE) insertion detection \cite{Chaisson2015-zz, Sedlazeck2018-oh, Denti2022-ux}. CHM1 CLR reads, for example, were also used to correct small misassembles in the reference genome and identify approximately 26,000 structural variations that were recalcitrant to detection using short reads \cite{Chaisson2015-zz}; the number of structural variations detected with long reads is at least double that detected with short reads. The number of structural variations is orders of magnitude smaller than the number of SNPs and indels, but structural variations alter greater number of bases and have a more pronounced impact on speciation and phenotype through gene regulation, duplication, translocation\cite{Weischenfeldt2013-tl} and conformational changes in three-dimensional genome configuration\cite{Spielmann2018-fm,}. In addition, complex structural rearrangements such as chromothripsis\cite{Stephens2011-gj, Korbel2013-to}, chromoplexy\cite{Baca2013-po} and templated insertions\cite{Yu2010-jr} are common oncogenic mechanisms. Repeat expansions and accompanied hypermethylation are common causes of neurological diseases\cite{Zhou2022-ci}. The severity of Parkinson’s disease, for example, is associated with repeat content and the size of the repeat expansion\cite{}. Single-molecule sequencing is the only reliable technology for repeat expansion detection. Low genetic diagnosis rate of approximately 30\% with short read sequencing and ability to detect haplotype phased genetic and epigenetic variations with single molecule sequencing has renewed interest to detect causal and putative pathogenic mutations in patients with rare genetic disease\cite{}. 
+CHM1 CLR reads, for example, were used to correct small misassembles in the reference genome and identify approximately 26,000 structural variations that were recalcitrant to detection using short reads \cite{Chaisson2015-zz}. The number of structural variations detected with long reads is at least double that detected with short reads. Although the number of structural variations is orders of magnitude smaller than the number of SNPs and indels, structural variations alter greater number of bases and have a more pronounced impact on the phenotype of an individual \cite{Weischenfeldt2013-tl} and induces conformational changes in the three-dimensional genome configuration \cite{Spielmann2018-fm}.
 
-Despite the advantages that long-read sequencing technologies offers compared to short-read sequencing technologies for somatic structural rearrangement detection, the application of long-read sequencing technologies to somatic mutation detection has been limited to date. There has been a handful publications that interrogated somatic structural rearrangements in breast cancer cell lines with long reads \cite{}. Somatic mutation detection with long reads is at the stage where we are re-creating the capabilities provided by short-sequencing technology and is not at the stage where we are finding somatic mutations that cannot be detected with short-read sequencing technology.
+The diagnosis rate of rare genetic diseases is estimated to be approximately 30-40\% with short read sequencing \cite{Wright2023-et}, which is not surprising considering the difficulty of their detection. In contrast, long read sequencing has repeatedly demonstrated its superiority for identification of pathogenic mutations. For instance, repeat expansions and accompanied hypermethylation are common causes of neurological diseases \cite{Zhou2022-ci}, and SMRT sequencing enables their simultaneous detection \cite{Tse2021-or}. Moreover, STR expansion detection in patients with spinocerebellar ataxia type 10 (SCA10) with long reads has demonstrated that both the repeat sequence and the size of the repeat expansion is associated with the severity of the disease \cite{McFarland2015-qh}. The ability to detect haplotype phased germline and epigenetic modifications has renewed interest to explore hidden genetic variation and to accelerate the identification of pathogenic mutations in patents with rare genetic diseases \cite{Miller2021-lt}. For instance, the human genome structural variation consortium is re-sequencing some of the samples from the 1000 genomes project with the SMRT platform to develop new structural variation detection algorithms and to study the genomic architecture \cite{Ebert2021-zk}. 
 
-Structural variation detection with short reads relies on either changes in sequence coverage for copy number variation (CNV) detection or identification of discordant read pairs with aberrant distance and orientation for breakpoint, translocation and inversion detection \cite{Alkan2011-dv}. In contrast, long reads enable structural variation detection with nucleotide resolution through direct comparison of read and reference genome and are also more sensitive towards short tandem repeat (STR) expansions, short interspersed nuclear element (SINE) and long interspersed nuclear elements (LINE) insertion detection \cite{Chaisson2015-zz, Sedlazeck2018-oh, Denti2022-ux}. CHM1 CLR reads, for example, were also used to correct small misassemblies in the reference genome and identify approximately 26,000 structural variations that were recalcitrant to detection using short reads \cite{Chaisson2015-zz}; the number of structural variations detected with long reads is at least double that detected with short reads. The number of structural variations is orders of magnitude smaller than the number of SNPs and indels, but structural variations alter a greater number of bases and have a more pronounced impact on speciation and phenotype through gene regulation, duplication, translocation\cite{Weischenfeldt2013-tl} and conformational changes in three-dimensional genome configuration\cite{Spielmann2018-fm,}. In addition, complex structural rearrangements such as chromothripsis\cite{Stephens2011-gj, Korbel2013-to}, chromoplexy\cite{Baca2013-po} and templated insertions\cite{Yu2010-jr} are common oncogenic mechanisms. Repeat expansions and accompanied hypermethylation are common causes of neurological diseases\cite{Zhou2022-ci}. The severity of Parkinson’s disease, for example, is associated with repeat content and the size of the repeat expansion\cite{}. Single-molecule sequencing is the only reliable technology for repeat expansion detection. Low genetic diagnosis rate of approximately 30\% with short read sequencing and ability to detect haplotype phased genetic and epigenetic variations with single molecule sequencing has renewed interest to detect causal and putative pathogenic mutations in patients with rare genetic disease\cite{}. 
+Although long-read sequencing technologies offer numerous advantages compared to short-read sequencing technologies for somatic structural rearrangement detection, long reads have been underutilised in somatic mutation detection. Only a handful of samples have been sequenced to interrogate somatic structural rearrangements using long reads \cite{Nattestad2018-tr, Sakamoto2020-nq, Fujimoto2021-kc}. Moreover, somatic substitution and indel detection algorithms, to our knowledge, have not been developed to leverage CLR or CCS reads. Hence, I believe that a series of method development is required to enable the adoption of long-read sequencing for cancer genomics research. 
 
-\section{The Darwin Tree of Life Project}
+\section{Tree of Life}
 
-We cannot understate the significance that we can study physics and chemistry anywhere in the universe, but we can only study biology on planet Earth. We search for signs of life elsewhere in the universe, but we have yet to succeed in this endeavour. We must, hence, assume what distinguishes the inanimate from animate can be only understood here on Earth. 
+The Tree of Life is a recurring cultural and religious symbol that represents enlightenment, eternal life, and the universe. Charles Darwin first used the Tree of Life to illustrate the implications of natural selection and speciation (Figure \ref{figure:tree-of-life}) \cite{Darwin1859}. 
 
-%7. We know very little about the somatic mutation landscape outside of humans (worth a paragraph on Alex's mammals paper though...)
-%8. Why we might want to understand somatic mutational processes across the tree of life - 
-%8a. Somatic mutations as a barometer of mutagenic exposures in the environment
-%8b. Understanding adaptation to toxic niches
-%8c. Comparative studies across species for ageing
-%8d. As a route to understanding processes underlying germline evolution across the tree of life
+\begin{figure}[htbp!]
+\caption{Tree of Life}
+\label{figure:tree-of-life}
+\begin{centering}
+\includegraphics[width=\textwidth]{Vector/tree_of_life.pdf}
+\end{centering}
+\floatfoot{A reproduction of the Tree of Life from Darwin’s \textit{On the Origin of Species} with personal annotations in red}
+\end{figure}
 
-\subsection{Origins of Life, Prebiotic Earth, RNA world, The emergence and evolution of life on Earth}
-%
-%Ribozyme
-%Endosymbiosis
-%Phagocytosis
-%energy: mtDNA
-%archaea
-%eukaryotes: organelles
-%prokaryotes
-%oxidation and photosynthesis
-%sex: meiotic recombination
-%Oxidation
-%
-%We start of time, entropy has been increasing following the second law of thermodynamics and biological systems have emerged to reduce or maintain entropy using energy. Phospholipid permeable-membrane was the first spontaenous invention that separated order from disorder and allowed for the movement of molecules between the extracelular and intercellular environemtnt and for the emergence of primordial cell. It is uncertain whether the first cell had both the capacity to recplicate itself or whether had the capacity to catalyze chemical reaction first. In a prebiotic environment, amino acids can be created in a reducing environment if sufficient energy in the form of ioniznig radiation, ultra-violet light, is introduced into a gaseous atmosphere containing methane, ..., ... and ... [ref] and nucleotide bases are thought to be harder to spotaneously create in a prebiotic envrionment [ref]. Despite the uncertainity in how the first cell arised, the first prokaryotic organism is thought to have arise ~XX billion years ago and the first eukaryotic organism is thought to have arisen approximately 2 billion years ago [ref]. Once the first cell was created, selection pressure and natural selection acted upon these cells to create the first multicelullar organism and these muticellular organisms evolved to create multiple different species that is best adapated to the environment surrounding them. Mutations play a central role in creating new innovations that allows for individual species to better adapt to the environment and to produce progenitors that inherit the mutations. 
+At the very root of the Tree of Life lies the last universal common ancestor (LUCA), from which all living organisms are believed to have descended. Each branching point depicts the emergence of a new group of species as a consequence of the struggle for existence. Each leaf, the endpoints of the branches, embodies distinct species and is the product of billions of years of evolution. Darwin used the Tree of Life as a symbolic metaphor to show the birth and death of new species and how different species are interconnected through a common ancestor.
 
-The advent of high-throughput long-read sequencing\cite{} and genome mapping technologies\cite{}, improvements in base accuracy of long reads \cite{Wenger2019-pw} and development of algorithms that take advantage of the longer read length and long-range genomic interactions \cite{Dudchenko2017-kb} have brought new enthusiasm to sequence and assemble high-quality reference genomes\cite {}. 
+Since the publication of \textit{On the Origin of Species} \cite{Darwin1859}, nucleic acid has been determined to be the carrier of genetic information \cite{Avery1944-lr}, the double helix structure of the DNA has been discovered \cite{Watson1953-lr}, and the same set of genetic code is used to code for amino acids across all forms of life \cite{Woese1968-lr}. These discoveries corroborate the conjecture by Darwin that all living species on Earth share a common ancestor. 
 
-The Darwin Tree of Life (DToL) project is an ambitious project that aspires to construct chromosome-length scaffolds for 70,000 eukaryotic species in Britain and Ireland \cite{}. In parallel, other international consortiums have initiated projects with similar aspirations for insects \cite{}, vertebrates \cite{}, invertebrates \cite{} and all of life \cite{}. The DToL project, currently, uses CCS reads for contig generation, Hi-C reads to order and orient contigs, and a Hi-C contact matrix to manually inspect and correct chromosome-length scaffolds. The DToL project regularly updates their primary sequencing and mapping technologies and assembly, purging and scaffolding algorithms to reflect the advances in the field. At the time of writing, the DToL project has sequenced approximately 800 species, completed the assemblies of approximately 500 species, and made available to the public the raw data and reference genomes \cite{}. 
+The prohibitive cost of clone-by-clone sequencing for reference genome construction, the inability to produce high-quality reference genomes from short-read sequencing and the challenges of somatic mutation detection in normal tissues have prevented the detection and analysis of somatic mutations, the source of raw materials for natural selection, in other species.
+
+\subsection{Peto’s paradox}
+
+The study of somatic mutations and mutational processes in other species is another fascinating area of research to understand the underlying mechanism of aging and the incidence of cancer. Sir Richard Peto made the observation that there is no clear correlation between the number of cells and the incidence of cancer in other animals \cite{Peto2016-wf, Vincze2022-tw}. Because somatic mutational processes act on the genome of individual cells, and as the number of somatic mutations increases with age, larger animals with a greater number of cells and long-lived species are expected to have an increased risk of developing cancer. This, however, is not the case. Elephants are one such example. Elephants have more than one hundred times the number of cells pas humans, but they have a cancer mortality rate of 4.81\%, compared to 11-25\% cancer mortality rate in humans \cite{Abegglen2015-ao}. The analysis of the elephant genome has revealed that the elephant genome possesses 20 copies of the TP53 gene, whereas the human genome contains 2 copies of the TP53 gene \cite{Sulak2016-ld}, which is a tumour suppressor gene that is critical for maintaining genome stability \cite{Vousden2009-wd}. The higher number of TP53 genes in the elephant genome is believed to be one of the primary reasons why elephants have a lower incidence of cancer.
+
+
+\subsection{Somatic mutation theory of ageing}
+
+The somatic mutation theory of ageing suggests that the gradual accumulation of somatic mutations leads to a decline in cellular function, which ultimately contributes to the ageing process \cite{Szilard1959-ru}. The theory implies that shorter-lived species will have a higher somatic mutation rate than longer-lived species. Recently, the study of somatic mutations in colonic crypt across various mammalian species of different ages and lifespan have confirmed that the somatic mutation rate is inversely proportional to the lifespan of the mammalian species \cite{Cagan2022-yn}. Hence, the longer-lived species have a lower somatic mutation rate. Intriguingly, the total mutational burden is similar at the end of their lifespan across different species. It is unclear whether this relationship between somatic mutation rate and the species’ lifespan holds true in other order, phyla, and kingdom.
+
+\subsection{Darwin Tree of Life project}
+
+The advancements in single-molecule sequencing technologies, concurrent development of new generations of \textit{de novo} assembly and scaffolding algorithms, and the ability to produce high-quality chromosome-length scaffolds at a fraction of the cost of hierarchical shotgun sequencing have brought new enthusiasm to assemble high-quality reference genomes for vertebrates \cite{Rhie2021-dq} and all eukaryotic diversity on Earth \cite{Lewin2018-zf}. 
+
+The Darwin Tree of Life (DToL) project is an ambitious project that aspires to build reference genomes for all 70, 000 eukaryotic species in Britain and Ireland \cite{}. At the time of writing, the DToL project has sequenced approximately 800 species, completed the assemblies of approximately 600 species, and raw data and reference genomes have been made available to the public.
+
+I hypothesised that the availability of CCS reads and reference genomes through the DToL project presents a unique opportunity to discover new somatic mutational processes across the Tree of Life. 
 
 \section{Thesis objectives}
 
-The history of science is riddled with examples where theory, technology, and serendipitous discovery drive science. The advent of Illumina short reads and continued decrease in per-base sequencing cost have accelerated our understanding of human evolution and migration patterns\cite{}, identification of pathogenic mutations in patients with Mendelian diseases\cite{}, the analysis of driver mutation and transcriptomic landscape in thousands of cancer genomes\cite{}. 
+I have organised the remainder of this PhD thesis as follows. In chapter 2, I measure the CCS error rate and assess the potential for somatic mutation using CCS reads. I also introduce himut, a method that enables the detection of somatic mutations, agnostic of clonality and species. In chapter 3, I use himut to detect somatic mutations from eukaryotic species in the DToL project, describe the newly identified mutation signatures and measure the contribution of these mutational signatures to the germline mutational spectrum. 
 
-The inability to generate contiguous and complete reference genomes, however, with Illumina short reads\cite{} and the prohibitively expensive cost of BAC clone library preparation and hierarchical shotgun sequencing have thwarted our efforts to understand genetic variation in non-model organisms\cite{}.
-
-High-throughput and high-accuracy single-molecule sequencing technologies\cite{Wenger2019-pw} overcome the limitations of the Illumina platform and propel us towards the third wave of genomic revolution where each individual will be able to have their complete and haplotype-phased genome sequence, where the construction of the most complex and repetitive genomes will be possible and where the reference genomes of all organisms will be available to the scientific community. 
-
-The DToL project, for example, has generated an extraordinary public resource that comprises CCS reads, linked reads, Hi-C reads, high-quality chromosome-length scaffolds, and associated gene annotations. Comparative genomics in linear and three-dimensional space and population genetic studies with the newly assembled reference genomes will undoubtedly enhance our understanding of the process of speciation and evolution. Here, we aspired to better understand the mutational process operational in each species.
-
-To determine the germline and somatic mutational process across the Tree of Life, we considered the following:
-
-\begin{enumerate}
-\item Based on the similarities between the duplex\cite{Schmitt2012-yr} and CCS library sequencing \cite{Travers2010-sx} principles, we hypothesised that CCS reads might have sufficient base accuracy for ultra-rare somatic mutation and potentially single molecule somatic mutation detection.
-\item CCS reads are reported to have a predicted accuracy above Q20, but their base accuracies have not been independently examined. 
-\item Somatic mutation detection algorithms need to distinguish somatic mutations from germline mutations in addition to sequencing, alignment and systematic bioinformatic errors.
-\item Using samples with known ongoing somatic mutational processes and mutational signature analysis, we can demonstrate that CCS reads have sufficient or insufficient base accuracy for single molecule somatic mutation detection and determine the parameters that influence sensitivity and specificity.
-\item If the sample in question has either high mutation rate or high mutation burden, the expected and the correct mutational spectrum will be observable from the validation and test data sets, respectively. 
-\end{enumerate} 
-
-In short, we aimed to measure the CCS error rate, assess whether CCS bases have sufficient base accuracy for single molecule somatic mutation detection, develop a method to detect somatic mutations where a single read alignment supports the mismatch between the sample and the reference genome and apply the method to understand germline and somatic mutational processes across the Tree of Life. 
-
-%% enhancers, promoters, ribosome profiling, 3D genome structure 
-%% collapsed repeats
-
-%% The reads produced from the Illumina platform, however, are shorter (150bp) than repetitive sequences present in the human reference genome and as a result, many of the reads cannot be mapped to the reference genome with confidence and limits the genetic analysis to regions where reads can be placed confidently. 
-
-
-%% \section{Genome sequence, genetic variation and sources of mutation}
-%% \section{Genetic variation and sources of mutations}
-%% \section{Germline and somatic mutation}
-
-%%
-%% first cell
-
-%% fertilised egg
-%% de novo mutations, SBS1 and SBS5
-%% meiotic recombination as sources of mutations
-%% \section{Genetic variation and Natural Selection}
-%% \subsection{Germline mutations}
-%% \subsection{Mosaic mutations}
-%% \subsubsection{De novo mutations}
-%% \subsubsection{Gene conversions}
-%% \subsubsection{Crossovers}
-%% \subsection{Somatic mutations}
-%% \subsection{Mutational signatures and mutational processes}
-%% darwin pondered the unit of inheritance (the physical material and the mechanism responsible for changing the physical material)
-%% enodgenous and exogenous somatic mutation
-%% DNA damage, repair, fixation 
-%% envrionment
-%% DNA polymerase infidelity, germline mutations
-%% importance of somatic mutation detection, lineage tracing, driver mutations
-%% a harsh environment, insult to the DNA, necessary to repair DNA damage
-%% type of DNA damage: single-base substitution, 
-%% what is universal about DNA? codon, degenerate, universal, 64 codons, stop-codon, start-codons
-%% first protein
-%% first riboenzyme?
-%% first unicellular organism %% first in the sea
-%% first lipid-bilayer that separates order from disorder, control of passage of molecules across a semi-permeable membrane  
-%% fusions, meiotic recombination, plant recombination?
-%% non-hologous end joining
-%% transcripion-coupled repair
-%% Selection Pressure & Natural Selection & Survival of the fittest
-%% deleterious, postivie,
-%% linked by DNA
-%% entropy to submission
-%% Scientists still have not figured out how the first unicellar organism  has arisen
-
-%% Complexity that 
-%% DNA replication, DNA polymerase fidelity, DNA polymerase error rate, as a source of first mutations
-%% first multicellular-organism
-%% DNA nicks, DNA double-strand breaks, cyclo-butane dimer, UV light, chemicals
-%% different types of DNA polymerases, redundancies
-%% Oswald Avery: amino acids, greater number of combinations, genetic sequence as the transforming substance
-%% Rosalind, Watson: Structure of DNA
-%% what happened from the discovery of the structure of the DNA to the human genome project?
-
-%% in humans
-%% c-elegans? other species?
-%% The Tree of Life is connected through genetic sequence
-%% DNA is the puzzle that links us all
-%% since inception, birth, somatic mutations starts to accumualte
-%% fertilsiation for most organisms
-%% cellcular division for unicellular organisms
-%% depending on the timing and the type of tissue in which the somatic mutations occur somatic mutations are inherited to the daughter cells or the next generation
-%% some mutations result in speciation
-%% some mutations lead to survival of fittest
-%% some mutations have a large consequence, recombination, structural variations
-%% the study of mutations across the Tree of Life has been limited by the cost of reference genome construction and the availiabilty of reference genomes for population genetics and for comparative genomics.
-%% the cost of reference genome construction has been prohibitively high
-%% the human geome project, for example, cost 3 billion dollars, a dollar per base.
-%% international collaboration, multiple sequencing centers with thousands of people
-%% multiple-years
-%% physical-maps %% fish %% restriction-enzyme based
-%% YACs
-%% fosmid 50kb-200kb
-%% bacterial artificial chromosome clone 100kb fragments
-%% gaps, missing sequences, acrocentric chromosomes, large sections of chromosome Y
-%% unplaced, unlocalised chromsomes and contigs
-%% placement of contigs, scaffolding of contigs
-%% Sanger di-deoxy sequencing, limited to 500bp to 1000bp
-%% Solexa and Illumina sequencing by synthesis
-%% de brujin graph based assemblies are short, fragmented and incomplete   
-%% high-throughput, relatively high accuracy  of short-reads
-%% de novo assembly quality is a function of read depth, base accuracy,  read length and complexity/repetitiveness of the target genome, %% Eric Lander
-%% assemblies/genomes are abundant with sequences that are longer than Illumina read length: SINE, LINEs, repeat expansions, segmental duplications 
-%% longer read length is required to trasverse the repetitive sequence and uniquely locate/place the read amongst other reads, reads are collapsed into contigs in the face of high repetitive sequences
-%% scaffolding technologies: mate-pair sequencing with longer-read inserts insufficient and not scalable
-%% assembly and comparative genomics didn't improve in the last decade
-%% cost was high, and the effort did not yield sufficiently meaningful assembly results
-%% initially Single-molecule sequencing from Oxford Nanopore Technologies and Pacific Biosciences were also inaccurate and the read length were not magnitude of orders longer, low throughput
-%% continuous long read sequencing from Pacific Biosciences, 10-15kb in read length with 10-15% error rate, the errors were thought to be random, free of amplification bias
-%% sufficiently long enough to trasverse repeats, however not sufficient to distinguish between unique copies of segmental duplications
-%% used to reconstruct missing sequences in the human reference genome %% eichler
-%% updates in the human reference genome %% tina
-%% CHM1 and CHM13 seuqencing to identify structural variations
-%% pathogenic mutations/repeat expansions
-%% ONT for chrY centromere sequencing
-%% alpha-satelitte expansion
-%% usefulness of haploid genomes
-%% T2T consortium, for example, recently, completed the end-to-end assembly of CHM13 genome  
-%% high-throughput chromatin conformation capture sequencing (Hi-C), similar to mate-pair sequencing in concept, but across the whole-genome
-%% 3C job-dekker, loops, configurations
-%% originally used to study the three-dimensional genome configuration
-%% chromosomes self-aggregate
-%% end of one chromosome is in more contact with the end of the same chromosome than another chromosome
-%% what about contacts between paternal and maternal haplotype of the same chromosome?
-%% sequences in close proximity are in contact with each other more
-%% conctact matrix can be used to discern correct assemblies from misassemblies
-%% order and orient contigs %% matrix inversion, %% techniques from linear algebra
-%% manually curate scaffolding and correct assemblies  
-%% studying the genomes from the Tree of Life provides snapshots of environments that the genomes were under through space and time
-%% events that might have spurred natural selection, speciation and radiation
-%% timed the emergence of species, but never timed the emergence of unique somatic mutational processes across time and space
-%% assembly: assumption: haploid genome
-%% Pacific Biosciences circular consensus sequencing, increase in the number of ZMWs per SMRTcell from 1 million to 8 million, circular consensus sequencing instead of continuous long read sequencing
-%% increase in DNA polymerase processivity, continuous long-read sequencing perhaps once or twice per molecule, circular consensu sequencing: 8 to 16 times per molecule
-%% because the errors are thought to be random, highly accurate circular consensus sequence generation is possible
-%% estimated to have accuracy between Q20 and Q30
-%% assemblies produced from PacBio CCS reads have accuracy between Q50 and Q60.
-%% massive incerase in the contiguity and completeness and assembly of the genome
-%% time to complete the genome
-%% cost to complete the genome
-%% thousands of scientists to handful of scientists
-%% except for the most complex genome
-%% significant upgrade in the quality of the genome compared to that produced from short reads
-%% also comparable to that produced through the human genome project
-%% or small organisms or unicellular organims with limited DNA %% low-input protocol makes this possible albeit with errors introduced during PCR amplification %% bias towards sampling of reads or amplification of dna molecules before library preparation  
-%% the number of eukaryotic species sequenced and assemblies with PacBio sequencing increased dramatically since the introduction of long-read sequencing
-%% uncovering the evolutionary history of these species
-
-%% Methods to study somatic mutations in cancer
-%% the reasons to study cancer
-%% somatic mtuational processes in cancer
-%% mutational patterns, mutational signatures
-%% tumour and matched normal
-%% technical limitations of short reads
-%% sub-cloncal
-%% minute fraction
-
-
-%% Methods to study somatic mutations in normal tissues
-%% single-cell PCR amplification and sequencing
-%% single-cell clone expansion and sequencing
-%% duplex sequencing, nanorate sequencing
-%% laser-capture and microdissection and sequencing of clonal tissues
-%% driver mutations
-%% drug resistance development
-%% evolutionary history of cancers
-%% developmental biology
-%% lineage-tracing 
-
-%% Wellcome Trust Sanger Institute has initiated the Darwin Tree of Life project to sequence approximately ~66,000 eukaryotic species in the and the primary mode of sequencing is CCS sequencing, hi-c sequencing
-%% to sequence and assemble the samples with CCS sequencing, scaffold the samples with Hi-C reads and to curate the scaffolded assemblies through manual inspection of the contact matrix  
-%% We and others have hypothesized the potential for CCS sequencing for somatic mutation detection
-%% Nanorate sequencing, blunt-end restriction enzyme digestion, DNA nicks, dideoxy nucleic acid, DNA damage during sonication %% to preserve the native DNA molecule and to sequence the DNA molecule  
-
-
-%% We noticed the high simliarity between duplex sequencing and CCS sequencing and hypothesized that CCS sequencing might have sufficient base accuracy for single molecule somatic mutation detection, if we can distinguish highly accurate bases from that resulting from library errors, alignment errors and sequencing errors and systematic errors. artefacts that cannot be removed 
-%% Other mammalian species with shorter life span have higher somatic mutation rate such that at the terminal stages of life, the species in question have same mutation burden at the time of death
-%% Peto's paradox
-%% resequencing studies have enabled the identification of germline mutational process, somatic mutational process in humans
-%% the study of other species have been limited to date
-%% c-elegans? %% what are other species?
-
-%% if our hypothesis is true, we conjectured that we will able to detect somatic mutations across the Tree of Life, reveal somatic mutational processes active in the species, time the emergence of somatic mutational processes and attribute the contribution of somatic mutational processes to the germline mutational process, %% environmental mutagenesis
-
-%% in Chatper 2, we demonstrate that PacBio CCS base accuracy is sufficiently accurate to call and study single molecule somatic single-base-substitution across species
-%% sequence samples with a single dominant somatic mutational process 
-%% know the mutational signature or have gold-standard mutational signature for the sample generated from single-cell clone expansion and sequencing
-%% 
-%% somatic mutation detection from a single read alignment to the reference genome
-%% if we were to call every mismatch between the read and reference genome, we will be able to call all somatic mutations at the cost of high false positive rate
-%% Oxidative DNA damage
-%% typically requires a normal sample to distinguish between germline and somatic mutations
-%% typically requires multiple reads to suppport the somatic single base substitution  
-%% VCF file produced from somatic mutation callers are the sum of library errors, systematic errors, sequencing errors, alignment errors, %% reference bias?
-%% unresolved errors
-%% if we are able call somatic mutations from a single read alignment to the reference genome, we are not only able to reduce the cost of sequencing, but also do germline mutation calling from reduced read depth
-%% 30X sequence coverage required to call heterozygous mutations %% reference
-%% problems with PacBio CCS sequencing: incomplete removal of adapter sequences, chimeric sequences resulting from problems with adapater sequence calling, fragmer and concatmer
-%% reads significantly shorter and longer than the read-of-insert length
-%% empirically estimate the PacBio CCS base accuracy
-%% PacBio CCS base accuracy has not been measured yet, PacBio CCS base also cannot be measured with exisiting sequencing technologies with lower base accuracy
-
-
-%% in Chapter 3, confirm that our method is applicable to other eukaryotic species, we use the newly developed method to study somatic mutational processes across the ~400 eukaryotic species sequenced the Darwin Tree of Life project, attempt to understand both the germline and somatic mutational processes across species, identify potential sources of environemtnal mutagenesis
-%% phorcus lineatus: age
-%% insects: life cycle of insects (choleoptera)
-%% mutation burden of insects with metamorphosis and without metamorphosis
-%% germline mutational process
-%% somatic mutational process
-%% environmental mutagenesis
-
-%% in Chapter 4 and 5, we use the unique combination of long read length and base accuracy of PacBio CCS reads to study both meiotic and mitotic recombniation, respectively.
-%% in Chapter 2 and Chapter 3, we demonstrate that PacBio CCS reads have sufficient read length and base accuracy for single molecule somatic single-base substitution agnostic of clonality and species.
-%% to explore the unexplored phenomena of meiotic recombniation through Sperm PacBio CCS sequencing
-%% diffences to previous attempts to understand meiotic recombination through trio sequencing and sperm-typing
-%% gene conversions requires the detection of chimeric dna molecules with both maternal and paternal sequences
-%% meiotic event generates 2 recombinant products and 2 wild type molecules
-%% crossover leads to the generation of dna molecule with a stretch of paternal hetsnps followed by a stretch of maternal hetsnps and vice versa
-%% gene conversion leads to the generation of a dna molecule where paternal hetsnps is flanked by maternal hetsnps (and vice versa)
-%% complex recombinant product with resulting from both crossover and gene conversion
-%% on average, there 1 SNP per 1000bp
-%% requires long-range PCR products to detect 
-%% hotspots
-%% coldspots
-%% meiotic recombination product requires reads that can span multiple hetsnps and requires sufficient base accuracy to determine that hetsnp switch is a result of a biological event rather than a sequencing error.
-%% in addition, meiotic recombination can be a source of mutagenic event
-%% PacBio CCS reads have sufficient base accuracy to detect single molecule recombination events and associated mutations
-%% recombniationi might not be a perfect/clean
-%% mutational process that generates de novo single-base substitution seems to be driven by clock-like somatic mutational processes (SBS1 and SBS5)
-%% mitotic gene conversion can be a source of oncogenic mechanism in somatic cells
-%% simliar to meiotic recombination, products from mitotic recombination cannot be detected with short reads due to the technical limiations of the Illumina platform
-%% sequenced Bloom syndrome patient samples with defects in DNA double-strand break damage repair process
-%% known to have gene conersions or loss of heterozygous caused by gene conversions
-%% perfect sample to assess the differences in mitotic and meiotic recombniation and gene conversions
-%% mitotic gene conversions are thought to be longer in length
-
-
-%% in Chapter 6, 
-%% the benefits of PacBio CCS sequencing
-%% the last DNA sequencing platform
-%% requires significantly less sequencing coverage than short reads to detect  the same number of mutations
-%% can detect small SNPs, indels, structural variations, 5mC from the same platform
-%% with the development of himut, CCS reads can be also used to detect somatic mutations, gene conversion and crossovers from the same sample.
-%% potentially other base modifications caused by environmental exposure, chemotherapeutics in the future
-%% Moore's law: the number of transisitors per semiconductor has doubled, the distance at which the electrons has to be moved has shorteneed
-%% the cost of sequencing per base was decreasing at a faster speed than Moore's law and many has anticipated that we might have a $100 genome, if the development had continued
-%% stagnation in development, and Illumina monopoly status, financialisation, stock buybacks instead of research and develompent
-%% increase in the number of ZMWs per SMRTcell, PacBio has achieved 8-fold improvement in throughput
-%% increase in the read-of-insert length, doubling, stabiltiy of the circular template molecule
-%% direct-engineering, directed-natural selection
-%% increase in DNA polymerase processivity can increase either the read-of-insert length or the base accuracy of the same read-of-insert length
-%% improvement in HMW DNA extraction, from the smallest organism
-%% past Illumina platform generation has also required high DNA concentration 
-%% improvements in circular consensus sequence calling process can lead to the better discernment of adapter sequences from 
-%% PacBio CCS sequencing offers an alternative method for DNA sequencing with potential to improve throughput and base accuracy at a faster rate than that from Illumina unless Illumina profit margin compresses
-%% PacBio CCS sequencing will be cheaper, more accurate, have higher throughput than Illumina sequencing
-%% Illumina might compete in terms of price, but the wealth of information that is delivered from PacBio will be immense %% adoption curve
-%% the cumulative improvement will us to better understand all of life
-
-
-%% \subsection{The cost of Reference genomes as a bottleneck}
-
-%********************************** %Second Section  *************************************
-
-
-%********************************** % Third Section  *************************************
-
-%% \section{Thesis aims}
 
