@@ -191,7 +191,7 @@ I generated 30-fold CCS sequence coverage from BC-1, HT-115 and blood granulocyt
 
 I, first, analysed CCS and subreads from the same ZMW to identify false positive substitutions resulting from library and sequencing errors (Methods). I observed that 0.41-2.16\% of productive ZMWs have subreads arising from miscalling of adapter sequences (Table \ref{tab:adapter-miscalling-statistics}).
 
-\begin{table}[h!]
+\begin{table}[htbp!]
 \caption{Adapter miscalling statistics}
 \label{tab:adapter-miscalling-statistics}
 \begin{tabular}{c|c|c}
@@ -223,36 +223,35 @@ I hypothesise that CCS reads with read length deviating from the mean CCS read l
 
 Incomplete adapter sequence trimming is thought to be responsible for this phenomenon. Hence, CCS reads with adapter sequences are removed before sequence alignment and somatic mutations called from 5’ and 3’ of CCS reads are discarded before downstream sequence analysis. 
 
-CCS base BQ scores range from Q1 to nominal Q93, corresponding to $0.5\times10^{-9}$ error rate. A reduction in the number of mismatches to the reference genome is often used as a metric to evaluate whether CCS read generated from the more recent algorithm is superior to that produced from existing algorithms \cite{Wenger2019-pw, Baid2022-or}. This approach, however, discounts the presence of somatic mutations and assumes that all mismatches to the reference genome, that are not germline mutations, are errors. Here, I examined the accuracy of individual CCS base BQ score to assess the potential for single molecule somatic mutation detection using CCS reads (Figure \refP{})   
+CCS base BQ scores range from Q1 to nominal Q93, corresponding to $0.5\times10^{-9}$ error rate. A reduction in the number of mismatches to the reference genome is often used as a metric to evaluate whether CCS read generated from the more recent algorithm is superior to that produced from existing algorithms \cite{Wenger2019-pw, Baid2022-or}. This approach, however, discounts the presence of somatic mutations and assumes that all mismatches to the reference genome, that are not germline mutations, are errors. Here, I first examined the accuracy of individual CCS base BQ score to assess the potential for single molecule somatic mutation detection using CCS reads (Methods, Figure \ref{figure:empirical-bq-per-bq}). The number of matches and mismatches, along with the resulting empirical BQ score, obtained from each CCS BQ, should provide an estimate of the accuracy of the respective CCS BQ score. There is a positive correlation between the empirical BQ score and the CCS BQ score, but the number of mismatches detected from each CCS BQ score is greater than expected, revealing that the pbccs algorithm assigns inaccurate BQ estimates to CCS bases. Hence, single molecule somatic mutation detection using CCS reads will require the identification of a subset of CCS bases with higher base accuracy.
 
-%\begin{figure}[htbp!]
-%\caption{A boxplot of number of SBS per CCS read (sample: PD47269d)}
-%\label{figure:sbs-count-per-ccs-read}
-%\begin{centering}
-%\includegraphics[width=0.6\textwidth]{Vector/sbs_count_per_ccs_read.pdf}
-%\end{centering}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{Empirical BQ score per CCS BQ score (sample: PD47269d)}
+\label{figure:empirical-bq-per-bq}
+\begin{centering}
+\includegraphics[width=0.5\textwidth]{Vector/empirical_bq_per_bq.pdf}
+\floatfoot{The red line through the origin represents an ideal case where empirical BQ is identical to the BQ score assigned to each CCS base.}
+\end{centering}
+\end{figure}
 
-CCS BQ score is dependent on the number of subreads per CCS read and concordance between the subread bases and the CCS base. I was able to confirm that the number of substitutions and is negatively correlated with the number of subreads per CCS read as reported in a previous publication (Figure \ref{figure:sbs-count-per-ccs-read}) \cite{Wenger2019-pw}. 
+CCS BQ score is dependent on the number of subreads per CCS read and concordance between the subread bases and the CCS base. I was able to confirm that the number of substitutions and is negatively correlated with the number of subreads per CCS read as reported in a previous publication (Figure \ref{figure:sbs-count-per-ccs-read}) \cite{Wenger2019-pw}. The accuracy of the BQ score, hence, is expected to increase with the number of supporting subread bases. I, however, also unexpectedly discovered that the accuracy of the CCS BQ score decreases with increase in the number of subreads and that increase in the number of subreads per CCS read results in not diminishing returns, but negative returns to CCS base accuracy (discussed later in Chapter 3). 
+
+Despite these shortcomings, I was able identify a subset of CCS bases that have sufficient base accuracy for single molecule somatic mutation in most normal human tissue. Firstly, I used the positive control samples to identify and evaluate parameters that influence somatic mutation detection sensitivity and specificity. Secondly, I used the negative control sample to determine the CCS error rate for Q93 CCS bases and the limit of detection threshold. Finally, I was able to find potential solutions to minimise the number of false positive mutations arising from errors upstream of downstream sequence analysis. 
 
 \begin{figure}[htbp!]
 \caption{A boxplot of number of SBS per CCS read (sample: PD47269d)}
 \label{figure:sbs-count-per-ccs-read}
 \begin{centering}
 \includegraphics[width=0.6\textwidth]{Vector/sbs_count_per_ccs_read.pdf}
+\floatfoot{The median number of SBS identified per CCS read decreases with increases in the number of subreads per CCS read.}
 \end{centering}
 \end{figure}
-
-The accuracy of the BQ score, hence, is expected to increase with the number of supporting subread bases. I, however, discovered that the accuracy of the CCS BQ score decreases with increase in the number of subreads and that increase in the number of subreads per CCS read results in not diminishing returns, but negative returns to CCS base accuracy (discussed later in Chapter 3). 
-
-Despite these issues, I was able to demonstrate that CCS read have sufficient base accuracy for single molecule somatic mutation in most normal human tissue. Firstly, I used the positive control samples to identify and evaluate parameters that influence somatic mutation detection sensitivity and specificity. Secondly, I used the negative control sample to determine the CCS error rate for Q93 CCS bases and the limit of detection threshold. Finally, I was able to find potential solutions to minimise the number of false positive mutations arising from errors upstream of downstream sequence analysis. 
-
 
 \subsection{Germline mutation detection}
 
 Bulk normal tissue has germline mutations that are inherited from parents, mosaic mutations that occurred during embryonic development and newly acquired somatic mutations from ongoing mutational processes. In addition, cells with driver mutations can outcompete neighbouring cells and clones of cells can occupy pockets of tissues. These clonal somatic mutations can often be confused with heterozygous germline mutations in normal bulk tissue. To distinguish germline mutations from somatic mutations, paired tumour-normal sequencing is often performed. In contrast, himut can confidently call somatic mutations from a bulk tissue without a matched normal sample (Methods). 
 
-I, first, compared germline SNPs detected from both himut and deepvariant to assess whether our algorithm can accurately call germline mutations (Methods, Table \ref{}).
+I, first, compared germline SNPs detected from both himut and deepvariant to assess whether our algorithm can accurately call germline mutations (Methods, Table \ref{}). The number of SNPs and transition to transversion (TiTv) ratio is within the expected range, demonstrating that himut can also function as a standalone variant caller. Deepvariant is a deep learning method that uses uses read pileup images for germline mutation detection. On the other hand, himut uses an analytical approach like GATK and strelka2 \cite{Kim2018-qi, DePristo2011-vf}  for germline mutation detection. Here, the germline mutation detected using himut is restricted to that with GQ score above 20, while that from deepvariant does not hard filtering.
 
 \begin{table}[h!]
 \caption{Germline mutation statistics (sample: PD47269d)}
@@ -264,8 +263,6 @@ Homozygous SNP & 1,493,950 & 1,292,806 \\ \hline
 TiTv ratio & 2.00 & 2.08 \\ \hline
 \end{tabular}
 \end{table}
-
-The number of SNPs and transition to transversion (TiTv) ratio is within the expected range, demonstrating that himut can also function as a standalone variant caller. Deepvariant is a deep learning method that uses uses read pileup images for germline mutation detection. On the other hand, himut uses an analytical approach like GATK and strelka2 \cite{Kim2018-qi, DePristo2011-vf}  for germline mutation detection. Here, the germline mutation detected using himut is restricted to that with GQ score above 20, while that from deepvariant is not filtered.
 
 \subsection{Somatic mutation detection}
 
@@ -328,66 +325,81 @@ The mutational spectrum generated from BC-1 (Figure \ref{figure:BC-1}), HT-115 (
 \floatfoot{KX004 mutational spectrum was previously generated from single-cell clone expansion and sequencing \cite{Mitchell2022-ry}}
 \end{figure}
 
-In addition, The mutation burden of BC-1, HT-115 and PD48473b samples were calculated to be X, X, X, respectively, consistent with previous estimates \cite{Mitchell2022-ry, Petljak2019-wi}, demonstrating that CCS bases have sufficient base accuracy for rare somatic mutation detection where samples have a high mutation burden or a high somatic mutation rate (Methods) 
-
-Through mutational signature analysis< I was also able to determine the number of true positive mutations and false positive mutations from the called somatic mutations and the number of true negative mutations and false negative mutations from the filtered somatic mutations. These estimates were subsequently used to calculate the sensitivity, specificity, and F1-score for each our sample (Method, Table \ref{}).
+In addition, the mutation burden of BC-1, HT-115 and PD48473b samples were also consistent with previous estimates \cite{Mitchell2022-ry, Petljak2019-wi}, demonstrating that CCS bases have sufficient base accuracy for rare somatic mutation detection where samples have a high mutation burden or a high somatic mutation rate (Methods). Through mutational signature analysis, I was also able to determine the number of true positive mutations and false positive mutations from the called somatic mutations and the number of true negative mutations and false negative mutations from the filtered somatic mutations. These estimates were subsequently used to calculate the sensitivity, specificity, and F1-score for each our sample (Method, Table \ref{tab:sensitivity-specificity}).
 
 \begin{table}[h!]
 \caption{}
-\label{}
+\label{tab:sensitivity-specificity}
 \begin{tabular}{l|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{2cm}}
  & BC-1 & HT-115 & PD48473b \\ \hline
 Mutation burden per cell & 11,301 & 19,739 & 2,692 \\ \hline
-True positive mutations &  &  & \\ \hline 
-False positive mutations &  &  & \\ \hline
-True negative mutations &  &  & \\ \hline
-False negative mutations &  &  & \\ \hline
-Sensitivity &  &  & \\ \hline
-Specificity &  &  & \\ \hline
-F1-score &  &  & \\ \hline
+True positive mutations & 43,112 & 65,528 & 11,412 \\ \hline 
+False positive mutations & 9,836 & 49,973 & 767 \\ \hline
+True negative mutations & 2,596,835 & 2,273,459 & 1,427,312 \\ \hline
+False negative mutations & 0 & 173,715 & 944,383 \\ \hline
+Sensitivity & 1 & 0.274 & 0.023 \\ \hline
+Specificity & 0.996 & 0.978 & 0.999  \\ \hline
+F1-score & 0.897 & 0.369 & 0.023 \\ \hline
 \end{tabular}
-\floatfoot{The number of false positive substitutions are included in the mutation burden per cell. Typically, false positive mutations contributes around 700 somatic mutations per cell}
+\floatfoot{The mutation burden per cell is slightly inflated than expected as the calculation includes the number of false positive mutations.}
 \end{table}
 
-We also selected appropriate hard filter thresholds based on receiver operating characteristic (ROC) curve generated under a range of hard filter conditions (Figure \ref{}) and determined hard filters with the greatest impact on sensitivity based on odds ratio calculated in the absence and presence of the hard filter in question. BQ and GQ score were crucial for somatic mutation detection while other filters had marginally positive impact on somatic mutation sensitivity. We would like to also highlight that somatic mutation detection sensitivity and specificity increased when grch38 was used as a reference genome, reflecting better representation of genetic polymorphisms with improvements in assembly quality (Table). We, unfortunately, could not compare himut with other methods as himut is the first somatic SBS detection method with CCS reads and as somatic mutation detection below 0.1\% VAF has not been technically feasible with standard Illumina reads. 
+Considering the high visual and cosine similarity between the mutational spectrum and expected mutational signatures from the HT-115 and PD48473b samples, the sensitivity and specificity of himut were calculated to be lower than expected for these samples. However, this was not observed for the BC-1 sample. Lower than expected sensitivity and specificity is attributed to the overfitting of existing COSMIC signatures to the catalogue of mutations from each sample \cite{Maura2019-iu}. The overfitting is mainly caused by flat signatures, such as SBS5, which had a higher contribution to the mutational burden in PD48473b and thus had the lowest measured sensitivity.
+
+%We also selected appropriate hard filter thresholds based on receiver operating characteristic (ROC) curve generated under a range of hard filter conditions (Figure \ref{}) and determined hard filters with the greatest impact on sensitivity based on odds ratio calculated in the absence and presence of the hard filter in question. BQ and GQ score were crucial for somatic mutation detection while other filters had marginally positive impact on somatic mutation sensitivity. We would like to also highlight that somatic mutation detection sensitivity and specificity increased when grch38 was used as a reference genome, reflecting better representation of genetic polymorphisms with improvements in assembly quality (Table). We, unfortunately, could not compare himut with other methods as himut is the first somatic SBS detection method with CCS reads and as somatic mutation detection below 0.1\% VAF has not been technically feasible with standard Illumina reads. 
 
 
 \subsection{CCS error profile and error rate}
 
-The normal cord blood granulocyte has the lowest mutation burden among our samples, with only 40-50 somatic mutations per cell \cite{Mitchell2022-ry}. CCS bases, unfortunately, does not have sufficient signal-to-noise ratio to enable somatic mutation detection in cord blood sample with high confidence. The number of false positive mutations called from Q93 CCS bases exceeds the number of true positive mutations in the cord blood sample. Hence, mutational spectrum from the cord blood sample is dissimilar to the expected mutational spectrum (Figure \ref{}) and mutational spectrum from the cord blood sample is referred as the CCS error profile. 
+The normal cord blood granulocyte has the lowest mutation burden among our samples, with only 40-50 somatic mutations per cell \cite{Mitchell2022-ry}. CCS bases, unfortunately, does not have sufficient signal-to-noise ratio to enable somatic mutation detection in cord blood sample with high confidence. The number of false positive mutations called from Q93 CCS bases exceeds the number of true positive mutations in the cord blood sample. Hence, mutational spectrum from the cord blood sample is dissimilar to the expected mutational spectrum  and mutational spectrum from the cord blood sample is referred as the CCS error profile (Figure \ref{figure:PD47269d}). 
 
-%\begin{figure}[h!]
-%\caption{}
-%\floatfoot{}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{Comparison between CB001 mutational spectrum and the PD47269d mutational spectrum}
+\label{figure:PD47269d}
+\includegraphics[width=\textwidth]{Vector/hg19.CB001.PD47269d.pdf}
+\floatfoot{Similar to KX004 mutational spectrum, CB001 mutational spectrum was previously generated from single-cell clone expansion and sequencing \cite{Mitchell2022-ry}. In the CB001, sample a greater number of somatic mutations are derived from spontaneous deamination of 5-methylcytosine to thymine.}
+\end{figure}
 
-I was also able to determine the CCS error rate from Q93 CCS base to range from Q60 to Q90 depending on the substitution and the trinucleotide sequence context from the number of false positive mutations (Methods, Figure \ref{}).
+Using the false positive substitutions obtained from the cord blood sample, I calculated that the CCS error rate for the Q93 CCS base ranges from Q60 to Q90, depending on the substitution and the trinucleotide sequence context (Methods, Figure \ref{figure:ccs-error-rate-per-substiution-per-trinucleotide-sequence-context}).
 
-%\begin{figure}[h!]
-%\caption{}
-%\floatfoot{}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{CCS error rate per substitution per trinucleotide sequence context}
+\label{figure:ccs-error-rate-per-substiution-per-trinucleotide-sequence-context}
+\includegraphics[width=\textwidth]{Vector/ccs_error_rate.pdf}
+\end{figure}
 
 
 \subsection{CCS BQ score estimation and recalibration} 
 
 The presence of the CCS error profile across all the samples suggests that these errors originate from a process upstream of somatic mutation detection and hence, library, sequencing and software errors are potential sources of false positive mutations. I was able to pinpoint software errors in BQ score estimation as the main source of false positive mutations using CCS reads with uncapped BQ scores, deepConsensus polished CCS reads and CCS reads with recalibrated BQ scores (Methods). 
 
-CCS BQ score ranges from Q1 to Q93 and the ASCII character encoding format cannot support BQ score above Q93. CCS bases with Q94 base accuracy, for example, will be assigned Q93 BQ score. I, first, assessed whether somatic mutation detection from CCS bases with BQ score greater than Q93 will generate a mutational spectrum that is more consistent with the mutational spectrum that is expected from the normal cord blood granulocyte sample. Unfortunately, the cord blood granulocyte mutational spectrum from higher BQ scores still remained discordant to the expected mutational spectrum (Figure \ref{})
+CCS BQ score ranges from Q1 to Q93 and the ASCII character encoding format cannot support BQ score above Q93. CCS bases with Q94 base accuracy, for example, will be assigned Q93 BQ score. I, first, assessed whether somatic mutation detection from CCS bases with BQ score greater than Q93 will generate a mutational spectrum that is more consistent with the mutational spectrum that is expected from the PD48473b sample. 
 
-%\begin{figure}
-%\caption{}
-%\floatfoot{}
-%\end{figure}
+CCS BQ scores range from Q1 to Q93, as the ASCII character encoding format does not support scores above Q93; CCS bases with Q94 accuracy are assigned a Q93 BQ score. To determine whether somatic mutation detection from CCS bases BQ score higher than Q93 will generate a mutational spectrum that is more consistent with what is expected from each sample, CCS reads with uncapped BQ scores were generated using a modified version of the pbccs algorithm (Methods). A smaller number of false positive ATT>AAT and CTT>CCT substitution occur in PD48473b sample when CCS bases with higher BQ score are used (Figure \ref{figure:PD48473b-ccs-uq}). However, the same analysis in PD47269d shows that higher BQ score are still not accurately calibrated (Figure \ref{figure:PD47269d-ccs-uq}).
 
-Google has developed deepConsensus to address some of the issues, but deepConsensus still fails to calculate the correct BQ score and assigns a conservative BQ score to the CCS bases. To generate polished CCS reads, subread are aligned to the CCS read from the same ZMW using actc \cite{}. Afterwards, deepConsensus uses these alignments to polish each CCS read and to assign a BQ score between Q1 and Q50. As discussed above, I estimated that Q93 CCS base accuracy ranges from Q60 to Q90 depending on the substitution and trinucleotide sequence context. I, hence, think that CCS BQ score estimates from deepConsensus are also inaccurate. In addition, somatic mutation detection with Q50 CCS bases from deepConsensus polished CCS reads also does not yield the expected mutational spectrum, corroborating the above observation (Figure \ref{}). I conjecture that their model does not consider somatic mutations and in fact, classifies somatic mutations as errors, which leads to inaccurate BQ score estimations.  
+\begin{figure}[htbp!]
+\caption{PD48473b mutational spectrum from CCS bases with uncapped BQ scores}
+\label{figure:PD48473b-ccs-uq}
+\includegraphics[width=0.9\textwidth]{Vector/KX004_PD48473b_ccs_uq.pdf}
+\floatfoot{The mutational spectrum in the second row is derived from haplotype phased somatic mutations from CCS bases with BQ score equal or greater than 93. The mutational spectrum in the third row is derived from haplotype phased somatic mutations from CCS bases with BQ score equal or greater than 100. The red triangle indicates where the number of substitutions is above what is expected compared to the gold-standard mutational spectrum in the first row.}
+\end{figure}
 
-%\begin{figure}
-%\caption{}
-%\floatfoot{}
-%\end{figure}
+\begin{figure}[htbp!]
+\caption{PD47269d mutational spectrum from CCS bases with uncapped BQ scores}
+\label{figure:PD47269d-ccs-uq}
+\includegraphics[width=0.9\textwidth]{Vector/CB001_PD47269d_ccs_uq.pdf}
+\floatfoot{The use of CCS bases with higher BQ does not recover the expected mutational spectrum from PD47269d sample.}
+\end{figure}
 
-Under the assumption SMRT sequencing errors are random and that inaccurate BQ score estimation is the main source of false positive mutations. To test this hypothesis, CCS bases with unanimous support from subreads were identified and were used for somatic mutation detection (Methods). The expected mutational spectrum was recovered from the cord blood granulocyte sample, suggesting that in accurate BQ score estimation and not sequencing error is the primary source of false positive mutations (Figure \ref{}). 
+Google Health has also developed deepConsensus \cite{Baid2022-or} to address some of the issues associated with inaccurate BQ score estimation. Here, I used deepConsensus to polish and recalibrate the BQ scores of CCs reads from both PD47269d and PD48473b samples. Afterwards, somatic mutations were called from these polished CCS reads (Method). CCS reads polished with deepConsensus have BQ score that ranges from Q1 to Q60, a conservative estimate considering that CCS Q93 bases actually have empirical BQ score that ranges from Q60 to Q90. However, somatic mutations detected from CCS bases with BQ score greater than Q50 yielded mutational spectra with greater similarity to gold-standard mutational spectra, demonstrating that inaccurate BQ score estimation is the source of false positive mutations and that correct BQ score estimates can increase himut sensitivity further (Figure \ref{figure:PD47269d-PD48473b-deepConsensus}). 
+
+\begin{figure}[htbp!]
+\caption{PD47269d and PD48473b from deepConsensus polished CCS reads}
+\label{figure:PD47269d-PD48473b-deepConsensus}
+\includegraphics[width=0.9\textwidth]{Vector/CB001_PD47269d_KX004_PD48473b_deepConsensus.pdf}
+\end{figure}
+
+%Under the assumption SMRT sequencing errors are random and that inaccurate BQ score estimation is the main source of false positive mutations. To test this hypothesis, CCS bases with unanimous support from subreads were identified and were used for somatic mutation detection (Methods). The expected mutational spectrum was recovered from the cord blood granulocyte sample, suggesting that in accurate BQ score estimation and not sequencing error is the primary source of false positive mutations (Figure \ref{}). 
 
 %\begin{figure}
 %\caption{}
@@ -532,7 +544,6 @@ The default base-level conditions for himut are defined below:
 
 Somatic mutations were called in both positive and negative control samples using himut with default parameters. Somatic mutation detection was also restricted to the autosomes as sex chromosomes are enriched for misassembled regions and repetitive sequences \cite{Skaletsky2003-sr}.
 
-
 \subsection{Panel of Normal construction}
 
 To generate a PoN VCF file, publicly available CCS dataset from 11 normal unrelated individuals was collected \cite{Zook2019-pm} (Table \ref{tab:pon-fastq-statistics}) and processed as described above to generate merged and sorted primary read alignments. Afterwards, somatic mutations were identified from these samples using himut with less stringent parameters (--min\_qv 20 -{}-min\_mapq 30 –{}-min\_trim 0 –{}-min\_sequence\_identity = 0.8 -{}-min\_gq –{}-min\_bq = 20) to maximise the number of mutations called from each sample. 
@@ -638,7 +649,7 @@ BC-1 mutational spectrum was compared with SBS2 mutational signature, HT-115 mut
 
 \subsection{Somatic mutation detection sensitivity and specificity}
 
-The number of true positive (TP), false positive (FP), true negative (TN) and false negative (FN) somatic mutations were calculated from filtered and passed somatic mutations using MutationalPatterns R package \cite{Blokzijl2018-jo}. Afterwards, sensitivity, specificity and F1-score were derived as such: (equation \ref{eq:sensitivity-specificity})
+The number of true positive (TP) and false positive (FP) were calculated from passed somatic mutations, and true negative (TN) and false negative (FN) were calculated from filtered somatic mutations through mutational signature analysis. Using the MutationalPatterns R package \cite{Blokzijl2018-jo}, the contribution of each COSMIC mutational signatures to the mutation burden of the positive control samples were measured. Afterwards, somatic mutations derived from the expected mutational signature were identified as true positives (BC-1: SBS2, HT-115: SBS10a, SBS10b and SBS28, PD48473b: SBS1 and SBS5) and the rest were identified as false positives. A similar analysis was performed with filtered mutations to determine true negatives and false negatives. Afterwards, sensitivity, specificity and F1-score were derived as such: (equation \ref{eq:sensitivity-specificity})
 
 \begin{equation}
 \begin{aligned} 
@@ -648,8 +659,6 @@ The number of true positive (TP), false positive (FP), true negative (TN) and fa
 \end{aligned}
 \label{eq:sensitivity-specificity}
 \end{equation}
-
-
 
 \subsection{CCS error rate per trinucleotide sequence context}
 
@@ -673,26 +682,25 @@ The normalised SBS96 counts were adjusted with the expected number of somatic mu
 \text{C>A error rate for ACA context} = \frac{\text{false positive } S_{\text{ACA>AAA}}}{t^{\text{CCS}}_{\text{ACA}}}
 \end{equation}
 
-
-
-
-
 \subsection{CCS base quality score recalibration}
 
-To re-calculate the CCS BQ scores, actc \cite{actc} was used to align subreads to CCS reads from the same ZMW and the resulting BAM file was provided as input towards deepConsensus (v1.1.0, 37fb6b2) \cite{Baid2022-or} and for partial order alignment based BQ score recalibration. Afterwards, CCS reads with recalibrated BQ scores were processed as described above to call somatic mutations and assess. 
+\subsubsection{CCS reads with uncapped base quality scores}
+ 
+Aaron Wenger at PacBio provided ccs-uq to generate CCS reads with uncapped base quality scores for the PD48473b sample. The raw subreads BAM file was used as input to ccs-uq for this purpose.
 
 \subsubsection{DeepConsensus}
+To re-calculate the CCS BQ scores, actc \cite{actc} was used to align subreads to CCS reads from the same ZMW. DeepConsensus (v0.3.0, 3f7eca9) accepts as input the actc BAM file where subreads have been aligned to CCS read from the same ZMW and BAM file with CCS reads and returns as output polished CCS reads with recalibrated BQ score \cite{Baid2022-or}. Afterwards, CCS reads with recalibrated BQ scores were processed as described above to call somatic mutations and assess. 
 
-DeepConsensus accepts as input the actc BAM file where subreads have been aligned to CCS read from the same ZMW and BAM file with CCS reads and returns as output polished CCS reads with recalibrated BQ score. 
 
-\subsubsection{CCS bases with unanimous support from subread bases}
 
-To find CCS bases where all the subread bases support the CCS base, actc BAM file is processed to determine the median subread length per ZMW, to determine the sequence orientation of subreads relative to the CCS read and return a FASTA file per ZMW with CCS reads and 10 full-length subreads. As before, a full-length subread is defined as a subread that has a length between 0.8 $\times$ median subread length and $1.2 \times$ median subread length, and first and last subreads are not returned to the FASTA file. A partial order alignment is constructed from each FASTA file using abPOA \cite{Gao2021-nf}. The resulting multiple sequence alignment is analysed to identify CCS bases where all the subread bases support the CCS base and Q93 BQ score is assigned to the CCS base, while a BQ score is calculated as such for all other CCS base (equation \ref{eq:bq-score-calculation})
-
-\begin{equation}
-\text{BQ} = -10\log10 \Biggl(\epsilon^k {n \choose k}\Biggl)
-\label{eq:bq-score-calculation}
-\end{equation}
-
-where $\epsilon$ is a constant error prior of 0.1 for all bases, $n$ is the number of subreads, which is also a constant at 10, and $k$ is the number of subreads supporting the CCS base.
+%\subsubsection{CCS bases with unanimous support from subread bases}
+%
+%To find CCS bases where all the subread bases support the CCS base, actc BAM file is processed to determine the median subread length per ZMW, to determine the sequence orientation of subreads relative to the CCS read and return a FASTA file per ZMW with CCS reads and 10 full-length subreads. As before, a full-length subread is defined as a subread that has a length between 0.8 $\times$ median subread length and $1.2 \times$ median subread length, and first and last subreads are not returned to the FASTA file. A partial order alignment is constructed from each FASTA file using abPOA \cite{Gao2021-nf}. The resulting multiple sequence alignment is analysed to identify CCS bases where all the subread bases support the CCS base and Q93 BQ score is assigned to the CCS base, while a BQ score is calculated as such for all other CCS base (equation \ref{eq:bq-score-calculation})
+%
+%\begin{equation}
+%\text{BQ} = -10\log10 \Biggl(\epsilon^k {n \choose k}\Biggl)
+%\label{eq:bq-score-calculation}
+%\end{equation}
+%
+%where $\epsilon$ is a constant error prior of 0.1 for all bases, $n$ is the number of subreads, which is also a constant at 10, and $k$ is the number of subreads supporting the CCS base.
 
