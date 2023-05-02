@@ -2,7 +2,7 @@
 %*******************************************************************************
 %****************************** Third Chapter **********************************
 %*******************************************************************************
-\chapter{Germline and somatic mutational processes across the tree of life}
+\chapter{Germline and somatic mutational processes across the Tree of Life}
 
 % **************************** Define Graphics Path **************************
 \ifpdf
@@ -11,9 +11,8 @@
     \graphicspath{{Chapter3/Figs/Vector/}{Chapter3/Figs/}}
 \fi
 
-
-\section{Introduction}
-
+\textit{Both in space and time, we seem to be brought somewhat near to that great fact—the mystery of mysteries—the first appearance of new beings on this earth \cite{}}
+\begin{flushright} [Charles Darwin] \end{flushright}
 
 \section{Introduction}
 
@@ -21,19 +20,9 @@ Somatic mutations can occur in cells at all stages of life and in all tissues.
 
 \subsection{The Darwin Tree of Life Project}
 
+To date, the DToL consortium has collected, prepared, and sequenced approximately $\sim$3000 eukaryotic samples in Great Britain and Ireland. In addition, reference genomes for around 600 eukaryotic species have been assembled and made available to the public, which is accompanied by a genome note that details the process from sample acquisition to chromosome-length scaffold construction. 
+
 \subsection{CCS sequencing and \textit{de novo} assembly}
-
-\section{Results}
-
-\subsection{Somatic mutation detection}
-
-\subsubsection{Phorcus lineatus somatic mutation rate}
-
-
-
-\subsection{Germline and somatic mutational processes}
-
-\section{Conclusion}
 
 
 
@@ -41,30 +30,29 @@ Somatic mutations can occur in cells at all stages of life and in all tissues.
 
 \subsection{CCS library preparation, sequencing and \textit{de novo} assembly}
 
-To date, the DToL consortium has collected, prepared, and sequenced approximately $\sim$3000 eukaryotic samples in Great Britain and Ireland. In addition, reference genomes for around 600 eukaryotic species have been assembled and made available to the public, which is accompanied by a genome note that details the process from sample acquisition to chromosome-length scaffold construction. 
-
-The DToL project initially used a combination of sequencing (CLR, CCS and linked reads) and scaffolding (e.g. Hi-C reads and BioNano genome maps) technologies to generate chromosome-length scaffolds. The DToL project currently uses HiFiAdapterFilter \cite{} to remove CCS reads with adapter sequences, either hifiasm \cite{} or hicanu \cite{} for \text{de novo} assembly of contigs from CCS reads, purgedups \cite{} to remove haplotype duplication, arrow \cite{} for contig polishing and SALSA \cite{} to order and orient contigs into chromosome-length scaffolds with Hi-C reads. If both the parent and child was sequenced, trio-canu was used to generate haplotype phased contigs. The chromosome-length scaffolds are, thereafter, manually curated using a Hi-C contact matrix to identify and correct misassemblies and to perform additional scaffolding where appropriate. If transcriptome data was available through either RNA or isoform sequencing, gene annotation was also performed in collaboration with the EMBL-EBI eukaryotic annotation team. The specific method and algorithm described here is subject to change with updates to the sequencing method, \textit{de novo} assembly and scaffolding algorithm. 
+The DToL project initially used a combination of sequencing (CLR, CCS and linked reads) and scaffolding (e.g. Hi-C reads and BioNano genome maps) technologies to generate chromosome-length scaffolds. The DToL project currently uses HiFiAdapterFilter \cite{} to remove CCS reads with adapter sequences, either hifiasm \cite{} or hicanu \cite{} for \text{de novo} assembly of contigs from CCS reads, purgedups \cite{} to remove haplotype duplication, arrow \cite{} for contig polishing and SALSA \cite{} to order and orient contigs into chromosome-length scaffolds with Hi-C reads. If both the parent and child were sequenced, trio-canu was used to generate haplotype phased contigs. Aftwards, the chromosome-length scaffolds were manually curated using a Hi-C contact matrix to identify and correct misassemblies and to perform additional scaffolding where appropriate. If transcriptome data were available through either RNA or isoform sequencing, gene annotation was also performed in collaboration with the EMBL-EBI eukaryotic annotation team. The specific method and algorithm described here was subject to change with updates to the sequencing method, \textit{de novo} assembly and scaffolding algorithm. 
 
 \subsection{\textit{Phorcus lineatus} somatic mutation rate measurement}
 
 To calculate the somatic mutation rate of \textit{P. lineatus} (thick top shell), samples of different ages (3, 5 and 15) were collected from Plymouth, UK. Collaborators at the Marine Biological Association (MBA) determined the age of the samples from growth marks on the shells of samples. As recommended, a bench-mounted vice was first used to crush the shell and to carefully separate the sample from the shell (personal communication with Robert Mrowicki at the MBA). In addition, disposable scalpels were used during the dissection to prevent cross-contamination between the samples. HMW DNA was subsequently extracted from the foot muscle using the Circulomics Nanobind Tissue Big DNA Kit (SKU 102-302-100). CCS libraries were prepared following the low-input CCS library preparation protocol () and BluePippin system () was used to size select CCS libraries prior to sequencing.
 
-CCS BQ score is a function of the number of supporting subreads and the concordance between the CCS base and subread bases. The DNAP processivity and CCS read length determine the number of full-length subreads per CCS read, which in turn influences the number of Q93 CCS bases from which potential somatic mutations can be identified. To account for the differences in the number of subreads per CCS read for each ZMW, the raw subreads BAM file was parsed using a custom script to select 10 full-length subreads per ZMW. The script calculates the median subread length for each ZMW and considers subreads between 0.9 times the median subread length and 1.1 times the median subread length as full-length subreads. The processed subreads BAM file was, thereafter, provided as an input to the pbccs algorithm to re-generate CCS reads. CCS reads were subsequently processed as described in chapter 2 and below. Except for the \textit{P. lineatus} somatic mutation rate measurement, CCS reads generated with default pbccs parameters for used for the rest of the analysis. 
+CCS BQ score is a function of the number of supporting subreads and the concordance between the CCS base and subread bases. The DNAP processivity and CCS read length determine the number of full-length subreads per CCS read, which in turn influences the number of Q93 CCS bases from which potential somatic mutations can be identified. To account for the differences in the number of subreads per CCS read for each ZMW, the raw subreads BAM file was parsed using a custom script to select 10 full-length subreads per ZMW. The script calculates the median subread length for each ZMW and considers subreads between 0.8 times the median subread length and 1.2 times the median subread length as full-length subreads. The processed subreads BAM file was, thereafter, provided as an input to the pbccs algorithm to re-generate CCS reads. CCS reads were subsequently processed as described in chapter 2 and below. Except for the \textit{P. lineatus} somatic mutation rate measurement, CCS reads generated with default pbccs parameters are used for the rest of the analysis. 
 
-\subsection{Germline and somatic mutation detection}
+\subsection{Germline and somatic mutation detection across the Tree of Life}
 
-As detailed in chapter 2, CCS reads with adapter sequences were identified using HiFiAdapterFilt \cite{} and subsequently discarded. In addition, if ultra-low input CCS library preparation protocol was used for CCS generation and if this was documented, CCS reads were also excluded from downstream sequence analysis (this information, however, was not always available). CCS reads were, thereafter, aligned to the assembled reference genomes using minimap2 \cite{} and primary alignments were selected, sorted and merged into a single BAM file using samtools \cite{}. Germline mutations were called using deepvariant \cite{}. Somatic mutations were detected, and mutation burden was calculated using himut with default parameters. In addition, heterozygous SNPs were phased to construct haplotype blocks using himut, and haplotype phased CCS reads were subsequently used to call haplotype phased somatic mutations where applicable. Somatic mutation detection was again restricted to the autosomes of the reference genome. 
+As detailed in chapter 2, CCS reads with adapter sequences were identified using HiFiAdapterFilt \cite{} and subsequently discarded. In addition, if ultra-low input CCS library preparation protocol was used for CCS generation and if this was documented, CCS reads were also excluded from downstream sequence analysis (this information, however, was not always available). CCS reads were, thereafter, aligned to the assembled reference genomes using minimap2 \cite{} and primary alignments were selected, sorted and merged into a single BAM file using samtools \cite{}. Germline mutations were called using deepvariant \cite{} and somatic mutations detected using himut. 
 
-As CCS reads and reference genomes are derived from the same sample, homozygous germline mutations indicate assembly errors and analysis of germline mutations are restricted to heterozygous mutations for samples with a diploid genome.
+As CCS reads and reference genomes are derived from the same sample, homozygous germline mutations indicate assembly errors and analysis of germline mutations are restricted to heterozygous mutations for samples with a diploid genome. On the other hand, if a sample has a haploid genome, heterozygous mutations are not expected from the sample. In the order Hymenoptera, male individuals develop from an unfertilised egg and have a haploid genome. 
 
-The detection of somatic mutations across the tree of life followed a similar approach to the one described in chapter 2, but with minor modifications. When somatic mutations were called from DToL eukaryotic species, a VCF file containing germline mutations was supplied to himut to calculate heterozygosity ($\theta$) and the genotype prior $P(G)$. In addition, because a single sample was sequenced per species and as population-scale sequencing studies has not been performed for these species, PoN VCF file could not be generated and VCF file with common SNPs were not available for distinguishing false positive substitutions arising from systematic errors and gDNA contamination, respectively. However, given that CCS library and reference genome originate from the same sample, false positive substitutions arising from alignment errors should be minimal and CCS reads resulting from gDNA contamination should be excluded from the analysis based on their sequence identity.
+The detection of somatic mutations across the tree of life required some minor modifications to reflect differences in the experimental design and sample heterozygosity. When somatic mutations were called from DToL eukaryotic species, a VCF file containing germline mutations was supplied to himut to calculate heterozygosity ($\theta$) and the genotype prior $P(G)$. In addition, because a single sample was sequenced per species and as population-scale sequencing studies have not been performed for these species, a PoN VCF file could not be generated and a VCF file with common SNPs were not available to distinguish false positive substitutions arising from systematic errors and gDNA contamination, respectively. However, given that CCS library and the reference genome originate from the same sample, false positive substitutions arising from alignment errors should be minimised and CCS reads resulting from gDNA contamination should be excluded from the analysis based on their sequence identity or their haplotype.
 
 \subsection{Mutational signature extraction and analysis}
 
 As described in chapter 1, there are 6 substitution types (C>A, C>G, C>T, T>A, T>C, T>G) in the pyrimidine context and 16 trinucleotide sequence contexts for each substitution class, creating the canonical SBS96 classification system. Since the ancestral allele is known for somatic mutations, the SBS96 classification system is often used to categorise somatic substitutions. In contrast, because the ancestral allele is unknown for germline mutations, the SBS52 classification system is used for germline substitution classification. 
 
-Here, I describe the SBS52 classification system and how the SBS96 classification system is transformed into the SBS52 classification system. The need for the SBS52 classification system arises from the fact that certain germline substitutions are indistinguishable from one another because the reference base cannot be assumed to be the ancestral allele; as the reference genome is sequenced and assembled from a randomly sampled individual, the haplotype containing the germline mutation could have also been the reference sequence. For instance, a C>A substitution in the AAA trinucleotide sequence context on the forward strand cannot be distinguished from a T>G substitution in the TTT trinucleotide sequence context on the reverse strand. Similarly, C>T substitutions cannot be differentiated from T>C substitutions. In addition, a C>G (T>A) substitution in a certain trinucleotide sequence context is interchangeable with another C>G (T>A) substitution in a different trinucleotide sequence context. Organised in Table \ref{tab:SBS52} is the complete transformation of the SBS96 classification system into the SBS52 classification system. 
+Here, I describe the SBS52 classification system and how the SBS96 classification system is transformed into the SBS52 classification system. The need for the SBS52 classification system arises from the fact that certain germline substitutions are indistinguishable from one another because the reference base cannot be assumed to be the ancestral allele; as the reference genome is sequenced and assembled from a randomly sampled individual, the haplotype containing the germline mutation could have also been the reference sequence. For instance, a C>A substitution in the AAA trinucleotide sequence context on the forward strand cannot be distinguished from a T>G substitution in the TTT trinucleotide sequence context on the reverse strand. Similarly, C>T substitutions cannot be differentiated from T>C substitutions. In addition, a C>G (T>A) substitution in a certain trinucleotide sequence context is interchangeable with another C>G (T>A) substitution in a different trinucleotide sequence context. Organised in Table \ref{} is the complete transformation of the SBS96 classification system into the SBS52 classification system. 
 
+After categorising germline and somatic substitutions based on the SBS52 and SBS96 classification system, SBS52 and SBS96 counts were processed as described below for \textit{de novo} mutational signature extraction using HDP with 10 independent chains with a burn-in of 20,000 \cite{}. 
 
 \begingroup
 \setlength{\LTleft}{-20cm plus -1fill} %% centering
@@ -128,35 +116,50 @@ SBS52 & \makecell{forward strand \\ (reference centred)} & \makecell{reverse str
 \end{longtable}
 \endgroup
 
-After categorising germline and somatic substitutions based on the SBS52 and SBS96 classification system, SBS52 and SBS96 counts were processed as described below for \textit{de novo} mutational signature extraction using HDP \cite{}
-
 \subsubsection{SBS96 mutational signature extraction}
+
 
 As detailed in chapter 2, SBS96 counts were normalised according to the number of callable CCS bases, callable reference bases and the trinucleotide distribution in the autosomes of the reference genome. Somatic SBS96 counts in each species is a linear combination of true positive substitutions from somatic mutational processes and false positive substitutions from library, sequencing, and software errors. 
 
-The number of false positive substitutions for each SBS96 classification, however, can be estimated from the substitution and trinucleotide sequence context dependent CCS error rate, which was determined in chapter 2, and the number of CCS trinucleotides from which somatic mutations could have been potentially called. These estimates can then be subtracted to obtain SBS96 counts where true positive substitution counts is better presented. If the same CCS library preparation protocol was not used for the DToL and the cord blood granulocyte sample, the estimation and subtraction of false positive substitutions from each SBS96 category may not be as effective in improving the signal-to-noise ratio. If a different protocol, for example, was used to extract HMW DNA and prepare a CCS library, false positive substitutions could be generated from an uncharacterized error process distinct from that identified in chapter 2.
+The number of false positive substitutions for each SBS96 classification, however, can be estimated from the substitution and trinucleotide sequence context dependent CCS error rate, which was determined in chapter 2, and the number of CCS trinucleotides from which somatic mutations could have been potentially called. These estimates can then be subtracted to obtain SBS96 counts where true positive substitution counts therefore predominate. If the same CCS library preparation protocol was not used for the DToL and the cord blood granulocyte sample, the estimation and subtraction of false positive substitutions from each SBS96 category may not be as effective in improving the signal-to-noise ratio. If a different protocol, for example, was used to extract HMW DNA and prepare a CCS library, false positive substitutions could be generated from an uncharacterized error process distinct from that identified in chapter 2.
 
-After speciation, ongoing somatic mutational process(es) in germline stem cells depletes the trinucleotide sequence context it acts upon and shapes the trinucleotide distribution. To account for differences in trinucleotide distribution in each species, SBS96 counts are further normalised such that each trinucleotide sequence context equally contributes to the total SBS96 count (eq \ref{}). This normalisation further increases the signal-to-noise ratio of somatic mutational processes, particularly those with a higher somatic mutation rate and that are shared between the somatic and germline cells. 
+After speciation, ongoing somatic mutational processes in germline stem cells deplete the trinucleotide sequence context they act upon and thereby shaping the trinucleotide distribution. To account for differences in trinucleotide distribution in each species, SBS96 counts are further normalised such that each trinucleotide sequence context equally contributes to the total SBS96 count (eq \ref{}). This normalisation further increases the signal-to-noise ratio of somatic mutational processes, particularly those with a higher somatic mutation rate and that are shared between the somatic and germline cells. 
 
-Before \textit{de novo} mutational signature extraction, normalised SBS96 counts from each species are organised into a single matrix, samples with less than 100 somatic mutations are removed from the matrix and the total somatic mutation count for each species is normalised to the median somatic mutation count. After mutational signature extraction, each mutational signature was inspected for the following qualities to distinguish mutational signatures arising from ongoing somatic mutational processes in the sample or from library and sequencing errors upstream of sequence analysis. 
+Before \textit{de novo} mutational signature extraction, normalised SBS96 counts from each species are organised into a single matrix, samples with less than 100 or more than 50,000 somatic mutations are removed from the matrix and the total somatic mutation count for each species is normalised to the median somatic mutation count. After mutational signature extraction, each mutational signature was inspected for the following qualities to distinguish mutational signatures arising from ongoing somatic mutational processes in the sample or from library and sequencing errors upstream of sequence analysis. Error signatures had at least one of the following qualities. 
 
+\begin{description}
+    \item[Error signatures:]
+\end{description}
+\begin{enumerate}
+  \item The number of somatic mutations is multiple of the number of germline mutations. 
+  \item The somatic mutational spectrum was markedly dissimilar to the germline mutational spectrum. 
+\item The same somatic mutational spectrum was present in phylogenetically unrelated species.
+\item The mutational spectrum was similar to the normal cord blood granulocyte mutational spectrum, characterised in chapter 2, where false positive mutations arising from inaccurate BQ score estimation is the main contributor to the mutational spectrum. 
+\end{enumerate}
+
+Mutational signatures were required to have at minimum one of the following characteristics. 
+
+\begin{description}
+    \item[Mutational signatures:]
+\end{description}
 \begin{enumerate}
 \item The mutational signature is similar to those found in the COSMIC mutational signature database.
-\item The mutational signature is present in another species in the same phyla 
+\item The mutational signature is present in another species in the same phyla. 
 \item The mutational signature has biological replicates (e.g. idPlaAlba and xgPhoLine).
-\item The mutational signature has transcriptional-strand bias
-\item The mutational signature is similar to the germline mutational spectrum.
-\item The attribution of the mutational signature to the total mutation burden in the sample 
-\item The number of somatic mutations associated with the mutational signature is not a multiple of the number of germline mutations. 
+\item The mutational signature has transcriptional-strand bias.
+\item The mutational signature is highly similar to the germline mutational spectrum.
+\item The mutational signature is a component of the germline mutational spectrum
+\item The mutational signature is a main contributor to the total mutational burden in the sample. 
+\item The aetiology of the mutational signature can be inferred from the base modifications present in the sample. 
 \end{enumerate}
 
 \subsubsection{Independent biological replication of mutational signatures}
 
-To confirm that identified mutational signatures are the result of a biological process and not stochastic errors,
+To confirm that identified mutational signatures are the result of a biological process and not stochastic errors, a further 1 \textit{Cantharis rustica} (sailor beetle), 1 \textit{Athalia rosae} (coleseed sawfly), 3 \textit{Vespula vulgaris} (common wasp), 2 \textit{Platycheirus albimanus} (white-footed hoverfly) and 8 \textit{Syritta pipiens}  (thick-legged hoverfly) samples were sequenced and analysed as described above to call somatic mutations. MutationalPatterns R package \cite{} was used to determine the attribution of identified mutational signatures in these samples. 
 
 \subsubsection{Mutational signatures with transcriptional-strand bias}
 
-
+Somatic mutagenesis with transcriptional bias can result in unequal distribution of somatic mutations across the two DNA strands. Transcriptional-coupled repair (TCR) \cite{} and transcriptional-coupled damage (TCR) \cite{} promotes the disproportionate accumulation of somatic mutations on the un-transcribed strand and transcribed strand, respectively. If gene annotations were available from species where mutational signatures were identified, SigProfilerMaxtrixGenerator \cite{} was used to generate SBS288 counts where SBS96 counts are sub-classified based on their occurrence on the transcribed, un-transcribed and non-transcribed. SigProfilerMaxtrixGenerator categorises the SBS96 into SBS288 depending on the pyrimidine base and orientation of the coding strand relative to the orientation of the reference genome.  
 
 \subsubsection{SBS52 mutational signature extraction}
 
@@ -166,6 +169,175 @@ Through mutational signature extraction from normalised germline and somatic SBS
 
 \subsection{Timing the emergence of somatic mutational processes}
 
-The phylogenetic relationship between 518 species and the time of speciation was inferred from phylogenetic tree available at http://www.timetree.org and relevant information from academic literature. The birth of new species with new somatic mutational processes was used to time the emergence of new somatic mutational processes. The time at which the new somatic mutational process is estimated to have emerged will have to be updated with the ongoing efforts from the DToL consortium.  
+The phylogenetic relationship between 518 species and the time of speciation was inferred from a phylogenetic tree available at http://www.timetree.org and relevant information from academic literature. The birth of new species with new somatic mutational processes was used to time the emergence of new somatic mutational processes. The time at which the new somatic mutational process is estimated to have emerged will have to be updated with the ongoing efforts from the DToL consortium.  
+
+\section{Results}
+
+\subsection{CCS sequencing and assembly statistics}
+
+\subsection{\textit{Phorcus lineatus} somatic mutation rate}
+
+To evaluate whether somatic mutation detection in non-human samples is possible with himut, \textit{P. lineatus} samples of different ages (3, 5 and 15) were sequenced and analysed (Methods, Table \ref{}). As many endogenous somatic mutational processes tend to be a continuous throughout life, mutation burden usually increases as a function of age. If himut is successful at calling somatic mutations in non-human samples, mutation burden in \textit{P. lineatus} should, therefore, also increase with age and should allow us to calculate the somatic substitution rate. If age and mutation burden are not positively correlated, additional factors not investigated in chapter 2 must be affecting the somatic mutation detection sensitivity or specificity. 
+
+The CCS read length of \textit{P. lineatus} samples is 2 to 3 times shorter on average than that of the cancer cell line and normal blood granulocyte samples described in chapter 2. If DNAP processivity is a constant in sequencing of both \textit{P. lineatus} and human samples, the number of subreads per CCS read length is expected to be higher for the \textit{P. lineatus} samples. As expected, the number of subreads per CCS read in \textit{P. lineatus} is 2 to 3 times that in the human samples. The higher number of subreads per CCS read length is reflected in the higher proportion of CCS bases with Q93 BQ score, which increases both the number of bases from which somatic mutation could have been called from and the number of called somatic mutations (Table \ref{}). 
+
+In chapter 2, I established that inaccurate estimation of BQ score is one of the main causes of false positive somatic mutation detection. The higher number of subreads per CCS read increases the proportion of CCS bases with Q93 BQ score and inflates the mutation burden of samples with shorter CCS read length. To address the differences in average CCS read length between the samples, CCS reads are re-generated such that the number of subreads per CCS read is a constant and age is the only variable (Methods). In contrast to the previous result, the same downstream sequence analysis with the newly generated CCS reads shows a linear relationship between age and mutation burden and somatic substitution rate in \textit{P. lineatus} foot muscle is calculated to be 45.5 somatic substitutions per cell per year (Fig \ref{}), demonstrating that himut is applicable in non-human samples. 
+
+%\begin{figure}[h!]
+%\caption{}
+%
+%\floatfoot{}
+%\end{figure}
+
+
+\subsubsection{Mutational signature extraction and analysis}
+
+After showing that himut can be applied to non-human samples, I used himut to call somatic mutations in 518 eukaryotic species from the DToL project (Methods). Somatic mutations were categorised according to the SBS96 classification system. SBS96 counts were subsequently normalised based on the number of callable CCS and reference bases and sample specific trinucleotide distribution (Methods). The normalisation step was critical in increasing the signal-to-noise ratio of somatic mutational processes prior to mutational signature extraction (Fig \ref{}). 
+
+%\begin{figure}[h!]
+%\caption{}
+%
+%\floatfoot{}
+%\end{figure}
+
+\begin{table}[h!]
+\caption{Tree of Life mutational signatures}
+\label{tab:somatic-mutational-signatures}
+\begin{adjustbox}{max width=1.1\textwidth,center}
+\begin{tabular}{lllll}
+\toprule
+\textbf{TOL signature} & \textbf{Kingdom} & \textbf{Phylum/Order} & \textbf{Species} \textbf{Time of emergence} \\ \hline
+TOL1a/b & Animal, Plant, Fungi & Annelids, Birds, Dicots, Fish, Fungi, Mammals, Molluscs, Monocots & & \\ \hline %% COSMIC: SBS1, TOL: SBS8, SBS13
+TOL2 & Plant & Dicots and Monocots & & \\ \hline %% TOL: SBS18
+TOL3 & Animal and Protist & Insect and Euglenozoa & ucDunPrim2 & \\ \hline %% COSMIC: SBS7, TOL: SBS17
+TOL4 & Animal and Protist & Insect and Euglenozoa & idBomDisc1, ucDunPrim2 & \\ \hline %% COSMIC: SBS7, TOL: SBS19
+TOL5 & Animal & Insect &  & \\ \hline %% TOL: SBS20
+TOL6 & Animal & Insect & idBomDisc1 & \\ \hline %% TOL: SBS26
+TOL7 & Animal & Insect & & \\ \hline %% TOL: SBS21
+TOL8 & Animal & Insect & & \\ \hline %% TOL: SBS22
+TOL9 & Animal & Insect & & \\ \hline %% TOL: SBS24
+TOL10 & Animal & Insect & iyDolSaxo1 & \\ \hline %% TOL: SBS40
+TOL11 & Animal & Insect & idSyrPipi1 & \\ \hline %% TOL: SBS23
+TOL12 & Animal & Insect & idPlaAlba1 & \\ \hline %% TOL: SBS36
+TOL13 & Animal & Insect & ilBlaLact1, ilVanAtal1 & \\ \hline %% TOL: SBS38
+%TOL3 & Animal & Algae and Insect & ucDunPrim2, idBomDisc1 \\ \hline %% SBS7,
+%TOL4 & & & \\ \hline
+ %Genomic DNA source                   & \multicolumn{2}{c}{Cell line} & \multicolumn{2}{c}{Blood granulocyte} \\  \hline
+%Age (years)                 		 & - & - & 0 & 82  \\ \hline
+%CCS read count                       &  5,962,252 &  5,933,281 & 12,156,251 & 4,949,180 \\ \hline
+%Mean length $\pm$ std (bp)  & 18,571 $\pm$     & 17,038 $\pm$   &  16,523 $\pm$ 3,752 & 18,263 $\pm$ 1,753 \\ \hline
+%Q93 bases (\%) 						 & 51.4 & 55.5 & 57.6 & 51.7 \\ \hline
+%Sequence coverage 				     & 36.9 & 33.7 & 67.0 & 30.1 \\ \hline
+%Mutational process   			     & APOBEC & POLE & \multicolumn{2}{c}{Clock-like} \\ \hline
+%Mutational signature 				 & SBS2   & SBS10a, SBS10b and SBS28 & \multicolumn{2}{c}{SBS1 and SBS5} \\ \hline
+%Mutation burden per cell 		     & $\sim$2,000 - 22,000 & $\sim$8,000 - 11,000 & $\sim$40 - 50 & $\sim$1400 - 1500 \\ \hline 
+\end{tabular}
+\end{adjustbox} 
+%x\floatfoot{\small{CCS sequencing statistics, mutational process, associated mutational signatures and mutation burden are described for the negative control (PD47269d) and positive control (BC-1, HT-115 and PD48473b) samples.}}
+\end{table}
+
+The \textit{de novo} mutational signature extraction from 518 eukaryotic species identified X error processes (E) (Table \ref{}), X somatic mutational processes (TOL) and X undefined somatic mutational processes (U) (Methods).
+
+
+\subsubsection{Error signatures}
+
+In chapter 2, error processes associated with the inaccurate BQ score estimation were described and BQ score recalibration was suggested as a potential solution to address the problem. The additional error processes discovered here are thought to be from library errors occurring either damage or incorrectly repairs of both the forward and reverse strand or a combination of both (Fig \ref{}). The dissimilarities between the germline and somatic mutational spectrum, a high somatic mutation burden relative to the number of germline mutations and the presence of the same somatic mutational spectrum in evolutionarily unrelated species support the characterisation of a mutational signature as an error process (Fig \ref{}). 
+
+%\begin{figure}[h!]
+%\caption{}
+%
+%\floatfoot{}
+%\end{figure}
+
+Although the pbccs algorithm documentation does not describe how the BQ score is calculated and assigned \cite{}, it implies that a Q93 BQ score is assigned to a CCS base only when both forward and reverse strand subreads support the CCS base. Moreover, the subread error rate of 10 to 15\% \cite{} suggests that a minimum of 10 subreads is necessary to generate a Q93 CCS base (eq \ref{}). 
+
+Given these facts, I conjecture that the interaction between sample-specific base modifications and CCS library preparation generates library errors on both strands of a double-stranded DNA molecule (Fig \ref{}a). If a library error occurs on one of the strands, the pbccs algorithm will detect the non-complementary base pairing as a heteroduplex and will assign a low BQ score to the CCS base. (Fig \ref{}b). A high BQ score necessitates the DNA damage to occur on both strands of a double-stranded DNA. 
+
+The cause of the library errors is currently unknown. However, the nature of these errors suggests that multiple processes alter the bases on both the forward and reverse strand of a double-stranded DNA molecule. Systematic elimination and examination of somatic mutations resulting from a set of DNA damage repair enzymes should facilitate the identification of primary causes of the error processes and help find alternative solutions to address the issue. 
+
+
+
+\subsubsection{Mutational signatures}
+
+To qualify as a mutational signature, a mutational signature candidate had to fulfill a set of conditions (Methods, Table \ref{}). TOL1 to TOL8 signatures can be observed in both the germline and somatic mutational spectrum, whereas TOL9 to TOL20 signatures are exclusively found in the somatic mutational spectrum (Fig \ref{}). 
+
+TOL1 signature is found throughout the Plant, Animal, and Fungi kingdom. Considering the similarity between TOL1 and COSMIC SBS1 signature, I believe that the aetiology of TOL1 signature is the spontaneous deamination of 5-methylcytosine to thymine (Fig \ref{}). The presence of TOL1 signature in these three kingdoms suggests that cytosine methylation in CG dinucleotide sequence context may have occurred in the most recent common ancestor of these three eukaryotic lineages, or that it has evolved independently in each of these lineages. DNA methyltransferase 1 (DNMT1) is responsible for methylation of cytosine in CG dinucleotide sequence context. The conservation of DNMT1 in eukaryotic species from these 3 kingdoms corroborates our observation \cite{}. If DNA methylation has occurred in the most recent common ancestor of these eukaryotic lineages, TOL1 signature is thought to have first appeared approximately 1.6 billion years ago \cite{}
+
+%
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+TOL2 signatures (TOL2 abcde) are predominantly present in the vascular plants (dicots and monocots), but absent (in vascular-plants, to be confirmed) and other kingdoms (Fig \ref{}). C>A and C>T mutations characterises TOL2 signatures, striking for the absence of C>T mutations in CG dinucleotide sequence context. One possible hypothesis for this signature is that these mutations result from deamination methylated cytosines in in CHG and CHH sequence contexts where H can be A, C or T bases \cite{}. Plantas are well known to show these wider patterns of DNA methylation \cite{}. Somatic mutational processes associated with TOL2 signature are estimated to have emerged approximately 1 billion years ago when the Plant and Animal/Fungi kingdom diverged. 
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+TOL3 signature is solely present within the order Perciformes (), an order of ray-finned fish, but not in the order Cypriniformes () (Fig \ref{}). Given the limited number of samples in the superclass Osteichthyes (ray-finned fishes), further investigation is necessary to determine whether TOL3 signature is unique to Perciformes. 
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+
+TOL4 signature is most similar to the COSMIC SBS7ab signatures and is present in the insect phyla, more specifically in the order Coleoptera (beetles) and in the Chlorophyta phylum (Fig \ref{}a). 
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+UV light induced DNA damage and subsequent deamination of cytosine to thymine is thought to be the origin of the COSMIC SBS7ab signatures \cite{} and is likely to be the source of somatic mutations in photosynthetic green algae as well. Initially, I presumed that TOL4 signature would exhibit transcriptional strand bias, like how SBS7ab signature displays transcriptional strand bias in human samples. Intriguingly, TOL4 signature does not display transcriptional strand bias in beetles (Fig \ref{}) and is also one of the main source of germline mutations. These observations suggest that two independent aetiologies are responsible for generating pyrimidine dimers and generating the TOL4 mutational signature.  
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+As TOL4 and TOL5 signatures are often present together in Coleoptera and Hymenoptera phyla (Fig \ref{}), TOL4 signature is most likely a variant of the TOL3 signature with strand asymmetry (Fig \ref{}). Like TOL3 signature, TOL4 signature does not exhibit transcriptional strand bias and further examination is required to determine whether replicational strand bias is responsible for the observed strand asymmetry. 
+
+TOL6, TOL7 and TOL8 signatures 
+
+
+TOL9 signature, uniquely present in \textit{Bombylius discolor} (dotted bee-fly), is another signature that resembles the COSMIC SBS7a signature (Fig \ref{}b). Considering the similarity between TOL9 and COSMIC SBS7a signature, TOL10 signature might also be an alternative manifestation of UV induced DNA damage. If TOL9 and TOL10 signatures indeed arises from UV light, what is peculiar is the absence of these signatures in species that are exposed to sunlight such as the lepidoptera. 
+
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+TOL11 and TOL12 signatures are signatures that exhibits substantial transcriptional strand bias (Fig \ref{}, Fig\ref{}) and has a meaningful contribution to the mutation burden of \textit{Syritta pipiens} (thick-legged hoverfly) and \textit{Platycheirus albimanus} (white-footed hoverfly) (Fig \ref{}). 
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+10 additional \textit{S. pipiens} and 3 additional \textit{P. albimanus} samples were sequenced to confirm the presence of these signatures in these species. TOL11 signature could not be replicated in \textit{S. pipiens}, but TOL12 signature was replicated in one of the \textit{P. albimanus} samples. These observations suggest TOL11 and TOL12 signatures are not ubiquitous in these species and that perhaps a triggering event such as metabolic stress or exposure to an environmental mutagen is required to initiate the somatic mutational process. 
+
+%\begin{figure}[h!]
+%\caption{}
+%\floatfoot{}
+%\end{figure}
+
+
+\subsection{Germline  mutation detection}
+
+\subsubsection{Germline mutation burden}
+
+\subsubsection{Transition to transversion ratio}
+
+\subsubsection{Germline mutational signatures}
+
+\section{Conclusion}
+
+In chapter 2, I described the design of himut and demonstrated the use of himut for single-molecule somatic mutation detection from normal bulk human tissue and lymphoma and colorectal cancer cell lines. In this chapter, I show that himut can be used for somatic mutation detection in non-human samples and additionally, that mutational signatures, which represent the probability of a somatic mutational processes introducing a new somatic mutation within a specific sequence context, can be successfully extracted from somatic mutations called in non-human samples. 
+
+Based on the genetic and epigenetic information regarding the sample, as well as the phylogenetic relationship between the samples, I identified X error signatures, X mutational signatures and X undefined mutational signatures. Furthermore, I have also determined when this somatic mutational process emerged based on when the most recent common ancestor that possessed these somatic mutational processes appeared in the phylogenetic tree. 
 
 
