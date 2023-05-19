@@ -1,132 +1,536 @@
 %!TEX root = ../thesis.tex
 % ******************************* Thesis Appendix A ****************************
-\chapter{How to install \LaTeX} 
-
-\section*{Windows OS}
-
-\subsection*{TeXLive package - full version}
-\begin{enumerate}
-\item	Download the TeXLive ISO (2.2GB) from\\
-\href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
-\item	Download WinCDEmu (if you don't have a virtual drive) from \\
-\href{http://wincdemu.sysprogs.org/download/}
-{http://wincdemu.sysprogs.org/download/}
-\item	To install Windows CD Emulator follow the instructions at\\
-\href{http://wincdemu.sysprogs.org/tutorials/install/}
-{http://wincdemu.sysprogs.org/tutorials/install/}
-\item	Right click the iso and mount it using the WinCDEmu as shown in \\
-\href{http://wincdemu.sysprogs.org/tutorials/mount/}{
-http://wincdemu.sysprogs.org/tutorials/mount/}
-\item	Open your virtual drive and run setup.pl
-\end{enumerate}
-
-or
-
-\subsection*{Basic MikTeX - \TeX~ distribution}
-\begin{enumerate}
-\item	Download Basic-MiK\TeX (32bit or 64bit) from\\
-\href{http://miktex.org/download}{http://miktex.org/download}
-\item	Run the installer 
-\item	To add a new package go to Start >> All Programs >> MikTex >> Maintenance (Admin) and choose Package Manager
-\item	Select or search for packages to install
-\end{enumerate}
-
-\subsection*{TexStudio - \TeX~ editor}
-\begin{enumerate}
-\item	Download TexStudio from\\
-\href{http://texstudio.sourceforge.net/\#downloads}
-{http://texstudio.sourceforge.net/\#downloads} 
-\item	Run the installer
-\end{enumerate}
-
-\section*{Mac OS X}
-\subsection*{MacTeX - \TeX~ distribution}
-\begin{enumerate}
-\item	Download the file from\\
-\href{https://www.tug.org/mactex/}{https://www.tug.org/mactex/}
-\item	Extract and double click to run the installer. It does the entire configuration, sit back and relax.
-\end{enumerate}
-
-\subsection*{TexStudio - \TeX~ editor}
-\begin{enumerate}
-\item	Download TexStudio from\\
-\href{http://texstudio.sourceforge.net/\#downloads}
-{http://texstudio.sourceforge.net/\#downloads} 
-\item	Extract and Start
-\end{enumerate}
 
 
-\section*{Unix/Linux}
-\subsection*{TeXLive - \TeX~ distribution}
-\subsubsection*{Getting the distribution:}
-\begin{enumerate}
-\item	TexLive can be downloaded from\\
-\href{http://www.tug.org/texlive/acquire-netinstall.html}
-{http://www.tug.org/texlive/acquire-netinstall.html}.
-\item	TexLive is provided by most operating system you can use (rpm,apt-get or yum) to get TexLive distributions
-\end{enumerate}
+\newgeometry{hmargin=1cm,top=35mm,bottom=30mm}
+\chapter{Samples from the Darwin Tree of Life project} 
+\label{chapter:all_dtol_samples}
 
-\subsubsection*{Installation}
-\begin{enumerate}
-\item	Mount the ISO file in the mnt directory
-\begin{verbatim}
-mount -t iso9660 -o ro,loop,noauto /your/texlive####.iso /mnt
-\end{verbatim}
-
-\item	Install wget on your OS (use rpm, apt-get or yum install)
-\item	Run the installer script install-tl.
-\begin{verbatim}
-	cd /your/download/directory
-	./install-tl
-\end{verbatim}
-\item	Enter command `i' for installation
-
-\item	Post-Installation configuration:\\
-\href{http://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-320003.4.1}
-{http://www.tug.org/texlive/doc/texlive-en/texlive-en.html\#x1-320003.4.1} 
-\item	Set the path for the directory of TexLive binaries in your .bashrc file
-\end{enumerate}
-
-\subsubsection*{For 32bit OS}
-For Bourne-compatible shells such as bash, and using Intel x86 GNU/Linux and a default directory setup as an example, the file to edit might be \begin{verbatim}
-edit $~/.bashrc file and add following lines
-PATH=/usr/local/texlive/2011/bin/i386-linux:$PATH; 
-export PATH 
-MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH;
-export MANPATH 
-INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH;
-export INFOPATH
-\end{verbatim}
-\subsubsection*{For 64bit OS}
-\begin{verbatim}
-edit $~/.bashrc file and add following lines
-PATH=/usr/local/texlive/2011/bin/x86_64-linux:$PATH;
-export PATH 
-MANPATH=/usr/local/texlive/2011/texmf/doc/man:$MANPATH;
-export MANPATH 
-INFOPATH=/usr/local/texlive/2011/texmf/doc/info:$INFOPATH;
-export INFOPATH
-
-\end{verbatim}
-
-
-
-%\subsection{Installing directly using Linux packages} 
-\subsubsection*{Fedora/RedHat/CentOS:}
-\begin{verbatim} 
-sudo yum install texlive 
-sudo yum install psutils 
-\end{verbatim}
-
-
-\subsubsection*{SUSE:}
-\begin{verbatim}
-sudo zypper install texlive
-\end{verbatim}
-
-
-\subsubsection*{Debian/Ubuntu:}
-\begin{verbatim} 
-sudo apt-get install texlive texlive-latex-extra 
-sudo apt-get install psutils
-\end{verbatim}
+\begingroup
+\footnotesize
+\begin{centering}
+\setlength{\LTright}{\LTleft}
+%\begin{longtable}{c|c|c|c|c|c|>{\centering\arraybackslash}p{2cm}|c}
+\begin{longtable}{l|l|l|l|l|l}
+\label{} 
+\textbf{DToL ID} & \makecell[{l}]{\textbf{Species} \\ \textbf{(Common name)}} & \textbf{Classification} & \textbf{\# of chr} & \textbf{Genome size} & \makecell[{l}]{\textbf{CCS} \\ \textbf{(read depth)}}  \\ \hline
+bAccGen1 & \makecell[{l}]{\textit{Accipiter gentilis} \\ (Northern goshawk)} & Birds & 40 & 1.40 Gb & 36  \\ \hline
+cmLunCruc20 & \makecell[{l}]{\textit{Lunularia cruciata} \\ (Crescent-cup liverwort)} & Non-vascular-plants & 9 & 565.88 Mb & 26  \\ \hline
+daBalNigr1 & \makecell[{l}]{\textit{Ballota nigra} \\ (.)} & Dicots & 11 & 1.19 Gb & 32  \\ \hline
+daMisOron1 & \makecell[{l}]{\textit{Misopates orontium} \\ (.)} & Dicots & 8 & 361.05 Mb & 36  \\ \hline
+daPulDyse1 & \makecell[{l}]{\textit{Pulicaria dysenterica} \\ (.)} & Dicots & 9 & 833.27 Mb & 34  \\ \hline
+daScuMino1 & \makecell[{l}]{\textit{Scutellaria minor} \\ (.)} & Dicots & 14 & 342.14 Mb & 63  \\ \hline
+daSheArve1 & \makecell[{l}]{\textit{Sherardia arvensis} \\ (Field madder)} & Dicots & 11 & 441.90 Mb & 84  \\ \hline
+daSolDulc1 & \makecell[{l}]{\textit{Solanum dulcamara} \\ (.)} & Dicots & 12 & 946.93 Mb & 30  \\ \hline
+dcCheAlbu1 & \makecell[{l}]{\textit{Chenopodium album} \\ (White goosefoot)} & Dicots & 27 & 1.59 Gb & 30  \\ \hline
+dcPolAvic1 & \makecell[{l}]{\textit{Polygonum aviculare} \\ (.)} & Dicots & 10 & 352.07 Mb & 77  \\ \hline
+ddAraThal4 & \makecell[{l}]{\textit{Arabidopsis thaliana} \\ (.)} & Dicots & 5 & 138.84 Mb & 95  \\ \hline
+ddMerAnnu1 & \makecell[{l}]{\textit{Mercurialis annua} \\ (.)} & Dicots & 0 & 453.17 Mb & 69  \\ \hline
+dhQueRobu3 & \makecell[{l}]{\textit{Quercus robur} \\ (Common oak)} & Dicots & 12 & 789.74 Mb & 38  \\ \hline
+drAilAlti1 & \makecell[{l}]{\textit{Ailanthus altissima} \\ (Tree of heaven)} & Dicots & 31 & 939.12 Mb & 51  \\ \hline
+drBuxSemp1 & \makecell[{l}]{\textit{Buxus sempervirens} \\ (.)} & Dicots & 15 & 676.71 Mb & 0  \\ \hline
+drChaAngu1 & \makecell[{l}]{\textit{Chamaenerion angustifolium} \\ (.)} & Dicots & 18 & 653.87 Mb & 47  \\ \hline
+drFilUlma1 & \makecell[{l}]{\textit{Filipendula ulmaria} \\ (.)} & Dicots & 7 & 275.02 Mb & 52  \\ \hline
+drGeuUrba1 & \makecell[{l}]{\textit{Geum urbanum} \\ (.)} & Dicots & 21 & 1.30 Gb & 29  \\ \hline
+drHedHeli1 & \makecell[{l}]{\textit{Hedera helix} \\ (.)} & Dicots & 24 & 1.20 Gb & 40  \\ \hline
+drHedHeli4 & \makecell[{l}]{\textit{.} \\ (.)} & Dicots & 24 & 1.20 Gb & 10  \\ \hline
+drMalDome10 & \makecell[{l}]{\textit{Malus domestica} \\ (Apple)} & Dicots & 17 & 648.23 Mb & 34  \\ \hline
+drMalDome11 & \makecell[{l}]{\textit{Malus domestica} \\ (Apple)} & Dicots & 17 & 652.81 Mb & 45  \\ \hline
+drMalDome5 & \makecell[{l}]{\textit{Malus domestica} \\ (Apple)} & Dicots & 17 & 646.79 Mb & 29  \\ \hline
+drMalDome58 & \makecell[{l}]{\textit{Malus domestica} \\ (Apple)} & Dicots & 17 & 642.68 Mb & 40  \\ \hline
+drMalSylv7 & \makecell[{l}]{\textit{Malus sylvestris} \\ (.)} & Dicots & 17 & 640.99 Mb & 29  \\ \hline
+drMedArab1 & \makecell[{l}]{\textit{Medicago arabica} \\ (.)} & Dicots & 8 & 515.51 Mb & 50  \\ \hline
+drPotAnse1 & \makecell[{l}]{\textit{Potentilla anserina} \\ (.)} & Dicots & 7 & 237.42 Mb & 68  \\ \hline
+drUrtUren1 & \makecell[{l}]{\textit{Urtica urens} \\ (.)} & Dicots & 12 & 340.11 Mb & 55  \\ \hline
+eaMarGlac1 & \makecell[{l}]{\textit{Marthasterias glacialis} \\ (Spiny starfish)} & Echinoderms & 22 & 520.96 Mb & 48  \\ \hline
+fBarBab1 & \makecell[{l}]{\textit{Barbus barbus} \\ (Barbel)} & Fish & 50 & 1.58 Gb & 48  \\ \hline
+fBarBar1 & \makecell[{l}]{\textit{Barbatula barbatula} \\ (Stone loach)} & Fish & 25 & 617.66 Mb & 30  \\ \hline
+fPhoGun1 & \makecell[{l}]{\textit{Pholis gunnellus} \\ (Rock gunnel)} & Fish & 24 & 588.70 Mb & 70  \\ \hline
+fPlePla1 & \makecell[{l}]{\textit{Pleuronectes platessa} \\ (European plaice)} & Fish & 24 & 687.41 Mb & 31  \\ \hline
+fSymMel2 & \makecell[{l}]{\textit{Symphodus melops} \\ (Corkwing wrasse)} & Fish & 23 & 636.37 Mb & 31  \\ \hline
+fTauBub2 & \makecell[{l}]{\textit{Taurulus bubalis} \\ (Long-spined sea scorpion)} & Fish & 21 & 615.15 Mb & 38  \\ \hline
+fTraTra1 & \makecell[{l}]{\textit{Trachurus trachurus} \\ (Atlantic horse mackerel)} & Fish & 24 & 820.16 Mb & 57  \\ \hline
+gfAgaBisp1 & \makecell[{l}]{\textit{Agaricus bisporus} \\ (Cultivated mushroom)} & Fungi & 13 & 30.45 Mb & 23  \\ \hline
+gfFlaVelt1 & \makecell[{l}]{\textit{Flammulina velutipes} \\ (Velvet shank)} & Fungi & 12 & 37.43 Mb & 121  \\ \hline
+gfLaeSulp1 & \makecell[{l}]{\textit{Laetiporus sulphureus} \\ (Chicken of the woods)} & Fungi & 14 & 37.41 Mb & 109  \\ \hline
+gfPleOstr1 & \makecell[{l}]{\textit{Pleurotus ostreatus} \\ (Oyster mushroom)} & Fungi & 12 & 40.63 Mb & 72  \\ \hline
+grTriPseu1 & \makecell[{l}]{\textit{Trichoderma pseudokoningii} \\ (.)} & Fungi & 7 & 32.98 Mb & 286  \\ \hline
+gsMetZobe1 & \makecell[{l}]{\textit{Metschnikowia zobellii} \\ ((a marine yeast))} & Fungi & 5 & 13.65 Mb & 1345  \\ \hline
+gzMucPiri1 & \makecell[{l}]{\textit{Mucor piriformis} \\ (.)} & Fungi & 6 & 34.94 Mb & 89  \\ \hline
+icAdaBipu1 & \makecell[{l}]{\textit{Adalia bipunctata} \\ (2-spot ladybird)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 11 & 475.29 Mb & 50  \\ \hline
+icAgoFuli1 & \makecell[{l}]{\textit{Agonum fuliginosum} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 19 & 695.91 Mb & 31  \\ \hline
+icAgrCyan1 & \makecell[{l}]{\textit{Agrilus cyanescens} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 292.35 Mb & 56  \\ \hline
+icAnaMacu3 & \makecell[{l}]{\textit{Anaspis maculata} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 8 & 757.84 Mb & 31  \\ \hline
+icApoCory1 & \makecell[{l}]{\textit{Apoderus coryli} \\ (Hazel leaf-roller)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 20 & 428.08 Mb & 60  \\ \hline
+icCanRufa1 & \makecell[{l}]{\textit{Cantharis rufa} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 7 & 355.33 Mb & 17  \\ \hline
+icCanRust1 & \makecell[{l}]{\textit{Cantharis rustica} \\ (Sailor beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 7 & 445.94 Mb & 45  \\ \hline
+icCanRust3 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 7 & 445.94 Mb & 53  \\ \hline
+icCetAura1 & \makecell[{l}]{\textit{Cetonia aurata} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 11 & 479.65 Mb & 58  \\ \hline
+icCocSept1 & \makecell[{l}]{\textit{Coccinella septempunctata} \\ (Seven-spotted ladybird)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 398.87 Mb & 84  \\ \hline
+icCryMora2 & \makecell[{l}]{\textit{Cryptocephalus moraei} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 15 & 500.56 Mb & 39  \\ \hline
+icElmAene2 & \makecell[{l}]{\textit{Elmis aenea} \\ (Riffle beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 9 & 516.52 Mb & 32  \\ \hline
+icHalSede1 & \makecell[{l}]{\textit{Halyzia sedecimguttata} \\ (Orange ladybird)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 911.60 Mb & 55  \\ \hline
+icHarAxyr1 & \makecell[{l}]{\textit{Harmonia axyridis} \\ (Harlequin)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 8 & 425.54 Mb & 59  \\ \hline
+icLagHirt1 & \makecell[{l}]{\textit{Lagria hirta} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 12 & 336.78 Mb & 76  \\ \hline
+icLepMacu1 & \makecell[{l}]{\textit{Rutpela maculata} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 2.02 Gb & 31  \\ \hline
+icLocCapr1 & \makecell[{l}]{\textit{Lochmaea capreae} \\ (Willow leaf beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 17 & 534.69 Mb & 51  \\ \hline
+icLocCrat2 & \makecell[{l}]{\textit{Lochmaea crataegi} \\ (Hawthorn leaf beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 16 & 891.30 Mb & 33  \\ \hline
+icMalBipu1 & \makecell[{l}]{\textit{Malachius bipustulatus} \\ (Common malachite beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 544.26 Mb & 34  \\ \hline
+icMelMelo1 & \makecell[{l}]{\textit{Melolontha melolontha} \\ (Cockchafer)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 1.66 Gb & 34  \\ \hline
+icNebBrev1 & \makecell[{l}]{\textit{Nebria brevicollis} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 15 & 241.93 Mb & 99  \\ \hline
+icNebSali1 & \makecell[{l}]{\textit{Nebria salina} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 21 & 256.64 Mb & 76  \\ \hline
+icOcyOlen1 & \makecell[{l}]{\textit{Ocypus olens} \\ (Devil's coach horse)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 19 & 1.08 Gb & 37  \\ \hline
+icPhiCogn1 & \makecell[{l}]{\textit{Philonthus cognatus} \\ (Rove beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 12 & 1.03 Gb & 29  \\ \hline
+icPodAlpi1 & \makecell[{l}]{\textit{Podabrus alpinus} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 7 & 777.25 Mb & 32  \\ \hline
+icPolCerv1 & \makecell[{l}]{\textit{Polydrusus cervinus} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 11 & 713.37 Mb & 39  \\ \hline
+icPteMadi1 & \makecell[{l}]{\textit{Pterostichus madidus} \\ (Black clock beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 19 & 705.16 Mb & 35  \\ \hline
+icPteNige1 & \makecell[{l}]{\textit{Pterostichus niger} \\ (.)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 19 & 674.10 Mb & 4  \\ \hline
+icPyrSerr1 & \makecell[{l}]{\textit{Pyrochroa serraticornis} \\ (Red-headed cardinal beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 10 & 249.41 Mb & 32  \\ \hline
+icRhaFulv1 & \makecell[{l}]{\textit{Rhagonycha fulva} \\ (Common red soldier beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 7 & 424.68 Mb & 37  \\ \hline
+icSilAtra2 & \makecell[{l}]{\textit{Phosphuga atrata} \\ (Black snail beetle)} & \makecell[{l}]{Insects \\ (Coleoptera)} & 18 & 1.20 Gb & 30  \\ \hline
+idAcrOrbc1 & \makecell[{l}]{\textit{Acrocera orbiculus} \\ (Top-horned hunchback)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 221.03 Mb & 105  \\ \hline
+idBelPand1 & \makecell[{l}]{\textit{Bellardia pandia} \\ (Bisetose emerald-bottle)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 617.21 Mb & 54  \\ \hline
+idBerChal2 & \makecell[{l}]{\textit{Beris chalybata} \\ (Yellow-legged black legionnaire)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 541.87 Mb & 42  \\ \hline
+idBibMarc1 & \makecell[{l}]{\textit{Bibio marci} \\ (St. mark's fly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 340.02 Mb & 52  \\ \hline
+idBleFall4 & \makecell[{l}]{\textit{Blera fallax} \\ (Pine hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 461.84 Mb & 56  \\ \hline
+idBomDisc1 & \makecell[{l}]{\textit{Bombylius discolor} \\ (Dotted bee fly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 279.84 Mb & 26  \\ \hline
+idBomMajo1 & \makecell[{l}]{\textit{Bombylius major} \\ (Dark edged bee fly)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 304.33 Mb & 66  \\ \hline
+idCheImpr3 & \makecell[{l}]{\textit{Cheilosia impressa} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 394.97 Mb & 38  \\ \hline
+idChePaga1 & \makecell[{l}]{\textit{Cheilosia pagana} \\ (Parsley cheilosia)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 354.13 Mb & 52  \\ \hline
+idCheVern2 & \makecell[{l}]{\textit{Cheilosia vernalis} \\ (Yarrow cheilosia)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 441.64 Mb & 68  \\ \hline
+idCheVulp2 & \makecell[{l}]{\textit{Cheilosia vulpina} \\ (Large burdock cheilosia)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 405.38 Mb & 53  \\ \hline
+idChrBici1 & \makecell[{l}]{\textit{Chrysotoxum bicinctum} \\ (Two-banded wasp hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 912.94 Mb & 29  \\ \hline
+idCluTigr1 & \makecell[{l}]{\textit{Clusia tigrina} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 1.22 Gb & 29  \\ \hline
+idCoePili4 & \makecell[{l}]{\textit{Coelopa pilipes} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 262.97 Mb & 75  \\ \hline
+idCorMarg1 & \makecell[{l}]{\textit{Coremacera marginata} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 979.68 Mb & 26  \\ \hline
+idCriBerb1 & \makecell[{l}]{\textit{Criorhina berberina} \\ (Dimorphic bear hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 4 & 410.47 Mb & 35  \\ \hline
+idEpiGros1 & \makecell[{l}]{\textit{Epistrophe grossulariae} \\ (Broad-banded epistrophe)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 556.61 Mb & 29  \\ \hline
+idEpiSucc1 & \makecell[{l}]{\textit{Epicampocera succincta} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 398.13 Mb & 48  \\ \hline
+idEriArbu1 & \makecell[{l}]{\textit{Eristalis arbustorum} \\ (Plane-faced dronefly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 451.04 Mb & 20  \\ \hline
+idEriPert2 & \makecell[{l}]{\textit{Eristalis pertinax} \\ (Tapered dronefly)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 482.09 Mb & 29  \\ \hline
+idEriTena2 & \makecell[{l}]{\textit{Eristalis tenax} \\ (The dronefly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 487.02 Mb & 38  \\ \hline
+idEupLati1 & \makecell[{l}]{\textit{Eupeodes latifasciatus} \\ (Meadow field syrph)} & \makecell[{l}]{Insects \\ (Diptera)} & 4 & 846.36 Mb & 28  \\ \hline
+idGymRotn1 & \makecell[{l}]{\textit{Gymnosoma rotundatum} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 780.52 Mb & 31  \\ \hline
+idLypDubi1 & \makecell[{l}]{\textit{Lypha dubia} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 645.06 Mb & 25  \\ \hline
+idMacAtri3 & \makecell[{l}]{\textit{Machimus atricapillus} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 268.64 Mb & 43  \\ \hline
+idMelAuri2 & \makecell[{l}]{\textit{Meliscaeva auricollis} \\ (Spotted meliscaeva)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 385.17 Mb & 36  \\ \hline
+idMelMell2 & \makecell[{l}]{\textit{Melanostoma mellinum} \\ (Dumpy grass hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 731.04 Mb & 27  \\ \hline
+idMyaFlor2 & \makecell[{l}]{\textit{Myathropa florea} \\ (Batman hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 485.10 Mb & 29  \\ \hline
+idMyoTess1 & \makecell[{l}]{\textit{Myopa tessellatipennis} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 4 & 249.28 Mb & 79  \\ \hline
+idNeoCyan1 & \makecell[{l}]{\textit{Neoitamus cyanurus} \\ (Common awl robberfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 10 & 365.51 Mb & 61  \\ \hline
+idNepScut1 & \makecell[{l}]{\textit{Nephrocerus scutellatus} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 613.39 Mb & 41  \\ \hline
+idNowFero1 & \makecell[{l}]{\textit{Nowickia ferox} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 670.72 Mb & 41  \\ \hline
+idPheCory1 & \makecell[{l}]{\textit{Pherbina coryleti} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 862.97 Mb & 24  \\ \hline
+idPhyMeln1 & \makecell[{l}]{\textit{Phyto melanocephala} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 739.76 Mb & 25  \\ \hline
+idPlaAlba1 & \makecell[{l}]{\textit{Platycheirus albimanus} \\ (White-footed hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 4 & 677.82 Mb & 49  \\ \hline
+idPolAngu1 & \makecell[{l}]{\textit{Pollenia angustigena} \\ (Narrow-cheeked clusterfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 1.37 Gb & 30  \\ \hline
+idProAzur1 & \makecell[{l}]{\textit{Protocalliphora azurea} \\ (Bird blowfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 874.25 Mb & 40  \\ \hline
+idSarCaer1 & \makecell[{l}]{\textit{Sarcophaga caerulescens} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 597.32 Mb & 24  \\ \hline
+idSarRose1 & \makecell[{l}]{\textit{Sarcophaga rosellei} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 541.39 Mb & 50  \\ \hline
+idSarSubv1 & \makecell[{l}]{\textit{Sarcophaga subvicina} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 711.15 Mb & 60  \\ \hline
+idSarVari1 & \makecell[{l}]{\textit{Sarcophaga variegata} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 718.47 Mb & 31  \\ \hline
+idScaPyra1 & \makecell[{l}]{\textit{Scaeva pyrastri} \\ (Pied hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 4 & 320.05 Mb & 124  \\ \hline
+idSicFerr1 & \makecell[{l}]{\textit{Sicus ferrugineus} \\ (Ferruginous bee-grabber)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 311.93 Mb & 53  \\ \hline
+idSphTaen1 & \makecell[{l}]{\textit{Sphaerophoria taeniata} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 609.27 Mb & 36  \\ \hline
+idStoLuna1 & \makecell[{l}]{\textit{Stomorhina lunata} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 728.10 Mb & 39  \\ \hline
+idSuiVari3 & \makecell[{l}]{\textit{Suillia variegata} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 263.98 Mb & 90  \\ \hline
+idSyrPipi1 & \makecell[{l}]{\textit{Syritta pipiens} \\ (Thick-legged hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 318.52 Mb & 45  \\ \hline
+idTacFera2 & \makecell[{l}]{\textit{Tachina fera} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 751.74 Mb & 40  \\ \hline
+idTacLuri1 & \makecell[{l}]{\textit{Tachina lurida} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 899.18 Mb & 24  \\ \hline
+idTheAcut1 & \makecell[{l}]{\textit{Thecocarcelia acutangulata} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 692.90 Mb & 29  \\ \hline
+idTheAtra2 & \makecell[{l}]{\textit{Thecophora atra} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 354.25 Mb & 40  \\ \hline
+idTheSoli1 & \makecell[{l}]{\textit{Thelaira solivaga} \\ (.)} & \makecell[{l}]{Insects \\ (Diptera)} & 7 & 429.36 Mb & 45  \\ \hline
+idVolInan1 & \makecell[{l}]{\textit{Volucella inanis} \\ (Lesser hornet hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 961.46 Mb & 28  \\ \hline
+idVolInfl1 & \makecell[{l}]{\textit{Volucella inflata} \\ (Cossus hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 753.48 Mb & 26  \\ \hline
+idXanPedi1 & \makecell[{l}]{\textit{Xanthogramma pedissequum} \\ (Hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 6 & 977.17 Mb & 37  \\ \hline
+idXylSylv2 & \makecell[{l}]{\textit{Xylota sylvarum} \\ (Golden-tailed hoverfly)} & \makecell[{l}]{Insects \\ (Diptera)} & 5 & 534.84 Mb & 32  \\ \hline
+ihAcaHaem1 & \makecell[{l}]{\textit{Acanthosoma haemorrhoidale} \\ (Hawthorn shieldbug)} & \makecell[{l}]{Insects \\ (Hemiptera)} & 7 & 865.62 Mb & 50  \\ \hline
+ihAelAcum1 & \makecell[{l}]{\textit{Aelia acuminata} \\ (Bishop's mitre shieldbug)} & \makecell[{l}]{Insects \\ (Hemiptera)} & 8 & 1.17 Gb & 30  \\ \hline
+ihDrePlat2 & \makecell[{l}]{\textit{Drepanosiphum platanoidis} \\ (Common sycamore aphid)} & \makecell[{l}]{Insects \\ (Hemiptera)} & 15 & 284.52 Mb & 56  \\ \hline
+ihRhaNebu1 & \makecell[{l}]{\textit{Rhaphigaster nebulosa} \\ (.)} & \makecell[{l}]{Insects \\ (Hemiptera)} & 7 & 1.16 Gb & 0  \\ \hline
+iiAthCine2 & \makecell[{l}]{\textit{Athripsodes cinereus} \\ (.)} & \makecell[{l}]{Insects \\ (Trichoptera)} & 25 & 716.26 Mb & 34  \\ \hline
+iiGlyPell1 & \makecell[{l}]{\textit{Glyphotaelius pellucidus} \\ (.)} & \makecell[{l}]{Insects \\ (Trichoptera)} & 30 & 1.04 Gb & 38  \\ \hline
+iiLimLuna2 & \makecell[{l}]{\textit{Limnephilus lunatus} \\ (.)} & \makecell[{l}]{Insects \\ (Trichoptera)} & 13 & 1.27 Gb & 36  \\ \hline
+iiLimMarm1 & \makecell[{l}]{\textit{Limnephilus marmoratus} \\ (.)} & \makecell[{l}]{Insects \\ (Trichoptera)} & 30 & 1.63 Gb & 29  \\ \hline
+iiLimRhom1 & \makecell[{l}]{\textit{Limnephilus rhombicus} \\ (.)} & \makecell[{l}]{Insects \\ (Trichoptera)} & 30 & 1.58 Gb & 26  \\ \hline
+ilAbrTril1 & \makecell[{l}]{\textit{Abrostola triplasia} \\ (Dark spectacle)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 362.72 Mb & 40  \\ \hline
+ilAbrTrip1 & \makecell[{l}]{\textit{Abrostola tripartita} \\ (The spectacle)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 381.06 Mb & 58  \\ \hline
+ilAceEphe1 & \makecell[{l}]{\textit{Acentria ephemerella} \\ (Water veneer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 340.79 Mb & 67  \\ \hline
+ilAchFlav2 & \makecell[{l}]{\textit{Achlya flavicornis} \\ (Yellow horned)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 444.57 Mb & 51  \\ \hline
+ilAclCris2 & \makecell[{l}]{\textit{Acleris cristana} \\ (Tufted button)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 562.57 Mb & 34  \\ \hline
+ilAclEmar1 & \makecell[{l}]{\textit{Acleris emargana} \\ (Notch-wing button)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 691.45 Mb & 27  \\ \hline
+ilAclLite1 & \makecell[{l}]{\textit{Acleris literana} \\ (Lichen button)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 674.89 Mb & 30  \\ \hline
+ilAclSpar1 & \makecell[{l}]{\textit{Acleris sparsana} \\ (Ashy button)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 589.55 Mb & 39  \\ \hline
+ilAcrAcer1 & \makecell[{l}]{\textit{Acronicta aceris} \\ (The sycamore)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 466.38 Mb & 39  \\ \hline
+ilAcrLepo1 & \makecell[{l}]{\textit{Acronicta leporina} \\ (The miller)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 465.59 Mb & 45  \\ \hline
+ilAcrPsix1 & \makecell[{l}]{\textit{Acronicta psi} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 404.70 Mb & 47  \\ \hline
+ilAcrSuav1 & \makecell[{l}]{\textit{Acrobasis suavella} \\ (Thicket knot-horn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 647.28 Mb & 27  \\ \hline
+ilAglIoxx1 & \makecell[{l}]{\textit{Inachis io} \\ (European peacock)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 384.17 Mb & 69  \\ \hline
+ilAglUrti1 & \makecell[{l}]{\textit{Nymphalis urticae} \\ (Small tortoiseshell)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 392.82 Mb & 59  \\ \hline
+ilAgoAren1 & \makecell[{l}]{\textit{Agonopterix arenella} \\ (Brindled flat-body)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 545.83 Mb & 44  \\ \hline
+ilAgoSubp1 & \makecell[{l}]{\textit{Agonopterix subpropinquella} \\ (Ruddy flat-body)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 667.91 Mb & 29  \\ \hline
+ilAgrAura1 & \makecell[{l}]{\textit{Agriopis aurantiaria} \\ (Scarce umber)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 485.39 Mb & 75  \\ \hline
+ilAgrCirc1 & \makecell[{l}]{\textit{Agrochola circellaris} \\ (The brick)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 572.16 Mb & 35  \\ \hline
+ilAgrGeni1 & \makecell[{l}]{\textit{Agriphila geniculea} \\ (Elbow-stripe grass-veneer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 545.83 Mb & 2  \\ \hline
+ilAgrLota1 & \makecell[{l}]{\textit{Agrochola lota} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 636.72 Mb & 42  \\ \hline
+ilAgrMaci1 & \makecell[{l}]{\textit{Agrochola macilenta} \\ (Yellow-line quaker)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 683.22 Mb & 29  \\ \hline
+ilAgrMarg1 & \makecell[{l}]{\textit{Agriopis marginaria} \\ (Dotted border)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 500.90 Mb & 36  \\ \hline
+ilAgrTris1 & \makecell[{l}]{\textit{Agriphila tristella} \\ (Common grass-veneer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 801.78 Mb & 31  \\ \hline
+ilAlcRepa2 & \makecell[{l}]{\textit{Alcis repandata} \\ (Mottled beauty moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 396.37 Mb & 2  \\ \hline
+ilAllOxya1 & \makecell[{l}]{\textit{Allophyes oxyacanthae} \\ (Green-brindled crescent)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 458.48 Mb & 74  \\ \hline
+ilAlsAesc1 & \makecell[{l}]{\textit{Alsophila aescularia} \\ (March moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 14 & 901.61 Mb & 24  \\ \hline
+ilAmpBerb1 & \makecell[{l}]{\textit{Amphipyra berbera} \\ (Svensson's copper underwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 582.33 Mb & 43  \\ \hline
+ilAmpLuce6 & \makecell[{l}]{\textit{Amphipoea lucens} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 647.72 Mb & 38  \\ \hline
+ilAmpOcul1 & \makecell[{l}]{\textit{Amphipoea oculea} \\ (Ear moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 669.26 Mb & 40  \\ \hline
+ilAmpTrag2 & \makecell[{l}]{\textit{Amphipyra tragopoginis} \\ (Mouse moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 805.67 Mb & 43  \\ \hline
+ilAnaInnx2 & \makecell[{l}]{\textit{Anarsia innoxiella} \\ (Acer sober)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 302.93 Mb & 77  \\ \hline
+ilAnoMund1 & \makecell[{l}]{\textit{Anorthoa munda} \\ (Twin-spotted quaker)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 27 & 938.66 Mb & 28  \\ \hline
+ilAntCard3 & \makecell[{l}]{\textit{Anthocharis cardamines} \\ (Orange tip)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 359.62 Mb & 69  \\ \hline
+ilAntChix2 & \makecell[{l}]{\textit{Antitype chi} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 632.22 Mb & 26  \\ \hline
+ilApaEpom1 & \makecell[{l}]{\textit{Apamea epomidion} \\ (Clouded brindle)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 624.66 Mb & 45  \\ \hline
+ilApaMono1 & \makecell[{l}]{\textit{Apamea monoglypha} \\ (Dark arches)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 576.05 Mb & 26  \\ \hline
+ilApaSord1 & \makecell[{l}]{\textit{Apamea sordens} \\ (Rustic shoulder-knot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 614.33 Mb & 40  \\ \hline
+ilApeSyri1 & \makecell[{l}]{\textit{Apeira syringaria} \\ (Lilac beauty)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 544.44 Mb & 50  \\ \hline
+ilAplEffo1 & \makecell[{l}]{\textit{Aplocera efformata} \\ (Lesser treble-bar)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 349.50 Mb & 55  \\ \hline
+ilApoBetu1 & \makecell[{l}]{\textit{Apotomis betuletana} \\ (Birch marble)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 684.24 Mb & 36  \\ \hline
+ilApoBist1 & \makecell[{l}]{\textit{Apomyelois bistriatella} \\ (Heath knot-horn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 389.57 Mb & 70  \\ \hline
+ilApoCapr1 & \makecell[{l}]{\textit{Apotomis capreana} \\ (Sallow marble)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 743.23 Mb & 32  \\ \hline
+ilApoCrat1 & \makecell[{l}]{\textit{Aporia crataegi} \\ (Black veined white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 26 & 229.69 Mb & 106  \\ \hline
+ilApoHisp1 & \makecell[{l}]{\textit{Apocheima hispidaria} \\ (Small brindled beauty)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 419.71 Mb & 33  \\ \hline
+ilApoLima1 & \makecell[{l}]{\textit{Apoda limacodes} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 800.35 Mb & 24  \\ \hline
+ilApoLuen1 & \makecell[{l}]{\textit{Aporophyla lueneburgensis} \\ (Northern deep-brown dart)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 978.31 Mb & 35  \\ \hline
+ilApoNigr3 & \makecell[{l}]{\textit{Aporophyla nigra} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 736.89 Mb & 30  \\ \hline
+ilApoTurb1 & \makecell[{l}]{\textit{Apotomis turbidana} \\ (White-shouldered marble)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 720.47 Mb & 34  \\ \hline
+ilArcCraa1 & \makecell[{l}]{\textit{Archips crataeganus} \\ (Brown oak tortrix)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 626.92 Mb & 36  \\ \hline
+ilArcXylo1 & \makecell[{l}]{\textit{Archips xylosteana} \\ (Variegated golden tortrix)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 650.61 Mb & 41  \\ \hline
+ilAriAges1 & \makecell[{l}]{\textit{Aricia agestis} \\ (Brown argus)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 435.28 Mb & 56  \\ \hline
+ilAriAges2 & \makecell[{l}]{\textit{Aricia agestis} \\ (Brown argus)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 435.28 Mb & 59  \\ \hline
+ilAriArta2 & \makecell[{l}]{\textit{Aricia artaxerxes} \\ (Northern brown argus)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 458.50 Mb & 29  \\ \hline
+ilAutPulc1 & \makecell[{l}]{\textit{Autographa pulchrina} \\ (Beautiful golden y)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 426.24 Mb & 46  \\ \hline
+ilBemIchn1 & \makecell[{l}]{\textit{Bembecia ichneumoniformis} \\ (Six-belted clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 511.43 Mb & 31  \\ \hline
+ilBisBetu1 & \makecell[{l}]{\textit{Biston betularia} \\ (Peppered moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 404.53 Mb & 27  \\ \hline
+ilBlaAdus2 & \makecell[{l}]{\textit{Blastobasis adustella} \\ (Dingy dowd)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 557.44 Mb & 52  \\ \hline
+ilBlaLact1 & \makecell[{l}]{\textit{Blastobasis lacticolella} \\ (London dowd)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 577.08 Mb & 34  \\ \hline
+ilBolSele5 & \makecell[{l}]{\textit{Boloria selene} \\ (Silver meadow fritillary)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 399.92 Mb & 60  \\ \hline
+ilBraVimi1 & \makecell[{l}]{\textit{Brachylomia viminalis} \\ (Minor shoulder-knot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 781.44 Mb & 50  \\ \hline
+ilCalPalu1 & \makecell[{l}]{\textit{Calamotropha paludella} \\ (Bulrush veneer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 742.48 Mb & 37  \\ \hline
+ilCamMarg1 & \makecell[{l}]{\textit{Campaea margaritaria} \\ (Light emerald)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 335.23 Mb & 129  \\ \hline
+ilCarClav1 & \makecell[{l}]{\textit{Caradrina clavipalpis} \\ (Pale mottled willow)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 474.20 Mb & 45  \\ \hline
+ilCarKade1 & \makecell[{l}]{\textit{Caradrina kadenii} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 426.00 Mb & 38  \\ \hline
+ilCarPala2 & \makecell[{l}]{\textit{Carterocephalus palaemon} \\ (Arctic skipper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 394.54 Mb & 47  \\ \hline
+ilCarQuer1 & \makecell[{l}]{\textit{Carcina quercana} \\ (Long-horned flat-body)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 409.52 Mb & 71  \\ \hline
+ilCatFrax1 & \makecell[{l}]{\textit{Catocala fraxini} \\ (Cliften non-pareil)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 780.60 Mb & 43  \\ \hline
+ilCelArgi3 & \makecell[{l}]{\textit{Celastrina argiolus} \\ (Holly blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 26 & 499.11 Mb & 31  \\ \hline
+ilCheLega1 & \makecell[{l}]{\textit{Chesias legatella} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 310.28 Mb & 55  \\ \hline
+ilChlSite2 & \makecell[{l}]{\textit{Chloroclysta siterata} \\ (Red-green carpet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 20 & 437.89 Mb & 40  \\ \hline
+ilChrCulm1 & \makecell[{l}]{\textit{Chrysoteuchia culmella} \\ (Garden grass-veneer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 645.23 Mb & 46  \\ \hline
+ilCloCurt1 & \makecell[{l}]{\textit{Clostera curtula} \\ (Chocolate tip)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 512.68 Mb & 24  \\ \hline
+ilColCroc2 & \makecell[{l}]{\textit{Colias croceus} \\ (Clouded yellow)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 324.91 Mb & 71  \\ \hline
+ilColFlav1 & \makecell[{l}]{\textit{Coleophora flavipennella} \\ (Tipped oak case-bearer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 57 & 989.27 Mb & 23  \\ \hline
+ilConVacc3 & \makecell[{l}]{\textit{Conistra vaccinii} \\ (The chestnut)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 720.85 Mb & 38  \\ \hline
+ilCosPyra2 & \makecell[{l}]{\textit{Cosmia pyralina} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 803.28 Mb & 22  \\ \hline
+ilCosTrap1 & \makecell[{l}]{\textit{Cosmia trapezina} \\ (Dun-bar pinion)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 825.19 Mb & 46  \\ \hline
+ilCraLigu1 & \makecell[{l}]{\textit{Craniophora ligustri} \\ (Coronet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 437.99 Mb & 23  \\ \hline
+ilCroElin1 & \makecell[{l}]{\textit{Crocallis elinguaria} \\ (Scalloped oak)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 17 & 430.40 Mb & 56  \\ \hline
+ilCyaSemi1 & \makecell[{l}]{\textit{Cyaniris semiargus} \\ (Mazarine blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 24 & 441.52 Mb & 44  \\ \hline
+ilCybMeso1 & \makecell[{l}]{\textit{Cybosia mesomella} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 947.58 Mb & 21  \\ \hline
+ilCydAmpl1 & \makecell[{l}]{\textit{Cydia amplana} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 504.34 Mb & 62  \\ \hline
+ilCydSple1 & \makecell[{l}]{\textit{Cydia splendana} \\ (Marbled piercer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 630.62 Mb & 35  \\ \hline
+ilCydStro1 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 542.61 Mb & 25  \\ \hline
+ilCydStro3 & \makecell[{l}]{\textit{Cydia strobilella} \\ (Spruce-seed moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 542.61 Mb & 37  \\ \hline
+ilDeiPorc1 & \makecell[{l}]{\textit{Deilephila porcellus} \\ (Small elephant hawk-moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 402.07 Mb & 100  \\ \hline
+ilDiaMend1 & \makecell[{l}]{\textit{Diaphora mendica} \\ (Muslin)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 26 & 748.68 Mb & 39  \\ \hline
+ilDiaRubi1 & \makecell[{l}]{\textit{Diarsia rubi} \\ (Small square-spot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 624.93 Mb & 34  \\ \hline
+ilDicOoxx2 & \makecell[{l}]{\textit{Dicycla oo} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 936.72 Mb & 27  \\ \hline
+ilDilCaer1 & \makecell[{l}]{\textit{Diloba caeruleocephala} \\ (Figure of eight)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 762.53 Mb & 31  \\ \hline
+ilDreFalc1 & \makecell[{l}]{\textit{Drepana falcataria} \\ (Pebble hook-tip)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 326.75 Mb & 76  \\ \hline
+ilDryErem1 & \makecell[{l}]{\textit{Dryobotodes eremita} \\ (Brindled green)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 709.81 Mb & 28  \\ \hline
+ilDryLabe1 & \makecell[{l}]{\textit{Dryobota labecula} \\ (Oak rustic)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 766.99 Mb & 31  \\ \hline
+ilDryRufi1 & \makecell[{l}]{\textit{Drymonia ruficornis} \\ (Lunar marbled brown)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 369.61 Mb & 52  \\ \hline
+ilEclSila1 & \makecell[{l}]{\textit{Ecliptopera silaceata} \\ (Small phoenix)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 316.55 Mb & 56  \\ \hline
+ilEilDepe1 & \makecell[{l}]{\textit{Eilema depressum} \\ (Buff footman)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 622.02 Mb & 57  \\ \hline
+ilEilSoro1 & \makecell[{l}]{\textit{Eilema sororcula} \\ (Orange footman)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 729.42 Mb & 46  \\ \hline
+ilEleCory1 & \makecell[{l}]{\textit{Electrophaes corylata} \\ (Broken-barred carpet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 347.55 Mb & 73  \\ \hline
+ilEleSimi1 & \makecell[{l}]{\textit{Elegia similella} \\ (White-barred knot-horn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 780.46 Mb & 33  \\ \hline
+ilEmmMono1 & \makecell[{l}]{\textit{Emmelina monodactyla} \\ (Common plume)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 312.41 Mb & 39  \\ \hline
+ilEndFlam1 & \makecell[{l}]{\textit{Endotricha flammealis} \\ (Rose-flounced tabby)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 473.95 Mb & 20  \\ \hline
+ilEnnFusc2 & \makecell[{l}]{\textit{Ennomos fuscantarius} \\ (Dusky thorn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 444.93 Mb & 55  \\ \hline
+ilEnnQuei1 & \makecell[{l}]{\textit{Ennomos quercinarius} \\ (August thorn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 491.88 Mb & 49  \\ \hline
+ilEpiBilu1 & \makecell[{l}]{\textit{Epinotia bilunana} \\ (Crescent bell)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 659.04 Mb & 29  \\ \hline
+ilEpiDema1 & \makecell[{l}]{\textit{Epinotia demarniana} \\ (Birch bell)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 735.81 Mb & 31  \\ \hline
+ilEpiNise2 & \makecell[{l}]{\textit{Epinotia nisella} \\ (Grey poplar bell)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 585.00 Mb & 41  \\ \hline
+ilEraDefo1 & \makecell[{l}]{\textit{Erannis defoliaria} \\ (Mottled umber)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 522.37 Mb & 23  \\ \hline
+ilEreAeth1 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 20 & 473.47 Mb & 12  \\ \hline
+ilEreAeth2 & \makecell[{l}]{\textit{Erebia aethiops} \\ (Scotch argus)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 20 & 473.47 Mb & 34  \\ \hline
+ilEreLige1 & \makecell[{l}]{\textit{Erebia ligea} \\ (Arran brown)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 506.63 Mb & 35  \\ \hline
+ilEryTage1 & \makecell[{l}]{\textit{Erynnis tages} \\ (Dingy skipper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 0 & 329.36 Mb & 29  \\ \hline
+ilEspSulp1 & \makecell[{l}]{\textit{Esperia sulphurella} \\ (Sulphur tubic)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 453.22 Mb & 62  \\ \hline
+ilEucMixx1 & \makecell[{l}]{\textit{Euclidia mi} \\ (Mother shipton)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 2.29 Gb & 20  \\ \hline
+ilEudLacu3 & \makecell[{l}]{\textit{Eudonia lacustrata} \\ (Little grey)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 699.51 Mb & 11  \\ \hline
+ilEudProf1 & \makecell[{l}]{\textit{Eudemis profundana} \\ (Diamond-back marble)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 691.29 Mb & 38  \\ \hline
+ilEugGlar6 & \makecell[{l}]{\textit{Eugnorisma glareosa} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 631.01 Mb & 44  \\ \hline
+ilEulPrun1 & \makecell[{l}]{\textit{Eulithis prunata} \\ (The phoenix)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 263.15 Mb & 71  \\ \hline
+ilEulTest2 & \makecell[{l}]{\textit{Eulithis testata} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 308.10 Mb & 62  \\ \hline
+ilEupAbbr2 & \makecell[{l}]{\textit{Eupithecia abbreviata} \\ (Brindled pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 383.46 Mb & 41  \\ \hline
+ilEupCent1 & \makecell[{l}]{\textit{Eupithecia centaureata} \\ (Lime-speck pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 465.59 Mb & 23  \\ \hline
+ilEupDodo1 & \makecell[{l}]{\textit{Eupithecia dodoneata} \\ (Oak tree pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 353.66 Mb & 54  \\ \hline
+ilEupExig1 & \makecell[{l}]{\textit{Eupithecia exiguata} \\ (Mottled pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 372.89 Mb & 58  \\ \hline
+ilEupInsi1 & \makecell[{l}]{\textit{Eupithecia insigniata} \\ (Pinion-spotted pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 438.12 Mb & 48  \\ \hline
+ilEupLuci1 & \makecell[{l}]{\textit{Euplexia lucipara} \\ (Small angle shades)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 661.83 Mb & 28  \\ \hline
+ilEupSimi1 & \makecell[{l}]{\textit{Euproctis similis} \\ (Yellow-tail)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 22 & 507.65 Mb & 73  \\ \hline
+ilEupTran1 & \makecell[{l}]{\textit{Eupsilia transversa} \\ (The satellite)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 466.92 Mb & 55  \\ \hline
+ilEupVulg1 & \makecell[{l}]{\textit{Eupithecia vulgata} \\ (Common pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 454.70 Mb & 45  \\ \hline
+ilEuzPing2 & \makecell[{l}]{\textit{Euzophera pinguis} \\ (Ash-bark knot-horn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 464.73 Mb & 37  \\ \hline
+ilFabAdip1 & \makecell[{l}]{\textit{Fabriciana adippe} \\ (High brown fritillary)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 484.83 Mb & 51  \\ \hline
+ilFisYpsi1 & \makecell[{l}]{\textit{Fissipunctia ypsillon} \\ (Dingy shears)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 715.14 Mb & 10  \\ \hline
+ilFurFurc1 & \makecell[{l}]{\textit{Furcula furcula} \\ (Sallow kitten)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 736.12 Mb & 29  \\ \hline
+ilGanPyra1 & \makecell[{l}]{\textit{Gandaritis pyraliata} \\ (Barred straw)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 295.65 Mb & 31  \\ \hline
+ilGlaAlex1 & \makecell[{l}]{\textit{Glaucopsyche alexis} \\ (Green-underside blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 619.54 Mb & 44  \\ \hline
+ilGriApri1 & \makecell[{l}]{\textit{Griposia aprilina} \\ (Merveille du jour)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 720.43 Mb & 32  \\ \hline
+ilGymRufi1 & \makecell[{l}]{\textit{Gymnoscelis rufifasciata} \\ (Double-striped pug)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 462.01 Mb & 60  \\ \hline
+ilHabPyri1 & \makecell[{l}]{\textit{Habrosyne pyritoides} \\ (Buff arches)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 400.57 Mb & 55  \\ \hline
+ilHecDyso1 & \makecell[{l}]{\textit{Hecatera dysodea} \\ (Small ranunculus)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 640.91 Mb & 47  \\ \hline
+ilHedSali1 & \makecell[{l}]{\textit{Hedya salicella} \\ (White-backed marble)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 742.33 Mb & 27  \\ \hline
+ilHemAest2 & \makecell[{l}]{\textit{Hemithea aestivaria} \\ (Common emerald)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 501.71 Mb & 36  \\ \hline
+ilHemChry1 & \makecell[{l}]{\textit{Hemistola chrysoprasaria} \\ (Small emerald)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 438.25 Mb & 51  \\ \hline
+ilHesComm1 & \makecell[{l}]{\textit{Hesperia comma} \\ (Common branded skipper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 525.35 Mb & 28  \\ \hline
+ilHipSeme1 & \makecell[{l}]{\textit{Hipparchia semele} \\ (Rock grayling)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 403.42 Mb & 59  \\ \hline
+ilHofPseu3 & \makecell[{l}]{\textit{Hofmannophila pseudospretella} \\ (Brown house moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 406.17 Mb & 59  \\ \hline
+ilHydFurc1 & \makecell[{l}]{\textit{Hydriomena furcata} \\ (July highflyer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 423.32 Mb & 43  \\ \hline
+ilHydMica1 & \makecell[{l}]{\textit{Hydraecia micacea} \\ (Rosy rustic)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 562.44 Mb & 30  \\ \hline
+ilHylFasc1 & \makecell[{l}]{\textit{Hylaea fasciaria} \\ (Barred red)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 327.94 Mb & 74  \\ \hline
+ilHypCost1 & \makecell[{l}]{\textit{Hypsopygia costalis} \\ (Gold triangle)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 816.87 Mb & 51  \\ \hline
+ilHypProb1 & \makecell[{l}]{\textit{Hypena proboscidalis} \\ (The snout)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 636.79 Mb & 25  \\ \hline
+ilIdaAver1 & \makecell[{l}]{\textit{Idaea aversata} \\ (Riband wave)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 436.73 Mb & 58  \\ \hline
+ilIncMasc1 & \makecell[{l}]{\textit{Incurvaria masculella} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 26 & 552.04 Mb & 33  \\ \hline
+ilLamSuff1 & \makecell[{l}]{\textit{Lampropteryx suffumata} \\ (Water carpet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 581.66 Mb & 41  \\ \hline
+ilLaoPopu1 & \makecell[{l}]{\textit{Laothoe populi} \\ (Poplar hawk-moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 576.40 Mb & 32  \\ \hline
+ilLasFlex1 & \makecell[{l}]{\textit{Laspeyria flexula} \\ (Beautiful hook-tip)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 450.90 Mb & 50  \\ \hline
+ilLasMege1 & \makecell[{l}]{\textit{Lasiommata megera} \\ (Wall brown)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 488.46 Mb & 46  \\ \hline
+ilLatStri6 & \makecell[{l}]{\textit{Lathronympha strigana} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 620.98 Mb & 47  \\ \hline
+ilLepSina1 & \makecell[{l}]{\textit{Leptidea sinapis} \\ (Wood white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 48 & 685.60 Mb & 38  \\ \hline
+ilLeuSali1 & \makecell[{l}]{\textit{Leucoma salicis} \\ (White satin)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 733.22 Mb & 33  \\ \hline
+ilLigAdus1 & \makecell[{l}]{\textit{Ligdia adustata} \\ (Scorched carpet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 399.73 Mb & 49  \\ \hline
+ilLimCami1 & \makecell[{l}]{\textit{Limenitis camilla} \\ (White admiral)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 435.11 Mb & 62  \\ \hline
+ilLitOrni1 & \makecell[{l}]{\textit{Lithophane ornitopus} \\ (Grey shoulder-knot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 508.61 Mb & 60  \\ \hline
+ilLitSemi2 & \makecell[{l}]{\textit{Lithophane semibrunnea} \\ (Tawny pinion)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 558.00 Mb & 42  \\ \hline
+ilLitSoci1 & \makecell[{l}]{\textit{Lithophane socia} \\ (Pale pinion)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 489.35 Mb & 61  \\ \hline
+ilLobHalt1 & \makecell[{l}]{\textit{Lobophora halterata} \\ (The seraphim)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 314.88 Mb & 75  \\ \hline
+ilLomBima1 & \makecell[{l}]{\textit{Lomographa bimaculata} \\ (White-pinioned spotted)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 554.75 Mb & 50  \\ \hline
+ilLupTest1 & \makecell[{l}]{\textit{Luperina testacea} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 601.51 Mb & 27  \\ \hline
+ilLycHirt1 & \makecell[{l}]{\textit{Lycia hirtaria} \\ (Brindled beauty)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 14 & 551.97 Mb & 42  \\ \hline
+ilLycPhla1 & \makecell[{l}]{\textit{Lycaena phlaeas} \\ (Small copper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 24 & 420.48 Mb & 58  \\ \hline
+ilLymMona1 & \makecell[{l}]{\textit{Lymantria monacha} \\ (Black arches)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 915.67 Mb & 41  \\ \hline
+ilLysBell1 & \makecell[{l}]{\textit{Lysandra bellargus} \\ (Adonis blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 46 & 528.93 Mb & 54  \\ \hline
+ilLysCori1 & \makecell[{l}]{\textit{Lysandra coridon} \\ (Chalkhill blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 90 & 540.73 Mb & 49  \\ \hline
+ilMacNota1 & \makecell[{l}]{\textit{Macaria notata} \\ (Peacock moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 393.79 Mb & 60  \\ \hline
+ilMamBras1 & \makecell[{l}]{\textit{Mamestra brassicae} \\ (Cabbage moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 576.18 Mb & 36  \\ \hline
+ilManJurt1 & \makecell[{l}]{\textit{Maniola jurtina} \\ (Meadow brown)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 402.05 Mb & 75  \\ \hline
+ilManJurt4 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 402.05 Mb & 69  \\ \hline
+ilMarLuna1 & \makecell[{l}]{\textit{Marasmarcha lunaedactyla} \\ (Crescent plume)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 771.10 Mb & 37  \\ \hline
+ilMegAlbu1 & \makecell[{l}]{\textit{Meganola albula} \\ (Kent black arches)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 405.26 Mb & 45  \\ \hline
+ilMelAtha1 & \makecell[{l}]{\textit{Mellicta athalia} \\ (Heath fritillary)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 609.56 Mb & 32  \\ \hline
+ilMelCinx1 & \makecell[{l}]{\textit{Melitaea cinxia} \\ (Glanville fritillary)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 499.41 Mb & 29  \\ \hline
+ilMelGala1 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 606.38 Mb & 12  \\ \hline
+ilMelGala2 & \makecell[{l}]{\textit{Melanargia galathea} \\ (Marbled white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 606.38 Mb & 29  \\ \hline
+ilMelPers1 & \makecell[{l}]{\textit{Melanchra persicariae} \\ (Dot moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 647.91 Mb & 43  \\ \hline
+ilMesFuru1 & \makecell[{l}]{\textit{Mesoligia furuncula} \\ (Cloaked minor)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 889.63 Mb & 43  \\ \hline
+ilMicArun2 & \makecell[{l}]{\textit{Micropterix aruncella} \\ (White-barred gold)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 1.08 Gb & 18  \\ \hline
+ilMilMini1 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 1.06 Gb & 9  \\ \hline
+ilMilMini2 & \makecell[{l}]{\textit{Miltochrista miniata} \\ (Rosy footman)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 1.06 Gb & 34  \\ \hline
+ilMimTili1 & \makecell[{l}]{\textit{Mimas tiliae} \\ (Lime hawk-moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 477.98 Mb & 78  \\ \hline
+ilMonLaev2 & \makecell[{l}]{\textit{Monopis laevigella} \\ (Skin moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 625.48 Mb & 35  \\ \hline
+ilMusNiti1 & \makecell[{l}]{\textit{Musotima nitidalis} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 555.65 Mb & 46  \\ \hline
+ilMytAlbi1 & \makecell[{l}]{\textit{Mythimna albipuncta} \\ (White-point)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 698.57 Mb & 38  \\ \hline
+ilMytFerr1 & \makecell[{l}]{\textit{Mythimna ferrago} \\ (The clay)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 861.04 Mb & 31  \\ \hline
+ilMytImpu1 & \makecell[{l}]{\textit{Mythimna impura} \\ (Smoky wainscot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 949.13 Mb & 40  \\ \hline
+ilNemSwae1 & \makecell[{l}]{\textit{Nematopogon swammerdamellus} \\ (Large long-horn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 699.52 Mb & 35  \\ \hline
+ilNocFimb1 & \makecell[{l}]{\textit{Noctua fimbriata} \\ (Broad-bordered yellow underwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 573.96 Mb & 21  \\ \hline
+ilNocJant1 & \makecell[{l}]{\textit{Noctua janthe} \\ (Tesser broad-boardered yellow underwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 532.79 Mb & 50  \\ \hline
+ilNocPron1 & \makecell[{l}]{\textit{Noctua pronuba} \\ (Large yellow underwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 529.19 Mb & 47  \\ \hline
+ilNotUddm1 & \makecell[{l}]{\textit{Notocelia uddmanniana} \\ (Bramble shoot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 794.12 Mb & 20  \\ \hline
+ilNycReva1 & \makecell[{l}]{\textit{Nycteola revayana} \\ (Oak nycteoline)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 621.04 Mb & 34  \\ \hline
+ilNymPoly1 & \makecell[{l}]{\textit{Nymphalis polychloros} \\ (Large tortoiseshell)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 398.11 Mb & 37  \\ \hline
+ilOchPlec1 & \makecell[{l}]{\textit{Ochropleura plecta} \\ (Flame shoulder)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 643.96 Mb & 36  \\ \hline
+ilOchSylv3 & \makecell[{l}]{\textit{Ochlodes sylvanus} \\ (Large skipper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 379.69 Mb & 23  \\ \hline
+ilOliLatr1 & \makecell[{l}]{\textit{Oligia latruncula} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 564.10 Mb & 49  \\ \hline
+ilOmpLuno1 & \makecell[{l}]{\textit{Omphaloscelis lunosa} \\ (Lunar underwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 661.87 Mb & 31  \\ \hline
+ilOpeBrum1 & \makecell[{l}]{\textit{Operophtera brumata} \\ (Winter moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 15 & 619.18 Mb & 36  \\ \hline
+ilOpiLute1 & \makecell[{l}]{\textit{Opisthograptis luteolata} \\ (Brimstone moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 365.25 Mb & 69  \\ \hline
+ilOrgAnti1 & \makecell[{l}]{\textit{Orgyia antiqua} \\ (Rusty tussock moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 14 & 480.11 Mb & 57  \\ \hline
+ilOrgAnti2 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 14 & 480.11 Mb & 87  \\ \hline
+ilOrtGrac1 & \makecell[{l}]{\textit{Orthosia gracilis} \\ (Powdered quaker)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 14 & 715.55 Mb & 38  \\ \hline
+ilOrtInce1 & \makecell[{l}]{\textit{Orthosia incerta} \\ (Clouded drab)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 946.26 Mb & 27  \\ \hline
+ilPamAuri1 & \makecell[{l}]{\textit{Pammene aurita} \\ (Sycamore piercer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 1.04 Gb & 25  \\ \hline
+ilPamFasc1 & \makecell[{l}]{\textit{Pammene fasciana} \\ (Acorn piercer)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 564.44 Mb & 38  \\ \hline
+ilPanCinn1 & \makecell[{l}]{\textit{Pandemis cinnamomeana} \\ (White-faced tortrix)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 426.14 Mb & 35  \\ \hline
+ilPapMach1 & \makecell[{l}]{\textit{Papilio machaon} \\ (Common yellow swallowtail)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 252.13 Mb & 98  \\ \hline
+ilParAegt1 & \makecell[{l}]{\textit{Pararge aegeria} \\ (Speckled wood)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 29 & 516.59 Mb & 42  \\ \hline
+ilParStra1 & \makecell[{l}]{\textit{Parapoynx stratiotata} \\ (Ringed china-mark)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 478.25 Mb & 28  \\ \hline
+ilPerRhom1 & \makecell[{l}]{\textit{Peribatodes rhomboidaria} \\ (Willow beauty)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 499.73 Mb & 45  \\ \hline
+ilPhaBuce1 & \makecell[{l}]{\textit{Phalera bucephala} \\ (Buff-tip)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 933.15 Mb & 34  \\ \hline
+ilPheGnom1 & \makecell[{l}]{\textit{Pheosia gnoma} \\ (Lesser swallow prominent)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 271.35 Mb & 63  \\ \hline
+ilPheTrem1 & \makecell[{l}]{\textit{Pheosia tremula} \\ (Swallow prominent)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 290.22 Mb & 173  \\ \hline
+ilPhiVetu1 & \makecell[{l}]{\textit{Philereme vetulata} \\ (Brown scallop)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 68 & 771.08 Mb & 29  \\ \hline
+ilPhlMeti2 & \makecell[{l}]{\textit{Phlogophora meticulosa} \\ (Angle shades)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 538.66 Mb & 47  \\ \hline
+ilPhrFuli1 & \makecell[{l}]{\textit{Phragmatobia fuliginosa} \\ (Ruby tiger)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 629.46 Mb & 37  \\ \hline
+ilPieBrab1 & \makecell[{l}]{\textit{Pieris brassicae} \\ (Large white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 16 & 292.34 Mb & 90  \\ \hline
+ilPieNapi1 & \makecell[{l}]{\textit{Pieris napi} \\ (Green-veined white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 320.00 Mb & 61  \\ \hline
+ilPieNapi4 & \makecell[{l}]{\textit{Pieris napi} \\ (Green-veined white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 25 & 320.00 Mb & 95  \\ \hline
+ilPieRapa1 & \makecell[{l}]{\textit{Pieris rapae} \\ (Small white)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 0 & 256.37 Mb & 56  \\ \hline
+ilPleArgu1 & \makecell[{l}]{\textit{Plebejus argus} \\ (Silver-studded blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 382.11 Mb & 24  \\ \hline
+ilPluXylo3 & \makecell[{l}]{\textit{Plutella xylostella} \\ (Diamondback moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 323.34 Mb & 81  \\ \hline
+ilPolCalb1 & \makecell[{l}]{\textit{Nymphalis c-album} \\ (Comma)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 1 & 1.24 Mb & 232  \\ \hline
+ilPolIcar1 & \makecell[{l}]{\textit{Polyommatus icarus} \\ (Common blue)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 23 & 511.76 Mb & 37  \\ \hline
+ilPolLich1 & \makecell[{l}]{\textit{Polymixis lichenea} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 716.69 Mb & 42  \\ \hline
+ilProPyga1 & \makecell[{l}]{\textit{Protodeltote pygarga} \\ (Marbled white spot)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 421.68 Mb & 85  \\ \hline
+ilPtiCapc1 & \makecell[{l}]{\textit{Ptilodon capucinus} \\ (Coxcomb prominent)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 348.71 Mb & 58  \\ \hline
+ilPyrFari1 & \makecell[{l}]{\textit{Pyralis farinalis} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 27 & 985.74 Mb & 24  \\ \hline
+ilPyrMalv3 & \makecell[{l}]{\textit{Pyrgus malvae} \\ (Grizzled skipper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 724.65 Mb & 72  \\ \hline
+ilSatPavo1 & \makecell[{l}]{\textit{Saturnia pavonia} \\ (Emperor moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 489.90 Mb & 53  \\ \hline
+ilSchCost1 & \makecell[{l}]{\textit{Schrankia costaestrigalis} \\ (Pinion-streaked snout)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 571.99 Mb & 40  \\ \hline
+ilSelDent1 & \makecell[{l}]{\textit{Selenia dentaria} \\ (Early thorn)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 1.03 Gb & 27  \\ \hline
+ilSesApif2 & \makecell[{l}]{\textit{Sesia apiformis} \\ (Hornet moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 546.81 Mb & 28  \\ \hline
+ilSesBemb1 & \makecell[{l}]{\textit{Sesia bembeciformis} \\ (Lunar hornet clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 477.15 Mb & 28  \\ \hline
+ilShaVerb1 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 422.74 Mb & 10  \\ \hline
+ilShaVerb5 & \makecell[{l}]{\textit{Shargacucullia verbasci} \\ (Mullein moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 422.74 Mb & 41  \\ \hline
+ilSphPina1 & \makecell[{l}]{\textit{Sphinx pinastri} \\ (Pine hawkmoth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 509.24 Mb & 49  \\ \hline
+ilSpiLubr1 & \makecell[{l}]{\textit{Spilosoma lubricipeda} \\ (White ermine)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 587.36 Mb & 41  \\ \hline
+ilSpiLutu1 & \makecell[{l}]{\textit{Spilarctia lutea} \\ (Buff ermine)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 584.79 Mb & 29  \\ \hline
+ilSteBipu1 & \makecell[{l}]{\textit{Stenoptilia bipunctidactyla} \\ (Twin-spot plume)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 822.90 Mb & 25  \\ \hline
+ilSynAndr1 & \makecell[{l}]{\textit{Synanthedon andrenaeformis} \\ (Orange-tailed clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 348.16 Mb & 100  \\ \hline
+ilSynForm1 & \makecell[{l}]{\textit{Synanthedon formicaeformis} \\ (Red-tipped clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 321.23 Mb & 79  \\ \hline
+ilSynMyop1 & \makecell[{l}]{\textit{Synanthedon myopaeformis} \\ (Red-belted clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 295.69 Mb & 74  \\ \hline
+ilSynTipu2 & \makecell[{l}]{\textit{Synanthedon tipuliformis} \\ (Currant clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 295.83 Mb & 68  \\ \hline
+ilSynVesp1 & \makecell[{l}]{\textit{Synanthedon vespiformis} \\ (Yellow-legged clearwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 287.40 Mb & 98  \\ \hline
+ilTelLucu1 & \makecell[{l}]{\textit{Teleiodes luculella} \\ (Crescent groundling)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 454.47 Mb & 33  \\ \hline
+ilThaMatu1 & \makecell[{l}]{\textit{Thalpophila matura} \\ (Straw underwing)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 520.41 Mb & 54  \\ \hline
+ilTheBrit1 & \makecell[{l}]{\textit{Thera britannica} \\ (Spruce carpet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 19 & 379.78 Mb & 55  \\ \hline
+ilTheObel3 & \makecell[{l}]{\textit{Thera obeliscata} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 18 & 404.70 Mb & 61  \\ \hline
+ilThyBati1 & \makecell[{l}]{\textit{Thyatira batis} \\ (Peach blossom)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 314.80 Mb & 30  \\ \hline
+ilThySylv1 & \makecell[{l}]{\textit{Thymelicus sylvestris} \\ (Small skipper)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 28 & 470.73 Mb & 40  \\ \hline
+ilTilAura1 & \makecell[{l}]{\textit{Tiliacea aurago} \\ (Barred sallow)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 798.05 Mb & 31  \\ \hline
+ilTinPell1 & \makecell[{l}]{\textit{Tinea pellionella} \\ (Casemaking clothes moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 245.31 Mb & 63  \\ \hline
+ilTinSemi1 & \makecell[{l}]{\textit{Tinea semifulvella} \\ (Fulvous clothes moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 45 & 596.60 Mb & 48  \\ \hline
+ilTinTrin1 & \makecell[{l}]{\textit{Tinea trinotella} \\ (Bird's-nest moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 371.74 Mb & 34  \\ \hline
+ilTorAlte1 & \makecell[{l}]{\textit{Tortricodes alternella} \\ (Winter shade)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 22 & 441.25 Mb & 61  \\ \hline
+ilTriEmor1 & \makecell[{l}]{\textit{Trisateles emortualis} \\ (Olive crescent)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 565.52 Mb & 28  \\ \hline
+ilTyrJaco4 & \makecell[{l}]{\textit{Tyria jacobaeae} \\ (Cinnabar moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 589.70 Mb & 32  \\ \hline
+ilUdeOliv2 & \makecell[{l}]{\textit{Udea olivalis} \\ (Olive pearl)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 624.35 Mb & 38  \\ \hline
+ilVanAtal1 & \makecell[{l}]{\textit{Vanessa atalanta} \\ (Red admiral)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 370.44 Mb & 35  \\ \hline
+ilVanCard2 & \makecell[{l}]{\textit{Vanessa cardui} \\ (Painted lady)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 424.81 Mb & 25  \\ \hline
+ilWatBina1 & \makecell[{l}]{\textit{Watsonalla binaria} \\ (Oak hook-tip)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 33 & 333.06 Mb & 70  \\ \hline
+ilXanIcte2 & \makecell[{l}]{\textit{Xanthia icteritia} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 664.64 Mb & 48  \\ \hline
+ilXanSpad1 & \makecell[{l}]{\textit{Xanthorhoe spadicearia} \\ (Red twin-spot carpet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 276.69 Mb & 63  \\ \hline
+ilXesCnig1 & \makecell[{l}]{\textit{Xestia c-nigrum} \\ (Setaceous hebrew character)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 760.32 Mb & 37  \\ \hline
+ilXesSexs1 & \makecell[{l}]{\textit{Xestia sexstrigata} \\ (Six-striped rustic)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 638.62 Mb & 30  \\ \hline
+ilXesXant1 & \makecell[{l}]{\textit{Xestia xanthographa} \\ (Square-spot rustic)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 32 & 933.88 Mb & 28  \\ \hline
+ilXylAreo1 & \makecell[{l}]{\textit{Xylocampa areola} \\ (.)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 564.57 Mb & 60  \\ \hline
+ilYpoCagn1 & \makecell[{l}]{\textit{Yponomeuta cagnagella} \\ (Spindle ermine)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 575.39 Mb & 39  \\ \hline
+ilYpoPade1 & \makecell[{l}]{\textit{Yponomeuta padella} \\ (European small ermine moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 556.70 Mb & 43  \\ \hline
+ilYpoPade2 & \makecell[{l}]{\textit{Yponomeuta padella} \\ (European small ermine moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 556.70 Mb & 28  \\ \hline
+ilYpoPlub1 & \makecell[{l}]{\textit{Yponomeuta plumbellus} \\ (Black-tipped ermine)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 636.64 Mb & 32  \\ \hline
+ilYpoRore1 & \makecell[{l}]{\textit{Yponomeuta rorrellus} \\ (Willow ermine moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 568.76 Mb & 26  \\ \hline
+ilYpoSedl1 & \makecell[{l}]{\textit{Yponomeuta sedellus} \\ (Grey ermine)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 657.58 Mb & 33  \\ \hline
+ilYpsScab1 & \makecell[{l}]{\textit{Ypsolopha scabrella} \\ (Wainscot smudge)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 853.60 Mb & 27  \\ \hline
+ilYpsSequ2 & \makecell[{l}]{\textit{Ypsolopha sequella} \\ (Pied smudge)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 30 & 866.88 Mb & 30  \\ \hline
+ilZeuPyri1 & \makecell[{l}]{\textit{Zeuzera pyrina} \\ (Leopard moth)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 686.90 Mb & 40  \\ \hline
+ilZygFili1 & \makecell[{l}]{\textit{Zygaena filipendulae} \\ (6-spot burnet)} & \makecell[{l}]{Insects \\ (Lepidoptera)} & 31 & 365.95 Mb & 58  \\ \hline
+inChrCarn1 & \makecell[{l}]{\textit{Chrysoperla carnea} \\ (Common green lacewing)} & \makecell[{l}]{Insects \\ (Neuroptera)} & 6 & 560.25 Mb & 44  \\ \hline
+ioIscEleg1 & \makecell[{l}]{\textit{Ischnura elegans} \\ (.)} & \makecell[{l}]{Insects \\ (Odonata)} & 14 & 1.72 Gb & 28  \\ \hline
+ioPlaPenn1 & \makecell[{l}]{\textit{Platycnemis pennipes} \\ (.)} & \makecell[{l}]{Insects \\ (Odonata)} & 13 & 1.79 Gb & 29  \\ \hline
+ipLeuNigr2 & \makecell[{l}]{\textit{Leuctra nigra} \\ (.)} & \makecell[{l}]{Insects \\ (Plecoptera)} & 13 & 536.30 Mb & 29  \\ \hline
+ipNemDubi1 & \makecell[{l}]{\textit{Nemoura dubitans} \\ (.)} & \makecell[{l}]{Insects \\ (Plecoptera)} & 6 & 321.02 Mb & 121  \\ \hline
+ipNemPict2 & \makecell[{l}]{\textit{Nemurella pictetii} \\ (.)} & \makecell[{l}]{Insects \\ (Plecoptera)} & 12 & 257.05 Mb & 285  \\ \hline
+ipProMont4 & \makecell[{l}]{\textit{Protonemura montana} \\ (.)} & \makecell[{l}]{Insects \\ (Plecoptera)} & 11 & 258.54 Mb & 83  \\ \hline
+iyAllPice1 & \makecell[{l}]{\textit{Alloplasta piceator} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 11 & 549.80 Mb & 43  \\ \hline
+iyAmbArma1 & \makecell[{l}]{\textit{.} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 215.79 Mb & 20  \\ \hline
+iyAmbArma2 & \makecell[{l}]{\textit{Amblyteles armatorius} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 215.79 Mb & 62  \\ \hline
+iyAncNigr1 & \makecell[{l}]{\textit{Ancistrocerus nigricornis} \\ (Early mason-wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 6 & 232.02 Mb & 71  \\ \hline
+iyAndBuce1 & \makecell[{l}]{\textit{Andrena bucephala} \\ (Big-headed mining bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 5 & 379.79 Mb & 51  \\ \hline
+iyAndDors1 & \makecell[{l}]{\textit{Andrena dorsata} \\ (Short-fringed mining bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 3 & 277.34 Mb & 43  \\ \hline
+iyAndFulv1 & \makecell[{l}]{\textit{Andrena fulva} \\ (Tawny mining bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 7 & 461.73 Mb & 50  \\ \hline
+iyAndHaem1 & \makecell[{l}]{\textit{Andrena haemorrhoa} \\ (Red-tailed mining bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 7 & 330.69 Mb & 76  \\ \hline
+iyAndHatt1 & \makecell[{l}]{\textit{Andrena hattorfiana} \\ (Large scabious mining bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 7 & 428.53 Mb & 53  \\ \hline
+iyAndMinu1 & \makecell[{l}]{\textit{Andrena minutula} \\ (Common mini-mining bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 7 & 380.46 Mb & 38  \\ \hline
+iyAnoNige1 & \makecell[{l}]{\textit{Anoplius nigerrimus} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 15 & 623.80 Mb & 30  \\ \hline
+iyAthRosa1 & \makecell[{l}]{\textit{Athalia rosae} \\ (Turnip sawfly)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 8 & 171.97 Mb & 97  \\ \hline
+iyBomCamp1 & \makecell[{l}]{\textit{Bombus campestris} \\ (Field cuckoo-bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 25 & 275.28 Mb & 86  \\ \hline
+iyBomHort1 & \makecell[{l}]{\textit{Bombus hortorum} \\ (Garden bumblebee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 18 & 296.31 Mb & 93  \\ \hline
+iyBomHypn1 & \makecell[{l}]{\textit{Bombus hypnorum} \\ (Tree bumblebee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 297.38 Mb & 39  \\ \hline
+iyBomPasc1 & \makecell[{l}]{\textit{Bombus pascuorum} \\ (Common carder bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 17 & 307.57 Mb & 35  \\ \hline
+iyBomPrat1 & \makecell[{l}]{\textit{Bombus pratorum} \\ (Early bumblebee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 18 & 285.07 Mb & 75  \\ \hline
+iyBomSyle1 & \makecell[{l}]{\textit{Bombus sylvestris} \\ (Forest cuckoo bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 24 & 302.57 Mb & 81  \\ \hline
+iyBomTerr1 & \makecell[{l}]{\textit{Bombus terrestris} \\ (Buff-tailed bumblebee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 18 & 393.10 Mb & 63  \\ \hline
+iyBuaLabo1 & \makecell[{l}]{\textit{Buathra laborator} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 11 & 329.93 Mb & 44  \\ \hline
+iyCamRapt1 & \makecell[{l}]{\textit{Campoletis raptor} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 11 & 218.63 Mb & 87  \\ \hline
+iyCerRyby1 & \makecell[{l}]{\textit{Cerceris rybyensis} \\ (Ornate tailed digger wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 14 & 418.09 Mb & 57  \\ \hline
+iyCliInci1 & \makecell[{l}]{\textit{Clistopyga incitator} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 21 & 260.70 Mb & 72  \\ \hline
+iyCoeConi1 & \makecell[{l}]{\textit{Coelioxys conoideus} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 417.59 Mb & 39  \\ \hline
+iyDolMedi1 & \makecell[{l}]{\textit{Dolichovespula media} \\ (Median wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 25 & 247.60 Mb & 66  \\ \hline
+iyDolSaxo1 & \makecell[{l}]{\textit{Dolichovespula saxonica} \\ (Saxon wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 26 & 221.85 Mb & 28  \\ \hline
+iyDolSylv1 & \makecell[{l}]{\textit{Dolichovespula sylvestris} \\ (Tree wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 26 & 232.60 Mb & 85  \\ \hline
+iyEctCont1 & \makecell[{l}]{\textit{Ectemnius continuus} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 14 & 260.36 Mb & 89  \\ \hline
+iyEctLitu1 & \makecell[{l}]{\textit{Ectemnius lituratus} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 13 & 235.19 Mb & 107  \\ \hline
+iyIchXant1 & \makecell[{l}]{\textit{Ichneumon xanthorius} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 314.99 Mb & 55  \\ \hline
+iyLasLatv2 & \makecell[{l}]{\textit{Lasioglossum lativentre} \\ (Furry-claspered furrow bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 14 & 478.95 Mb & 33  \\ \hline
+iyLasMori1 & \makecell[{l}]{\textit{Lasioglossum morio} \\ (Common green furrow bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 547.21 Mb & 36  \\ \hline
+iyLasPaux1 & \makecell[{l}]{\textit{Lasioglossum pauxillum} \\ (Base-banded furrow bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 9 & 432.01 Mb & 60  \\ \hline
+iyMacEuro1 & \makecell[{l}]{\textit{Macropis europaea} \\ (Yellow loosestrife bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 11 & 546.81 Mb & 28  \\ \hline
+iyMimDahl1 & \makecell[{l}]{\textit{Mimumesa dahlbomi} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 18 & 297.32 Mb & 52  \\ \hline
+iyNetDila1 & \makecell[{l}]{\textit{Netelia dilatata} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 6 & 324.76 Mb & 55  \\ \hline
+iyNomFabr1 & \makecell[{l}]{\textit{Nomada fabriciana} \\ (Fabricius' nomad bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 233.60 Mb & 98  \\ \hline
+iyNomFuca1 & \makecell[{l}]{\textit{Nomada fucata} \\ (Painted nomad bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 8 & 264.08 Mb & 121  \\ \hline
+iyNysSpin1 & \makecell[{l}]{\textit{Nysson spinosus} \\ (Large spurred digger wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 26 & 314.62 Mb & 68  \\ \hline
+iyRhoChlo1 & \makecell[{l}]{\textit{Rhogogaster chlorosoma} \\ (Narrow-striped rhogogaster)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 10 & 255.29 Mb & 74  \\ \hline
+iySelTumu1 & \makecell[{l}]{\textit{Seladonia tumulorum} \\ (Bronze furrow bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 17 & 404.47 Mb & 60  \\ \hline
+iySphMoni1 & \makecell[{l}]{\textit{Sphecodes monilicornis} \\ (Box-headed blood bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 19 & 496.63 Mb & 37  \\ \hline
+iyStePhae1 & \makecell[{l}]{\textit{Stelis phaeoptera} \\ (Plain dark bee)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 17 & 301.08 Mb & 73  \\ \hline
+iyTenDist1 & \makecell[{l}]{\textit{Tenthredo distinguenda} \\ (Small wasp-sawfly)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 9 & 229.41 Mb & 76  \\ \hline
+iyTenMeso1 & \makecell[{l}]{\textit{Tenthredo mesomela} \\ (Common green-tenthredo)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 10 & 392.85 Mb & 57  \\ \hline
+iyTenNoth1 & \makecell[{l}]{\textit{Tenthredo notha} \\ (.)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 20 & 252.84 Mb & 73  \\ \hline
+iyTipFemo1 & \makecell[{l}]{\textit{Tiphia femorata} \\ (Beetle killing wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 12 & 276.16 Mb & 82  \\ \hline
+iyVesCrab1 & \makecell[{l}]{\textit{Vespa crabro} \\ (European hornet)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 25 & 229.60 Mb & 81  \\ \hline
+iyVesGerm1 & \makecell[{l}]{\textit{Vespula germanica} \\ (German wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 25 & 205.79 Mb & 72  \\ \hline
+iyVesVulg1 & \makecell[{l}]{\textit{Vespula vulgaris} \\ (Common wasp)} & \makecell[{l}]{Insects \\ (Hymenoptera)} & 25 & 188.20 Mb & 93  \\ \hline
+jaDiaLine6 & \makecell[{l}]{\textit{Diadumene lineata} \\ (Orange-striped anemone)} & Jellyfish & 16 & 313.01 Mb & 68  \\ \hline
+jaNemVect1 & \makecell[{l}]{\textit{Nematostella vectensis} \\ (.)} & Jellyfish & 15 & 269.43 Mb & 54  \\ \hline
+jrHalOcto1 & \makecell[{l}]{\textit{Haliclystus octoradiatus} \\ (Spotted kaleidoscope jellyfish)} & Jellyfish & 9 & 261.90 Mb & 155  \\ \hline
+kaAplTurb1 & \makecell[{l}]{\textit{Aplidium turbinatum} \\ ((a colonial sea squirt))} & Chordates & 18 & 605.51 Mb & 64  \\ \hline
+kaAscMent1 & \makecell[{l}]{\textit{Ascidia mentula} \\ ((a solitary sea squirt))} & Chordates & 9 & 196.98 Mb & 76  \\ \hline
+lpCarDepa1 & \makecell[{l}]{\textit{Carex depauperata} \\ (.)} & Monocots & 22 & 704.73 Mb & 36  \\ \hline
+lpJunEffu1 & \makecell[{l}]{\textit{Juncus effusus} \\ (.)} & Monocots & 21 & 243.70 Mb & 92  \\ \hline
+lpLuzSylv1 & \makecell[{l}]{\textit{Luzula sylvatica} \\ (.)} & Monocots & 6 & 444.54 Mb & 35  \\ \hline
+lpPhrAust1 & \makecell[{l}]{\textit{Phragmites australis} \\ (Common reed)} & Monocots & 24 & 848.67 Mb & 29  \\ \hline
+lpSchLacu1 & \makecell[{l}]{\textit{Schoenoplectus lacustris} \\ (.)} & Monocots & 20 & 480.67 Mb & 35  \\ \hline
+mApoSyl1 & \makecell[{l}]{\textit{Apodemus sylvaticus} \\ (Wood mouse)} & Mammals & 25 & 2.89 Gb & 19  \\ \hline
+mCanLor1 & \makecell[{l}]{\textit{Canis lupus} \\ (Greenland wolf)} & Mammals & 40 & 2.45 Gb & 33  \\ \hline
+mCerEla1 & \makecell[{l}]{\textit{Cervus elaphus} \\ (Red deer)} & Mammals & 34 & 2.89 Gb & 33  \\ \hline
+mMelMel3 & \makecell[{l}]{\textit{Meles meles} \\ (European badger)} & Mammals & 23 & 2.74 Gb & 40  \\ \hline
+mOrcOrc1 & \makecell[{l}]{\textit{Orcinus orca} \\ (Killer whale)} & Mammals & 22 & 2.65 Gb & 37  \\ \hline
+paTetJugo1 & \makecell[{l}]{\textit{Tetramitus jugosus} \\ (.)} & Protists & 52 & 26.35 Mb & 128  \\ \hline
+qqMetBour1 & \makecell[{l}]{\textit{Meta bourneti} \\ (.)} & Arthropods & 11 & 1.38 Gb & 26  \\ \hline
+qqMetSegm1 & \makecell[{l}]{\textit{Metellina segmentata} \\ (.)} & Arthropods & 11 & 1.67 Gb & 14  \\ \hline
+qxSacCarc1 & \makecell[{l}]{\textit{Sacculina carcini} \\ (Crab hacker barnacle)} & Arthropods & 28 & 264.56 Mb & 66  \\ \hline
+tnLinLong1 & \makecell[{l}]{\textit{Lineus longissimus} \\ (Bootlace worm)} & Other-animal-phyla & 19 & 391.19 Mb & 63  \\ \hline
+tzBugStol2 & \makecell[{l}]{\textit{Bugulina stolonifera} \\ (An erect bryozoan)} & Other-animal-phyla & 11 & 234.98 Mb & 54  \\ \hline
+tzMemMemb1 & \makecell[{l}]{\textit{Membranipora membranacea} \\ (Sea mat)} & Other-animal-phyla & 11 & 339.37 Mb & 66  \\ \hline
+ucDunPrim2 & \makecell[{l}]{\textit{Dunaliella primolecta} \\ (.)} & Algae & 16 & 210.95 Mb & 45  \\ \hline
+ucPycProv1 & \makecell[{l}]{\textit{Pycnococcus provasolii} \\ (.)} & Algae & 44 & 32.25 Mb & 444  \\ \hline
+wcLumRube1 & \makecell[{l}]{\textit{Lumbricus rubellus} \\ (Red compost earthworm)} & Annelids & 12 & 575.68 Mb & 38  \\ \hline
+wpAliVire1 & \makecell[{l}]{\textit{Alitta virens} \\ (.)} & Annelids & 14 & 671.17 Mb & 50  \\ \hline
+wpSthLimi1 & \makecell[{l}]{\textit{Sthenelais limicola} \\ ((a segmented worm))} & Annelids & 4 & 604.46 Mb & 72  \\ \hline
+wrPisGeom1 & \makecell[{l}]{\textit{Piscicola geometra} \\ (.)} & Annelids & 17 & 171.10 Mb & 82  \\ \hline
+xbGarTell2 & \makecell[{l}]{\textit{Gari tellinella} \\ ((a clam))} & Mollucs & 19 & 1.60 Gb & 34  \\ \hline
+xbMimVari1 & \makecell[{l}]{\textit{Mimachlamys varia} \\ (.)} & Mollucs & 19 & 975.38 Mb & 30  \\ \hline
+xbOstEdul1 & \makecell[{l}]{\textit{Ostrea edulis} \\ (Native oyster)} & Mollucs & 10 & 894.80 Mb & 89  \\ \hline
+xgAniVort1 & \makecell[{l}]{\textit{Anisus vortex} \\ (Whirlpool ramshorn)} & Mollucs & 18 & 869.54 Mb & 43  \\ \hline
+xgPatPell1 & \makecell[{l}]{\textit{Patella pellucida} \\ (Blue-rayed limpet)} & Mollucs & 9 & 712.07 Mb & 32  \\ \hline
+xgPatVulg1 & \makecell[{l}]{\textit{Patella vulgata} \\ (Common limpet)} & Mollucs & 9 & 694.48 Mb & 62  \\ \hline
+xgPhoLine1 & \makecell[{l}]{\textit{Phorcus lineatus} \\ (Thick top shell)} & Mollucs & 18 & 957.85 Mb & 33  \\ \hline
+xgSteCine2 & \makecell[{l}]{\textit{Steromphala cineraria} \\ (Grey top shell)} & Mollucs & 18 & 1.27 Gb & 43  \\ \hline
+\end{longtable}
+\end{centering}
+\endgroup
+% \end{landscape}
+% \makecell[{l}]" + "{" + "{} \\\ ({})
