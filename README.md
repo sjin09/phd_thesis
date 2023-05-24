@@ -1,4 +1,4 @@
 ## PhD thesis 
 
-### Germline and somatic mutational process across the Tree of Life
+### Germline and somatic mutational processes across the Tree of Life
 
